@@ -1,2 +1,7 @@
-footer span {
-  color: red; }
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+footer {
+  background-color: #4eb2ea;
+  padding: 54px 0;
+  color: #ffffff;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px; }

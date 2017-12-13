@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="footer">
-          <span>Here will be Footer!:)</span>
+          <span>Copyright 2017 by Hillel Group. All rights resrved.</span>
       </footer>
     );
   }

@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700");
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 251px; }
+
+.container-buttons {
+  display: flex; }
+
+.logo a {
+  color: #01b4f0;
+  font-family: "Open Sans Condensed",sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none; }
+
+.login-button {
+  padding: 0 25px;
+  border-radius: 15px;
+  color: #fff;
+  font-family: "Open Sans Condensed",sans-serif;
+  font-size: 20px;
+  background-color: transparent; }
+
+.language-button {
+  background-color: transparent;
+  color: #fff; }
