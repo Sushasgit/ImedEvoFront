@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+nav{
+  width: 57%;
+  margin: 0 auto;
+  margin-bottom: 90px;
+}
+.navigation-menu{
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+
+  img{
+    display: block;
+    margin: 0 auto;
+  }
+
+  li{
+    list-style: none;
+  }
+  a{
+    color: #01b4f0;
+    font-family: "Open Sans Condensed",sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    text-decoration: none;
+  }
+}

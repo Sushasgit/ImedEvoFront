@@ -1,3 +1,75 @@
-div span{
-  color: green;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slider {
+  max-width: 1000px;
+  margin: 0 auto;
+  &__wrapper {
+    background-color: #fcfbfb;
+  }
+
+  &__hr {
+    background-color: #01b4f0;
+    display: block;
+    width: 88px;
+    height: 2px;
+    margin: 0 auto 20px;
+  }
+}
+
+.blog-preview {
+  background-color: #ffffff;
+  margin: 15px;
+  &__header {
+    background-color: #1eb5ee;
+    color: #ffffff;
+    font-family: "Open Sans Condensed",sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    vertical-align: baseline;
+    height: 50px;
+    line-height: 50px;
+  }
+  &__img-wrapper {
+    height: 180px;
+    position: relative
+  }
+  &__img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+  }
+  &__text {
+    text-align: left;
+    color: #606066;
+    font-family: "Open Sans Condensed",sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  &__btn {
+    width: 86px;
+    height: 22px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 11px;
+    background-color: #9f45cd;
+    border: 0;
+    color: #fefdff;
+    font-family: "Open Sans Condensed",sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    &:hover {
+      text-decoration: none;
+      color: #fefdff;
+    }
+  }
 }
