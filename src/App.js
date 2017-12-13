@@ -7,6 +7,7 @@ import ClinicsPage from './pages/ClinicsPage/ClinicsPage'
 import LaboratoriesPage from './pages/LaboratoriesPage/LaboratoriesPage'
 import DiagnosticsPage from './pages/DiagnosticsPage/DiagnosticsPage'
 import SalePage from './pages/SalePage/SalePage'
+import RegistrationDoctorPage from './pages/RegistrationDoctorPage/RegistrationDoctorPage'
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <Route exact path="/laboratories" component={LaboratoriesPage} />
         <Route exact path="/diagnostics" component={DiagnosticsPage} />
         <Route exact path="/sale" component={SalePage} />
+        <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
       </div>
     );
   }
