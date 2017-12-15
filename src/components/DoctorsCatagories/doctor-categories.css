@@ -1,0 +1,46 @@
+.doctor-categories-title {
+  color: #0b689a;
+  font-family: "Open Sans Condensed",sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0; }
+
+.doctor-categories-link {
+  color: #628ce1;
+  font-family: "Open Sans Condensed",sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 20.83px;
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 46px;
+  margin-top: -36px;
+  text-align: right; }
+
+.container-categories {
+  display: flex;
+  justify-content: center; }
+  .container-categories--col3 .doctor-cards {
+    margin-top: 20px;
+    width: 26%;
+    margin-right: 5px; }
+
+.doctor-cards {
+  position: relative;
+  width: 39%; }
+  .doctor-cards img {
+    width: 100%; }
+  .doctor-cards__title {
+    position: absolute;
+    top: -11px;
+    right: 59px;
+    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+    border-radius: 0 0 5px 5px;
+    background-color: #5bb3e3;
+    color: #f4f4f4;
+    font-family: "Open Sans Condensed",sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    width: 45%;
+    text-align: center; }

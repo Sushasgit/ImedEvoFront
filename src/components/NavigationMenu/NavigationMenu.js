@@ -33,7 +33,7 @@ class NavigationMenu extends Component {
           </li>
           <li>
             <Link to="/sale">
-              <img src={require('../../images/sale.png')} alt="sale-icon"/>
+              <img src={require('../../images/sale-icons.png')} alt="sale-icon"/>
               Акции
             </Link>
           </li>

@@ -4,7 +4,7 @@ import './header.css'
 class Header extends Component {
   render() {
     return (
-      <header className="header">
+      <header className="container header">
           <div className="logo">
             <a href="#">
               <img src={require('../../images/logo.png')} alt="logo"/>
@@ -13,8 +13,8 @@ class Header extends Component {
           </div>
 
         <div className="container-buttons">
-            <button className="login-button">Login</button>
-
+            <button  className="login-button">Login</button>
+            <button  className="sign-up-button">Signup</button>
             <button className="language-button">Rus</button>
         </div>
 

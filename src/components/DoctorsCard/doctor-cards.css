@@ -1,0 +1,6 @@
+.doctor-widjet {
+  display: flex; }
+  .doctor-widjet__description {
+    width: 50%; }
+  .doctor-widjet__rate {
+    width: 50%; }

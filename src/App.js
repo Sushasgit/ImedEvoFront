@@ -9,6 +9,7 @@ import DiagnosticsPage from './pages/DiagnosticsPage/DiagnosticsPage'
 import SalePage from './pages/SalePage/SalePage'
 import RegistrationDoctorPage from './pages/RegistrationDoctorPage/RegistrationDoctorPage'
 
+
 class App extends Component {
   render() {
     return (

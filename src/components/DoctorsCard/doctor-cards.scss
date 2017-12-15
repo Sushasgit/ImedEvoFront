@@ -1,0 +1,10 @@
+.doctor-widjet{
+  display: flex;
+
+  &__description{
+    width: 50%;
+  }
+  &__rate{
+    width: 50%;
+  }
+}
