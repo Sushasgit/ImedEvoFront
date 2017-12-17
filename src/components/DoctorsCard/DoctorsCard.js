@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './doctor-cards.css'
+import * as constants from '../../constants/constants'
 import RatingStars from '../customComponents/RatingStars'
 
 class DoctorsCard extends Component {
   render() {
     return (
+      <div style={{backgroundColor:'#e8e8e8',marginTop:'100px',paddingBottom:'87px'}}>
       <div className="container">
+        <h2 className="doctor-widjet-title">ВАШ ДОКТОР:</h2>
+        <a className="doctor-widjet-link" href="#">Посмотреть всеx врачей</a>
+      <div className="container container--widjet">
+        {constants.TestDoctorsCards.map( (doctor, index) =>
         <article className="doctor-widjet">
           <div className="doctor-widjet__description">
             <img src={require('../../images/doctor-photo.png')} alt=''/>
@@ -16,49 +22,46 @@ class DoctorsCard extends Component {
           </div>
 
           <div className="doctor-widjet__rate">
-            <h3 className="doctor-widjet__name">Долгушина Елена Игоревна</h3>
-            <span>Педиатр</span>
-            <RatingStars
-              starSelectingHoverColor="rgb(249, 215, 73)"
-              starRatedColor="rgb(249, 215, 73)"
-              starWidthAndHeight="20px"
-              starSpacing='0px'
-              isSelectable={false}
-              rating={3}/>
+            <h3 className="doctor-widjet__name">Долгушина <p>Елена Игоревна</p></h3>
+            <div className="doctor-widjet__position">
+              <span>Педиатр</span>
+              <RatingStars
+                starSelectingHoverColor="rgb(249, 215, 73)"
+                starRatedColor="rgb(249, 215, 73)"
+                starWidthAndHeight="20px"
+                starSpacing='0px'
+                isSelectable={false}
+                rating={3}
+              />
+            </div>
 
           <table>
-          <tr>
-            <td>Пунктуальность</td>
-            <td>
-              <RatingStars
-                starRatedColor="rgb(78, 179, 237)"
-                starWidthAndHeight="20px"
-                starSpacing='0px'
-                rating={4}/>
-            </td>
-          </tr>
-          <tr>
-            <td>Вежливость</td>
-            <td>
-              <RatingStars
-                starRatedColor="rgb(78, 179, 237)"
-                starWidthAndHeight="20px"
-                starSpacing='0px'
-                rating={2}/>
-            </td>
-          </tr>
-          <tr>
-            <td>Доброжелательность</td>
-            <td>
-              <RatingStars
-                starRatedColor="rgb(78, 179, 237)"
-                starWidthAndHeight="20px"
-                starSpacing='0px'
-                rating={3}/>
-            </td>
-          </tr>
+            <tbody>
             <tr>
-              <td>Помог(ла)решить проблему</td>
+              <td>Пунктуальность</td>
+              <td/>
+              <td>
+                <RatingStars
+                  starRatedColor="rgb(78, 179, 237)"
+                  starWidthAndHeight="20px"
+                  starSpacing='0px'
+                  rating={4}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Вежливость</td>
+              <td/>
+              <td>
+                <RatingStars
+                  starRatedColor="rgb(78, 179, 237)"
+                  starWidthAndHeight="20px"
+                  starSpacing='0px'
+                  rating={2}/>
+              </td>
+            </tr>
+            <tr>
+              <td>Доброжелательность</td>
+              <td/>
               <td>
                 <RatingStars
                   starRatedColor="rgb(78, 179, 237)"
@@ -67,143 +70,26 @@ class DoctorsCard extends Component {
                   rating={3}/>
               </td>
             </tr>
+            <tr>
+              <td>Помог(ла)решить проблему</td>
+              <td/>
+              <td>
+                <RatingStars
+                  starRatedColor="rgb(78, 179, 237)"
+                  starWidthAndHeight="20px"
+                  starSpacing='0px'
+                  rating={3}/>
+              </td>
+            </tr>
+            </tbody>
+
         </table>
           <button> Записаться на прием</button>
           </div>
       </article>
-
-        <article className="doctor-widjet">
-          <div className="doctor-widjet__description">
-            <img src={require('../../images/doctor-photo.png')} alt=''/>
-            <p>
-              «Грамотный специалист, помогла справиться с атопическим дерматитом за 2 недели.
-              Прекрасно находит общий язык с детьми, даже с таким непоседой как наш Павлик...»
-            </p>
-          </div>
-
-          <div className="doctor-widjet__rate">
-            <h3 className="doctor-widjet__name">Долгушина Елена Игоревна</h3>
-            <span>Педиатр</span>
-            <RatingStars
-              starSelectingHoverColor="rgb(249, 215, 73)"
-              starRatedColor="rgb(249, 215, 73)"
-              starWidthAndHeight="20px"
-              starSpacing='0px'
-              isSelectable={false}
-              rating={3}/>
-
-            <table>
-              <tr>
-                <td>Пунктуальность</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={4}/>
-                </td>
-              </tr>
-              <tr>
-                <td>Вежливость</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={2}/>
-                </td>
-              </tr>
-              <tr>
-                <td>Доброжелательность</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={3}/>
-                </td>
-              </tr>
-              <tr>
-                <td>Помог(ла)решить проблему</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={3}/>
-                </td>
-              </tr>
-            </table>
-            <button> Записаться на прием</button>
-          </div>
-        </article>
-
-        <article className="doctor-widjet">
-          <div className="doctor-widjet__description">
-            <img src={require('../../images/doctor-photo.png')} alt=''/>
-            <p>
-              «Грамотный специалист, помогла справиться с атопическим дерматитом за 2 недели.
-              Прекрасно находит общий язык с детьми, даже с таким непоседой как наш Павлик...»
-            </p>
-          </div>
-
-          <div className="doctor-widjet__rate">
-            <h3 className="doctor-widjet__name">Долгушина Елена Игоревна</h3>
-            <span>Педиатр</span>
-            <RatingStars
-              starSelectingHoverColor="rgb(249, 215, 73)"
-              starRatedColor="rgb(249, 215, 73)"
-              starWidthAndHeight="20px"
-              starSpacing='0px'
-              isSelectable={false}
-              rating={3}/>
-
-            <table>
-              <tr>
-                <td>Пунктуальность</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={4}/>
-                </td>
-              </tr>
-              <tr>
-                <td>Вежливость</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={2}/>
-                </td>
-              </tr>
-              <tr>
-                <td>Доброжелательность</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={3}/>
-                </td>
-              </tr>
-              <tr>
-                <td>Помог(ла)решить проблему</td>
-                <td>
-                  <RatingStars
-                    starRatedColor="rgb(78, 179, 237)"
-                    starWidthAndHeight="20px"
-                    starSpacing='0px'
-                    rating={3}/>
-                </td>
-              </tr>
-            </table>
-            <button> Записаться на прием</button>
-          </div>
-        </article>
-
+        )};
+      </div>
+      </div>
       </div>
     );
   }

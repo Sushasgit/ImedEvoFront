@@ -8,7 +8,6 @@ header {
 .logo a {
   background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
   color: #01b4f0;
-  font-family: "Open Sans Condensed",sans-serif;
   font-size: 97px;
   font-weight: 700;
   text-transform: uppercase;
@@ -17,7 +16,6 @@ header {
 
 .login-button, .sign-up-button, .language-button {
   color: #0a8cd3;
-  font-family: "Open Sans Condensed",sans-serif;
   font-size: 25px;
   font-weight: 700;
   background-color: transparent;
