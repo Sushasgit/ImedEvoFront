@@ -15,6 +15,18 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 690px) {
+    flex-wrap: wrap;
+
+
+
+  justify-content: center;
+    align-items: center;
+    text-align: center;
+    ul{
+      width: 43%;
+    }
+  }
 
   h2{
     color: #ffffff;

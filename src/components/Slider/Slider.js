@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import ArrowLeft from '../../images/arrow-left.png'
-import ArrowRight from '../../images/arrow-right.png'
 import './style-slider.css'
 
 

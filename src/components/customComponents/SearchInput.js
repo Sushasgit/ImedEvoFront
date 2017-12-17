@@ -24,7 +24,6 @@ class Input extends React.Component {
   render() {
     const StyleBox = {
       position:'relative',
-      width:'44%'
     }
     const className = `${this.props.className}`
     return (

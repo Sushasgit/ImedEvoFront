@@ -4,12 +4,20 @@ nav{
   width: 57%;
   margin: 0 auto;
   margin-bottom: 90px;
+  @media (max-width: 1526px) {
+    width: 100%;
+  }
+
 }
 .navigation-menu{
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   margin-top: -97px;
+  @media (max-width: 967px) {
+    margin-top: -40px;
+  }
+
 
   img{
     display: block;
@@ -27,9 +35,78 @@ nav{
   }
   a{
     color: #01b4f0;
-    font-size: 26px;
+    font-size: 1.625em;
     font-weight: 300;
     text-decoration: none;
     padding: 1px;
+  }
+
+  .menu-button{
+    display: none;
+    background-color: transparent;
+    @media only screen and (max-width: 865px) {
+     display: block;
+    }
+  }
+  @media (max-width: 853px) {
+   display: none;
+  }
+}
+
+nav {
+  .navWide {
+    display: none;
+    margin: 0 auto;
+
+    .wideDiv {
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 0 2em;
+      }
+    }
+  }
+  .navNarrow {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 100%;
+    background-color:#ffffff;
+    text-align: center;
+img{
+  width: 30px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+    i {
+      float: left;
+      cursor: pointer;
+      color: #FFF;
+    }
+
+    .narrowLinks {
+      width:100%;
+      a {
+        color: #01b4f0;
+        text-decoration: none;
+        display: block;
+        padding: 0.5em 0;
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@media (min-width: 853px) {
+  nav {
+    .navWide {
+      display: block;
+    }
+
+    .navNarrow {
+      display: none;
+    }
   }
 }

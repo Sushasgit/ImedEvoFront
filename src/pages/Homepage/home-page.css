@@ -5,3 +5,6 @@
   background-repeat: no-repeat;
   min-height: 440px;
   padding-bottom: 190px; }
+  @media (max-width: 970px) {
+    .container-search {
+      padding-bottom: 0; } }

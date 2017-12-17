@@ -12,6 +12,14 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media (max-width: 690px) {
+    .footer-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center; }
+      .footer-nav ul {
+        width: 43%; } }
   .footer-nav h2 {
     color: #ffffff;
     font-size: 20px;

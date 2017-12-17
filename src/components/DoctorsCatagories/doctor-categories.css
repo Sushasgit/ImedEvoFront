@@ -15,14 +15,24 @@
   margin-bottom: 46px;
   margin-top: -36px;
   text-align: right; }
+  @media (max-width: 600px) {
+    .doctor-categories-link {
+      margin-top: 0;
+      text-align: left; } }
 
 .container-categories {
   display: flex;
   justify-content: center; }
+  @media (max-width: 576px) {
+    .container-categories {
+      flex-wrap: wrap; } }
   .container-categories--col3 .doctor-cards {
     margin-top: 20px;
     width: 33%;
     margin-right: 5px; }
+    @media (max-width: 576px) {
+      .container-categories--col3 .doctor-cards {
+        width: 100%; } }
 
 .doctor-cards {
   position: relative;

@@ -6,21 +6,26 @@
 }
 .doctor-widjet-link{
   color: #628ce1;
-  font-size: 21px;
+  font-size: 1.3125em;
   font-weight: 700;
   text-decoration: underline;
   display: block;
   margin-bottom: 46px;
   margin-top: -36px;
   text-align: right;
+  @media (max-width: 600px) {
+    margin-top: 0;
+    text-align: left;
+  }
 }
 
 .doctor-widjet-title{
   color: #0b689a;
-  font-size: 36px;
+  font-size: 2.25em;
   font-weight: 700;
   padding-top:56px;
   margin-bottom: 0;
+
 }
 
 .doctor-widjet{
@@ -31,17 +36,28 @@
   margin-right: 19px;
   margin-bottom: 20px;
 
+  @media (max-width: 950px) {
+    width: 100%;
+    margin-right: 0;
+  }
+
   &__description{
     width: 45%;
     background-image: linear-gradient(to top, #0b689a 0%, #5bb3e3 100%);
     text-align: center;
     color: #fefeff;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 300;
     padding: 11px;
+    @media (max-width: 700px) {
+      width: 100%;
+    }
   }
   &__rate{
     width: 50%;
+    @media (max-width: 700px) {
+      width: 100%;
+    }
 
     table{
       width: 100%;
@@ -49,7 +65,7 @@
     }
     td{
       color: #0b689a;
-      font-size: 14px;
+      font-size: 0.9em;
       font-weight: 700;
     }
     button{
@@ -57,7 +73,7 @@
       border-radius: 5px;
       background-color: #4fa7d8;
       color: #fefefe;
-      font-size: 16px;
+      font-size: 1em;
       font-weight: 300;
       padding: 7px 17px;
       border:none;
@@ -69,19 +85,22 @@
   }
   &__name{
     color: #0b689a;
-    font-size: 24px;
+    font-size: 1.5em;
     font-weight: 700;
     padding-left: 10px;
+
+    @media (max-width: 660px) {
+      text-align: center;
+    }
     p{
-      font-size: 18px;
+      font-size: 1.1em;
       margin: 0;
     }
-
   }
   &__position{
     span{
       color: #fefefe;
-      font-size: 18px;
+      font-size: 1.1em;
       font-weight: 700;
       margin-right: 8px;
     }
@@ -89,3 +108,4 @@
     padding: 6px;
   }
 }
+

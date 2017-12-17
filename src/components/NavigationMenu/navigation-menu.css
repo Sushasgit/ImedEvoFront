@@ -3,12 +3,18 @@ nav {
   width: 57%;
   margin: 0 auto;
   margin-bottom: 90px; }
+  @media (max-width: 1526px) {
+    nav {
+      width: 100%; } }
 
 .navigation-menu {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   margin-top: -97px; }
+  @media (max-width: 967px) {
+    .navigation-menu {
+      margin-top: -40px; } }
   .navigation-menu img {
     display: block;
     margin: 0 auto; }
@@ -22,7 +28,56 @@ nav {
     width: 158px; }
   .navigation-menu a {
     color: #01b4f0;
-    font-size: 26px;
+    font-size: 1.625em;
     font-weight: 300;
     text-decoration: none;
     padding: 1px; }
+  .navigation-menu .menu-button {
+    display: none;
+    background-color: transparent; }
+    @media only screen and (max-width: 865px) {
+      .navigation-menu .menu-button {
+        display: block; } }
+  @media (max-width: 853px) {
+    .navigation-menu {
+      display: none; } }
+
+nav .navWide {
+  display: none;
+  margin: 0 auto; }
+  nav .navWide .wideDiv {
+    text-align: center; }
+    nav .navWide .wideDiv a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 0 2em; }
+
+nav .navNarrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background-color: #ffffff;
+  text-align: center; }
+  nav .navNarrow img {
+    width: 30px;
+    vertical-align: middle;
+    margin-right: 15px; }
+  nav .navNarrow i {
+    float: left;
+    cursor: pointer;
+    color: #FFF; }
+  nav .navNarrow .narrowLinks {
+    width: 100%; }
+    nav .navNarrow .narrowLinks a {
+      color: #01b4f0;
+      text-decoration: none;
+      display: block;
+      padding: 0.5em 0;
+      font-size: 1.2em; }
+
+@media (min-width: 853px) {
+  nav .navWide {
+    display: block; }
+  nav .navNarrow {
+    display: none; } }
