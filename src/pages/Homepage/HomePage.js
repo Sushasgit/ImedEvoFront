@@ -15,12 +15,11 @@ class HomePage extends Component {
       <div className="container-search">
         <Header/>
         <SearchPanel/>
-
       </div>
+
       <NavigationMenu/>
       <DoctorsCategories/>
       <DoctorsCard/>
-
       <SliderComponent/>
       <Footer/>
     </div>

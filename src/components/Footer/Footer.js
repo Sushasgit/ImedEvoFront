@@ -10,18 +10,18 @@ class Footer extends Component {
               <h2>Пациентам</h2>
             </li>
             <li>
-              <a href="#">Log In</a>
+              <a href="">Log In</a>
             </li>
             <li>
-              <a href="#">
+              <a href="">
                 Регистрация
               </a>
             </li>
             <li>
-              <a href="#">Блог</a>
+              <a href="">Блог</a>
             </li>
             <li>
-              <a href="#">Помощь</a>
+              <a href="">Помощь</a>
             </li>
           </ul>
 
@@ -30,18 +30,18 @@ class Footer extends Component {
               <h2>Партнерам</h2>
             </li>
             <li>
-              <a href="#">Imed для клиник</a>
+              <a href="">Imed для клиник</a>
             </li>
             <li>
-              <a href="#">
+              <a href="">
                 Log In
               </a>
             </li>
             <li>
-              <a href="#">Регистрация</a>
+              <a href="">Регистрация</a>
             </li>
             <li>
-              <a href="#">Реклама и продвижение</a>
+              <a href="">Реклама и продвижение</a>
             </li>
           </ul>
 
@@ -50,27 +50,27 @@ class Footer extends Component {
               <h2>О нас</h2>
             </li>
             <li>
-              <a href="#">О компани</a>
+              <a href="">О компани</a>
             </li>
             <li>
-              <a href="#">
+              <a href="">
                 Контакты
               </a>
             </li>
             <li>
-              <a href="#">Вакансии</a>
+              <a href="">Вакансии</a>
             </li>
             <li>
-              <a href="#">Карта сайта</a>
+              <a href="">Карта сайта</a>
             </li>
           </ul>
 
           <ul>
             <li>
-              <a href="#">Пользовательское соглашение</a>
+              <a href="">Пользовательское соглашение</a>
             </li>
             <li>
-              <a href="#">Политика конфиденциальности</a>
+              <a href="">Политика конфиденциальности</a>
             </li>
           </ul>
         </nav>

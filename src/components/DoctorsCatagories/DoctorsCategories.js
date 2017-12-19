@@ -6,10 +6,10 @@ class DoctorsCategories extends Component {
     return (
       <div className="container">
         <h2 className="doctor-categories-title">Специализации</h2>
-        <a className="doctor-categories-link" href="#">Посмотреть все специализации</a>
+        <a className="doctor-categories-link" href="">Посмотреть все специализации</a>
         <section className="container-categories">
           <article className="doctor-cards">
-            <a href="#">
+            <a href="">
               <img src={require('../../images/family-doctor-img.png')} alt=""/>
             </a>
             <h2 className="doctor-cards__title">
@@ -18,7 +18,7 @@ class DoctorsCategories extends Component {
           </article>
 
           <article className="doctor-cards">
-            <a href="#">
+            <a href="">
               <img src={require('../../images/cardiologist-img.png')} alt=""/>
             </a>
             <h2 className="doctor-cards__title">
@@ -29,7 +29,7 @@ class DoctorsCategories extends Component {
 
         <section className="container-categories container-categories--col3">
         <article className="doctor-cards">
-          <a href="#">
+          <a href="">
             <img src={require('../../images/pediatrician-img.png')} alt=""/>
           </a>
           <h2 className="doctor-cards__title">
@@ -38,7 +38,7 @@ class DoctorsCategories extends Component {
         </article>
 
         <article className="doctor-cards">
-          <a href="#">
+          <a href="">
             <img src={require('../../images/dantist-img.png')} alt=""/>
           </a>
           <h2 className="doctor-cards__title">
@@ -47,7 +47,7 @@ class DoctorsCategories extends Component {
         </article>
 
         <article className="doctor-cards">
-          <a href="#">
+          <a href="">
             <img src={require('../../images/gynecologist-img.png')} alt=""/>
           </a>
           <h2 className="doctor-cards__title">

@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
 
-nav{
+nav {
   width: 57%;
   margin: 0 auto;
   margin-bottom: 90px;
   @media (max-width: 1526px) {
     width: 100%;
   }
-
 }
-.navigation-menu{
+
+.navigation-menu {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
@@ -18,13 +18,12 @@ nav{
     margin-top: -40px;
   }
 
-
-  img{
+  img {
     display: block;
     margin: 0 auto;
   }
 
-  li{
+  li {
     list-style: none;
     box-shadow: 3px 4px 21px rgba(9, 13, 4, 0.42);
     border-radius: 10px;
@@ -33,7 +32,8 @@ nav{
     text-align: center;
     width: 158px;
   }
-  a{
+
+  a {
     color: #01b4f0;
     font-size: 1.625em;
     font-weight: 300;
@@ -41,15 +41,15 @@ nav{
     padding: 1px;
   }
 
-  .menu-button{
+  .menu-button {
     display: none;
     background-color: transparent;
     @media only screen and (max-width: 865px) {
-     display: block;
+      display: block;
     }
   }
   @media (max-width: 853px) {
-   display: none;
+    display: none;
   }
 }
 
@@ -70,16 +70,16 @@ nav {
   }
   .navNarrow {
     position: absolute;
-    top:0;
+    top: 0;
     right: 0;
     width: 100%;
-    background-color:#ffffff;
+    background-color: #ffffff;
     text-align: center;
-img{
-  width: 30px;
-  vertical-align: middle;
-  margin-right: 15px;
-}
+    img {
+      width: 30px;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
     i {
       float: left;
       cursor: pointer;
@@ -87,7 +87,7 @@ img{
     }
 
     .narrowLinks {
-      width:100%;
+      width: 100%;
       a {
         color: #01b4f0;
         text-decoration: none;

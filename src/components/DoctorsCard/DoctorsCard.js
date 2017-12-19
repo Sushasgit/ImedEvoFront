@@ -9,7 +9,7 @@ class DoctorsCard extends Component {
       <div style={{backgroundColor: '#e8e8e8', marginTop: '100px', paddingBottom: '40px'}}>
         <div className="container">
           <h2 className="doctor-widjet-title">ВАШ ДОКТОР:</h2>
-          <a className="doctor-widjet-link" href="#">Посмотреть всеx врачей</a>
+          <a className="doctor-widjet-link" href="">Посмотреть всеx врачей</a>
           <div className="container container--widjet">
             {constants.TestDoctorsCards.map((doctor, index) =>
               <article key={index} className="doctor-widjet">

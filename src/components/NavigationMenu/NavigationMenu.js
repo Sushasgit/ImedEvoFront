@@ -66,38 +66,31 @@ class NavigationMenu extends Component {
                 <img src={require('../../images/doctors-icon.png')} alt="doctors-icon"/>
                 Врачи
               </Link>
+
               <Link to="/clinics">
                 <img src={require('../../images/clinics-icon.png')} alt="clinics-icon"/>
                 Клиники
               </Link>
+
               <Link to="/laboratories">
                 <img src={require('../../images/laboratories-icon.png')} alt="laboratories-icon"/>
                 Лаборатории
               </Link>
+
               <Link to="/diagnostics">
                 <img src={require('../../images/diagnostics-icon.png')} alt="diagnostics-icon"/>
                 Диагностика
               </Link>
+
               <Link to="/sale">
                 <img src={require('../../images/sale-icons.png')} alt="sale-icon"/>
                 Акции
               </Link>
-
             </div>
           )}
-
         </div>
       </nav>
     )
-
-  }
-  burgerToggle() {
-    let linksEl = document.querySelector('.narrowLinks');
-    if (linksEl.style.display === 'block') {
-      linksEl.style.display = 'none';
-    } else {
-      linksEl.style.display = 'block';
-    }
   }
 }
 

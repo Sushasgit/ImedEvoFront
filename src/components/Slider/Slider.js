@@ -44,7 +44,7 @@ class SliderComponent extends Component {
       <div style={{backgroundColor:"#f4f4f4",padding:'80px 0'}}>
         <div className="container">
           <h2 className="doctor-categories-title">Специализации</h2>
-          <a className="doctor-categories-link" href="#">Посмотреть все специализации</a>
+          <a className="doctor-categories-link" href="">Посмотреть все специализации</a>
         </div>
 
       <div className='slider'>

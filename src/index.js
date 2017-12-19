@@ -1,23 +1,27 @@
 import React from 'react';
-import {render} from 'react-dom';
-import './index.css';
-import 'normalize.css/normalize.css';
-import App from './App';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+// import { routerMiddleware } from 'react-router-redux';
+import { createStore } from 'redux';
+import history from './history';
+import redusers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
-import store, { history } from './store'
+import App from './App';
 
+const defaultStore = {};
+// const history = createHistory();
+// const middlewareHistory = routerMiddleware(history);
 
-render(
+const store = createStore(
+  redusers,
+  defaultStore,
+);
+
+ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <App />
-      </div>
-    </ConnectedRouter>
+    <App history={history} />
   </Provider>,
-document.getElementById('root')
+  document.getElementById('root'),
 );
 
 registerServiceWorker();

@@ -1,23 +1,77 @@
 import React, { Component } from 'react';
-import './modal.css'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { hideModal, showModal } from '../../actions/modalActions';
+import SingUpModal from '../SignUpModal/SignUpModal';
+import SingInModal from '../SignInModal/SignInModal';
 
-class Modal extends Component {
+const MODAL_COMPONENTS = {
+  SING_IN: SingInModal,
+  REGISTRATION: SingUpModal,
+};
+
+class ModalRoot extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props)
+
+    this.state = {
+      close: false
+    };
+
+    this.onClose = this.onClose.bind(this);
+    this.onChangeModal = this.onChangeModal.bind(this);
   }
+
+  onClose() {
+    if (this.props.dontClose) return;
+    this.setState({ close: true });
+
+    setTimeout(() => {
+      this.props.hideModal();
+      this.setState({ close: false });
+    }, 200);
+  }
+
+  onChangeModal(e, name) {
+    e.preventDefault();
+    this.props.showModal(name);
+  }
+
   render() {
+    const { modalName, history } = this.props;
+
+    if (!modalName) {
+      return null;
+    }
+    const SpecificModal = MODAL_COMPONENTS[modalName];
     return (
-      <div>
-        <div className="modal-overlay-div" />
-        <div className="modal-content-div"  onClick={this.onOverlayClick.bind(this)}>
-          <div className="modal-dialog-div"c onClick={this.onDialogClick}>
-            {this.props.children}
-          </div>
-        </div>
+      <div className={
+          this.state.close ? 'modal-container close' : 'modal-container modal-registration modal-registration--background'
+        }
+      >
+        <SpecificModal
+          close={this.onClose}
+          changeModal={this.onChangeModal}
+          location={history.location}
+        />
       </div>
     );
   }
 }
 
-export default Modal;
+function mapStateToProps(state) {
+  console.log(state)
+  return {
+    ...state.modalName
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    hideModal: bindActionCreators(hideModal, dispatch),
+    showModal: bindActionCreators(showModal, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ModalRoot);
+
