@@ -3,5 +3,32 @@ footer {
   background-color: #4eb2ea;
   padding: 54px 0;
   color: #ffffff;
-  font-family: 'Open Sans Condensed', sans-serif;
   font-size: 18px; }
+  footer span {
+    display: block;
+    text-align: center; }
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  @media (max-width: 690px) {
+    .footer-nav {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center; }
+      .footer-nav ul {
+        width: 43%; } }
+  .footer-nav h2 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 300;
+    text-decoration: underline; }
+  .footer-nav a {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+    text-decoration: none; }
+  .footer-nav li {
+    list-style: none; }

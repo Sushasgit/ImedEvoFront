@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
 @import url(~slick-carousel/slick/slick.css);
 @import url(~slick-carousel/slick/slick-theme.css);
+.slider__wrapper {
+  background-color: transparent !important; }
+
 .slider {
   max-width: 1000px;
-  margin: 0 auto; }
+  margin: 50px auto; }
   .slider__wrapper {
     background-color: #fcfbfb; }
   .slider__hr {
@@ -15,17 +18,20 @@
 
 .blog-preview {
   background-color: #ffffff;
-  margin: 15px; }
+  margin: 15px;
+  box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+  padding-bottom: 20px; }
   .blog-preview__header {
-    background-color: #1eb5ee;
     color: #ffffff;
-    font-family: "Open Sans Condensed",sans-serif;
     font-size: 18px;
     font-weight: 700;
     text-align: center;
     vertical-align: baseline;
     height: 50px;
-    line-height: 50px; }
+    line-height: 50px;
+    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+    border-radius: 0 0 5px 5px;
+    background-color: #5bb3e3; }
   .blog-preview__img-wrapper {
     height: 180px;
     position: relative; }
@@ -35,29 +41,23 @@
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%); }
+    transform: translate(-50%, -50%);
+    width: 80%; }
   .blog-preview__text {
-    text-align: left;
-    color: #606066;
-    font-family: "Open Sans Condensed",sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 20px;
-    margin-bottom: 0;
-    overflow: hidden; }
+    text-align: center;
+    color: #0b689a;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px; }
   .blog-preview__btn {
-    width: 86px;
-    height: 22px;
+    width: 158px;
+    height: 40px;
     display: block;
     margin: 0 auto;
-    border-radius: 11px;
-    background-color: #9f45cd;
-    border: 0;
-    color: #fefdff;
-    font-family: "Open Sans Condensed",sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 22px; }
-    .blog-preview__btn:hover {
-      text-decoration: none;
-      color: #fefdff; }
+    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+    border-radius: 5px;
+    border: 1px solid #4fa7d8;
+    background-color: #ffffff;
+    color: #0b689a;
+    font-size: 18px;
+    font-weight: 700; }

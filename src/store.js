@@ -3,15 +3,19 @@ import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createHistory from 'history/createBrowserHistory'
 import rootReducer from './reducers'
+import { createLogger } from 'redux-logger';
 
 export const history = createHistory()
-
+const loggerMiddleware = createLogger({ collapsed: true });
 const initialState = {}
 const enhancers = []
 const middleware = [
   thunk,
-  routerMiddleware(history)
+  routerMiddleware(history),
+  loggerMiddleware
 ]
+
+
 
 if (process.env.NODE_ENV === 'development') {
   const devToolsExtension = window.devToolsExtension

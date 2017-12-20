@@ -1,0 +1,53 @@
+.doctor-categories-title {
+  color: #0b689a;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0; }
+
+.doctor-categories-link {
+  color: #628ce1;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 20.83px;
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 46px;
+  margin-top: -36px;
+  text-align: right; }
+  @media (max-width: 600px) {
+    .doctor-categories-link {
+      margin-top: 0;
+      text-align: left; } }
+
+.container-categories {
+  display: flex;
+  justify-content: center; }
+  @media (max-width: 576px) {
+    .container-categories {
+      flex-wrap: wrap; } }
+  .container-categories--col3 .doctor-cards {
+    margin-top: 20px;
+    width: 33%;
+    margin-right: 5px; }
+    @media (max-width: 576px) {
+      .container-categories--col3 .doctor-cards {
+        width: 100%; } }
+
+.doctor-cards {
+  position: relative;
+  width: 50%; }
+  .doctor-cards img {
+    width: 100%; }
+  .doctor-cards__title {
+    position: absolute;
+    top: -11px;
+    right: 59px;
+    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+    border-radius: 0 0 5px 5px;
+    background-color: #5bb3e3;
+    color: #f4f4f4;
+    font-size: 18px;
+    font-weight: 700;
+    width: 45%;
+    text-align: center; }
