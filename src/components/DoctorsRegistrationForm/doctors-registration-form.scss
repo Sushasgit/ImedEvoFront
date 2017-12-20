@@ -1,0 +1,522 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+.border{
+	border: 1px solid red;
+}
+.border2{
+	border: 2px solid blue;
+}
+.doctors-registration-form{
+	padding: 2%;
+	width: 1000px;
+	margin: 0 auto;
+	p:first-child{
+		color: #9f45cd;
+		font:{
+			family: "Open Sans Condensed";
+			size: 40px;
+			weight: 300;
+		}
+	}
+}
+.doctors-registration-form_personal-info{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+.doctors-registration-form_personal-info_left-block{
+	width: 24%;
+	background-color: #01b4f0;
+	&_cap{
+		width: 100%;
+		height: 2.0625rem;
+		background-color: #dbf5fc;
+	}
+	&_picture{
+		width: 100%;
+		min-height: 4rem;
+		padding: 15% 1% 5% 1%;
+		img{
+			cursor: pointer;
+		}
+		p{
+			color: #cff1fb;
+			font:{
+				family: "Myriad Pro";
+				size: 7.8125rem;
+				weight: 700;
+			}
+			margin: 10% 0 0 0;
+			padding: 0;
+		}
+	}
+}
+.doctors-registration-form_personal-info_right-block{
+	width: 76%;
+	background-color: #dbf5fc;
+	p:first-child{
+		color: #ffffff;
+		font:{
+			family: "Open Sans Condensed";
+			size: 1.5rem;
+			weight: 700;
+		}
+		margin: 0;
+		padding: 0 0 0 2%;
+		height: 2.0625rem;
+		background-color: #01b4f0;
+		text-align: left;
+	}
+	form{
+		opacity: 0.83;
+		padding: 2% 2%;
+	}
+}
+.doctors-registration-form_personal-info_right-block_names{
+		margin: 0;
+		border: none;
+		display: flex;
+		flex-direction: row;
+		label{
+			text-align: left;
+			width: 24rem;
+			display: flex;
+			flex-direction: column;
+			color: #01b4f0;
+			font:{
+				family: "Open Sans Condensed";
+				size: 18px;
+				weight: 700;
+			}
+			span{
+				padding-left: 1%;
+			}
+			input{
+				border: 4px solid #cff1fb;
+				background-color: #ffffff;
+				margin: 0;
+				outline: 0;
+				height: 2.2rem;
+				font-size: 1.2rem;
+				padding: 0 2%;
+				border-radius: 7px;
+			}
+		}
+}
+.doctors-registration-form_personal-info_right-block_form_specialization{
+	width: 10rem;
+	height: 2.65rem;
+	outline: 0;
+	margin-top: 0.5%;
+	font-size: 0.9rem;
+	border: 4px solid #cff1fb;
+	background-color: #ffffff;
+	border-radius: 7px;
+	option{
+		border: none;
+	}
+}
+.doctors-registration-form_personal-info_right-block_choose{
+	display:flex;
+	flex-direction: column;
+	margin-left: 2%;
+	span{
+		color: #01b4f0;
+		text-align: left;
+		padding-left: 1%;
+		font:{
+			family: "Open Sans Condensed";
+			size: 18px;
+			weight: 700;
+		}
+	}
+}
+.doctors-registration-form_personal-info_right-block_add-speciality{
+	display: inline-flex;
+	width: 12rem;
+	height: 2.4rem;
+	margin-top: 1.6rem;
+	cursor: pointer;
+	transition: all 0.3s linear;
+	&:hover .fa-plus{
+		background-color: #01b4f0;	
+		color:  #dbf5fc;
+	}
+	&:hover p{
+		opacity: 0.6;
+	}
+	p{
+		color: #01b4f0;
+		transition: all 0.3s linear;
+		font:{
+			family: "Open Sans Condensed";
+			size: 14px;
+			weight: 700;
+		}
+	}
+
+}
+.fa-plus{
+	margin: 7% 3% 0 2%;
+	background-color: #dbf5fc;	
+	color: #01b4f0;
+	padding-top: 3px;
+	padding-left: 1px;
+	border-radius: 50%;
+	border: 2px solid #01b4f0;
+	width: 1rem;
+	height: 1rem;
+	cursor: pointer;
+	transition: all 0.3s linear;
+}
+.doctors-registration-form_personal-info_right-block_rank{
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	margin-top: 2%;
+	label{
+		display: flex;
+		flex-direction: column;
+		outline: 0;
+	}
+	span{
+		color: #01b4f0;
+		text-align: left;
+		padding-left: 1%;
+		font:{
+			family: "Open Sans Condensed";
+			size: 18px;
+			weight: 700;
+		}
+	}
+	input{
+		border: 4px solid #cff1fb;
+		background-color: #ffffff;
+		margin: 0;
+		outline: 0;
+		height: 2.2rem;
+		font-size: 1.2rem;
+		padding: 0 2%;
+		border-radius: 7px;
+	}
+}
+.doctors-registration-form_personal-info_right-block_rank{
+	label:nth-child(3){
+		width: 10rem;
+		margin-left: 2%;
+	}
+	label:nth-child(2){
+		width: 10.2rem;
+		margin-left: 1.7%;
+	}
+}
+.doctors-registration-form_personal-info_right-block_rank_category{
+	width: 12rem;
+	text-align: left;
+}
+.doctors-registration-form_personal-info_right-block_rank_category-choose{
+	width: 100%;
+	height: 2.65rem;
+	outline: 0;
+	margin-top: 0.5%;
+	font-size: 0.9rem;
+	border: 4px solid #cff1fb;
+	background-color: #ffffff;
+	border-radius: 7px;
+	option{
+		border: none;
+	}
+}
+.doctors-registration-form_personal-info_right-block_education{
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	width: 23rem;
+	text-align: left;
+	margin-top: 2%;
+	color: #01b4f0;
+	font:{
+		family: "Open Sans Condensed";
+		size: 18px;
+		weight: 700;
+	}
+	input{
+		border: 4px solid #cff1fb;
+		background-color: #ffffff;
+		margin: 0;
+		outline: 0;
+		height: 2.2rem;
+		font-size: 1.2rem;
+		padding: 0 2%;
+		border-radius: 7px;
+	}
+}
+.doctors-registration-form_personal-info_right-block_services{
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	width: 43rem;
+	text-align: left;
+	margin-top: 2%;
+	color: #01b4f0;
+	font:{
+		family: "Open Sans Condensed";
+		size: 18px;
+		weight: 700;
+	}
+	textarea{
+		outline: 0;
+		resize: none;
+		border-radius: 7px;
+		border: 4px solid #cff1fb;
+		padding: 2%;
+		height: 10rem;
+		overflow: hidden;
+	}
+}
+.doctors-registration-form_personal-info_right-block_contacts{
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	margin-top: 2%;
+	label{
+		display: flex;
+		flex-direction: column;
+	}
+	span{
+		color: #01b4f0;
+		text-align: left;
+		padding-left: 1%;
+		font:{
+			family: "Open Sans Condensed";
+			size: 18px;
+			weight: 700;
+		}
+	}
+	input{
+		border: 4px solid #cff1fb;
+		background-color: #ffffff;
+		margin: 0;
+		outline: 0;
+		height: 2.2rem;
+		font-size: 1.2rem;
+		padding: 0 2%;
+		border-radius: 7px;
+	}
+	label:nth-child(1){
+		margin-right: 2%;
+	}
+}
+.doctors-registration-form_work-place{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+.doctors-registration-form_work-place_left-block{
+	display: flex;
+	flex-direction: column;
+	width: 24%;
+	background-color: #01b4f0;
+	&_cap{
+		width: 100%;
+		height: 2.0625rem;
+		background-color: #dbf5fc;
+	}
+	p{
+		color: #cff1fb;
+			font:{
+				family: "Myriad Pro";
+				size: 7.8125rem;
+				weight: 700;
+			}
+			margin: 10% 0 0 0;
+			padding: 0;
+	}
+}
+.doctors-registration-form_work-place_right-block{
+	display: flex;
+	flex-direction: column;
+	width: 76%;
+	background-color: #dbf5fc;
+	p:first-child{
+		color: #ffffff;
+		font:{
+			family: "Open Sans Condensed";
+			size: 1.5rem;
+			weight: 700;
+		}
+		margin: 0;
+		padding: 0 0 0 2%;
+		height: 2.0625rem;
+		background-color: #01b4f0;
+		text-align: left;
+	}
+	form{
+		opacity: 0.83;
+		padding: 2% 2%;
+	}
+}
+.doctors-registration-form_work-place_right-block_form_clinic{
+	display: flex;
+	flex-direction: row;
+	label{
+		display: flex;
+		flex-direction: column;
+		color: #01b4f0;
+		text-align: left;
+		padding-left: 1%;
+		width: 25rem;
+		margin-left: 2%;
+		font:{
+			family: "Open Sans Condensed";
+			size: 18px;
+			weight: 700;
+		}
+		input:nth-child(2){
+			border: 4px solid #cff1fb;
+			background-color: #ffffff;
+			margin: 0;
+			outline: 0;
+			height: 2.2rem;
+			font-size: 1.2rem;
+			padding: 0 2%;
+			border-radius: 7px;
+		}
+	}
+
+}
+.doctors-registration-form_work-place_right-block_form_clinic_names{
+	display: flex;
+	flex-direction: column;
+	width: 17rem;
+	span{
+		color: #01b4f0;
+		text-align: left;
+		padding-left: 1%;
+		font:{
+			family: "Open Sans Condensed";
+			size: 18px;
+			weight: 700;
+		}
+	}
+
+}
+.doctors-registration-form_work-place_right-block_form_clinic_names_choose{
+	width: 100%;
+	height: 2.65rem;
+	outline: 0;
+	margin-top: 0.5%;
+	font-size: 0.9rem;
+	border: 4px solid #cff1fb;
+	background-color: #ffffff;
+	border-radius: 7px;
+	option{
+		border: none;
+	}
+}
+.doctors-registration-form_work-place_right-block_form_price{
+	display: flex;
+	flex-direction: column;
+	margin: 2% 0 0 0;
+	color: #01b4f0;
+	text-align: left;
+	padding-left: 1%;
+	width: 18rem;
+	font:{
+		family: "Open Sans Condensed";
+		size: 18px;
+		weight: 700;
+	}
+	input{
+			border: 4px solid #cff1fb;
+			background-color: #ffffff;
+			margin: 0;
+			outline: 0;
+			height: 2.2rem;
+			font-size: 1.2rem;
+			padding: 0 2%;
+			border-radius: 7px;
+		}
+}
+.doctors-registration-form_work-place_right-block_form_schedule{
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	margin-top: 2%;
+	color: #01b4f0;
+	font:{
+			family: "Open Sans Condensed";
+			size: 18px;
+			weight: 700;
+		}
+	span{		
+		text-align: left;
+		padding-left: 1%;
+		
+	}
+	input{
+			border: 4px solid #cff1fb;
+			background-color: #ffffff;
+			margin: 0;
+			outline: 0;
+			height: 1.7rem;
+			font-size: 1.1rem;
+			padding: 0.5% 2%;
+			border-radius: 7px;
+			
+		}
+	label{
+		width: 15.8rem;
+		margin: 0.5% 0;
+	}
+	label span:nth-child(3){
+		margin: 0 1%;
+	}
+	label input:nth-child(2){
+		margin-left: 2%;
+	}
+	span:first-child{
+		margin: 0 0 1% 0;
+	}
+}
+.doctors-registration-form_work-place_right-block_form_add-workplace{
+	display: flex;
+	flex-direction: row;
+	width: 25rem;
+	color: #01b4f0;
+	margin-top: 3%;
+	font:{
+		family: "Open Sans Condensed";
+		size: 18px;
+		weight: 700
+	}
+	
+}
+.doctors-registration-form_work-place_right-block_form_add-workplace > .fa-plus{
+	margin: 4% 3% 0 2%;
+	padding-top: 4px;
+	width: 1.2rem;
+	height: 1.2rem;
+	transform: scale(1.5);
+}
+input[type="submit"]{
+	margin: 7% 0 4% 0;
+	color: #ffffff;
+	border-radius: 10px;
+	background-color: #9f45cd;
+	border: none;
+	width: 24rem;
+	height: 4rem;
+	cursor: pointer;
+	font:{
+		family: "Open Sans Condensed";
+		size: 29px;
+		weight: 700;
+	}
+	transition: all 0.3s linear;
+	&:hover{
+		background-color: #ffffff;
+		color:#9f45cd;
+	}
+}

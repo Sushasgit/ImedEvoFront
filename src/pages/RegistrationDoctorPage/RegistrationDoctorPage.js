@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+import './regis-doctors-page.css'
+import DoctorsRegistrationForm from '../../components/DoctorsRegistrationForm/DoctorsRegistrationForm'
+import LogoItem from '../../components/LogoItem/LogoItem'
 
 class RegistrationDoctorPage extends Component {
   render() {
     return (
       <div>
-        RegistrationDoctorPage
+        <div className="h-background">
+          <div className="container-search--doctors">
+            <LogoItem/>
+          </div>
+        </div>
+        <DoctorsRegistrationForm/>
+        <Footer/>
       </div>
+
     );
   }
 }

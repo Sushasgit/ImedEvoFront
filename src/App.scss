@@ -6,6 +6,39 @@ body {
   font-size:16px;
 }
 
+.container-search{
+  background-image: url(images/main.png);
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  min-height: 440px;
+  padding-bottom: 190px;
+
+  @media (max-width: 970px) {
+    padding-bottom: 0;
+  }
+}
+
+.container-search--doctors{
+  background-image: url(images/main.png);
+  background-size: cover;
+  min-height: 200px;
+  background-repeat: no-repeat;
+  width: 1000px;
+  padding: 2%;
+  margin: 0 auto;
+
+  @media (max-width: 970px) {
+    padding-bottom: 0;
+  }
+}
+
+//helpers
+
+.h-background{
+ background-color: #f4f4f4;
+}
+
 .App {
 }
 

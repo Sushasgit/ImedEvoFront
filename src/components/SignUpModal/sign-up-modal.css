@@ -29,7 +29,7 @@
     width: 33%; }
   .modal-registration__body input::placeholder {
     color: #90a4ae;
-    font-size: 18px;
+    font-size: 1.1em;
     font-weight: 700;
     padding-left: 10px; }
   .modal-registration__body label {

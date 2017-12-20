@@ -105,7 +105,6 @@ class RegistrationModal extends Component {
                 className="modal-registration__signin-button"
                 type="submit"
                 value="Зарегистрироваться"
-                onClick={e => this.onRegistrationSubmit(e)}
               />
             </div>
           </div>
