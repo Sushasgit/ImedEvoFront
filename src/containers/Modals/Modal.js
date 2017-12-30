@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { hideModal, showModal } from '../../actions/modalActions';
-import SingUpModal from '../SignUpModal/SignUpModal';
-import SingInModal from '../SignInModal/SignInModal';
+import SingUpModal from '../../components/SignUpModal/SignUpModal';
+import SingInModal from '../../components/SignInModal/SignInModal';
 
 const MODAL_COMPONENTS = {
   SING_IN: SingInModal,

@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
-import './doctor-cards.css'
+import styles from  './doctor-cards.scss'
 import * as constants from '../../constants/constants'
 import RatingStars from '../customComponents/RatingStars'
 
 class DoctorsCard extends Component {
   render () {
     return (
-      <div style={{backgroundColor: '#e8e8e8', marginTop: '100px', paddingBottom: '40px'}}>
+      <div style={{backgroundColor: '#e8e8e8', marginTop: '100px', paddingBottom: '40px', marginBottom: '90px'}}>
         <div className="container">
-          <h2 className="doctor-widjet-title">ВАШ ДОКТОР:</h2>
-          <a className="doctor-widjet-link" href="">Посмотреть всеx врачей</a>
-          <div className="container container--widjet">
+          <h2 className="title">ВАШ ДОКТОР:</h2>
+          <a className="categories-link" href="">Посмотреть всеx врачей</a>
+          <div className={`container ${styles.widjet}`}>
             {constants.TestDoctorsCards.map((doctor, index) =>
-              <article key={index} className="doctor-widjet">
-                <div className="doctor-widjet__description">
+              <article key={index} className={styles.widjet__doctor}>
+                <div className={styles.widjet__description}>
                   <img src={require('../../images/doctor-photo.png')} alt=''/>
                   <p>
                     «Грамотный специалист, помогла справиться с атопическим дерматитом за 2 недели.
@@ -21,9 +21,9 @@ class DoctorsCard extends Component {
                   </p>
                 </div>
 
-                <div className="doctor-widjet__rate">
-                  <h3 className="doctor-widjet__name">Долгушина <p>Елена Игоревна</p></h3>
-                  <div className="doctor-widjet__position">
+                <div className={styles.widjet__rate}>
+                  <h3 className={styles.widjet__name}>Долгушина <p>Елена Игоревна</p></h3>
+                  <div className={styles.widjet__position}>
                     <span>Педиатр</span>
                     <RatingStars
                       starSelectingHoverColor="rgb(249, 215, 73)"

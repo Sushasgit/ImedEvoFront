@@ -6,7 +6,7 @@ import * as Icons from '../SvgIcons/SvgIcons.js'
 import {
   registrationAsync,
 } from '../../actions/userAuthActions';
-import './sign-up-modal.css'
+import styles from  './sign-up-modal.scss'
 
 
 class RegistrationModal extends Component {
@@ -16,50 +16,48 @@ class RegistrationModal extends Component {
     this.state = {
       update: false
       };
-
     this.onRegistrationSubmit = this.onRegistrationSubmit.bind(this);
   }
 
   onRegistrationSubmit(e) {
     e.preventDefault();
     let form = this.props.registrationUserForm;
-    let { email, password } = this.props.registrationUser;
-    this.props.registrationUserAction({ email, password });
+    let { email, password, phone,name,birthDate } = this.props.registrationUser;
+    this.props.registrationUserAction({ email, password, phone, birthDate, name });
   }
 
   render() {
     return (
-        <div className="modal-registration__content">
+        <div className={styles.registration__content}>
           <Icons.CloseButton onClick={this.props.close}/>
-        <div className="close"  />
-          <div className="modal-registration__body">
+          <div className={styles.registration__body}>
         <Form model="registrationUser">
-          <h2 className="modal-registration__title" >Регистрация</h2>
+          <h2 className={styles.registration__title} >Регистрация</h2>
 
           <Field model="registrationUser.lastName">
             <label>
-              <input className="form-control" type="text" placeholder="Фамилия" />
+              <input  type="text" placeholder="Фамилия" />
             </label>
           </Field>
 
-          <Field model="registrationUser.firstName">
+          <Field model="registrationUser.name">
             <label>
-              <input className="form-control" type="text" placeholder="Имя" />
+              <input  type="text" placeholder="Имя" />
             </label>
           </Field>
 
           <Field model="registrationUser.secondName">
             <label>
-              <input className="form-control" type="text" placeholder="Отчество" />
+              <input  type="text" placeholder="Отчество" />
             </label>
           </Field>
 
-          <Field model="registrationUser.secondName">
+          <Field model="registrationUser.birthDate">
             <label>Дата Рождения</label>
               <input className="form-control" type="date" />
           </Field>
 
-          <Field model="registrationUser.secondName">
+          <Field model="registrationUser.phone">
             <label>
               <input className="form-control" type="text" placeholder="+38 (...)... .. .." />
             </label>
@@ -84,7 +82,7 @@ class RegistrationModal extends Component {
             </label>
           </Field>
 
-          <div className="modal-registration__checkboxes">
+          <div className={styles.registration__checkboxes}>
             <Field model="registrationUser.rememberMe">
               <input type="checkbox"/><label>Запомнить меня</label>
             </Field>
@@ -99,29 +97,24 @@ class RegistrationModal extends Component {
               соглашения</label>
             </Field>
           </div>
-          <div className="form-group clearfix">
+          <div>
             <div className="col-sm-6 col-sm-offset-3">
               <input
-                className="modal-registration__signin-button"
+                className={styles.registration__signin_button}
                 type="submit"
                 value="Зарегистрироваться"
+                onClick={e => this.onRegistrationSubmit(e)}
               />
             </div>
           </div>
         </Form>
-            <div className="modal-registration__logo">
+            <div className={styles.registration__logo}>
               <a href="">
                 <img src={require('../../images/logo.png')} alt="logo"/>
                 IMED
               </a>
             </div>
           </div>
-        <div className="success-message">
-          <p>
-            <b className="user-email" />
-          </p>
-        </div>
-
       </div>
     );
   }

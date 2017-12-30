@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-import './regis-doctors-page.css'
+import './regis-doctors-page.scss'
 import DoctorsRegistrationForm from '../../components/DoctorsRegistrationForm/DoctorsRegistrationForm'
 import LogoItem from '../../components/LogoItem/LogoItem'
 

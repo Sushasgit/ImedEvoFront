@@ -1,4 +1,4 @@
-.modal-registration{
+.registration{
   &--background{
     background:rgba(0,0,0,.0);
     animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
@@ -29,6 +29,10 @@
       background-color: #e8e8e8;
       height: 29px;
       border:none;
+      font-size: 0.8em;
+      font-weight: 700;
+      padding-left:10px ;
+      color: #566b76;
     }
     input:not(lastchild){
       margin-bottom: 19px;
@@ -121,7 +125,7 @@
     background-color: white;
   }
 
-  &__signin-button{
+  &__signin_button{
     margin-top: 38px;
     margin-bottom: 68px;
   }

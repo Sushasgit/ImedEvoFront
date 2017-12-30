@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './doctors-registration-form.css'
+import './doctors-registration-form.scss'
 
 
 class DoctorsRegistrationForm extends Component {
