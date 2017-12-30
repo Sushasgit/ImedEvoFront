@@ -16,6 +16,7 @@ export default combineReducers({
     password: '',
     rePassword: ''
   }),
+  searchResult:modelReducer('searchResult',{}),
   modalName: modal,
   router: routerReducer,
 });

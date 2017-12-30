@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './common.scss'
 import { connect } from 'react-redux';
 import HomePage from './pages/Homepage/HomePage';
 import {Route} from 'react-router';
@@ -10,7 +10,8 @@ import LaboratoriesPage from './pages/LaboratoriesPage/LaboratoriesPage';
 import DiagnosticsPage from './pages/DiagnosticsPage/DiagnosticsPage';
 import SalePage from './pages/SalePage/SalePage';
 import RegistrationDoctorPage from './pages/RegistrationDoctorPage/RegistrationDoctorPage';
-import ModalRoot from './components/Modals/Modal';
+import SearchResult from './pages/SearchResult/SearchResult';
+import ModalRoot from './containers/Modals/Modal';
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path="/diagnostics" component={DiagnosticsPage} />
             <Route exact path="/sale" component={SalePage} />
             <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
+            <Route exact path="/searchresult" component={SearchResult} />
             <ModalRoot {...this.props} />
           </div>
         </Router>
@@ -43,3 +45,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(App);
+

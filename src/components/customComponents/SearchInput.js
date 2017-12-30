@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from '../SearchPanel/search-panel.scss'
 import PropTypes from 'prop-types'
 
 const ClearButton = (props) => (
@@ -27,7 +28,7 @@ class Input extends React.Component {
     }
     const className = `${this.props.className}`
     return (
-      <div className="search-input-box" style={StyleBox}>
+      <div className={styles.container__search_box} style={StyleBox}>
         <input className={className}
                name={this.props.name}
                type={this.props.type}

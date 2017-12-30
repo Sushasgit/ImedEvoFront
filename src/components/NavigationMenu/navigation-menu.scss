@@ -4,21 +4,26 @@ nav {
   width: 57%;
   margin: 0 auto;
   margin-bottom: 90px;
+
   @media (max-width: 1526px) {
     width: 100%;
   }
 }
 
-.navigation-menu {
+.navigation__menu {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   margin-top: -97px;
-  @media (max-width: 967px) {
-    margin-top: -40px;
-  }
+  padding: 0;
 
-  img {
+  @media (max-width: 953px) {
+    margin-top: -10px;
+  }
+  @media (max-width: 800px) {
+    margin-top: 20px;
+  }
+  svg {
     display: block;
     margin: 0 auto;
   }
@@ -31,6 +36,13 @@ nav {
     height: 158px;
     text-align: center;
     width: 158px;
+
+    @media (max-width: 800px) {
+      width: auto;
+      height: auto;
+      box-shadow: none;
+      background-color: transparent;
+    }
   }
 
   a {
@@ -39,74 +51,21 @@ nav {
     font-weight: 300;
     text-decoration: none;
     padding: 1px;
-  }
 
-  .menu-button {
-    display: none;
-    background-color: transparent;
-    @media only screen and (max-width: 865px) {
-      display: block;
-    }
-  }
-  @media (max-width: 853px) {
-    display: none;
-  }
-}
-
-nav {
-  .navWide {
-    display: none;
-    margin: 0 auto;
-
-    .wideDiv {
-      text-align: center;
-
-      a {
-        text-decoration: none;
-        display: inline-block;
-        padding: 0 2em;
+    &:hover {
+      color: #a8d7f0;
+      svg {
+        rect {
+          fill: #a8d7f0;
+        }
+        path {
+          fill: #a8d7f0;
+        }
       }
     }
-  }
-  .navNarrow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    background-color: #ffffff;
-    text-align: center;
-    img {
-      width: 30px;
-      vertical-align: middle;
-      margin-right: 15px;
-    }
-    i {
-      float: left;
-      cursor: pointer;
-      color: #FFF;
-    }
 
-    .narrowLinks {
-      width: 100%;
-      a {
-        color: #01b4f0;
-        text-decoration: none;
-        display: block;
-        padding: 0.5em 0;
-        font-size: 1.2em;
-      }
-    }
-  }
-}
-
-@media (min-width: 853px) {
-  nav {
-    .navWide {
-      display: block;
-    }
-
-    .navNarrow {
-      display: none;
+    @media (max-width: 1200px) {
+      font-size: calc(13px + (26 - 13) * (100vw - 320px) / (1200 - 320));
     }
   }
 }

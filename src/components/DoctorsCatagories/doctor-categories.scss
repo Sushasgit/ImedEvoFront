@@ -1,46 +1,34 @@
-.doctor-categories-title{
-  color: #0b689a;
-  font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-}
-.doctor-categories-link{
-  color: #628ce1;
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 20.83px;
-  text-decoration: underline;
-  display: block;
-  margin-bottom: 46px;
-  margin-top: -36px;
-  text-align: right;
-  @media (max-width: 600px) {
-    margin-top: 0;
-    text-align: left;
-  }
-}
-.container-categories{
+:global { @import '../../common'; }
+
+.categories{
   display: flex;
   justify-content: center;
+
   @media (max-width: 576px) {
-   flex-wrap: wrap;
+    flex-wrap: wrap;
   }
   &--col3{
     .doctor-cards{
       margin-top: 20px;
       width: 33%;
       margin-right: 5px;
+
       @media (max-width: 576px) {
         width: 100%;
       }
     }
-
   }
 }
-.doctor-cards{
-    position: relative;
-    width: 50%;
+.cards{
+  position: relative;
+  width: 50%;
+  transition: all .3s ease-in-out;
+  &:hover{
+    transform: scale(0.9);
+    .cards__title{
+      transform: scale(1.3);
+    }
+  }
   img{
     width: 100%;
   }
@@ -56,5 +44,6 @@
     font-weight: 700;
     width: 45%;
     text-align: center;
+    transition: all .3s ease-in-out;
   }
 }

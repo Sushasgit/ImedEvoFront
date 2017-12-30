@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+:global { @import '../../common'; }
 
 header {
   padding-bottom: 160px;
@@ -12,8 +13,12 @@ header {
   }
 }
 
-.container-buttons {
+.container__buttons {
   display: flex;
+
+  @media (max-width: 1101px) {
+    justify-content: center;
+  }
 }
 
 .logo {
@@ -28,20 +33,25 @@ header {
   }
 }
 
-.login-button {
-  color: #0a8cd3;
-  font-size: 1.5625em;
+.login__button {
+  font-size: 1.1em;
   font-weight: 700;
-  background-color: transparent;
-  border: none;
+  background-color: #01ace4;
+  margin-right: 10px;
+  padding: 10px 27px;
+  color: #fff;
+  border-radius: 4px;
+  transform-style: flat;
+  transition: color 400ms ease-out;
+  border: 1px solid #01ace4;
 }
 
-.sign-up-button {
-  @extend .login-button
+.login__button:hover{
+  background: transparent;
+  color: #01b4f0;
 }
-
-.language-button {
-  @extend .login-button
+.sign_up_button {
+  @extend .login__button;
 }
 
 @media (max-width: 853px) {
@@ -60,8 +70,3 @@ header {
     }
   }
 }
-
-
-
-
-

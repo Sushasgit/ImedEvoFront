@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './footer.css'
+import styles from './footer.scss'
+
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
-        <nav className="footer-nav">
+      <footer className={styles.footer}>
+        <nav className={styles.footer__nav}>
           <ul>
             <li>
               <h2>Пациентам</h2>
