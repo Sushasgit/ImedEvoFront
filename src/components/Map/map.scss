@@ -1,0 +1,43 @@
+.doctor__card {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+
+.doctor__img {
+  width: 100px;
+}
+
+.doctor__name {
+  color: #0b689a;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.doctor__position{
+  color: #0b689a;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.doctor__address{
+  color: #0b689a;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.doctor__works{
+  margin: 0;
+  color: #0b689a;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.main_info{
+  margin-left: 10px;
+}
