@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, Form } from 'react-redux-form';
 import * as Icons from '../SvgIcons/SvgIcons.js'
+import { GoogleLogin } from 'react-google-login';
 import {
   registrationAsync,
 } from '../../actions/userAuthActions';
@@ -29,7 +30,7 @@ class RegistrationModal extends Component {
   render() {
     return (
         <div className={styles.registration__content}>
-          <Icons.CloseButton onClick={this.props.close}/>
+          <Icons.CloseButton className={styles.registration__close} onClick={this.props.close}/>
           <div className={styles.registration__body}>
         <Form model="registrationUser">
           <h2 className={styles.registration__title} >Регистрация</h2>
@@ -97,7 +98,7 @@ class RegistrationModal extends Component {
               соглашения</label>
             </Field>
           </div>
-          <div>
+          <div className="form-group clearfix">
             <div className="col-sm-6 col-sm-offset-3">
               <input
                 className={styles.registration__signin_button}
@@ -107,6 +108,7 @@ class RegistrationModal extends Component {
               />
             </div>
           </div>
+
         </Form>
             <div className={styles.registration__logo}>
               <a href="">
@@ -115,6 +117,7 @@ class RegistrationModal extends Component {
               </a>
             </div>
           </div>
+
       </div>
     );
   }
