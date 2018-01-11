@@ -4,7 +4,7 @@ import styles from '../SignUpModal/sign-up-modal.scss'
 import { Field, Form } from 'react-redux-form'
 import { GoogleLogin } from 'react-google-login'
 import { Link } from 'react-router-dom'
-import LogoItem from '../LogoItem/LogoItem'
+
 
 class SignInUpModal extends Component {
   render () {
@@ -40,7 +40,11 @@ class SignInUpModal extends Component {
               </div>
             </div>
           </Form>
-          <LogoItem/>
+          <div className={styles.logo__container}>
+            <a href="">
+              IMED
+            </a>
+          </div>
         </div>
       </div>
     )

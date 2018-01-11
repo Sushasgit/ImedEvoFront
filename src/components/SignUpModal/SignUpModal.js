@@ -30,7 +30,7 @@ class RegistrationModal extends Component {
   render() {
     return (
         <div className={styles.registration__content}>
-          <Icons.CloseButton onClick={this.props.close}/>
+          <Icons.CloseButton className={styles.registration__close} onClick={this.props.close}/>
           <div className={styles.registration__body}>
         <Form model="registrationUser">
           <h2 className={styles.registration__title} >Регистрация</h2>
