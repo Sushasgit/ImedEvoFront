@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+:global { @import '../../common'; }
+
+.header__container {
+  padding-bottom: 160px;
+
+  @media (max-width: 1300px) {
+    padding-bottom: 90px;
+  }
+
+  @media (max-width: 980px) {
+    padding-bottom: 20px;
+  }
+}
+
+.container__buttons {
+  display: flex;
+  margin-bottom: 108px;
+
+  @media (max-width: 1101px) {
+    justify-content: center;
+  }
+}
+
+.logo {
+  a {
+    background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
+    color: #01b4f0;
+    font-size: 6.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.login__button {
+  font-size: 1.1em;
+  font-weight: 700;
+  background-color: #01ace4;
+  margin-right: 10px;
+  padding: 10px 27px;
+  color: #fff;
+  border-radius: 4px;
+  transform-style: flat;
+  transition: color 400ms ease-out;
+  border: 1px solid #01ace4;
+}
+
+.login__button:hover{
+  background: transparent;
+  color: #01b4f0;
+}
+.sign_up_button {
+  @extend .login__button;
+}
+
+@media (max-width: 853px) {
+  .logo {
+
+    img {
+      width: 70px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    a {
+      font-size: calc(36px + (75 - 24) * (100vw - 320px) / (1200 - 320));
+    }
+  }
+}

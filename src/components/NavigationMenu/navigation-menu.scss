@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+nav {
+  width: 57%;
+  margin: 0 auto;
+  margin-bottom: 90px;
+
+  @media (max-width: 1526px) {
+    width: 100%;
+  }
+}
+
+.navigation__menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-top: -97px;
+  padding: 0;
+
+  @media (max-width: 953px) {
+    margin-top: -10px;
+  }
+  @media (max-width: 800px) {
+    margin-top: 20px;
+  }
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  li {
+    list-style: none;
+    box-shadow: 3px 4px 21px rgba(9, 13, 4, 0.42);
+    border-radius: 10px;
+    background-color: #ffffff;
+    height: 158px;
+    text-align: center;
+    width: 158px;
+
+    @media (max-width: 800px) {
+      width: auto;
+      height: auto;
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+
+  a {
+    color: #01b4f0;
+    font-size: 1.625em;
+    font-weight: 300;
+    text-decoration: none;
+    padding: 1px;
+
+    &:hover {
+      color: #a8d7f0;
+      svg {
+        rect {
+          fill: #a8d7f0;
+        }
+        path {
+          fill: #a8d7f0;
+        }
+      }
+    }
+
+    @media (max-width: 1200px) {
+      font-size: calc(13px + (26 - 13) * (100vw - 320px) / (1200 - 320));
+    }
+  }
+}

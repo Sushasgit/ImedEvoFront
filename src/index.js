@@ -1,15 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory} from 'react-router';
-import './index.css';
-import App from './App';
 import { Provider } from 'react-redux';
-import store from './store'
-import registerServiceWorker from './registerServiceWorker';
+import { routerMiddleware } from 'react-router-redux';
+import { AppContainer } from 'react-hot-loader';
+import { createStore, applyMiddleware, compose } from 'redux';
+import redusers from './reducers';
+import history from './history';
+import thunk from 'redux-thunk';
+import App from './App';
 
-ReactDOM.render(
-    <App  />,
-  document.getElementById('root')
+
+const defaultStore = {};
+const middlewareHistory = routerMiddleware(history);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  redusers,
+  defaultStore,
+  composeEnhancers(applyMiddleware(thunk, middlewareHistory))
 );
 
-registerServiceWorker();
+ReactDOM.render(
+  <Provider store={store}>
+    <App history={history} />
+  </Provider>,
+  document.getElementById('root'),
+);
+
