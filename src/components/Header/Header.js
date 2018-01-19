@@ -21,7 +21,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className='container'>
+      <header className='header__container'>
         <LogoItem/>
         <div className={styles.container__buttons}>
             <button  className={styles.login__button} onClick={e => this.onSingIn(e,'SING_IN')}>Войти</button>

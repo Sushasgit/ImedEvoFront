@@ -39,9 +39,11 @@
   "dependencies": {
     "axios": "^0.17.1",
     "history": "^4.7.2",
+    "moment": "^2.20.1",
     "node-sass": "^4.7.2",
     "rc-checkbox": "^2.1.1",
     "react": "^15.6.2",
+    "react-big-calendar": "^0.17.0",
     "react-dom": "^15.6.2",
     "react-google-login": "^3.0.2",
     "react-google-maps": "^9.4.5",

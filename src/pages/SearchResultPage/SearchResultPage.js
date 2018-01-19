@@ -4,18 +4,17 @@ import styles from '../../pages/Homepage/home-page.scss'
 import logoStyles from './search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import SearchResult from '../../components/SearchResult/SearchResult'
-import LogoItem from '../../components/LogoItem/LogoItem'
+
 // import {
 //   getSearchResult,
 // } from '../../actions/userAuthActions';
 
 class SearchResultPage extends Component {
 
-
   render() {
     return (
       <div>
-        <div  className={styles.container__search}>
+        <div  className={logoStyles.container__search_result}>
           <div className={logoStyles.logo__container}>
           <a style={{paddingBottom:'50px'}} className={logoStyles.logo} href="">
             <img src={require('../../images/logo.png')} alt="logo"/>
@@ -25,7 +24,6 @@ class SearchResultPage extends Component {
           <SearchPanel />
         </div>
           <SearchResult/>
-
       </div>
 
     );

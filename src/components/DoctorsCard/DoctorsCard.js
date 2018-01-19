@@ -6,10 +6,8 @@ import RatingStars from '../customComponents/RatingStars'
 class DoctorsCard extends Component {
   render () {
     return (
-      <div style={{backgroundColor: '#e8e8e8', marginTop: '100px', paddingBottom: '40px', marginBottom: '90px'}}>
+      <div>
         <div className="container">
-          <h2 className="title">ВАШ ДОКТОР:</h2>
-          <a className="categories-link" href="">Посмотреть всеx врачей</a>
           <div className={`container ${styles.widjet}`}>
             {constants.TestDoctorsCards.map((doctor, index) =>
               <article key={index} className={styles.widjet__doctor}>

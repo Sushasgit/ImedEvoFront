@@ -5,7 +5,7 @@ export default ({ clinics }) => {
   if (!clinics) { return (<p>Loading...</p>); }
 
   const clinicList = clinics.map((clinic, index) => {
-    return (<ClinicData clinic={clinic} index={index} key={`user-${index}`} />);
+    return (<ClinicData  clinic={clinic} index={index} key={`user-${index}`} />);
   });
 
   return (

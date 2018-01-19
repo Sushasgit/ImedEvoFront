@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
 :global { @import '../../common'; }
 
-header {
+.header__container {
   padding-bottom: 160px;
 
   @media (max-width: 1300px) {
@@ -15,6 +15,7 @@ header {
 
 .container__buttons {
   display: flex;
+  margin-bottom: 108px;
 
   @media (max-width: 1101px) {
     justify-content: center;
