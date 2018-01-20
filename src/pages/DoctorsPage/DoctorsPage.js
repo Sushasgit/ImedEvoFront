@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import RandomResultDoctors from '../../components/SearchResult/RandomResultDoctors'
+import RandomResultDoctors from '../../components/RandomResults/RandomResultDoctors'
 import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
+import FilterDoctorsPanel from '../../components/FilterPanel/FilterDoctorsPanel'
 
 class DoctorsPage extends Component {
   render() {
@@ -16,6 +17,7 @@ class DoctorsPage extends Component {
           </div>
           <SearchPanel />
         </div>
+        <FilterDoctorsPanel/>
        <RandomResultDoctors/>
       </div>
     );

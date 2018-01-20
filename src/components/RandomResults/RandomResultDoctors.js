@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import data from '../../constants/test.json'
 import Map from '../../components/Map/Map'
-import DoctorList from './DoctorList'
+import DoctorList from '../SearchResultLists/DoctorList'
 
 import { connect } from 'react-redux'
-import styles from  './search-result.scss'
+import styles from  '../SearchResult/search-result.scss'
 
 import 'rc-checkbox/assets/index.css'
 

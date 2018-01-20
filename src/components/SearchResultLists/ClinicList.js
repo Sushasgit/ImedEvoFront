@@ -1,5 +1,5 @@
 import React from 'react';
-import ClinicData from './ClinicData';
+import ClinicData from '../SearchResultData/ClinicData';
 
 export default ({ clinics }) => {
   if (!clinics) { return (<p>Loading...</p>); }

@@ -50,6 +50,45 @@ body{
   outline: 0;
 }
 
+
+.react-tabs {
+  .react-tabs__tab {
+    border-top: 5px solid #01b4f0;
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #01b4f0;
+    font-weight: 900;
+    color:#fff;
+    margin: 0;
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+    @media (max-width: 1200px) {
+      font-size: calc(12px + (24 - 12) * (100vw - 320px) / (1200 - 320));
+    }
+
+    &--selected{
+      background-color: #fff;
+      color:#01b4f0;
+    }
+  }
+
+    .react-tabs__tab-list {
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+      background-color: #01b4f0;
+      margin: 0;
+      margin-bottom: 40px;
+      padding-top: 20px;
+    }
+
+  }
+
+
 @keyframes fadeIn {
   0% {
     background:rgba(0,0,0,.0);

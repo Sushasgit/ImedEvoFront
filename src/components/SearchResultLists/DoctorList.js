@@ -1,5 +1,5 @@
 import React from 'react';
-import DoctorData from './DoctorData';
+import DoctorData from '../SearchResultData/DoctorData';
 
 export default ({ doctors }) => {
   if (!doctors) { return (<p>Loading...</p>); }
@@ -9,7 +9,7 @@ export default ({ doctors }) => {
   });
 
   return (
-   <div>
+   <div style={{height:'700px', overflow:'auto'}}>
       {doctorsList}
    </div>
   );

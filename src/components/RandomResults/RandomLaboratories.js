@@ -1,27 +1,29 @@
 import React, { Component } from 'react'
 import data from '../../constants/test.json'
 import Map from '../../components/Map/Map'
-import ClinicList from './ClinicList'
+import LaboratoriesList from '../SearchResultLists/LaboratoriesList'
 import { connect } from 'react-redux'
-import styles from  './search-result.scss'
+import styles from  '../SearchResult/search-result.scss'
+
 
 import 'rc-checkbox/assets/index.css'
 
 
-class RandomResultClinic extends Component {
+class RandomLaboratories extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
       clinics: [],
       doctors: [],
+      laboratories:[]
     }
   }
 
   componentDidMount () {
     var th = this
     th.setState({
-      clinics: data.clinics
+      laboratories: data.laboratories
     })
   }
 
@@ -31,8 +33,8 @@ class RandomResultClinic extends Component {
         <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
           <h4 style={{textAlign:'center'}} className={styles.title__random}>
             <img src={require('../../images/Hospital Reception.png')} alt=''/>
-            Клиники в Одессе:</h4>
-          <ClinicList {...this.state}/>
+            Лаборатории в Одессе:</h4>
+          <LaboratoriesList {...this.state}/>
         </div>
         <div className={styles.map}>
           <Map
@@ -52,4 +54,4 @@ const mapStateToProps = state => ({
   someProp: state.someProp
 })
 
-export default connect(mapStateToProps)(RandomResultClinic)
+export default connect(mapStateToProps)(RandomLaboratories)

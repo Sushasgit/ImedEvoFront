@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import RatingStars from '../customComponents/RatingStars'
-import styles from  './search-result.scss'
+import styles from  '../SearchResult/search-result.scss'
 import { Link } from 'react-router-dom'
 
 export default ({ clinic, index }) => {
@@ -14,7 +14,6 @@ export default ({ clinic, index }) => {
         <img src={clinic.picture} className="user-image" />
         <p className={styles.clinic__address}><Icons.IconPlace/>{clinic.address}</p>
         <p className={styles.clinic__hours}><Icons.IconTime/>9.00-18.00</p>
-        <button  className={styles.clinic__btn}>Записаться на прием</button>
         </Link>
       </div>
 
@@ -33,7 +32,11 @@ export default ({ clinic, index }) => {
           />
         </div>
         <p className={styles.clinic_description}>{clinic.about}</p>
-        <a href="/">Подробнее</a>
+        <div style={{display:'flex',justifyContent:'space-around',alignItems:'center'}}>
+          <a href="/">Подробнее</a>
+          <button  className={styles.clinic__btn}>Записаться на прием</button>
+        </div>
+
       </div>
     </article>
 
