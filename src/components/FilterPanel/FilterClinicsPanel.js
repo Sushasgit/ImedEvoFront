@@ -8,10 +8,11 @@ class FilterClinicsPanel extends Component {
     return (
       <nav className={styles.sort}>
 
-        <ul>
+        <ul className={styles.filter}>
           <li><a href="#">Количество отзывов</a></li>
+          <li><a href="#">Популярность</a></li>
           <li><a className="dropdown"  href="#">Рейтинг <Icons.IconArrowDown/></a>
-            <ul>
+            <ul >
               <label>
                 <input type="checkbox"/>
                 <RatingStars

@@ -17,7 +17,7 @@
   flex-wrap: wrap;
 
   &__description{
-    width: 45%;
+    width: 42%;
     background-image: linear-gradient(to top, #0b689a 0%, #5bb3e3 100%);
     text-align: center;
     color: #fefeff;
@@ -30,7 +30,7 @@
     }
   }
   &__rate{
-    width: 50%;
+    width: 57%;
 
     @media (max-width: 700px) {
       width: 100%;
