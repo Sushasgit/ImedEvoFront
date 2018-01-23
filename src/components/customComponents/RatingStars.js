@@ -15,6 +15,7 @@ class RatingStars extends Component {
         starRatedColor={this.props.starRatedColor}
         starWidthAndHeight={this.props.starWidthAndHeight}
         starSpacing={this.props.starSpacing}
+
       />
     );
   }
