@@ -10,6 +10,7 @@ import LaboratoriesPage from './pages/LaboratoriesPage/LaboratoriesPage';
 import DiagnosticsPage from './pages/DiagnosticsPage/DiagnosticsPage';
 import SalePage from './pages/SalePage/SalePage';
 import RegistrationDoctorPage from './pages/RegistrationDoctorPage/RegistrationDoctorPage';
+import RegistrationClinicPage from './pages/RegistrationClinicPage/RegistrationClinicPage';
 import SearchResult from './pages/SearchResult/SearchResult';
 import ModalRoot from './containers/Modals/Modal';
 
@@ -29,6 +30,7 @@ class App extends Component {
             <Route exact path="/diagnostics" component={DiagnosticsPage} />
             <Route exact path="/sale" component={SalePage} />
             <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
+            <Route exact path="/signupclinic" component={RegistrationClinicPage} />
             <Route exact path="/searchresult" component={SearchResult} />
             <ModalRoot {...this.props} />
           </div>
