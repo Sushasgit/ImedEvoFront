@@ -33,7 +33,6 @@ class App extends Component {
             <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
             <Route exact path="/searchresult" component={SearchResultPage} />
             <Route exact path="/profile" component={UserProfilePage} />
-            <ModalRoot {...this.props} />
           </div>
         </Router>
       </div>
