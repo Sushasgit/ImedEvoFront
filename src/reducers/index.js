@@ -1,22 +1,12 @@
-import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
-import { modelReducer, formReducer } from 'react-redux-form';
-import modal from './ModalReducer';
+import { alert } from './alertReducer'
+import { reducer as form } from 'redux-form';
+import authReducer from './authReducer';
 
-export default combineReducers({
-  loginUser: modelReducer('loginUser', { email: '', password: '' }),
-  loginUserForm: formReducer('loginUser', { email: '', password: '' }),
-  registrationUser: modelReducer('registrationUser', {
-    email: '',
-    password: '',
-    rePassword: ''
-  }),
-  registrationUserForm: formReducer('registrationUser', {
-    email: '',
-    password: '',
-    rePassword: ''
-  }),
-  searchResult:modelReducer('searchResult',{}),
-  modalName: modal,
-  router: routerReducer,
+const rootReducer = combineReducers({
+  form,
+  auth: authReducer,
+  alert
 });
+
+export default rootReducer;

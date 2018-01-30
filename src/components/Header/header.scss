@@ -2,8 +2,14 @@
 :global { @import '../../common'; }
 
 .header__container {
-  padding-bottom: 160px;
-
+  box-shadow: 0 0 8px 1px rgba(28, 39, 40, 0.56);
+  background-color: #ffffff;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 101px;
   @media (max-width: 1300px) {
     padding-bottom: 90px;
   }
@@ -15,7 +21,6 @@
 
 .container__buttons {
   display: flex;
-  margin-bottom: 108px;
 
   @media (max-width: 1101px) {
     justify-content: center;
@@ -34,26 +39,7 @@
   }
 }
 
-.login__button {
-  font-size: 1.1em;
-  font-weight: 700;
-  background-color: #01ace4;
-  margin-right: 10px;
-  padding: 10px 27px;
-  color: #fff;
-  border-radius: 4px;
-  transform-style: flat;
-  transition: color 400ms ease-out;
-  border: 1px solid #01ace4;
-}
 
-.login__button:hover{
-  background: transparent;
-  color: #01b4f0;
-}
-.sign_up_button {
-  @extend .login__button;
-}
 
 @media (max-width: 853px) {
   .logo {

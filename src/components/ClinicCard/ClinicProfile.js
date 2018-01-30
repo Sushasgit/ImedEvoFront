@@ -5,6 +5,10 @@ import styles from './clinic-profile.scss'
 import RatingStars from '../customComponents/RatingStars'
 import * as FontAwesome from 'react-icons/lib/fa'
 import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
+import WidjetsClinic from '../WidjetsClinic/WidjetsClinic'
+import WidjetsDoctors from '../WidjetsDoctors/WidjetsDoctors'
+import ClinicInfoPanel from '../ClinicInfoPanel/ClinicInfoPanel'
 // import WidjetsClinic from '../WidjetsClinic/WidjetsClinic'
 
 class ClinicProfile extends Component {
@@ -18,7 +22,7 @@ class ClinicProfile extends Component {
       about: 'Consequat aliqua pariatur veniam commodo excepteur anim ex aute ut sint cillum. Reprehenderit ex consequat proident irure pariatur incididunt nostrud. Dolore sit id deserunt nostrud ullamco consectetur mollit sit Lorem laborum Lorem. Mollit velit exercitation anim voluptate magna ea eiusmod culpa veniam laboris enim pariatur.',
       address: '484 Blake Court, Roland, Puerto Rico, 2759',
       phone: '+1 (888) 516-2478',
-      nameClinic: 'Медея',
+      nameClinic: 'Интосана',
       age: 20,
       expiriance: 28,
       picture: 'https://www.medcentre.com.ua/i/2013/04/into-sana_250.png',
@@ -87,14 +91,9 @@ class ClinicProfile extends Component {
     return (
       <Fragment>
         <div className={styles.h_background}>
-          <header className={styles.logo}>
-            <a href="">
-              <img src={require('../../images/logo.png')} alt="logo"/>
-              IMED
-            </a>
-          </header>
-
-          <div>
+          <Header/>
+          <ClinicInfoPanel/>
+          <div className={styles.profile}>
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
@@ -112,51 +111,56 @@ class ClinicProfile extends Component {
                           rating={this.state.range}
                         />
                       </div>
-                      <section className={styles.clinic__rating}>
-                        <span>Комфорт:</span>
-                        <RatingStars
-                          starSelectingHoverColor="rgb(249, 215, 73)"
-                          starRatedColor="#01b4f0"
-                          starWidthAndHeight="25px"
-                          starSpacing='0px'
-                          isSelectable={true}
-                          rating={this.state.range}
-
-                        />
-                        <span>Специалисты:</span>
-                        <RatingStars
-                          starSelectingHoverColor="rgb(249, 215, 73)"
-                          starRatedColor="#01b4f0"
-                          starWidthAndHeight="25px"
-                          starSpacing='0px'
-                          isSelectable={true}
-                          rating={this.state.range}
-                        />
-                        <span>Доброжелательность:</span>
-                        <RatingStars
-                          starSelectingHoverColor="rgb(249, 215, 73)"
-                          starRatedColor="#01b4f0"
-                          starWidthAndHeight="25px"
-                          starSpacing='0px'
-                          isSelectable={true}
-                          rating={this.state.range}
-                        />
-                        <span>Оборудование:</span>
-                        <RatingStars
-                          starSelectingHoverColor="rgb(249, 215, 73)"
-                          starRatedColor="#01b4f0"
-                          starWidthAndHeight="25px"
-                          starSpacing='0px'
-                          isSelectable={true}
-                          rating={this.state.range}
-                        />
-                      </section>
                     </div>
                     <p>Про клинику</p>
                     <p>{this.state.about}</p>
-                    <button className={styles.clinic__btn}>Записаться</button>
                   </div>
                 </article>
+              </section>
+              <section className={styles.clinic}>
+                <section className={styles.clinic__rating}>
+                  <div>
+                  <h3>Комфорт:</h3>
+                  <RatingStars
+                    starSelectingHoverColor="rgb(249, 215, 73)"
+                    starRatedColor="#4775d1"
+                    starWidthAndHeight="25px"
+                    starSpacing='0px'
+                    isSelectable={true}
+                    rating={this.state.range}
+
+                  />
+                  <h3>Специалисты:</h3>
+                  <RatingStars
+                    starSelectingHoverColor="rgb(249, 215, 73)"
+                    starRatedColor="#4775d1"
+                    starWidthAndHeight="25px"
+                    starSpacing='0px'
+                    isSelectable={true}
+                    rating={this.state.range}
+                  />
+                  </div>
+                  <div>
+                  <h3>Доброжелательность:</h3>
+                  <RatingStars
+                    starSelectingHoverColor="rgb(249, 215, 73)"
+                    starRatedColor="#4775d1"
+                    starWidthAndHeight="25px"
+                    starSpacing='0px'
+                    isSelectable={true}
+                    rating={this.state.range}
+                  />
+                  <h3>Оборудование:</h3>
+                  <RatingStars
+                    starSelectingHoverColor="rgb(249, 215, 73)"
+                    starRatedColor="#4775d1"
+                    starWidthAndHeight="25px"
+                    starSpacing='0px'
+                    isSelectable={true}
+                    rating={this.state.range}
+                  />
+                  </div>
+                </section>
               </section>
 
               <section className={styles.clinic}>
@@ -265,10 +269,22 @@ class ClinicProfile extends Component {
                   </div>
                 </section>
               </section>
+
+
+            </div>
+
+              <div  style={{width:'19%', backgroundColor:'#ffd1b3', marginRight:'40px'}}>
+                <h3 className={styles.widjet_info_title}>ТОП клиники:</h3>
+                <WidjetsClinic/>
+              </div>
+                <div style={{width:'20%', backgroundColor:'#ffd1b3'}}>
+                  <h3 className={styles.widjet_info_title}>ТОП врачей:</h3>
+                  <WidjetsDoctors/>
+
             </div>
           </div>
-          <Footer/>
         </div>
+        <Footer/>
       </Fragment>
     )
 

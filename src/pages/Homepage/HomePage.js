@@ -7,6 +7,7 @@ import styles from './home-page.scss'
 import NavigationMenu from '../../components/NavigationMenu/NavigationMenu'
 import DoctorsCategories from '../../components/DoctorsCatagories/DoctorsCategories'
 import DoctorsCard from '../../components/DoctorsCard/DoctorsCard'
+import axios from 'axios'
 
 
 class HomePage extends Component {
@@ -20,7 +21,7 @@ class HomePage extends Component {
 
         <NavigationMenu/>
         <DoctorsCategories/>
-        <div style={{backgroundColor: '#e8e8e8', marginTop: '100px', paddingBottom: '40px', marginBottom: '90px'}}>
+        <div style={{backgroundColor: '#eaedf2', marginTop: '100px', paddingBottom: '40px', marginBottom: '90px'}}>
           <div className="container">
             <h2 className="title">ВАШ ДОКТОР:</h2>
             <a className="categories-link" href="">Посмотреть всеx врачей</a>

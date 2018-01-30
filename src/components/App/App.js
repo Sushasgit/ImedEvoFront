@@ -1,50 +1,69 @@
-import React, { Component } from 'react';
-import './common.scss'
+import React from 'react';
+import { Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import HomePage from './pages/Homepage/HomePage';
-import {Route} from 'react-router';
-import { Router } from 'react-router';
-import DoctorsPage from './pages/DoctorsPage/DoctorsPage';
-import ClinicsPage from './pages/ClinicsPage/ClinicsPage';
-import LaboratoriesPage from './pages/LaboratoriesPage/LaboratoriesPage';
-import DiagnosticsPage from './pages/DiagnosticsPage/DiagnosticsPage';
-import SalePage from './pages/SalePage/SalePage';
-import RegistrationDoctorPage from './pages/RegistrationDoctorPage/RegistrationDoctorPage';
-import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
-import ModalRoot from './containers/Modals/Modal';
-import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
-import ClinicProfilePage from './pages/ClinicProfilePage/ClinicProfilePage';
 
-class App extends Component {
+import { history } from '../../history';
+import { alertActions } from '../../actions/alertActions';
+//import { PrivateRoute } from '../PrivateRoute/PrivateRoute';
+import HomePage from '../../pages/Homepage/HomePage';
+import DoctorsPage from '../../pages/DoctorsPage/DoctorsPage';
+import ClinicsPage from '../../pages/ClinicsPage/ClinicsPage';
+import LaboratoriesPage from '../../pages/LaboratoriesPage/LaboratoriesPage';
+import DiagnosticsPage from '../../pages/DiagnosticsPage/DiagnosticsPage';
+import SalePage from '../../pages/SalePage/SalePage';
+import RegistrationDoctorPage from '../../pages/RegistrationDoctorPage/RegistrationDoctorPage';
+import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
+import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
+import ClinicProfilePage from '../../pages/ClinicProfilePage/ClinicProfilePage';
+
+
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const { dispatch } = this.props;
+
+    history.listen((location, action) => {
+
+      // dispatch(alertActions.clear());
+    });
+  }
 
   render() {
-    const { history } = this.props;
+    const { alert } = this.props;
     return (
-      <div className="App">
-        <Router history={history}>
+        <div>
           <div>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/doctors" component={DoctorsPage} />
-            <Route exact path="/clinics" component={ClinicsPage} />
-            <Route exact path="/clinics/:clinicId" component={ClinicProfilePage} />
-            <Route exact path="/laboratories" component={LaboratoriesPage} />
-            <Route exact path="/diagnostics" component={DiagnosticsPage} />
-            <Route exact path="/sale" component={SalePage} />
-            <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
-            <Route exact path="/searchresult" component={SearchResultPage} />
-            <Route exact path="/profile" component={UserProfilePage} />
+            {alert.message &&
+            <div className={`alert ${alert.type}`}>{alert.message}</div>
+            }
+            <Router history={history}>
+              <div>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/doctors" component={DoctorsPage} />
+                <Route exact path="/clinics" component={ClinicsPage} />
+                <Route exact path="/clinics/:clinicId" component={ClinicProfilePage} />
+                <Route exact path="/laboratories" component={LaboratoriesPage} />
+                <Route exact path="/diagnostics" component={DiagnosticsPage} />
+                <Route exact path="/sale" component={SalePage} />
+                <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
+                <Route exact path="/searchresult" component={SearchResultPage} />
+                <Route exact path="/profile/:userID" component={UserProfilePage} />
+              </div>
+            </Router>
           </div>
-        </Router>
-      </div>
+        </div>
     );
   }
 }
 
 function mapStateToProps(state) {
+  const { alert } = state;
   return {
-    user: state.user
+    alert
   };
 }
 
-export default connect(mapStateToProps)(App);
-
+const connectedApp = connect(mapStateToProps)(App);
+export { connectedApp as App };

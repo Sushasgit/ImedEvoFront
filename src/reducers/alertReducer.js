@@ -1,3 +1,20 @@
-/**
- * Created by Susha on 27.01.18.
- */
+import { alertConstants } from '../constants/constants';
+
+export function alert(state = {}, action) {
+  switch (action.type) {
+    case alertConstants.SUCCESS:
+      return {
+        type: 'alert-success',
+        message: action.message
+      };
+    case alertConstants.ERROR:
+      return {
+        type: 'alert-danger',
+        message: action.message
+      };
+    case alertConstants.CLEAR:
+      return {};
+    default:
+      return state
+  }
+}

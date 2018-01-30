@@ -1,3 +1,4 @@
-/**
- * Created by Susha on 26.01.18.
- */
+export function handleApiErrors (response) {
+  if (!response.ok) throw Error(response.statusText)
+  return response
+}

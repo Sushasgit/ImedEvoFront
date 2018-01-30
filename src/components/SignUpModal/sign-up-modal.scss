@@ -168,3 +168,24 @@
   }
 }
 
+.login__button {
+  font-size: 1.1em;
+  font-weight: 700;
+  background-color: #ff8533;
+  margin-right: 10px;
+  padding: 10px 27px;
+  color: #fff;
+  border-radius: 4px;
+  transform-style: flat;
+  transition: color 400ms ease-out;
+  border: 1px solid #01ace4;
+}
+
+.login__button:hover{
+  background: transparent;
+  color: #01b4f0;
+}
+.sign_up_button {
+  @extend .login__button;
+  background-color: #347ECF;
+}
