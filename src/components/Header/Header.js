@@ -21,10 +21,10 @@ class Header extends Component {
 
   render() {
     return (
-      <header className='container'>
+      <header className='header__container'>
         <LogoItem/>
         <div className={styles.container__buttons}>
-            <button  className={styles.login__button} onClick={this.handleClick}>Войти</button>
+            <button  className={styles.login__button} onClick={e => this.onSingIn(e,'SING_IN')}>Войти</button>
             <button  className={styles.sign_up_button} onClick={e => this.onSingIn(e,'REGISTRATION')}>Регистрация</button>
         </div>
       </header>

@@ -16,4 +16,3 @@ Webpack config | Added webpack config for production version and development ver
 CSS modules React| Added new structure of styles. All components have their own independent scss files. https://github.com/css-modules/css-modules, https://www.youtube.com/watch?v=FUHuBpzVHrg&t=2102s
 Stylelint | Added stylelint config 
 
-

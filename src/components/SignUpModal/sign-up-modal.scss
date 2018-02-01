@@ -1,24 +1,15 @@
 .registration{
-  &--background{
-    background:rgba(0,0,0,.0);
-    animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 200;
-    overflow: hidden;
-    outline: 0;
-  }
-
   &__body{
     display: flex;
+    background-color: #f2f5fb;
 
     form{
       width: 50%;
       text-align: center;
       padding-bottom: 40px;
+      @media (max-width: 764px) {
+        width: 100%;
+      }
     }
 
     img{
@@ -83,6 +74,9 @@
     background-size: cover;
     width: 50%;
     text-align: center;
+    @media (max-width: 764px) {
+      display: none;
+    }
     a {
       background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
       color: #01b4f0;
@@ -123,6 +117,7 @@
     max-width: 700px;
     margin: 30px auto;
     background-color: white;
+    text-align: center;
   }
 
   &__signin_button{
@@ -135,8 +130,35 @@
     font-size: 36px;
     font-weight: 700;
   }
+
+  &__close{
+    svg{
+      path{
+        fill:black;
+      }
+    }
+  }
 }
 
+.logo__container {
+   background-image: (url("../../images/signin.jpeg"));
+   width: 50%;
+   background-size: cover;
+  @media (max-width: 766px) {
+    display: none;
+  }
+   a {
+     background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
+     color: #01b4f0;
+     font-size: 6.06em;
+     font-weight: 700;
+     text-transform: uppercase;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     margin: 200px auto 0;
+     display: block;
+   }
+ }
 @keyframes fadeIn {
   0% {
     background:rgba(0,0,0,.0);
@@ -145,7 +167,4 @@
     background:rgba(0,0,0,.7);
   }
 }
-
-
-
 

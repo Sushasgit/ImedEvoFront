@@ -12,8 +12,10 @@ import SalePage from './pages/SalePage/SalePage';
 import RegistrationDoctorPage from './pages/RegistrationDoctorPage/RegistrationDoctorPage';
 import RegistrationClinicPage from './pages/RegistrationClinicPage/RegistrationClinicPage';
 import SearchResult from './pages/SearchResult/SearchResult';
+import SearchResultPage from './pages/SearchResultPage/SearchResultPage';
 import ModalRoot from './containers/Modals/Modal';
-
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
+import ClinicProfilePage from './pages/ClinicProfilePage/ClinicProfilePage';
 
 class App extends Component {
 
@@ -26,12 +28,15 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/doctors" component={DoctorsPage} />
             <Route exact path="/clinics" component={ClinicsPage} />
+            <Route exact path="/clinics/:clinicId" component={ClinicProfilePage} />
             <Route exact path="/laboratories" component={LaboratoriesPage} />
             <Route exact path="/diagnostics" component={DiagnosticsPage} />
             <Route exact path="/sale" component={SalePage} />
             <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
             <Route exact path="/signupclinic" component={RegistrationClinicPage} />
             <Route exact path="/searchresult" component={SearchResult} />
+            <Route exact path="/searchresult" component={SearchResultPage} />
+            <Route exact path="/profile" component={UserProfilePage} />
             <ModalRoot {...this.props} />
           </div>
         </Router>
