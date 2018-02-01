@@ -7,3 +7,4 @@ export const USER_TOKEN = 'USER_TOKEN';
 export const SET_CATEGORIES = 'SET_CATEGORIES';
 export const SET_SEARCH_MODEL = 'SET_SEARCH_MODEL';
 export const SET_ALL_ACTIVITIES = 'SET_ALL_ACTIVITIES';
+export const SHOW_USER_NAME = 'SHOW_USER_NAME';

@@ -1,14 +1,14 @@
 import * as constants from '../constants/modalConstants';
 
 const initialState = {
-  modalName: null
+  username: ''
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case constants.SHOW_USER_NAME:
       return {
-        modalName: action.modalName,
+       console.log(username),
       };
     default:
       return state;
