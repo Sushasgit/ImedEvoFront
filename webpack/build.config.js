@@ -5,16 +5,23 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-
-
 const DIRNAME = __dirname + '/../';
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   resolve: {
     modules: [path.join(DIRNAME, 'src'), 'node_modules']
   },
 
-  entry: [path.resolve(DIRNAME, 'src')],
+  entry: {
+    app: path.resolve(DIRNAME, 'src'),
+    vendor: [
+      'react',
+      'react-dom',
+      'redux',
+      'react-redux',
+    ],
+  },
 
   output: {
     filename: `assets/js/[name].[hash].bundle.js`,
@@ -117,6 +124,41 @@ module.exports = {
       verbose: true,
       dry: false
     }),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: '../reports/webpack-bundle-prod.html',
+      openAnalyzer: false,
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
+    new Compression({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new LodashModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        comments: false,
+      },
+      minimize: true,
+      compress: {
+        screw_ie8: true,
+        warnings: false,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+      },
+    }),
+
     new HtmlWebpackPlugin({
       template: path.resolve(DIRNAME, 'index.html'),
       filename: 'index.html',
@@ -126,7 +168,7 @@ module.exports = {
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
     }),
-     new UglifyJsPlugin(),
+    new UglifyJsPlugin(),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify('production') }
     })
