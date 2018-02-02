@@ -1,28 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { routerMiddleware } from 'react-router-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import redusers from './reducers';
-import history from './history';
-import thunk from 'redux-thunk';
-import App from './App';
 
+import { store } from './store';
+import { App } from '../src/components/App/App';
+var registerObserver = require('react-perf-devtool')
 
-const defaultStore = {};
-const middlewareHistory = routerMiddleware(history);
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// Simple, no?
+registerObserver()
 
-const store = createStore(
-  redusers,
-  defaultStore,
-  composeEnhancers(applyMiddleware(thunk, middlewareHistory))
-);
-
-ReactDOM.render(
+render(
   <Provider store={store}>
-    <App history={history} />
+    <App />
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
-

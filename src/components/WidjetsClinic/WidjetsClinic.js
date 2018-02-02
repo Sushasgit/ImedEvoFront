@@ -36,6 +36,30 @@ class WidjetsClinic extends Component {
           picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
           address:'1304 Macom DrNaperville, IL, United States 60564'
         },
+        {
+          clinicName: 'Одрекс',
+          range: 5,
+          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
+          address:'1304 Macom DrNaperville, IL, United States 60564'
+        },
+        {
+          clinicName: 'Одрекс',
+          range: 5,
+          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
+          address:'1304 Macom DrNaperville, IL, United States 60564'
+        },
+        {
+          clinicName: 'Одрекс',
+          range: 5,
+          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
+          address:'1304 Macom DrNaperville, IL, United States 60564'
+        },
+        {
+          clinicName: 'Одрекс',
+          range: 5,
+          picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR72Pv0OtwqTXlvzb1WZcKyfLHygIwn4CY6ZVKUQTqxB0ZoW7cB',
+          address:'1304 Macom DrNaperville, IL, United States 60564'
+        },
 
       ]
     }
@@ -47,9 +71,9 @@ class WidjetsClinic extends Component {
       <Fragment>
         {this.state.topClinics.map((clinic, index) => {
           return (
-            <section key={index} className={styles.branches__card}>
+            <section key={index} className={styles.widjet}>
               <img src={clinic.picture}/>
-              <article className={styles.branches__address}>
+              <article className={styles.widjet__address}>
                 <h3>МЦ на Неждановой</h3>
                 <ul className={styles.clinic__contacts}>
                   <li><FontAwesome.FaMapMarker />г. Одесса, ул. Варненская, 2</li>

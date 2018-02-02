@@ -10,7 +10,6 @@ class SearchPanel extends Component {
       <div className={`${generalStyle.container} ${styles.search_box}`}>
         <form>
           <Input className={styles.search_box__input} placeholder="Врач, Клиника, Анализ, Процедура"/>
-          <Input className={styles.search_box__input} placeholder="Город, Район, Адрес"/>
           <button className={styles.search_box__btn}>
             <img src={require('../../images/search-button.png')} alt="search-icon"/>
           </button>

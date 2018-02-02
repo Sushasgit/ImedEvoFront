@@ -1,13 +1,13 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CompressionPlugin = require("compression-webpack-plugin");
 
 
-
-const DIRNAME = __dirname + '/../';
+const DIRNAME = path.resolve(__dirname, '../')
 
 module.exports = {
   resolve: {
@@ -51,7 +51,7 @@ module.exports = {
           ]
         })
       },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+      {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader'},
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
@@ -74,38 +74,17 @@ module.exports = {
         test: /\.json$/,
         loader: 'json-loader'
       },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+      {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff'},
+      {test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader'},
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/img/[name].[ext]?[hash]'
+              name: 'assets/images/[name].[ext]?[hash]'
             }
           },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                quality: 65
-              },
-              optipng: {
-                optimizationLevel: 7
-              },
-              gifsicle: {
-                interlaced: false
-              },
-              svgo: {
-                plugins: [
-                  {
-                    cleanupIDs: false
-                  }
-                ]
-              }
-            }
-          }
         ]
       }
     ]
@@ -126,9 +105,19 @@ module.exports = {
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
     }),
-     new UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    }),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify('production') }
+      'process.env': {NODE_ENV: JSON.stringify('production')}
+    }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0
     })
   ]
-};
+}

@@ -34,15 +34,15 @@ const ProfileMap = compose(
     defaultZoom={12}
     defaultCenter={props.center}
   >
-    {props.clinic.map ((a, i) => {
+
       let lat = parseFloat(a.latitude);
       let lon = parseFloat(a.longitude);
       return (
-        <Marker  onClick={() => props.updateSelectedDoctorsPlace(i)} key={i} position={{ lat: lat, lng: lon }}>
+        <Marker position={{ lat: 46.4632302, lng: 30.6895109 }}>
 
         </Marker>
       )
-    })}
+
 
 
   </GoogleMap>
