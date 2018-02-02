@@ -71,7 +71,7 @@ const Map = compose(
           {props.selectedClinicsPlace === i && <InfoBox onCloseClick={() => props.updateSelectedClinicsPlace(null)}>
             <div>
               <div className={styles.doctor__card}>
-                <img className={styles.doctor__img} src={a.picture}/>
+                <img className={styles.doctor__img} src={a.picture} alt="image-doctor"/>
                 <div className={styles.main_info}>
                   <h2 className={styles.doctor__name}><span>{a.firstname}</span> <span>{a.lastname}</span></h2>
 

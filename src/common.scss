@@ -53,15 +53,14 @@ body{
 
 .react-tabs {
   .react-tabs__tab {
-    border-top: 5px solid #01b4f0;
+    border-top: 2px solid #4775d1;
     list-style: none;
-    width: 20%;
+    width: 15%;
     text-align: center;
     padding: 10px;
     font-size: 20px;
-    background-color: #01b4f0;
     font-weight: 900;
-    color:#fff;
+    color:#4775d1;
     margin: 0;
     @media (max-width: 400px) {
       width: 100%;
@@ -71,8 +70,10 @@ body{
     }
 
     &--selected{
-      background-color: #fff;
-      color:#01b4f0;
+      color: #ffffff;
+      background-color: #4775d1;
+      border-bottom: 3px solid #ff8533;
+      border-top:none;
     }
   }
 
@@ -80,7 +81,6 @@ body{
       display: flex;
       justify-content: space-around;
       padding: 0;
-      background-color: #01b4f0;
       margin: 0;
       margin-bottom: 40px;
       padding-top: 20px;

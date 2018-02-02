@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import data from '../../constants/testClinicCard.json'
+import axios from 'axios';
 import ProfileMap from '../Map/ProfileMap'
 import styles from './clinic-profile.scss'
 import RatingStars from '../customComponents/RatingStars'
@@ -16,78 +16,34 @@ class ClinicProfile extends Component {
     super(props)
     this.state = {
       clinic: [],
-      range: 15,
-      longitude: '30.6847044',
-      latitude: '46.4939649',
-      about: 'Consequat aliqua pariatur veniam commodo excepteur anim ex aute ut sint cillum. Reprehenderit ex consequat proident irure pariatur incididunt nostrud. Dolore sit id deserunt nostrud ullamco consectetur mollit sit Lorem laborum Lorem. Mollit velit exercitation anim voluptate magna ea eiusmod culpa veniam laboris enim pariatur.',
-      address: '484 Blake Court, Roland, Puerto Rico, 2759',
-      phone: '+1 (888) 516-2478',
-      nameClinic: 'Интосана',
-      age: 20,
-      expiriance: 28,
-      picture: 'https://www.medcentre.com.ua/i/2013/04/into-sana_250.png',
-      isActive: true,
-      _id: '5a491e4af01da705108cb370',
-      branches: [
-        {
-          nameBranch: 'МЦ на Неждановой',
-          picture: 'https://www.medcentre.com.ua/i/2013/04/into-sana_250.png',
-          address: '484 Blake Court, Roland, Puerto Rico, 2759',
-          phone: '+1 (888) 516-2478',
-        },
-        {
-          nameBranch: 'МЦ на Заболотного',
-          picture: 'https://www.medcentre.com.ua/i/2013/04/into-sana_250.png',
-          address: '484 Blake Court, Roland, Puerto Rico, 2759',
-          phone: '+1 (888) 516-2478',
-        },
-        {
-          nameBranch: 'МЦ на Неждановой',
-          picture: 'https://www.medcentre.com.ua/i/2013/04/into-sana_250.png',
-          address: '484 Blake Court, Roland, Puerto Rico, 2759',
-          phone: '+1 (888) 516-2478',
-        },
-        {
-          nameBranch: 'МЦ на Д. Ойстраха',
-          picture: 'https://www.medcentre.com.ua/i/2013/04/into-sana_250.png',
-          address: '484 Blake Court, Roland, Puerto Rico, 2759',
-          phone: '+1 (888) 516-2478',
-        },
-      ],
-      feedbacks: [
-        {
-          feedbackText: 'Dr Ojjeh is simply the best! No wait time, he is very gentle and funny, never had any pain during any of my visits. Because of him I don’t mind going to the dentist.',
-          date: 'Оставлен: Январь 2018',
-          range: 5
-        },
-        {
-          feedbackText: 'Dr. Ojjeh has been our dentist for many years, he is an outstanding doctor, he truly cares about his patients, he explains everything in details, we are very happy with his care. we would go anywhere else.',
-          date: 'Оставлен:Январь 2018',
-          range: 1
-        },
-        {
-          feedbackText: 'Dr Ojjeh is simply the best! No wait time, he is very gentle and funny, never had any pain during any of my visits. Because of him I don’t mind going to the dentist.',
-          date: 'Оставлен: Январь 2018',
-          range: 5
-        },
-        {
-          feedbackText: 'Dr. Ojjeh has been our dentist for many years, he is an outstanding doctor, he truly cares about his patients, he explains everything in details, we are very happy with his care. we would go anywhere else.',
-          date: 'Оставлен: Январь 2018',
-          range: 5,
-        }
-      ]
     }
   }
 
   componentDidMount () {
-    let th = this
-    th.setState({
-      clinic: data.clinic,
-    })
+    let id = this.props.match.params.clinicId;
+    console.log(id)
+    const ROOT_URL = "http://54.37.125.178:8080";
+    axios.get(`${ROOT_URL}/clinics/${id}`)
+      .then(response => {
+        console.log(response.data)
+        let clinic = response.data;
+        let th = this
+        th.setState({
+          clinic: clinic,
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      });
   }
 
   render () {
     //TODO CREATE WIDJETS (top clinic and doctors)
+    //TODO Change image when it will return from server
+    console.log(this.state.clinic.nameClinic)
+    console.log(this.state)
+    let clinic = this.state
+    console.log(clinic.clinic)
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -97,11 +53,13 @@ class ClinicProfile extends Component {
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
-                  <img src={this.state.picture}/>
+                  <img src="https://placeholdit.co//i/150x150?&bg=4775d1&text=Clinic Photo" alt="clinic-photo"/>
+
+                  {/*<img src={this.state.picture}/>*/}
                   <div className={styles.clinic__description}>
                     <div className={styles.h_container_rate}>
                       <div className={styles.clinic__name}>
-                        <h2 className={styles.name}>{this.state.nameClinic}</h2>
+                        <h2 className={styles.name}>{clinic.clinic.clinicName}</h2>
                         <RatingStars
                           starSelectingHoverColor="rgb(249, 215, 73)"
                           starRatedColor="rgb(249, 215, 73)"
@@ -113,7 +71,13 @@ class ClinicProfile extends Component {
                       </div>
                     </div>
                     <p>Про клинику</p>
-                    <p>{this.state.about}</p>
+                    <p>
+                      Медицинский центр  основан более 10 лет назад (2005 год) кандидатом медицинских наук
+                      врачом-ревматологом, возглавлявшим Городской ревматологический центр города Киева более
+                      40 лет, Тер-Вартаньян Семеном Христофоровичем. Стремление к оказанию современной и эффективной
+                      медицинской помощи пациентам с ревматическими болезнями объединило в центре несколько поколений
+                      квалифицированных ревматологов.
+                    </p>
                   </div>
                 </article>
               </section>
@@ -128,7 +92,6 @@ class ClinicProfile extends Component {
                     starSpacing='0px'
                     isSelectable={true}
                     rating={this.state.range}
-
                   />
                   <h3>Специалисты:</h3>
                   <RatingStars
@@ -204,35 +167,29 @@ class ClinicProfile extends Component {
                 </div>
               </section>
 
-              <section className={styles.clinic}>
-                <h2 className={styles.clinic__title}>Филиалы</h2>
-                <div className={styles.branches}>
-                  {this.state.branches.map((branch, index) => {
-                    return (
-                      <section key={index} className={styles.branches__card}>
-                        <img src={branch.picture}/>
-                        <article className={styles.branches__address}>
-                          <h3>МЦ на Неждановой</h3>
-                          <ul className={styles.clinic__contacts}>
-                            <li><FontAwesome.FaMapMarker />г. Одесса, ул. Варненская, 2</li>
-                            <li><FontAwesome.FaPhone />(0482) 307-500, (0482) 343 -062</li>
-                            <li><FontAwesome.FaEnvelope /> into-sana@ukr.net</li>
-                            <li><FontAwesome.FaClockO />Пн-Вск: 08.00-20.00</li>
-                          </ul>
-                        </article>
-                      </section>
-                    )
-                  })}
-                </div>
-              </section>
+              {/*<section className={styles.clinic}>*/}
+                {/*<h2 className={styles.clinic__title}>Филиалы</h2>*/}
+                {/*<div className={styles.branches}>*/}
+                      {/*<section  className={styles.branches__card}>*/}
+                        {/*<article className={styles.branches__address}>*/}
+                          {/*<h3>МЦ на Неждановой</h3>*/}
+                          {/*<ul className={styles.clinic__contacts}>*/}
+                            {/*<li><FontAwesome.FaMapMarker />г. Одесса, ул. Варненская, 2</li>*/}
+                            {/*<li><FontAwesome.FaPhone />(0482) 307-500, (0482) 343 -062</li>*/}
+                            {/*<li><FontAwesome.FaEnvelope /> into-sana@ukr.net</li>*/}
+                            {/*<li><FontAwesome.FaClockO />Пн-Вск: 08.00-20.00</li>*/}
+                          {/*</ul>*/}
+                        {/*</article>*/}
+                      {/*</section>*/}
+                {/*</div>*/}
+              {/*</section>*/}
 
               <section className={styles.clinic}>
                 <section className={styles.clinic__feedback}>
                   <h2 className={styles.clinic__title}>Отзывы</h2>
                   <div className={styles.feedback}>
-                    {this.state.feedbacks.map((feedback, index) => {
-                      return (
-                        <section key={index} className={styles.feedback__card}>
+
+                        <section className={styles.feedback__card}>
                           <div className={styles.h_row}>
                             <div className={styles.feedback__range}>
                               <div className={styles.feedback__range_item}>
@@ -259,28 +216,27 @@ class ClinicProfile extends Component {
                               rating={this.state.range}
                             />
                           </div>
-                          <p>{feedback.feedbackText}</p>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet consequuntur error eum
+                            iste omnis pariatur quia ut. Adipisci distinctio enim ipsum obcaecati sint soluta tempora
+                            velit. Dolore, eaque, illum!
+                          </p>
                           <time>
-                            {feedback.date}
+                            Оставлен: Январь 2018
                           </time>
                         </section>
-                      )
-                    })}
                   </div>
                 </section>
               </section>
-
-
             </div>
-
-              <div  style={{width:'19%', backgroundColor:'#ffd1b3', marginRight:'40px'}}>
+            <div className={styles.h_widjets}>
+              <div className={styles.top__rated}>
                 <h3 className={styles.widjet_info_title}>ТОП клиники:</h3>
                 <WidjetsClinic/>
               </div>
-                <div style={{width:'20%', backgroundColor:'#ffd1b3'}}>
+                <div className={styles.top__rated}>
                   <h3 className={styles.widjet_info_title}>ТОП врачей:</h3>
                   <WidjetsDoctors/>
-
+            </div>
             </div>
           </div>
         </div>

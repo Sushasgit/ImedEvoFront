@@ -40,6 +40,7 @@
     font-size: 20px;
     font-weight: 700;
     margin: 0;
+    width: 50%;
     text-decoration: none;
   }
 
@@ -65,7 +66,6 @@
     font-weight: 700;
     margin: 0;
     vertical-align: middle;
-    display: inline-flex;
   }
 
   &__address{
@@ -115,11 +115,12 @@
   }
   &__btn{
     border-radius: 5px;
-    background-color: #01b4f0;
+    background-color: #4775d1;
     padding: 15px;
     color: #fefefe;
     font-size: 14px;
     font-weight: 300;
+    border-color: #4775d1;
   }
 
   &__link{
@@ -163,7 +164,6 @@
 
 .filter__item {
   font-weight: 700;
-  background-color: #01b4f0;
   width: 100%;
   color:#ffffff;
   padding: 20px;
@@ -234,4 +234,15 @@ label {
   @media (max-width: 1200px) {
     font-size: calc(12px + (24 - 12) * (100vw - 320px) / (1200 - 320));
   }
+}
+
+
+.doctors_description{
+  font-size: 16px;
+  font-weight: 400;
+}
+.doctors_description__title{
+  color: #347ECF;
+  font-weight: 700;
+  margin-right: 5px;
 }

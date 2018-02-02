@@ -7,12 +7,37 @@ import WidjetsClinic from '../../components/WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../../components/WidjetsDoctors/WidjetsDoctors'
 import moment from 'moment'
 import BigCalendar from 'react-big-calendar'
+import axios from 'axios'
 import '!style-loader!css-loader!react-big-calendar/lib/css/react-big-calendar.css'
 BigCalendar.momentLocalizer(moment)
 
 import styles from '../../components/ClinicCard/clinic-profile.scss'
 
 class UserProfilePage extends Component {
+
+  componentDidMount() {
+    let id = this.props.match.params.userID
+    const ROOT_URL = "http://54.37.125.178:8080";
+    let userData = localStorage.getItem('testData');
+    let userDataObj = JSON.parse(userData)
+    console.log(userDataObj)
+    axios(`${ROOT_URL}/users/getuser/${id}`,
+      {
+        withCredentials:true,
+
+        auth: {
+          Username:userData.email,
+          password:userData.password,
+        }
+      })
+      .then(response => {
+        console.log(response)})
+      .catch(error => {
+        {console.log("Error: " + error)}
+      });
+  }
+
+
   constructor (props) {
     super(props)
     this.state = {

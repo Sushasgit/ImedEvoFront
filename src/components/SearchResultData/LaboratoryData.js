@@ -8,7 +8,7 @@ export default ({ laboratory, index }) => {
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
-        <img src={laboratory.picture} className="user-image" />
+        <img src={laboratory.picture} className="user-image" alt="user-image" />
         <p className={styles.doctors__position}>Клиника:{laboratory.nameClinic}</p>
       </div>
 

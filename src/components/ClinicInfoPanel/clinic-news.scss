@@ -2,8 +2,12 @@
 .news {
   flex: 1 0 0;
   font-family: 'Lato', sans-serif;
-  color:#ffffff;
+  color: #ffffff;
   margin-right: 51px;
+
+  @media (max-width: 1100px) {
+    text-align: center;
+  }
   p{
     text-align: justify;
   }

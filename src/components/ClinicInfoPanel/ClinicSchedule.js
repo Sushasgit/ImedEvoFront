@@ -26,7 +26,6 @@ class ClinicSchedule extends Component {
             </p>
           </div>
 
-
           <div className={styles.time}>
             <p>
               Воскресенье

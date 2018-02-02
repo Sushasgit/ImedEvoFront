@@ -11,7 +11,7 @@ class DoctorsCategories extends Component {
         <section className={styles.specialisation}>
           <section className={styles.specialisation__card}>
             <header>
-              <img src={require('../../images/senior-woman.png')}/>
+              <img src={require('../../images/senior-woman.png')} alt="img-family-doctor"/>
               <span className={styles.specialisation__icon}>
                 <Icons.IconFamilyDoctor/>
               </span>
@@ -26,7 +26,7 @@ class DoctorsCategories extends Component {
 
           <section className={styles.specialisation__card}>
             <header>
-              <img src={require('../../images/doctor-measuring.png')}/>
+              <img src={require('../../images/doctor-measuring.png')} alt="image-cardio"/>
               <span className={styles.specialisation__icon}>
                 <Icons.IconCardiologist/>
               </span>
@@ -42,7 +42,7 @@ class DoctorsCategories extends Component {
 
           <section className={styles.specialisation__card}>
             <header>
-              <img src={require('../../images/pediatrisian.png')}/>
+              <img src={require('../../images/pediatrisian.png')} alt="image-pediatrician"/>
               <span className={styles.specialisation__icon}>
                 <Icons.IconPediatrician/>
             </span>
@@ -58,7 +58,7 @@ class DoctorsCategories extends Component {
 
           <section className={styles.specialisation__card}>
             <header>
-              <img src={require('../../images/doctor-dentist.png')}/>
+              <img src={require('../../images/doctor-dentist.png')} alt="img-dantist"/>
               <span className={styles.specialisation__icon}>
                 <Icons.IconDantist/>
               </span>
@@ -73,7 +73,7 @@ class DoctorsCategories extends Component {
 
           <section className={styles.specialisation__card}>
             <header>
-              <img src={require('../../images/service-9.jpg')}/>
+              <img src={require('../../images/service-9.jpg')} alt="img-ginecologiest"/>
               <span className={styles.specialisation__icon}>
                 <Icons.IconGinecologiest/>
               </span>
