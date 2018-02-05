@@ -22,13 +22,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 class App extends React.Component {
   constructor(props) {
     super(props);
-
-    const { dispatch } = this.props;
-
-    history.listen((location, action) => {
-
-      // dispatch(alertActions.clear());
-    });
+    history.listen((location, action) => {});
   }
 
   render() {
@@ -52,7 +46,7 @@ class App extends React.Component {
                 <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
                 <Route exact path="/searchresult" component={SearchResultPage} />
                 <Route exact path="/profile/:userID" component={UserProfilePage} />
-                <Route exact path="/article" component={BlogArticlePage}/>
+                <Route exact path="/blog" component={BlogArticlePage}/>
                 <Route path="*" component={NotFound} />
                 </Switch>
               </div>

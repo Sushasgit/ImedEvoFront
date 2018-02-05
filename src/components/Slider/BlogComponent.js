@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import * as constants from '../../constants/constants'
-
 import styles from './blog.scss'
-
 
 class BlogComponent extends Component {
   render () {
@@ -16,11 +15,10 @@ class BlogComponent extends Component {
             </h2>
             <img className={styles.article__img} src={doctor.src} alt=""/>
             <p className={styles.article__description}>{doctor.description}</p>
-            <button className={styles.article__btn}>Читать дальше</button>
+            <Link to="/blog" className={styles.article__btn}>Читать дальше</Link>
           </article>
           )}
         </section>
-
     )
   }
 }
