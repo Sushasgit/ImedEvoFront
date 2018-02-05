@@ -37,7 +37,7 @@
       padding-left: 10px;
 
       @media (max-width: 1200px){
-        font-size: calc(13px + (25 - 13) * (100vw - 320px) / (1200 - 320));
+        font-size: calc(15px + (25 - 15) * (100vw - 320px) / (1200 - 320));
       }
     }
   }

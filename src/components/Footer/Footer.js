@@ -75,7 +75,7 @@ class Footer extends Component {
             </li>
           </ul>
         </nav>
-          <span>Copyright 2017 by Hillel Group. All rights resrved.</span>
+          <span>Copyright 2018 by Hillel Group. All rights resrved.</span>
       </footer>
     );
   }

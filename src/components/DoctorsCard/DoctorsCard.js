@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import styles from  './doctor-cards.scss'
 import * as constants from '../../constants/constants'
 import RatingStars from '../customComponents/RatingStars'
@@ -6,7 +7,7 @@ import RatingStars from '../customComponents/RatingStars'
 class DoctorsCard extends Component {
   render () {
     return (
-      <div>
+      <Fragment>
         <div className="container">
           <div className={`container ${styles.widjet}`}>
             {constants.TestDoctorsCards.map((doctor, index) =>
@@ -92,7 +93,8 @@ class DoctorsCard extends Component {
             )}
           </div>
         </div>
-      </div>
+        <Link className={styles.link__all} to="/"> Посмотреть все специализации</Link>
+      </Fragment>
     )
   }
 }

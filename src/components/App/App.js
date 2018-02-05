@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { history } from '../../history';
@@ -15,7 +15,8 @@ import RegistrationDoctorPage from '../../pages/RegistrationDoctorPage/Registrat
 import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
 import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
 import ClinicProfile from '../../components/ClinicCard/ClinicProfile';
-
+import BlogArticlePage from '../../pages/BlogArticlePage/BlogArticlePage';
+import NotFound from '../../pages/NotFound/NotFound';
 
 
 class App extends React.Component {
@@ -40,6 +41,7 @@ class App extends React.Component {
             }
             <Router history={history}>
               <div>
+                <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/doctors" component={DoctorsPage} />
                 <Route exact path="/clinics" component={ClinicsPage} />
@@ -50,6 +52,9 @@ class App extends React.Component {
                 <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
                 <Route exact path="/searchresult" component={SearchResultPage} />
                 <Route exact path="/profile/:userID" component={UserProfilePage} />
+                <Route exact path="/article" component={BlogArticlePage}/>
+                <Route path="*" component={NotFound} />
+                </Switch>
               </div>
             </Router>
           </div>

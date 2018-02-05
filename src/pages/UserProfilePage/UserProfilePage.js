@@ -5,13 +5,10 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import WidjetsClinic from '../../components/WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../../components/WidjetsDoctors/WidjetsDoctors'
-import moment from 'moment'
-import BigCalendar from 'react-big-calendar'
 import axios from 'axios'
-import '!style-loader!css-loader!react-big-calendar/lib/css/react-big-calendar.css'
-BigCalendar.momentLocalizer(moment)
-
+import CalendarComponent from './CalendarComponent'
 import styles from '../../components/ClinicCard/clinic-profile.scss'
+import ProfileData from './ProfileData'
 
 class UserProfilePage extends Component {
 
@@ -67,42 +64,20 @@ class UserProfilePage extends Component {
   }
 
   render () {
-    const events =[{
-      allDay: true,
-      end: 'Sat Jan 18 2018 02:00:00 GMT+0300 (EEST)',
-      start:'Fri Jan 18 2018 19:30:00 GMT+0300 (EEST)',
-      title:"Интосана 12:00 Янова О.О ",
-      desc: 'Pre-meeting meeting, to prepare for the meeting',
-    }]
     return (
-
       <Fragment>
         <div className={styles.h_background}>
           <Header/>
-          <div className={styles.profile}>
+          <div style={{marginTop:'-101px'}} className={styles.profile}>
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
-                  <img src="https://placeholdit.co//i/100x100?&bg=4775d1&text=User Photo"/>
-
-                  <div className={styles.clinic__description}>
-                    <div className={styles.h_container_rate}>
-                      <div className={styles.clinic__name}>
-                        <h2 className={styles.name}>{this.state.nameClinic}</h2>
-                      </div>
-                    </div>
-                    <p>{this.state.about}</p>
-                  </div>
+                    <ProfileData/>
                 </article>
               </section>
-
               <section className={styles.clinic}>
-                <h2 className={styles.name}>Текущие записи</h2>
-                <BigCalendar
-                  style={{height: '600px',padding:'40px',borderColor:'blue'}}
-                events={events}
-                messages={{next:"Следующий",previous:"Предыдущий",today:"Сегодня", month:'месяц', week:'неделя', day:'день', agenda:'расписание'}}
-                            />
+                <h2 className={styles.clinic__title}>Текущие записи</h2>
+                <CalendarComponent/>
               </section>
 
               <section className={styles.clinic}>
@@ -148,18 +123,16 @@ class UserProfilePage extends Component {
                   </div>
                 </section>
               </section>
-
-
             </div>
-
-            <div  style={{width:'19%', backgroundColor:'#ffd1b3', marginRight:'40px'}}>
+            <div className={styles.h_widjets}>
+             <div className={styles.top__rated}>
               <h3 className={styles.widjet_info_title}>ТОП клиники:</h3>
               <WidjetsClinic/>
             </div>
-            <div style={{width:'20%', backgroundColor:'#ffd1b3'}}>
+            <div className={styles.top__rated}>
               <h3 className={styles.widjet_info_title}>ТОП врачей:</h3>
               <WidjetsDoctors/>
-
+            </div>
             </div>
           </div>
         </div>
