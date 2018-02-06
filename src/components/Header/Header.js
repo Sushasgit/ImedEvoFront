@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,Fragment } from 'react';
 import styles from './header.scss'
 import LogoItem from '../LogoItem/LogoItem'
 import SignUpModal from '../SignUpModal/SignUpModal'
@@ -12,13 +12,15 @@ class Header extends Component {
   render() {
 
     return (
-      <header className={styles.header__container}>
-        <LogoItem/>
-        <div className={styles.container__buttons}>
-            <SignUpModal/>
-            <SignInModal/>
-        </div>
-      </header>
+      <Fragment>
+        <header className={styles.header__container}>
+          <LogoItem/>
+          <div className={styles.container__buttons}>
+              <SignUpModal/>
+              <SignInModal/>
+          </div>
+        </header>
+      </Fragment>
     );
   }
 }

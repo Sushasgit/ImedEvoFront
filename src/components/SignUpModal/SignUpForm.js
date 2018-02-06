@@ -11,7 +11,7 @@ const renderInput = (field) => {
       <label>{label}:</label>
       <input {...input} type={type}
              className="form-control"/>
-      {touched && error && <div className="error">{error}</div>}
+      {touched && error && <div className={styles.error}>{error}</div>}
     </div>
   )
 }
@@ -21,6 +21,7 @@ class SignUpForm extends Component {
     super(props)
   }
 
+
   handleFormSubmit (formProps) {
     this.props.signupUser(formProps)
   }
@@ -29,13 +30,20 @@ class SignUpForm extends Component {
     if (this.props.errorMessage) {
       return (
         <div className="alert alert-danger">
-          <strong>Oops!</strong> {this.props.errorMessage}
+          <strong>Что-то  пошло не так</strong> {this.props.errorMessage}
         </div>
       )
     }
   }
 
   render () {
+    const phoneFormatter = (number) => {
+      if (!number) return '';
+      const splitter = /.{1,3}/g;
+      number = number.substring(0, 13);
+      return number.substring(0, 10).match(splitter).join('-') + number.substring(10);
+    };
+    const phoneParser = (number) => number ? number.replace(/-/g, '') : '';
     const {handleSubmit} = this.props
     return (
       <Fragment>
@@ -76,8 +84,13 @@ class SignUpForm extends Component {
               model="registrationUser.phone"
               type="text"
               name="phone"
+              placeholder={'NNN-NNN-NNNN'}
               component={renderInput}
-              label="+38 (...)... .. ..">
+              label="Телефон"
+              format={phoneFormatter}
+              parse={phoneParser}
+
+            >
             </Field>
 
             <Field
@@ -108,7 +121,6 @@ class SignUpForm extends Component {
               >
               </Field>
 
-
               <Field
                 name="emailCampign"
                 type="checkbox"
@@ -117,16 +129,15 @@ class SignUpForm extends Component {
               </Field>
 
               <Field
-                model="registrationUser.termCondition"
-                name="termCondition"
+                required
+                name="termConditions"
                 type="checkbox"
                 component={renderInput}
-                label="Подписаться на рассылку"
-              >
+                label="Принимаю условия пользовательского соглашения">
               </Field>
             </div>
             {this.renderAlert()}
-            <button action="submit" className="btn btn-primary">Sign up!</button>
+            <button action="submit" className={styles.btn__signup}>Зарегистрироваться</button>
           </Form>
 
         </section>
@@ -137,26 +148,33 @@ class SignUpForm extends Component {
 
 function validate (formProps) {
   const errors = {}
-  const {password, passwordConfirm, email} = formProps
 
-  if (!email) {
-    errors.email = 'Please enter an email'
+  if (!formProps.termConditions) {
+    errors.termConditions = 'Необходимо подтверждение пользовательского соглашения'
   }
 
-  if (!password) {
-    errors.password = 'Please enter a password'
+  if (!formProps.phone || formProps.phone.length < 13 ) {
+    errors.phone = 'Формат номера +380 XX XXX XXXX'
   }
-
-  if (!passwordConfirm) {
-    errors.passwordConfirm = 'Please enter a password confirmation'
+  if (!formProps.email) {
+    errors.email = 'Пожалуйста введите email'
   }
-
-  if (password !== passwordConfirm) {
-    errors.password = 'Passwords must match'
+  if (!formProps.password) {
+    errors.password = 'Пожалуйста введите пароль'
+  }
+  if (!formProps.passwordConfirm) {
+    errors.passwordConfirm = 'Пожалуйста введите подтверждение пароля'
+  }
+  if (formProps.password !== formProps.passwordConfirm) {
+    errors.password = 'Пароли должны совпадать'
   }
 
   return errors
 }
+
+
+
+
 
 function mapStateToProps (state) {
   return {

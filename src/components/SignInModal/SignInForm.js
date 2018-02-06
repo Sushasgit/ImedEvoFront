@@ -59,7 +59,7 @@ class SignInForm extends Component {
               label="Пароль"/>
 
             {this.renderAlert()}
-            <button action="submit" className="btn btn-primary">Войти</button>
+            <button action="submit" className={styles.signin}>Войти</button>
           </Form>
 
         </section>

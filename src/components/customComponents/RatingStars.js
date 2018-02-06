@@ -29,4 +29,7 @@ RatingStars.propTypes = {
   starWidthAndHeight:PropTypes.string,
   starSpacing:PropTypes.string,
 }
+
+
+
 export default RatingStars

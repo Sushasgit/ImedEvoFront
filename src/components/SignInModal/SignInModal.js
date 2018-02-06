@@ -1,56 +1,66 @@
 import React, { Component, Fragment } from 'react'
 import { reduxForm } from 'redux-form'
 import * as actions from  '../../actions/AuthSActions'
-import Modal from 'react-responsive-modal'
 import SignInForm from './SignInForm'
-//import * as Icons from '../SvgIcons/SvgIcons.js'
+import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SignUpModal/sign-up-modal.scss'
-import 'react-responsive-modal/lib/react-responsive-modal.css'
-import 'react-responsive-modal/lib/css'
+import Modal from '../customComponents/Modal'
+
 
 class SignInModal extends Component {
   constructor (props) {
     super(props)
 
-    this.state =
-      {
-      open: false,
-      }
+    this.state = {
+      isModalOpen: false,
+      isInnerModalOpen: false
+    }
+    this.closeModal = this.closeModal.bind(this)
+    this.openModal = this.openModal.bind(this)
   }
 
-  onOpenModal = () => {
-    this.setState({open: true})
+  closeModal () {
+    this.setState({
+      isModalOpen: false
+    })
   }
 
-  onCloseModal = () => {
-    this.setState({open: false})
+  openModal () {
+    this.setState({
+      isModalOpen: true
+    })
   }
-
   render () {
-    const {open} = this.state
     return (
       <Fragment>
         <button
           className={styles.login__button}
-          onClick={this.onOpenModal}>
+          onClick={this.openModal}>
           Войти
         </button>
 
         <Modal
-          styles={{
-            width: '1200px'
-          }}
-          classNames={{
-            transitionEnter: 'transition-enter',
-            transitionEnterActive: 'transition-enter-active',
-            transitionExit: 'transition-exit-active',
-            transitionExitActive: 'transition-exit-active',
-          }}
-          {...this.props}
-          animationDuration={1000}
-          open={open} onClose={this.onCloseModal} little>
-
+          isModalOpen={this.state.isModalOpen}
+          closeModal={this.closeModal}
+        >
+          <img width="100%" style={{borderRadius: 3}} src={require('../../images/sign-up.png')} alt="unsplash"/>
           <SignInForm/>
+
+          <button
+            className={styles.close}
+            style={{
+              margin: 0,
+              width: 'auto',
+              marginTop: 10,
+              backgroundColor:'transparent',
+              position:'absolute',
+              top:'-48px',
+              right:'-60px',
+              border:'none'
+            }} onClick={this.closeModal}>
+
+            <Icons.IconCloseModal/>
+          </button>
         </Modal>
       </Fragment>
     )
@@ -80,7 +90,7 @@ function mapStateToProps (state) {
 }
 
 export default reduxForm({
-  form: 'signup',
+  form: 'signin',
   fields: ['email', 'password', 'passwordConfirm'],
   validate
 }, mapStateToProps, actions)(SignInModal)

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import data from '../../constants/test.json'
+import axios from 'axios';
 import Map from '../../components/Map/Map'
 import ClinicList from '../SearchResultLists/ClinicList'
 import { connect } from 'react-redux'
@@ -14,26 +14,40 @@ class RandomResultClinic extends Component {
     super(props)
 
     this.state = {
+      doctors:[],
       clinics: [],
-      doctors: [],
     }
   }
 
   componentDidMount () {
-    var th = this
-    th.setState({
-      clinics: data.clinics
-    })
-  }
+      const ROOT_URL = "http://54.37.125.178:8080";
+      axios.get(`${ROOT_URL}/clinics/getall`)
+        .then(response => {
+          console.log(response.data)
+          let clinics = response.data;
+          let th = this
+          th.setState({
+            clinics:clinics,
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    }
+
+
 
   render () {
     return (
       <div style={{display:'flex'}}>
         <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
-          <h4 style={{textAlign:'center'}} className={styles.title__random}>
-            <img src={require('../../images/Hospital Reception.png')} alt=''/>
-            Клиники в Одессе:</h4>
-          <ClinicList {...this.state}/>
+          {this.state.clinics.length>0 &&
+            <ClinicList {...this.state}/>
+          }
+
+          {this.state.clinics.length === 0 &&
+          <h4 className={styles.title_not_found}>По вашему запросу ничего не найдено</h4>
+          }
         </div>
         <div className={styles.map}>
           <Map

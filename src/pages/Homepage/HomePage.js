@@ -7,7 +7,7 @@ import styles from './home-page.scss'
 import NavigationMenu from '../../components/NavigationMenu/NavigationMenu'
 import DoctorsCategories from '../../components/DoctorsCatagories/DoctorsCategories'
 import DoctorsCard from '../../components/DoctorsCard/DoctorsCard'
-import axios from 'axios'
+
 
 
 class HomePage extends Component {

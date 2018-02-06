@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
-:global { @import '../../common'; }
+
+:global {
+  @import '../../common';
+}
 
 .header__container {
   box-shadow: 0 0 8px 1px rgba(28, 39, 40, 0.56);
   background-color: #ffffff;
-  opacity: 0.8;
+  opacity: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,10 +27,9 @@
   }
 }
 
-
 .container__buttons {
   display: flex;
-
+  opacity: 1;
   @media (max-width: 1101px) {
     justify-content: center;
   }
@@ -45,11 +47,8 @@
   }
 }
 
-
-
 @media (max-width: 853px) {
   .logo {
-
     img {
       width: 70px;
     }

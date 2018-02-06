@@ -35,8 +35,8 @@ const Map = compose(
     defaultCenter={props.center}
   >
     {props.doctors.map ((a, i) => {
-      let lat = parseFloat(a.latitude);
-      let lon = parseFloat(a.longitude);
+      let lat = parseFloat(a.coordinatesLatitude);
+      let lon = parseFloat(a.coordinatesLongitude);
       return (
         <Marker  onClick={() => props.updateSelectedDoctorsPlace(i)} key={i} position={{ lat: lat, lng: lon }}>
           {props.selectedDoctorsPlace === i && <InfoBox onCloseClick={() => props.updateSelectedDoctorsPlace(null)}>
@@ -64,8 +64,8 @@ const Map = compose(
       )
     })}
     {props.clinics.map ((a, i) => {
-      let lat = parseFloat(a.latitude);
-      let lon = parseFloat(a.longitude);
+      let lat = parseFloat(a.coordinatesLatitude);
+      let lon = parseFloat(a.coordinatesLongitude);
       return (
         <Marker  onClick={() => props.updateSelectedClinicsPlace(i)} key={i} position={{ lat: lat, lng: lon }}>
           {props.selectedClinicsPlace === i && <InfoBox onCloseClick={() => props.updateSelectedClinicsPlace(null)}>
@@ -75,7 +75,7 @@ const Map = compose(
                 <div className={styles.main_info}>
                   <h2 className={styles.doctor__name}><span>{a.firstname}</span> <span>{a.lastname}</span></h2>
 
-                  <h3 className={styles.doctor__name}>{a.nameClinic}</h3>
+                  <h3 className={styles.doctor__name}>{a.clinicName}</h3>
                   <RatingStars
                     starSelectingHoverColor="rgb(249, 215, 73)"
                     starRatedColor="rgb(249, 215, 73)"
@@ -86,8 +86,6 @@ const Map = compose(
                   />
                   <p className={styles.doctor__address}><Icons.IconPlace/>{a.address}</p>
                 </div>
-
-
               </div>
             </div>
           </InfoBox>}

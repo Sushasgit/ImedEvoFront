@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import data from '../../constants/test.json'
+import axios from 'axios';
 import Map from '../../components/Map/Map'
 import DoctorList from '../SearchResultLists/DoctorList'
 
@@ -13,27 +13,40 @@ class RandomResultDoctors extends Component {
     super(props)
 
     this.state = {
-      clinics: [],
+      clinics:[],
       doctors: [],
     }
   }
 
   componentDidMount () {
-    var th = this
-    th.setState({
-      doctors: data.doctors
-    })
+    const ROOT_URL = "http://54.37.125.178:8080";
+    axios.get(`${ROOT_URL}/doctors/getall`)
+      .then(response => {
+        console.log(response.data)
+        let doctors = response.data;
+        let th = this
+        th.setState({
+          doctors:doctors,
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      });
   }
 
   render () {
+    console.log(this.state.doctors.length)
     return (
       <div style={{display:'flex'}}>
         <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
 
-          <h4 style={{textAlign:'center'}} className={styles.title__random}>
-            <img src={require('../../images/Doctors.png')} alt=''/>
-            Врачи в Одессе:</h4>
+          {this.state.doctors.length > 0 &&
             <DoctorList  {...this.state}/>
+          }
+
+          {this.state.doctors.length === 0 &&
+          <h4 className={styles.title_not_found}>По вашему запросу ничего не найдено</h4>
+          }
         </div>
           <div className={styles.map}>
             <Map
