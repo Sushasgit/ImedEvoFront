@@ -8,7 +8,7 @@ export default ({ doctor, index }) => {
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
-        <img src='https://dummyimage.com/100x100/347ECF/ffffff.png' className="user-image" alt='doctor-photo'/>
+        <img src={require('../../images/doctor.png')} className="user-image" alt='doctor-photo'/>
         <p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>
       </div>
 

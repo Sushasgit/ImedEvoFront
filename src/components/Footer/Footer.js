@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import styles from './footer.scss'
+import { Link } from 'react-router-dom'
+import SignUpModal from '../SignUpModal/SignUpModal'
+import SignInModal from '../SignInModal/SignInModal'
 
 class Footer extends Component {
+
   render() {
     return (
       <footer className={styles.footer}>
@@ -11,18 +15,16 @@ class Footer extends Component {
               <h2>Пациентам</h2>
             </li>
             <li>
-              <a href="">Log In</a>
+              <SignInModal/>
             </li>
             <li>
-              <a href="">
-                Регистрация
-              </a>
+             <SignUpModal/>
             </li>
             <li>
-              <a href="">Блог</a>
+              <Link to="/blog">Блог</Link>
             </li>
             <li>
-              <a href="">Помощь</a>
+              <Link to="/help">Помощь</Link>
             </li>
           </ul>
 
@@ -31,16 +33,9 @@ class Footer extends Component {
               <h2>Партнерам</h2>
             </li>
             <li>
-              <a href="">Imed для клиник</a>
+              <Link to="/forClinic">IMED для клиник</Link>
             </li>
-            <li>
-              <a href="">
-                Log In
-              </a>
-            </li>
-            <li>
-              <a href="">Регистрация</a>
-            </li>
+
             <li>
               <a href="">Реклама и продвижение</a>
             </li>
@@ -51,7 +46,7 @@ class Footer extends Component {
               <h2>О нас</h2>
             </li>
             <li>
-              <a href="">О компани</a>
+              <a href="">О компании</a>
             </li>
             <li>
               <a href="">
@@ -61,12 +56,9 @@ class Footer extends Component {
             <li>
               <a href="">Вакансии</a>
             </li>
-            <li>
-              <a href="">Карта сайта</a>
-            </li>
           </ul>
 
-          <ul>
+          <ul style={{alignSelf:'center'}}>
             <li>
               <a href="">Пользовательское соглашение</a>
             </li>

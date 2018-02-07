@@ -14,11 +14,15 @@ class UserProfilePage extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.userID
-    const ROOT_URL = "http://54.37.125.178:8080";
+    const ROOT_URL = "http://54.37.125.178:8084";
     let userData = localStorage.getItem('testData');
     let userDataObj = JSON.parse(userData)
     console.log(userDataObj)
+    if (axios.defaults.headers.common.hasOwnProperty('Authorization')) {
+      delete axios.defaults.headers.common.Authorization;
+    }
     axios(`${ROOT_URL}/users/getuser/${id}`,
+
       {
         withCredentials:true,
 

@@ -16,6 +16,8 @@ import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
 import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
 import ClinicProfile from '../../components/ClinicCard/ClinicProfile';
 import BlogArticlePage from '../../pages/BlogArticlePage/BlogArticlePage';
+import ForClinic from '../../pages/ForClinic/ForClinic';
+import HelpPage from '../../pages/HelpPage/HelpPage';
 import NotFound from '../../pages/NotFound/NotFound';
 
 
@@ -47,6 +49,8 @@ class App extends React.Component {
                 <Route exact path="/searchresult" component={SearchResultPage} />
                 <Route exact path="/profile/:userID" component={UserProfilePage} />
                 <Route exact path="/blog" component={BlogArticlePage}/>
+                <Route exact path="/help" component={HelpPage}/>
+                <Route exact path="/forClinic" component={ForClinic}/>
                 <Route path="*" component={NotFound} />
                 </Switch>
               </div>

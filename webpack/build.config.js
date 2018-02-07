@@ -4,8 +4,8 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-var CompressionPlugin = require("compression-webpack-plugin");
-
+const CompressionPlugin = require('compression-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 const DIRNAME = path.resolve(__dirname, '../')
 
@@ -51,7 +51,7 @@ module.exports = {
           ]
         })
       },
-      {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader'},
+      {test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader'},
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
@@ -113,11 +113,26 @@ module.exports = {
       'process.env': {NODE_ENV: JSON.stringify('production')}
     }),
     new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/images/logo.png',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: true,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        twitter: true,
+        yandex: true,
+        windows: true
+      }
     })
   ]
 }

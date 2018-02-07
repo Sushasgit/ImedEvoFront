@@ -3,15 +3,14 @@ import { history } from '../history';
 import {
   AUTH_USER,
   AUTH_ERROR,
-  // UNAUTH_USER,
-  // FETCH_MESSAGE
+
 } from './types';
 
-const ROOT_URL = "http://54.37.125.178:8080";
+const ROOT_URL = "http://54.37.125.178:8087";
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}//users/login?email=${email}&password=${password}`, { email, password })
+    axios.post(`${ROOT_URL}/users/login?email=${email}&password=${password}`, { email, password })
       .then(response => {
         dispatch({ type: AUTH_USER })
         // TODO save token to cookie or localStorage

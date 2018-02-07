@@ -14,6 +14,7 @@ class RandomResultClinic extends Component {
     super(props)
 
     this.state = {
+      isLoading:true,
       doctors:[],
       clinics: [],
     }
@@ -21,18 +22,19 @@ class RandomResultClinic extends Component {
 
   componentDidMount () {
       const ROOT_URL = "http://54.37.125.178:8080";
-      axios.get(`${ROOT_URL}/clinics/getall`)
+    axios.get(`${ROOT_URL}/clinics/getall`)
         .then(response => {
           console.log(response.data)
           let clinics = response.data;
           let th = this
           th.setState({
             clinics:clinics,
+            isLoading:false
           })
         })
         .catch((error) => {
           console.log(error)
-        });
+        })
     }
 
 
@@ -41,11 +43,16 @@ class RandomResultClinic extends Component {
     return (
       <div style={{display:'flex'}}>
         <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
+
+          {this.state.clinics.length===0 && this.state.isLoading &&
+            <img src={require('../../images/loading.gif')}/>
+          }
+
           {this.state.clinics.length>0 &&
             <ClinicList {...this.state}/>
           }
 
-          {this.state.clinics.length === 0 &&
+          {this.state.clinics.length === 0 && !this.state.isLoading &&
           <h4 className={styles.title_not_found}>По вашему запросу ничего не найдено</h4>
           }
         </div>

@@ -31,9 +31,6 @@ class RandomLaboratories extends Component {
     return (
       <div style={{display:'flex'}}>
         <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
-          <h4 style={{textAlign:'center'}} className={styles.title__random}>
-            <img src={require('../../images/Hospital Reception.png')} alt=''/>
-            Лаборатории в Одессе:</h4>
           <LaboratoriesList {...this.state}/>
         </div>
         <div className={styles.map}>
