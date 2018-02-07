@@ -1,0 +1,284 @@
+.logo {
+  box-shadow: 0 0 8px 1px rgba(28, 39, 40, 0.56);
+  background-color: #ffffff;
+  opacity: 0.8;
+  margin-bottom: 4px;
+  a {
+    background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
+    color: #01b4f0;
+    font-size: 3.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 20px;
+  }
+  img{
+    width: 70px;
+  }
+}
+
+.h_background{
+  background-color: #f6f6f6;
+}
+
+.clinic{
+  background-color: #ffffff;
+  margin: 40px;
+  padding: 20px;
+  box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+  border-radius: 4px;
+
+  @media (max-width: 600px) {
+    margin: 19px;
+  }
+  &__info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @media (max-width: 500px) {
+      display: block;
+    }
+    img{
+      width: 30%;
+
+      @media (max-width: 500px) {
+        display: block;
+        margin: 10px auto;
+      }
+    }
+  }
+  &__description{
+    width: 56%;
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+  &__main_info{
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1249px) {
+      display: block;
+    }
+  }
+  &__contacts{
+    li{
+      list-style: none;
+      font-size: 18px;
+      path{
+        margin-right: 11px;
+      }
+    }
+  }
+
+  &__map{
+    width: 56%;
+
+    @media (max-width: 1249px) {
+      width:100%;
+    }
+  }
+  &__directions{
+    width: 40%;
+  }
+  &__area{
+    display: flex;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+    li{
+      list-style: none;
+      font-size: 18px;
+    }
+  }
+  &__title{
+    font-weight: bold;
+    color: #4775d1;
+    text-align: center;
+  }
+  &__rating{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    text-align: center;
+    padding: 14px;
+    border-radius: 4px;
+
+    @media (max-width: 600px) {
+     display: block;
+    }
+    span{
+      margin-right: 10px;
+      font-weight: 900;
+      color: #015f7f;
+    }
+  }
+
+  &__name {
+    color: #4775d1;
+
+    @media (max-width: 1200px) {
+      text-align: center;
+      h2{
+        font-size: 1em;
+      }
+    }
+  }
+
+  &__btn{
+    background-color: #ff8533;
+    color: #ffffff;
+    padding: 12px 40px;
+    font-size: 20px;
+    font-family: 'Open Sans Condensed',sans-serif;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+.branches{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  &__card{
+    display: flex;
+    align-items: center;
+    width: 48%;
+
+    img{
+      width: 33%;
+    }
+  }
+  &__address{
+    width: 60%;
+  }
+}
+
+.feedback{
+  &__range{
+    display: flex;
+    font-size: 23px;
+    margin-bottom: 20px;
+
+    @media (max-width: 660px) {
+    justify-content: center;
+    }
+
+    @media (max-width: 340px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    span{
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  &__range_item{
+    text-align: center;
+    color: #5e6868;
+    border-right: 1px solid #98a3a4;
+    padding: 0;
+    width: 130px;
+    p{
+      font-size: 14px;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+  &__card{
+    border-bottom: 1px solid #edf1f2;
+    margin-bottom: 20px;
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
+  }
+  time{
+    text-align: right;
+    display: inherit;
+    color: #01b4f0;
+  }
+}
+
+.h_container_rate{
+  display: flex;
+
+  @media (max-width: 500px) {
+    display: block;
+  }
+}
+.h_row{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @media (max-width: 660px) {
+    display: block;
+    text-align: center;
+  }
+}
+
+.profile{
+  display: flex;
+  margin-bottom: -80px;
+
+  @media (max-width: 1523px) {
+    flex-direction: column;
+  }
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+  }
+}
+
+.container_clinic_card {
+  max-height: 1653px;
+  overflow: auto;
+  width: 55%;
+  @media (max-width: 1523px) {
+    width: 100%;
+  }
+  @media (max-width: 1523px) {
+    height: auto;
+  }
+}
+.widjet_info_title{
+  text-align: center;
+  margin-bottom: 0;
+  color: #4775d1;
+  font-size: 24px;
+  margin-top: 45px;
+}
+
+.top__rated {
+  width:50%;
+  background-color:#e6e6e6;
+  margin-right:40px;
+  max-height: 1653px;
+  overflow: auto;
+
+  @media (max-width: 1100px) {
+    width: 50%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.h_widjets{
+  display: flex;
+  @media (max-width: 1100px) {
+   display: flex;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}

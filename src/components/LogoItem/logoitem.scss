@@ -2,11 +2,14 @@
   a {
     background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
     color: #01b4f0;
-    font-size: 6.06em;
+    font-size: 3.06em;
     font-weight: 700;
     text-transform: uppercase;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    img{
+      width: 60px;
+    }
   }
   @media (max-width: 1101px) {
     text-align: center;

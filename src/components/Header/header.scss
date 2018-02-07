@@ -1,22 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
-:global { @import '../../common'; }
+
+:global {
+  @import '../../common';
+}
 
 .header__container {
-  padding-bottom: 160px;
-
+  box-shadow: 0 0 8px 1px rgba(28, 39, 40, 0.56);
+  background-color: #ffffff;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 101px;
   @media (max-width: 1300px) {
-    padding-bottom: 90px;
+    //padding-bottom: 90px;
   }
 
   @media (max-width: 980px) {
     padding-bottom: 20px;
   }
+
+  @media (max-width: 500px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 .container__buttons {
   display: flex;
-  margin-bottom: 108px;
-
+  opacity: 1;
   @media (max-width: 1101px) {
     justify-content: center;
   }
@@ -34,30 +47,8 @@
   }
 }
 
-.login__button {
-  font-size: 1.1em;
-  font-weight: 700;
-  background-color: #01ace4;
-  margin-right: 10px;
-  padding: 10px 27px;
-  color: #fff;
-  border-radius: 4px;
-  transform-style: flat;
-  transition: color 400ms ease-out;
-  border: 1px solid #01ace4;
-}
-
-.login__button:hover{
-  background: transparent;
-  color: #01b4f0;
-}
-.sign_up_button {
-  @extend .login__button;
-}
-
 @media (max-width: 853px) {
   .logo {
-
     img {
       width: 70px;
     }

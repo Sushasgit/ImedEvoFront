@@ -1,54 +1,72 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { reduxForm } from 'redux-form'
+import * as actions from  '../../actions/AuthSActions'
+import SignInForm from './SignInForm'
 import * as Icons from '../SvgIcons/SvgIcons.js'
-import styles from '../SignUpModal/sign-up-modal.scss'
-import { Field, Form } from 'react-redux-form'
-import { GoogleLogin } from 'react-google-login'
-import { Link } from 'react-router-dom'
+import styles from  '../SignUpModal/sign-up-modal.scss'
+import Modal from '../customComponents/Modal'
 
 
-class SignInUpModal extends Component {
+class SignInModal extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      isModalOpen: false,
+      isInnerModalOpen: false
+    }
+    this.closeModal = this.closeModal.bind(this)
+    this.openModal = this.openModal.bind(this)
+  }
+
+  closeModal () {
+    this.setState({
+      isModalOpen: false
+    })
+  }
+
+  openModal () {
+    this.setState({
+      isModalOpen: true
+    })
+  }
   render () {
     return (
-      <div className={styles.registration__content}>
-        <Icons.CloseButton onClick={this.props.close}/>
-        <div className={styles.registration__body}>
-          <Form model="registrationUser">
-            <h2 className={styles.registration__title}>Войти</h2>
+      <Fragment>
+        <button
+          className={styles.login__button}
+          onClick={this.openModal}>
+          Войти
+        </button>
 
-            <Field model="registrationUser.email">
-              <label>
-                <input type="email" placeholder="Email"/>
-              </label>
-            </Field>
+        <Modal
+          isModalOpen={this.state.isModalOpen}
+          closeModal={this.closeModal}
+        >
+          <img width="100%" style={{borderRadius: 3}} src={require('../../images/sign-up.png')} alt="unsplash"/>
+          <SignInForm/>
 
-            <Field model="registrationUser.password">
-              <label>
-                <input type="password" placeholder="Пароль"/>
-              </label>
+          <button
+            className={styles.close}
+            style={{
+              margin: 0,
+              width: 'auto',
+              marginTop: 10,
+              backgroundColor:'transparent',
+              position:'absolute',
+              top:'-48px',
+              right:'-60px',
+              border:'none'
+            }} onClick={this.closeModal}>
 
-            </Field>
-
-            <Link to="/"> Забыли пароль? </Link>
-            <div>
-              <div className="col-sm-6 col-sm-offset-3">
-                <input
-                  className={styles.registration__signin_button}
-                  type="submit"
-                  value="Войти"
-                  onClick={e => this.onRegistrationSubmit(e)}
-                />
-              </div>
-            </div>
-          </Form>
-          <div className={styles.logo__container}>
-            <a href="">
-              IMED
-            </a>
-          </div>
-        </div>
-      </div>
+            <Icons.IconCloseModal/>
+          </button>
+        </Modal>
+      </Fragment>
     )
   }
 }
 
-export default SignInUpModal
+
+
+export default SignInModal;

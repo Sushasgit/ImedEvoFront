@@ -1,0 +1,15 @@
+.panel_info{
+  background-image: linear-gradient(to top, #4775d1 0%, #0198cb 100%);
+  display: flex;
+  padding: 20px;
+  margin-top: -101px;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

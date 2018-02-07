@@ -39,6 +39,7 @@ class Input extends React.Component {
                disabled={this.props.disabled}
                onChange={this.props.onChange}
                onBlur={this.props.onBlur}
+
         />
         <ClearButton/>
       </div>

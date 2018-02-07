@@ -1,104 +1,150 @@
-import React, { Component } from 'react';
-import styles from '../../pages/Homepage/home-page.scss'
-import logoStyles from '../../pages/SearchResultPage/search-page.scss'
-import profileStyles from './user-page.scss'
-import moment from 'moment'
-import BigCalendar from 'react-big-calendar'
-BigCalendar.momentLocalizer(moment)
-import '!style-loader!css-loader!react-big-calendar/lib/css/react-big-calendar.css'
-import DoctorsCard from '../../components/DoctorsCard/DoctorsCard'
-import FeedbackCard from '../../components/FeedbackCard/FeedbackCard'
-import ProfileData from './ProfileData'
+import React, { Component, Fragment } from 'react'
+import RatingStars from '../../components/customComponents/RatingStars'
+import * as FontAwesome from 'react-icons/lib/fa'
 import Footer from '../../components/Footer/Footer'
-
+import Header from '../../components/Header/Header'
+import WidjetsClinic from '../../components/WidjetsClinic/WidjetsClinic'
+import WidjetsDoctors from '../../components/WidjetsDoctors/WidjetsDoctors'
+import axios from 'axios'
+import CalendarComponent from './CalendarComponent'
+import styles from '../../components/ClinicCard/clinic-profile.scss'
+import ProfileData from './ProfileData'
 
 class UserProfilePage extends Component {
-constructor (props){
-  super(props)
-  state:{
 
+  componentDidMount() {
+    let id = this.props.match.params.userID
+    const ROOT_URL = "http://54.37.125.178:8084";
+    let userData = localStorage.getItem('testData');
+    let userDataObj = JSON.parse(userData)
+    console.log(userDataObj)
+    if (axios.defaults.headers.common.hasOwnProperty('Authorization')) {
+      delete axios.defaults.headers.common.Authorization;
+    }
+    axios(`${ROOT_URL}/users/getuser/${id}`,
+
+      {
+        withCredentials:true,
+
+        auth: {
+          Username:userData.email,
+          password:userData.password,
+        }
+      })
+      .then(response => {
+        console.log(response)})
+      .catch(error => {
+        {console.log("Error: " + error)}
+      });
   }
-}
-  render() {
- const events =[{
-      allDay: true,
-      end: 'Sat Jan 18 2018 02:00:00 GMT+0300 (EEST)',
-      start:'Fri Jan 18 2018 19:30:00 GMT+0300 (EEST)',
-      title:"Интосана 12:00 Янова О.О ",
-      desc: 'Pre-meeting meeting, to prepare for the meeting',
-    }]
+
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      feedbacks: [
+        {
+          feedbackText: 'Dr Ojjeh is simply the best! No wait time, he is very gentle and funny, never had any pain during any of my visits. Because of him I don’t mind going to the dentist.',
+          date: 'Оставлен: Январь 2018',
+          range: 5
+        },
+        {
+          feedbackText: 'Dr. Ojjeh has been our dentist for many years, he is an outstanding doctor, he truly cares about his patients, he explains everything in details, we are very happy with his care. we would go anywhere else.',
+          date: 'Оставлен:Январь 2018',
+          range: 1
+        },
+        {
+          feedbackText: 'Dr Ojjeh is simply the best! No wait time, he is very gentle and funny, never had any pain during any of my visits. Because of him I don’t mind going to the dentist.',
+          date: 'Оставлен: Январь 2018',
+          range: 5
+        },
+        {
+          feedbackText: 'Dr. Ojjeh has been our dentist for many years, he is an outstanding doctor, he truly cares about his patients, he explains everything in details, we are very happy with his care. we would go anywhere else.',
+          date: 'Оставлен: Январь 2018',
+          range: 5,
+        }
+      ]
+    }
+  }
+
+  render () {
     return (
-      <div className={profileStyles.profile}>
-        <div style={{paddingBottom:'0'}} >
-          <div   className={profileStyles.container__profile}>
-            <div className={logoStyles.logo__container}>
-              <a style={{paddingBottom:'50px'}} className={logoStyles.logo} href="">
-                <img src={require('../../images/logo.png')} alt="logo"/>
-                IMED
-              </a>
+      <Fragment>
+        <div className={styles.h_background}>
+          <Header/>
+          <div style={{marginTop:'-101px'}} className={styles.profile}>
+            <div className={styles.container_clinic_card}>
+              <section className={styles.clinic}>
+                <article className={styles.clinic__info}>
+                    <ProfileData/>
+                </article>
+              </section>
+              <section className={styles.clinic}>
+                <h2 className={styles.clinic__title}>Текущие записи</h2>
+                <CalendarComponent/>
+              </section>
+
+              <section className={styles.clinic}>
+                <section className={styles.clinic__feedback}>
+                  <h2 className={styles.clinic__title}>Отзывы</h2>
+                  <div className={styles.feedback}>
+                    {this.state.feedbacks.map((feedback, index) => {
+                      return (
+                        <section key={index} className={styles.feedback__card}>
+                          <div className={styles.h_row}>
+                            <div className={styles.feedback__range}>
+                              <div className={styles.feedback__range_item}>
+                                <FontAwesome.FaTrash/> <span>5</span>
+                                <p>Комфорт</p>
+                              </div>
+
+                              <div className={styles.feedback__range_item}>
+                                <FontAwesome.FaAmbulance/><span>5</span>
+                                <p>Специалисты</p>
+                              </div>
+
+                              <div className={styles.feedback__range_item}>
+                                <FontAwesome.FaDollar/><span>5</span>
+                                <p>Доброжелательность</p>
+                              </div>
+                            </div>
+                            <RatingStars
+                              starSelectingHoverColor="rgb(249, 215, 73)"
+                              starRatedColor="rgb(249, 215, 73)"
+                              starWidthAndHeight="30px"
+                              starSpacing='0px'
+                              isSelectable={true}
+                              rating={this.state.range}
+                            />
+                          </div>
+                          <p>{feedback.feedbackText}</p>
+                          <time>
+                            {feedback.date}
+                          </time>
+                        </section>
+                      )
+                    })}
+                  </div>
+                </section>
+              </section>
             </div>
+            <div className={styles.h_widjets}>
+             <div className={styles.top__rated}>
+              <h3 className={styles.widjet_info_title}>ТОП клиники:</h3>
+              <WidjetsClinic/>
+            </div>
+            <div className={styles.top__rated}>
+              <h3 className={styles.widjet_info_title}>ТОП врачей:</h3>
+              <WidjetsDoctors/>
+            </div>
+            </div>
+          </div>
         </div>
-      </div>
-        <h2 className={profileStyles.profile__title}>Личный кабинет клиента </h2>
-        <section className={profileStyles.data}>
-          <article className={profileStyles.data__user_photo}>
-            <header className={profileStyles.h__header}/>
-            <img className={profileStyles.user_photo} src="http://placehold.it/170x120"/>
-          </article>
-
-          <article className={profileStyles.data__information}>
-            <h3 className={profileStyles.data__title}>Личные данные</h3>
-            <div className={profileStyles.data__personal}>
-              <ProfileData/>
-            </div>
-          </article>
-        </section>
-
-        <section className={profileStyles.data}>
-          <article className={profileStyles.data__user_photo}>
-            <header className={profileStyles.h__header}/>
-          </article>
-
-          <article className={profileStyles.data__information}>
-            <h3 className={profileStyles.data__title}>Текущие записи</h3>
-            <div className={profileStyles.data__personal}>
-              <BigCalendar
-                style={{height: '600px',padding:'40px',borderColor:'blue'}}
-                events={events}
-                messages={{next:"Следующий",previous:"Предыдущий",today:"Сегодня", month:'месяц', week:'неделя', day:'день', agenda:'расписание'}}
-              />
-            </div>
-          </article>
-        </section>
-        <section className={profileStyles.data}>
-          <article className={profileStyles.data__user_photo}>
-            <header className={profileStyles.h__header}/>
-          </article>
-
-          <article className={profileStyles.data__information}>
-            <h3 className={profileStyles.data__title}>Избранные специалисты</h3>
-            <div style={{marginTop:'30px'}} className={profileStyles.data__personal}>
-              <DoctorsCard/>
-            </div>
-          </article>
-        </section>
-
-        <section className={profileStyles.data}>
-          <article className={profileStyles.data__user_photo}>
-            <header className={profileStyles.h__header}/>
-          </article>
-
-          <article className={profileStyles.data__information}>
-            <h3 className={profileStyles.data__title}>Отзывы</h3>
-            <div style={{marginTop:'30px',padding:'20px'}} className={profileStyles.data__personal}>
-              <FeedbackCard/>
-            </div>
-          </article>
-        </section>
         <Footer/>
-      </div>
-    );
+      </Fragment>
+    )
+
   }
 }
 
-export default UserProfilePage ;
+export default UserProfilePage

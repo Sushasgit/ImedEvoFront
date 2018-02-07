@@ -1,139 +1,75 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Field, Form } from 'react-redux-form';
+import React, { Component, Fragment } from 'react'
+import { reduxForm } from 'redux-form'
+import * as actions from  '../../actions/AuthSActions'
+// import Modal from 'react-responsive-modal';
+import SignUpForm from './SignUpForm'
+import Modal from '../customComponents/Modal'
 import * as Icons from '../SvgIcons/SvgIcons.js'
-import { GoogleLogin } from 'react-google-login';
-import {
-  registrationAsync,
-} from '../../actions/userAuthActions';
 import styles from  './sign-up-modal.scss'
+import 'react-responsive-modal/lib/react-responsive-modal.css'
+import 'react-responsive-modal/lib/css'
 
 
-class RegistrationModal extends Component {
-  constructor(props) {
-    super(props);
+class SignUpModal extends Component {
+  constructor (props) {
+    super(props)
 
     this.state = {
-      update: false
-      };
-    this.onRegistrationSubmit = this.onRegistrationSubmit.bind(this);
+      isModalOpen: false,
+      isInnerModalOpen: false
+    }
+    this.closeModal = this.closeModal.bind(this)
+    this.openModal = this.openModal.bind(this)
   }
 
-  onRegistrationSubmit(e) {
-    e.preventDefault();
-    let form = this.props.registrationUserForm;
-    let { email, password, phone,name,birthDate } = this.props.registrationUser;
-    this.props.registrationUserAction({ email, password, phone, birthDate, name });
+  closeModal () {
+    this.setState({
+      isModalOpen: false
+    })
   }
 
-  render() {
+  openModal () {
+    this.setState({
+      isModalOpen: true
+    })
+  }
+
+  render () {
+
     return (
-        <div className={styles.registration__content}>
-          <Icons.CloseButton className={styles.registration__close} onClick={this.props.close}/>
-          <div className={styles.registration__body}>
-        <Form model="registrationUser">
-          <h2 className={styles.registration__title} >Регистрация</h2>
+      <Fragment>
 
-          <Field model="registrationUser.lastName">
-            <label>
-              <input  type="text" placeholder="Фамилия" />
-            </label>
-          </Field>
+        <button className={styles.sign_up_button} onClick={this.openModal}>Регистрация</button>
+        <Modal
+          isModalOpen={this.state.isModalOpen}
+          closeModal={this.closeModal}
+         >
+          <img width="100%" style={{borderRadius: 3}} src={require('../../images/sign-up.png')} alt="unsplash"/>
+            <SignUpForm/>
 
-          <Field model="registrationUser.name">
-            <label>
-              <input  type="text" placeholder="Имя" />
-            </label>
-          </Field>
+          <button
+            className={styles.close}
+            style={{
+            margin: 0,
+            width: 'auto',
+            marginTop: 10,
+            backgroundColor:'transparent',
+            position:'absolute',
+            top:'-48px',
+            right:'-60px',
+            border:'none'
+          }} onClick={this.closeModal}>
 
-          <Field model="registrationUser.secondName">
-            <label>
-              <input  type="text" placeholder="Отчество" />
-            </label>
-          </Field>
+            <Icons.IconCloseModal/>
+          </button>
 
-          <Field model="registrationUser.birthDate">
-            <label>Дата Рождения</label>
-              <input className="form-control" type="date" />
-          </Field>
-
-          <Field model="registrationUser.phone">
-            <label>
-              <input className="form-control" type="text" placeholder="+38 (...)... .. .." />
-            </label>
-          </Field>
-
-          <Field model="registrationUser.email">
-            <label>
-              <input className="form-control" type="email" placeholder="Email" />
-            </label>
-          </Field>
-
-          <Field model="registrationUser.password">
-            <label>
-              <input className="form-control" type="password" placeholder="Пароль"/>
-            </label>
-
-          </Field>
-
-          <Field model="registrationUser.rePassword">
-            <label>
-              <input className="form-control" type="password" placeholder="Повторите пароль" />
-            </label>
-          </Field>
-
-          <div className={styles.registration__checkboxes}>
-            <Field model="registrationUser.rememberMe">
-              <input type="checkbox"/><label>Запомнить меня</label>
-            </Field>
+        </Modal>
 
 
-            <Field model="registrationUser.emailCampign">
-              <input type="checkbox" /><label>Подписаться на рассылку</label>
-            </Field>
-
-            <Field model="registrationUser.termCondition">
-              <input type="checkbox"/><label>Принимаю условия пользовательского
-              соглашения</label>
-            </Field>
-          </div>
-          <div className="form-group clearfix">
-            <div className="col-sm-6 col-sm-offset-3">
-              <input
-                className={styles.registration__signin_button}
-                type="submit"
-                value="Зарегистрироваться"
-                onClick={e => this.onRegistrationSubmit(e)}
-              />
-            </div>
-          </div>
-
-        </Form>
-            <div className={styles.registration__logo}>
-              <a href="">
-                <img src={require('../../images/logo.png')} alt="logo"/>
-                IMED
-              </a>
-            </div>
-          </div>
-
-      </div>
-    );
+      </Fragment>
+    )
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    registrationUserAction: bindActionCreators(registrationAsync, dispatch),
-  };
-}
 
-function mapStateToProps(state) {
-  return {
-    registrationUser: state.registrationUser,
-    registrationUserForm: state.registrationUserForm
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegistrationModal);
+export default SignUpModal;

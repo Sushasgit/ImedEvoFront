@@ -7,7 +7,7 @@ class FilterDoctorsPanel extends Component {
   render() {
     return (
       <nav className={styles.sort}>
-        <ul>
+        <ul className={styles.filter}>
           <li><a href="#">Количество отзывов</a></li>
           <li><a className="dropdown" href="/">Пол <Icons.IconArrowDown/></a>
             <ul>
@@ -91,6 +91,33 @@ class FilterDoctorsPanel extends Component {
           </li>
 
           <li><a className="dropdown" href="#">Фамилии <Icons.IconArrowDown/></a>
+            <ul>
+              <label>
+                <input type="checkbox"/>
+                от А до Я
+              </label>
+              <label>
+                <input type="checkbox"/>
+                от Я до А
+              </label>
+            </ul>
+          </li>
+
+
+          <li><a className="dropdown" href="#">Популярность <Icons.IconArrowDown/></a>
+            <ul>
+              <label>
+                <input type="checkbox"/>
+                от А до Я
+              </label>
+              <label>
+                <input type="checkbox"/>
+                от Я до А
+              </label>
+            </ul>
+          </li>
+
+          <li><a className="dropdown" href="#">Стаж <Icons.IconArrowDown/></a>
             <ul>
               <label>
                 <input type="checkbox"/>

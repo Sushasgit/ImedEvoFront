@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.schedule{
+  color: #ffffff;
+  flex: 1 0 0;
+  font-family: 'Lato', sans-serif;
+  padding: 16px;
+  margin-right: 50px;
+
+  @media (max-width: 500px) {
+    margin-top: 45px;
+    margin-right: 0;
+    padding: 0px;
+  }
+}
+
+.title_schedule{
+  font-size: 28px;
+  margin: 0;
+}
+
+.time{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff;
+}

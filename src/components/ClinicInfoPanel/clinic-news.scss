@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+.news {
+  flex: 1 0 0;
+  font-family: 'Lato', sans-serif;
+  color: #ffffff;
+  margin-right: 51px;
+
+  @media (max-width: 1100px) {
+    text-align: center;
+  }
+  p{
+    text-align: justify;
+  }
+  h2{
+    font-size: 28px;
+    margin-top: 17px;
+  }
+
+  &__btn{
+    padding: 7px 17px;
+    color: #ff8533;
+    border-radius: 10px;
+    margin-top: 14px;
+    font-size: 18px;
+    border: none;
+    background-color: #ffffff;
+    font-weight: 400;
+  }
+}

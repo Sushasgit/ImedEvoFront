@@ -1,14 +1,22 @@
 .sort{
   width: 100%;
   margin-bottom: 0;
-  ul {
+  .filter {
     background: #fff;
     font-size: 0;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 35px;
     text-align: center;
     width: 100%;
+    margin-bottom: 40px;
+    background-color: #4775d1;
+
+  }
+  ul{
+    background-color: #ffffff;
+    padding: 10px;
+    line-height: 32px;
   }
 
   li {
@@ -16,9 +24,10 @@
     margin: 0;
     padding: 0;
     position: relative;
-    min-width: 22%;
-  }
+    min-width: 15%;
+    margin-right: 5px;
 
+  }
   a {
     background: #fff;
     color: #0b689a;
@@ -31,7 +40,7 @@
   }
 
   li:hover a {
-    background: #5bb3e3;
+    background: #01b4f0;
   }
 
   nav .dropdown:after {
@@ -59,7 +68,7 @@
   }
 
   li ul a:hover {
-    background-color: #5bb3e3;
+    background-color: #01b4f0;
   }
   label{
     display: block;

@@ -1,60 +1,25 @@
-
-:global { @import '../../calendar-styles'; }
-.profile{
-
-  &__title{
-    color: #0b689a;
-    font-size: 40px;
-    font-weight: 300;
-    text-align: center;
-  }
-}
-
-.data{
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-
-  &__user_photo{
-    width: 15%;
-    text-align: center;
-    background-color: #4fa7d8;
-  }
-
-  &__information{
-    width: 70%;
-    background-color: #e1f7fd;
-  }
-
-  &__title{
-    margin: 0;
-    padding: 3px;
-    background-color: #4fa7d8;
-    color: #fff;
-  }
-}
-
-.h__header{
-  height: 32px;
-  background-color: #e1f7fd;
-}
+:global { @import '../../calendar-styles.css'; }
 
 .rbc-month-view{
   background-color: white;
 }
 
-.doctor-cards__widjet__rate{
-  width: 57%;
+.logo {
+  box-shadow: 0 0 8px 1px rgba(28, 39, 40, 0.56);
+  background-color: #ffffff;
+  opacity: 0.8;
+  a {
+    background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
+    color: #01b4f0;
+    font-size: 3.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 20px;
+  }
+  img{
+    width: 70px;
+  }
 }
 
-.user_photo{
-  padding: 15px;
-}
-
-.container__profile{
-  background-image: url(../../images/main.png);
-  background-size: cover;
-  width: 100%;
-  background-repeat: no-repeat;
-  min-height: 340px;
-}

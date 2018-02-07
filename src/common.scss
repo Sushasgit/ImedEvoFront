@@ -1,11 +1,11 @@
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans Condensed',sans-serif;
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .container {
@@ -19,7 +19,7 @@ body{
   font-weight: 700;
 }
 
-.categories-link{
+.categories-link {
   color: #628ce1;
   font-size: 21px;
   font-weight: 700;
@@ -36,9 +36,8 @@ body{
   }
 }
 
-
 .modal-registration--background {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   animation: fadeIn .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
   position: fixed;
   top: 0;
@@ -50,12 +49,49 @@ body{
   outline: 0;
 }
 
+.react-tabs {
+  .react-tabs__tab {
+    border-top: 2px solid #4775d1;
+    list-style: none;
+    width: 15%;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 900;
+    color: #4775d1;
+    margin: 0;
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+    @media (max-width: 1200px) {
+      font-size: calc(12px + (24 - 12) * (100vw - 320px) / (1200 - 320));
+    }
+
+    &--selected {
+      color: #ffffff;
+      background-color: #4775d1;
+      border-bottom: 3px solid #ff8533;
+      border-top: none;
+    }
+  }
+
+  .react-tabs__tab-list {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 40px;
+    padding-top: 20px;
+  }
+
+}
+
 @keyframes fadeIn {
   0% {
-    background:rgba(0,0,0,.0);
+    background: rgba(0, 0, 0, .0);
   }
   100% {
-    background:rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, .7);
   }
 }
 
