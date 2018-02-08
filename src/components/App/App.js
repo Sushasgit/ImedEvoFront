@@ -12,6 +12,7 @@ import LaboratoriesPage from '../../pages/LaboratoriesPage/LaboratoriesPage';
 import DiagnosticsPage from '../../pages/DiagnosticsPage/DiagnosticsPage';
 import SalePage from '../../pages/SalePage/SalePage';
 import RegistrationDoctorPage from '../../pages/RegistrationDoctorPage/RegistrationDoctorPage';
+import RegistrationClinicPage from '../../pages/RegistrationClinicPage/RegistrationClinicPage';
 import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
 import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
 import DoctorProfileCard from '../../components/DoctorProfileCard/DoctorProfileCard';
@@ -48,6 +49,7 @@ class App extends React.Component {
                 <Route exact path="/diagnostics" component={DiagnosticsPage} />
                 <Route exact path="/sale" component={SalePage} />
                 <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
+                <Route exact path="/signupclinic" component={RegistrationClinicPage} />
                 <Route exact path="/searchresult" component={SearchResultPage} />
                 <Route exact path="/profile/:userID" component={UserProfilePage} />
                 <Route exact path="/blog" component={BlogArticlePage}/>
