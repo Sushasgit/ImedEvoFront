@@ -35,13 +35,10 @@ const ProfileMap = compose(
     defaultCenter={props.center}
   >
 
-      let lat = parseFloat(a.latitude);
-      let lon = parseFloat(a.longitude);
-      return (
         <Marker position={{ lat: 46.4632302, lng: 30.6895109 }}>
 
         </Marker>
-      )
+
 
 
 

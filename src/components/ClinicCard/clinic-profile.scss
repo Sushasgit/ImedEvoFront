@@ -25,7 +25,6 @@
 .clinic{
   background-color: #ffffff;
   margin: 40px;
-  padding: 20px;
   box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
   border-radius: 4px;
 
@@ -161,6 +160,7 @@
 }
 
 .feedback{
+  padding: 10px;
   &__range{
     display: flex;
     font-size: 23px;
@@ -281,4 +281,52 @@
   @media (max-width: 600px) {
     flex-direction: column;
   }
+}
+
+.general_doctor_info{
+  width: 100%;
+}
+.doctor_container{
+  display: flex;
+  align-items: center;
+}
+
+.clinic__rating_doctor_profile {
+  background:#4775d1;
+  display: flex;
+  justify-content: space-around;
+  h3{
+    color:#ffffff;
+    margin-left: 5px;
+  }
+  svg{
+    path{
+      fill:#ffffff !important;
+    }
+    polygon{
+      fill:#ffffff !important;
+    }
+  }
+}
+.work_place{
+  width: 60%;
+  .appointment__table{
+    margin-top: 40px;
+    width: 100%;
+    color:#ffffff;
+    font-size: 1.2em;
+    tr{
+      background-color: #4775d1;
+    }
+    th{
+      background-color: #ff8533;
+    }
+    tr{
+      border: 1px solid black;
+    }
+  }
+}
+
+.doctor__map{
+  width: 39%;
 }

@@ -41,3 +41,29 @@
 .main_info{
   margin-left: 10px;
 }
+
+.map {
+  height: 700px;
+  width: 100%;
+
+  @media (max-width: 1230px) {
+    width: 100%;
+    order: 10;
+    height: 300px;
+  }
+}
+
+.map_container {
+  height: 400px;
+  width: 100%;
+
+  @media (max-width: 1230px) {
+    width: 100%;
+    order: 10;
+    height: 200px;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: calc(12px + (24 - 12) * (100vw - 320px) / (1200 - 320));
+  }
+}

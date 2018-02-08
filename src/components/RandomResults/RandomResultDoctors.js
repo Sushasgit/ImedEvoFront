@@ -13,6 +13,7 @@ class RandomResultDoctors extends Component {
     super(props)
 
     this.state = {
+      isLoading:true,
       clinics:[],
       doctors: [],
     }
@@ -27,6 +28,7 @@ class RandomResultDoctors extends Component {
         let th = this
         th.setState({
           doctors:doctors,
+          isLoading:false,
         })
       })
       .catch((error) => {
@@ -37,23 +39,27 @@ class RandomResultDoctors extends Component {
   render () {
     console.log(this.state.doctors.length)
     return (
-      <div style={{display:'flex'}}>
-        <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
+      <div className={styles.h_col2_container}>
+        <div className={styles.random_results}>
 
-          {this.state.doctors.length > 0 &&
+          {this.state.clinics.length===0 && this.state.isLoading &&
+          <img src={require('../../images/loading.gif')}/>
+          }
+
+          {this.state.doctors.length > 0 && !this.state.isLoading &&
             <DoctorList  {...this.state}/>
           }
 
-          {this.state.doctors.length === 0 &&
+          {this.state.doctors.length === 0 && !this.state.isLoading &&
           <h4 className={styles.title_not_found}>По вашему запросу ничего не найдено</h4>
           }
         </div>
           <div className={styles.map}>
             <Map
               googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places"
-              loadingElement={<div style={{height: `700px`}}/>}
-              containerElement={<div style={{height: `800px`}}/>}
-              mapElement={<div style={{height: `700px`, width: '700px'}}/>}
+              loadingElement={<div className={styles.map_container} />}
+              containerElement={<div className={styles.map_container}/>}
+              mapElement={<div className={styles.map} />}
               {...this.state}
             />
           </div>

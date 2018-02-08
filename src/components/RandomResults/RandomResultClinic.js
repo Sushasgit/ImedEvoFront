@@ -41,8 +41,8 @@ class RandomResultClinic extends Component {
 
   render () {
     return (
-      <div style={{display:'flex'}}>
-        <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
+      <div className={styles.h_col2_container}>
+        <div className={styles.random_results}>
 
           {this.state.clinics.length===0 && this.state.isLoading &&
             <img src={require('../../images/loading.gif')}/>

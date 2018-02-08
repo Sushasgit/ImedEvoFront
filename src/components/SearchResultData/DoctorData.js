@@ -2,19 +2,24 @@ import React from 'react';
 import RatingStars from '../customComponents/RatingStars'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SearchResult/search-result.scss'
+import { Link } from 'react-router-dom'
 
 export default ({ doctor, index }) => {
 
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
-        <img src={require('../../images/doctor.png')} className="user-image" alt='doctor-photo'/>
+        <Link to = {`/doctors/${doctor.id}`}>
+        <img src={require('../../images/doctor-profile.png')} className="user-image" alt='doctor-photo'/>
         <p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>
+        </Link>
       </div>
 
       <div className={styles.doctors__main}>
         <div className={styles.h_container}>
-          <h2 className={styles.doctors__title}><span>{doctor.user.firstName}</span> <span>{doctor.user.lastName}</span></h2>
+          <Link to = {`/doctors/${doctor.id}`}>
+            <h2 className={styles.doctors__title}><span>{doctor.user.firstName}</span> <span>{doctor.user.lastName}</span></h2>
+          </Link>
           <RatingStars
             starSelectingHoverColor="rgb(249, 215, 73)"
             starRatedColor="rgb(249, 215, 73)"

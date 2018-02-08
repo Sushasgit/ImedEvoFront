@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import DoctorData from '../SearchResultData/DoctorData';
 
 export default ({ doctors }) => {
@@ -9,8 +9,8 @@ export default ({ doctors }) => {
   });
 
   return (
-   <div style={{height:'700px', overflow:'auto'}}>
+   <Fragment>
       {doctorsList}
-   </div>
+   </Fragment>
   );
 };

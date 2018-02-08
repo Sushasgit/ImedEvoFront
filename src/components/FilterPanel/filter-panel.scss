@@ -27,6 +27,18 @@
     min-width: 15%;
     margin-right: 5px;
 
+    @media (max-width: 1110px) {
+      min-width: 32%;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 591px) {
+      min-width: 49%;
+    }
+
+    @media (max-width: 400px) {
+      min-width: 68%;
+    }
   }
   a {
     background: #fff;
@@ -78,3 +90,5 @@
 .h_title {
   margin: 0;
 }
+
+

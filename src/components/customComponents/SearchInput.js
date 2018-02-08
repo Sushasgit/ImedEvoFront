@@ -41,7 +41,7 @@ class Input extends React.Component {
                onBlur={this.props.onBlur}
 
         />
-        <ClearButton/>
+
       </div>
     )
   }

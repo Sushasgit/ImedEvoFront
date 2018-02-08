@@ -15,9 +15,9 @@ const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 const Map = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places",
-    loadingElement: <div style={{ height: `700px` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `700px` }} />,
+    loadingElement: <div className={styles.map_container}  />,
+    containerElement: <div className={styles.map_container} />,
+    mapElement: <div className={styles.map}  />,
     center: { lat:46.4632302, lng: 30.6895109 },
     //data:props
   }),
