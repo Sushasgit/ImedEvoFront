@@ -9,6 +9,7 @@ import Header from '../Header/Header'
 import WidjetsClinic from '../WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../WidjetsDoctors/WidjetsDoctors'
 import ClinicInfoPanel from '../ClinicInfoPanel/ClinicInfoPanel'
+import ActivityTable from './ActivityTable'
 // import WidjetsClinic from '../WidjetsClinic/WidjetsClinic'
 
 class ClinicProfile extends Component {
@@ -16,6 +17,8 @@ class ClinicProfile extends Component {
     super(props)
     this.state = {
       clinic: [],
+      coordinatesLatitude:null,
+      coordinatesLongitude: null,
     }
   }
 
@@ -30,6 +33,8 @@ class ClinicProfile extends Component {
         let th = this
         th.setState({
           clinic: clinic,
+          coordinatesLatitude: parseFloat(clinic.coordinatesLatitude),
+          coordinatesLongitude: parseFloat(clinic.coordinatesLongitude)
         })
       })
       .catch((error) => {
@@ -40,10 +45,9 @@ class ClinicProfile extends Component {
   render () {
     //TODO CREATE WIDJETS (top clinic and doctors)
     //TODO Change image when it will return from server
-    console.log(this.state.clinic.nameClinic)
-    console.log(this.state)
+
     let clinic = this.state
-    console.log(clinic.clinic)
+    console.log(this.state)
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -53,7 +57,7 @@ class ClinicProfile extends Component {
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
-                  <img src="https://placeholdit.co//i/150x150?&bg=4775d1&text=Clinic Photo" alt="clinic-photo"/>
+                  <img src={require('../../images/placeholder-clinic.png')}  alt="clinic-photo"/>
 
                   {/*<img src={this.state.picture}/>*/}
                   <div className={styles.clinic__description}>
@@ -136,53 +140,15 @@ class ClinicProfile extends Component {
                       <li><FontAwesome.FaClockO />Пн-Вск: 08.00-20.00</li>
                     </ul>
                     <div className={styles.clinic__area}>
-                      <ul>
-                        <li><FontAwesome.FaCheck />Гастроэнтерология</li>
-                        <li><FontAwesome.FaCheck />Акушерство и гинекология</li>
-                        <li><FontAwesome.FaCheck />Ангиографические иссл-ия</li>
-                        <li><FontAwesome.FaCheck />Диагностика</li>
-                        <li><FontAwesome.FaCheck />Кардиология</li>
-                        <li><FontAwesome.FaCheck />Компьютерная томография</li>
-                        <li><FontAwesome.FaCheck />Магнітно-резонансна томографія</li>
-                        <li><FontAwesome.FaCheck />Мамографія</li>
-                        <li><FontAwesome.FaCheck />Урологія</li>
-                        <li><FontAwesome.FaCheck />Хірургія</li>
-                      </ul>
-                      <ul>
-                        <li><FontAwesome.FaCheck />Неврологія</li>
-                        <li><FontAwesome.FaCheck />Нейрофункціональні досліждення</li>
-                        <li><FontAwesome.FaCheck />Оториноларингологія</li>
-                        <li><FontAwesome.FaCheck />Педіатрія</li>
-                        <li><FontAwesome.FaCheck />Проктологія</li>
-                        <li><FontAwesome.FaCheck />Рентгенографія</li>
-                        <li><FontAwesome.FaCheck />Травматологія и ортопедія</li>
-                        <li><FontAwesome.FaCheck />УЗД</li>
-                      </ul>
+                      <ActivityTable/>
                     </div>
                   </div>
 
                   <div className={styles.clinic__map}>
-                    <ProfileMap {...this.state}/>
+                    <ProfileMap {...this.state} lng={this.state.coordinatesLongitude}/>
                   </div>
                 </div>
               </section>
-
-              {/*<section className={styles.clinic}>*/}
-                {/*<h2 className={styles.clinic__title}>Филиалы</h2>*/}
-                {/*<div className={styles.branches}>*/}
-                      {/*<section  className={styles.branches__card}>*/}
-                        {/*<article className={styles.branches__address}>*/}
-                          {/*<h3>МЦ на Неждановой</h3>*/}
-                          {/*<ul className={styles.clinic__contacts}>*/}
-                            {/*<li><FontAwesome.FaMapMarker />г. Одесса, ул. Варненская, 2</li>*/}
-                            {/*<li><FontAwesome.FaPhone />(0482) 307-500, (0482) 343 -062</li>*/}
-                            {/*<li><FontAwesome.FaEnvelope /> into-sana@ukr.net</li>*/}
-                            {/*<li><FontAwesome.FaClockO />Пн-Вск: 08.00-20.00</li>*/}
-                          {/*</ul>*/}
-                        {/*</article>*/}
-                      {/*</section>*/}
-                {/*</div>*/}
-              {/*</section>*/}
 
               <section className={styles.clinic}>
                 <section className={styles.clinic__feedback}>
