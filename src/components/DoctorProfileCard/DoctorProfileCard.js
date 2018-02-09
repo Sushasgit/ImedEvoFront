@@ -17,6 +17,7 @@ class DoctorProfileCard extends Component {
     super(props)
     this.state = {
       doctor: [],
+      doctorPersonalInfo:[]
     }
   }
 
@@ -29,7 +30,8 @@ class DoctorProfileCard extends Component {
         let doctor = response.data;
         let th = this
         th.setState({
-          doctor: doctor,
+          doctor:doctor,
+          doctorPersonalInfo: doctor.user
         })
       })
       .catch((error) => {
@@ -38,8 +40,8 @@ class DoctorProfileCard extends Component {
   }
 
   render () {
-
-    let doctor = this.state.doctor
+    let doctor = this.state.doctorPersonalInfo;
+    let doctorAchievements = this.state.doctor;
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -50,12 +52,13 @@ class DoctorProfileCard extends Component {
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
                   <img src={require('../../images/doctor-profile.png')} alt="doctor-photo"/>
-
                   {/*<img src={this.state.picture}/>*/}
                   <div className={styles.clinic__description}>
                     <div className={styles.h_container_rate}>
                       <div className={styles.clinic__name}>
-                        <h2 className={styles.name}>{doctor.firstName}</h2>
+                        <h2 className={styles.name}>
+                          <span>{`${doctor.lastName} ${doctor.firstName} ${doctor.patronymic}`}</span>
+                          </h2>
                         <RatingStars
                           starSelectingHoverColor="rgb(249, 215, 73)"
                           starRatedColor="rgb(249, 215, 73)"
@@ -66,8 +69,8 @@ class DoctorProfileCard extends Component {
                         />
                       </div>
                     </div>
-                    <h2>Кардиолог</h2>
-                    <h3>Врач высшей категории</h3>
+                    <h2>{doctorAchievements.doctorAchievements}</h2>
+                    <h3>{doctorAchievements.doctorGualification}</h3>
                     <p>Про врача</p>
                     <p>
                       Медицинский центр  основан более 10 лет назад (2005 год) кандидатом медицинских наук
@@ -82,20 +85,20 @@ class DoctorProfileCard extends Component {
                   <div className={styles.doctor_container}>
                     <Icons.IconEducation/>
                     <h3 className={styles.general_doctor_info}>
-                      "Одесский национальный медицинский университет"
+                      {doctorAchievements.education}
                     </h3>
                   </div>
                   <div className={styles.doctor_container}>
                     <Icons.IconPrice/>
                     <h3 className={styles.general_doctor_info}>
-                      420 грн
+                      {`${doctorAchievements.price} грн`}
                     </h3>
                   </div>
 
                   <div className={styles.doctor_container}>
                     <Icons.IconExperience/>
                     <h3 className={styles.general_doctor_info}>
-                      20 лет опыта
+                      {`${doctorAchievements.workExperience} лет`}
                     </h3>
                     </div>
                 </section>

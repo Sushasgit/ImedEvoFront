@@ -12,7 +12,7 @@ export default ({ clinic, index }) => {
 
       <div className={styles.clinic__info}>
         <Link to = {`/clinics/${clinic.id}`}>
-        <img src={require('../../images/hospital-avatar.png')} className="user-image" alt="clinic-photo"/>
+        <img src={require('../../images/placeholder-clinic.png')} className="user-image" alt="clinic-photo"/>
         <p className={styles.clinic__address}><Icons.IconPlace/>{clinic.address}</p>
         <p className={styles.clinic__hours}><Icons.IconTime/>9.00-18.00</p>
         </Link>

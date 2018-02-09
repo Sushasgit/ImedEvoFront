@@ -16,7 +16,10 @@ import RegistrationClinicPage from '../../pages/RegistrationClinicPage/Registrat
 import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
 import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
 import DoctorProfileCard from '../../components/DoctorProfileCard/DoctorProfileCard';
+import ForgotPassword from '../../components/ForgotPassword/ForgotPassword';
 import ClinicProfile from '../../components/ClinicCard/ClinicProfile';
+import PrivacyPolicy from '../../pages/PrivacyPolicy/PrivacyPolicy';
+import ServiceRules from '../../pages/ServiceRules/ServiceRules';
 import BlogArticlePage from '../../pages/BlogArticlePage/BlogArticlePage';
 import ForClinic from '../../pages/ForClinic/ForClinic';
 import HelpPage from '../../pages/HelpPage/HelpPage';
@@ -55,6 +58,9 @@ class App extends React.Component {
                 <Route exact path="/blog" component={BlogArticlePage}/>
                 <Route exact path="/help" component={HelpPage}/>
                 <Route exact path="/forClinic" component={ForClinic}/>
+                <Route exact path="/forgot" component={ForgotPassword}/>
+                <Route exact path="/rules" component={ServiceRules}/>
+                <Route exact path="/privacy" component={PrivacyPolicy}/>
                 <Route path="*" component={NotFound} />
                 </Switch>
               </div>

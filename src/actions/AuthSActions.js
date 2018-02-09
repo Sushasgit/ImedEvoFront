@@ -3,6 +3,7 @@ import { history } from '../history';
 import {
   AUTH_USER,
   AUTH_ERROR,
+  RESET_PASSWORD
 
 } from './types';
 
@@ -41,6 +42,35 @@ export function signupUser({ password, email, lastName, firstName, birthDate, ph
         {console.log("Error: " + error)}
       });
   }
+}
+
+export function ForgotPassword({ email }) {
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/forgot/reset?email=${email}`, { email })
+      .then(response => {
+       if(response.data.status.code === 50){
+         dispatch(resetSucces(response.data.status.message));
+       }
+      })
+      .catch((error) => {
+        console.log(error)
+        dispatch(resetFailure("Пользователь не найден,проверьте пожалуйста Ваш email"));
+      });
+  }
+}
+
+export function resetSucces(response) {
+  return {
+    type: RESET_PASSWORD,
+    payload: response
+  };
+}
+
+export function resetFailure(response) {
+  return {
+    type: RESET_PASSWORD,
+    payload: response
+  };
 }
 
 export function authError(error) {

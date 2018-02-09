@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import styles from  './map.scss'
+import styleMap from '../../constants/mapStyle.json'
 const { compose, withProps, withHandlers,withState } = require("recompose");
 const {
   withScriptjs,
@@ -13,9 +14,13 @@ const {
 
 const { InfoBox } = require("react-google-maps/lib/components/addons/InfoBox");
 
+var image = {
+
+};
+
 const ProfileMap = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places",
+     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places",
     loadingElement: <div style={{ minHeight: `400px` }} />,
     containerElement: <div style={{ minHeight: `400px`  }} />,
     mapElement: <div style={{ minHeight: `400px` }} />,
@@ -33,10 +38,22 @@ const ProfileMap = compose(
   <GoogleMap
     defaultZoom={12}
     defaultCenter={props.center}
+    defaultOptions={{ styles: styleMap }}
+
   >
 
-        <Marker position={{ lat: 46.4632302, lng: 30.6895109 }}>
-
+        <Marker position={{ lat: 46.4632302, lng: 30.6895109 }}
+                animation = {google.maps.Animation.DROP}
+                icon = {{
+                  url: '/placeholder.svg',
+                  // This marker is 20 pixels wide by 32 pixels high.
+                  size: new google.maps.Size(35, 40),
+                  // The origin for this image is (0, 0).
+                  origin: new google.maps.Point(0, 0),
+                  // The anchor for this image is the base of the flagpole at (0, 32).
+                  anchor: new google.maps.Point(0, 32)
+                }}
+        >
         </Marker>
 
 

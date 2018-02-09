@@ -60,10 +60,10 @@ class Footer extends Component {
 
           <ul style={{alignSelf:'center'}}>
             <li>
-              <a href="">Пользовательское соглашение</a>
+              <Link to ="/rules">Правила сервиса</Link>
             </li>
             <li>
-              <a href="">Политика конфиденциальности</a>
+              <Link to="/privacy">Политика конфиденциальности</Link>
             </li>
           </ul>
         </nav>
