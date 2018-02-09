@@ -174,37 +174,6 @@
 		weight: 700;
 	}
 }
-
-.cf_form_day,
-.cf_form_day_add{
-	color: #01b4f0;
-	font:{
-		family: "Open Sans Condensed";
-		size: 1.125rem;
-		weight: 700;
-	}
-	padding: 0;
-	margin: 0;
-}
-.cf_form_day_add{
-	margin-right: 7px;
-}
-.cf_form_day{
-	margin-right: 4px;
-}
-
-.cf_form_shedule_day{
-	display: flex;
-	color: #01b4f0;
-	font:{
-		family: "Open Sans Condensed";
-		size: 1.125rem;
-		weight: 700;
-	}
-}
-
-
-
 input[type="time"]{
 	width: 90px;
 	height: 34px;
@@ -213,7 +182,7 @@ input[type="time"]{
 	border-radius: 7px;
 }
 .cf_form_schedule_tit{
-	margin-top: 10px;
+	margin-top: 0;
 	margin-bottom: 10px;
 }
 .cf_form_monday,
@@ -244,7 +213,6 @@ input[type="time"]{
 	flex-direction: column;
 	width: 90%;
 	margin-bottom: 50px;
-	margin-top: 10px;
 }
 textarea{
 	resize: none;
