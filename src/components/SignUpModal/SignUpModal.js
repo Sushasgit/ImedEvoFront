@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { reduxForm } from 'redux-form'
 import * as actions from  '../../actions/AuthSActions'
-// import Modal from 'react-responsive-modal';
+
 import SignUpForm from './SignUpForm'
 import Modal from '../customComponents/Modal'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  './sign-up-modal.scss'
-import 'react-responsive-modal/lib/react-responsive-modal.css'
-import 'react-responsive-modal/lib/css'
+
 
 
 class SignUpModal extends Component {
