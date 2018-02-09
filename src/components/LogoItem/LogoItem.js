@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './logoitem.scss'
 import * as Icons from '../SvgIcons/SvgIcons.js'
+import { Link } from 'react-router-dom'
 
 class LogoItem extends Component {
 
@@ -8,9 +9,9 @@ class LogoItem extends Component {
     return (
         <div className={styles.logo}>
           <Icons.IconLogo/>
-          <a href="">
+          <Link to="/">
             IMED
-          </a>
+          </Link>
         </div>
     );
   }

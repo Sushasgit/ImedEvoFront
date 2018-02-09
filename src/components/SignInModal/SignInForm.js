@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field, Form } from 'redux-form'
 import * as actions from  '../../actions/AuthSActions'
-//import * as Icons from '../SvgIcons/SvgIcons.js'
+import { Link } from 'react-router-dom'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 
 const renderInput = (field) => {
@@ -61,7 +61,7 @@ class SignInForm extends Component {
             {this.renderAlert()}
             <button action="submit" className={styles.signin}>Войти</button>
           </Form>
-
+          <Link  to="/forgot">Забыли пароль?</Link>
         </section>
       </Fragment>
     )

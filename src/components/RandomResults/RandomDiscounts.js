@@ -32,8 +32,8 @@ class RandomDiscounts extends Component {
   render () {
     console.log(this.state)
     return (
-      <div style={{display:'flex'}}>
-        <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
+      <div className={styles.h_col2_container}>
+        <div className={styles.random_results}>
           <DiscountList {...this.state}/>
         </div>
         <div className={styles.map}>

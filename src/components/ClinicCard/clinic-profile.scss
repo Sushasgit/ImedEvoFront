@@ -13,26 +13,26 @@
     -webkit-text-fill-color: transparent;
     padding-left: 20px;
   }
-  img{
+  img {
     width: 70px;
   }
 }
 
-.h_background{
+.h_background {
   background-color: #f6f6f6;
 }
 
-.clinic{
+.clinic {
   background-color: #ffffff;
   margin: 40px;
-  padding: 20px;
   box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
   border-radius: 4px;
+  padding: 10px;
 
   @media (max-width: 600px) {
     margin: 19px;
   }
-  &__info{
+  &__info {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,7 +40,7 @@
     @media (max-width: 500px) {
       display: block;
     }
-    img{
+    img {
       width: 30%;
 
       @media (max-width: 500px) {
@@ -49,14 +49,14 @@
       }
     }
   }
-  &__description{
+  &__description {
     width: 56%;
 
     @media (max-width: 500px) {
       width: 100%;
     }
   }
-  &__main_info{
+  &__main_info {
     display: flex;
     justify-content: space-between;
 
@@ -64,43 +64,43 @@
       display: block;
     }
   }
-  &__contacts{
-    li{
+  &__contacts {
+    li {
       list-style: none;
       font-size: 18px;
-      path{
+      path {
         margin-right: 11px;
       }
     }
   }
 
-  &__map{
+  &__map {
     width: 56%;
 
     @media (max-width: 1249px) {
-      width:100%;
+      width: 100%;
     }
   }
-  &__directions{
+  &__directions {
     width: 40%;
   }
-  &__area{
+  &__area {
     display: flex;
 
     @media (max-width: 600px) {
       display: block;
     }
-    li{
+    li {
       list-style: none;
       font-size: 18px;
     }
   }
-  &__title{
+  &__title {
     font-weight: bold;
     color: #4775d1;
     text-align: center;
   }
-  &__rating{
+  &__rating {
     display: flex;
     justify-content: space-around;
     align-self: center;
@@ -109,9 +109,9 @@
     border-radius: 4px;
 
     @media (max-width: 600px) {
-     display: block;
+      display: block;
     }
-    span{
+    span {
       margin-right: 10px;
       font-weight: 900;
       color: #015f7f;
@@ -123,51 +123,52 @@
 
     @media (max-width: 1200px) {
       text-align: center;
-      h2{
+      h2 {
         font-size: 1em;
       }
     }
   }
 
-  &__btn{
+  &__btn {
     background-color: #ff8533;
     color: #ffffff;
     padding: 12px 40px;
     font-size: 20px;
-    font-family: 'Open Sans Condensed',sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 700;
     border: none;
     border-radius: 4px;
   }
 }
 
-.branches{
+.branches {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  &__card{
+  &__card {
     display: flex;
     align-items: center;
     width: 48%;
 
-    img{
+    img {
       width: 33%;
     }
   }
-  &__address{
+  &__address {
     width: 60%;
   }
 }
 
-.feedback{
-  &__range{
+.feedback {
+  padding: 10px;
+  &__range {
     display: flex;
     font-size: 23px;
     margin-bottom: 20px;
 
     @media (max-width: 660px) {
-    justify-content: center;
+      justify-content: center;
     }
 
     @media (max-width: 340px) {
@@ -175,24 +176,24 @@
       align-items: center;
     }
 
-    span{
+    span {
       display: inline-block;
       vertical-align: middle;
     }
   }
-  &__range_item{
+  &__range_item {
     text-align: center;
     color: #5e6868;
     border-right: 1px solid #98a3a4;
     padding: 0;
     width: 130px;
-    p{
+    p {
       font-size: 14px;
       max-width: 80%;
       margin: 0 auto;
     }
   }
-  &__card{
+  &__card {
     border-bottom: 1px solid #edf1f2;
     margin-bottom: 20px;
 
@@ -200,21 +201,22 @@
       text-align: center;
     }
   }
-  time{
+  time {
     text-align: right;
     display: inherit;
     color: #01b4f0;
   }
 }
 
-.h_container_rate{
+.h_container_rate {
   display: flex;
 
   @media (max-width: 500px) {
     display: block;
   }
 }
-.h_row{
+
+.h_row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -225,7 +227,7 @@
   }
 }
 
-.profile{
+.profile {
   display: flex;
   margin-bottom: -80px;
 
@@ -248,7 +250,8 @@
     height: auto;
   }
 }
-.widjet_info_title{
+
+.widjet_info_title {
   text-align: center;
   margin-bottom: 0;
   color: #4775d1;
@@ -257,9 +260,9 @@
 }
 
 .top__rated {
-  width:50%;
-  background-color:#e6e6e6;
-  margin-right:40px;
+  width: 50%;
+  background-color: #e6e6e6;
+  margin-right: 40px;
   max-height: 1653px;
   overflow: auto;
 
@@ -273,12 +276,79 @@
   }
 }
 
-.h_widjets{
+.h_widjets {
   display: flex;
   @media (max-width: 1100px) {
-   display: flex;
+    display: flex;
   }
   @media (max-width: 600px) {
     flex-direction: column;
   }
+}
+
+.general_doctor_info {
+  width: 100%;
+}
+
+.doctor_container {
+  display: flex;
+  align-items: center;
+}
+
+.clinic__rating_doctor_profile {
+  background: #4775d1;
+  display: flex;
+  justify-content: space-around;
+  h3 {
+    color: #ffffff;
+    margin-left: 5px;
+  }
+  svg {
+    path {
+      fill: #ffffff !important;
+    }
+    polygon {
+      fill: #ffffff !important;
+    }
+  }
+}
+
+.work_place {
+  width: 60%;
+  .appointment__table {
+    margin-top: 40px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 1.2em;
+    tr {
+      background-color: #4775d1;
+    }
+    th {
+      background-color: #ff8533;
+    }
+    tr {
+      border: 1px solid black;
+    }
+  }
+}
+
+.doctor__map {
+  width: 39%;
+}
+
+.activity__table {
+
+  width: 100%;
+  color: #ffffff;
+  tr {
+    background-color: #4775d1;
+  }
+  th {
+    background-color: #ff8533;
+  }
+
+  tr {
+    border: 1px solid black;
+  }
+
 }

@@ -29,8 +29,8 @@ class RandomLaboratories extends Component {
 
   render () {
     return (
-      <div style={{display:'flex'}}>
-        <div style={{width:'50%', height:'700px', overflow:'scroll'}}>
+      <div className={styles.h_col2_container}>
+        <div className={styles.random_results}>
           <LaboratoriesList {...this.state}/>
         </div>
         <div className={styles.map}>

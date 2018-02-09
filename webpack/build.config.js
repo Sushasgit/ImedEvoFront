@@ -6,7 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-
+const ManifestPlugin = require('webpack-manifest-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const DIRNAME = path.resolve(__dirname, '../')
 
 module.exports = {
@@ -133,6 +135,26 @@ module.exports = {
         yandex: true,
         windows: true
       }
-    })
+    }),
+    new ManifestPlugin({
+      fileName: 'asset-manifest.json',
+    }),
+    new SWPrecacheWebpackPlugin({
+      dontCacheBustUrlsMatching: /\.\w{8}\./,
+      filename: 'service-worker.js',
+      logger(message) {
+        if (message.indexOf('Total precache size is') === 0) {
+          // This message occurs for every build and is a bit too noisy.
+          return;
+        }
+        console.log(message);
+      },
+      minify: true, // minify and uglify the script
+      navigateFallback: '/index.html',
+      staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+    }),
+    new CopyWebpackPlugin([
+      { from: 'src/pwa' },
+    ])
   ]
 }

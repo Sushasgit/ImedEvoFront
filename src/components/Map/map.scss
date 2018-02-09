@@ -4,6 +4,20 @@
   justify-content: space-around;
   align-items: center;
   padding: 15px;
+  position: relative;
+  border-radius: 8px;
+
+  &::before{
+    content: "";
+    width: 100%;
+    height: 12px;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: #ff8533;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
 }
 
 .doctor__img {
@@ -40,4 +54,30 @@
 
 .main_info{
   margin-left: 10px;
+}
+
+.map {
+  height: 700px;
+  width: 100%;
+
+  @media (max-width: 1230px) {
+    width: 100%;
+    order: 10;
+    height: 300px;
+  }
+}
+
+.map_container {
+  height: 400px;
+  width: 100%;
+
+  @media (max-width: 1230px) {
+    width: 100%;
+    order: 10;
+    height: 200px;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: calc(12px + (24 - 12) * (100vw - 320px) / (1200 - 320));
+  }
 }

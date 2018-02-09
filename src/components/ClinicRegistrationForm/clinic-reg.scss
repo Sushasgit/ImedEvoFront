@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+.clinic_form {
+  margin: 0 auto;
+  width: 81.25rem;
+}
+
+.cf_tit {
+  color: #9f45cd;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s linear;
+  font: {
+    family: "Open Sans Condensed";
+    size: 2.5rem;
+    weight: 300;
+  }
+}
+
+.cf_wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cf_left {
+  background-color: #dbf5fc;
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cf_left_logo {
+  margin-top: 3.875rem;
+  background-color: #01b4f0;
+  padding: 30px 0 0 30px;
+  height: 100%;
+}
+
+.cf_left_logo_load_logo,
+.cf_left_logo_load_licence {
+  display: flex;
+  flex-wrap: wrap;
+  width: 9rem;
+  justify-content: space-between;
+}
+
+.cf_left_logo_load_btn {
+  color: #fbfeff;
+  width: 7.1875rem;
+  text-align: center;
+  cursor: pointer;
+  line-height: 1.31rem;
+  padding: 5px 0 0 0;
+  font: {
+    family: "Open Sans Condensed";
+    size: 1.25rem;
+    weight: 700;
+  }
+  text-decoration: underline;
+  transition: all 0.3s linear;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.6;
+  }
+}
+
+.cf_left_logo_load_logo {
+  margin-bottom: 25px;
+}
+
+.cf_right {
+  background-color: #01b4f0;
+  width: 53rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3.875rem;
+}
+
+.cf_form {
+  background-color: #dbf5fc;
+  padding: 13px 0 0 30px;
+
+}
+
+.cf_form_name,
+.cf_form_address,
+.cf_form_phone,
+.cf_form_email {
+  display: flex;
+  flex-direction: column;
+  color: #01b4f0;
+  font: {
+    family: "Open Sans Condensed";
+    size: 1.125rem;
+    weight: 700;
+  }
+  input {
+    width: 15.75rem;
+    height: 2.5625rem;
+    border: 4px solid #cff1fb;
+    background-color: #ffffff;
+    padding: 0 5px;
+    border-radius: 7px;
+    margin-left: -3px;
+    color: #01b4f0;
+    font: {
+      family: "Open Sans Condensed";
+      size: 1.125rem;
+      weight: 700;
+    }
+  }
+}
+
+.cf_form_name,
+.cf_form_phone {
+  margin-right: 30px;
+}
+
+.cf_form_address {
+  margin-right: 10px;
+}
+
+.cf_form_add_branch {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  margin-top: 13px;
+  margin-right: 10px;
+  &:hover .cf_form_add_branch_plus_text {
+    opacity: 0.6;
+  }
+  &:hover .cf_form_add_branch_plus {
+    opacity: 0.6;
+  }
+}
+
+.cf_form_add_branch_plus_text {
+  margin-left: 10px;
+  padding: 0;
+  color: #01b4f0;
+  transition: all 0.3s linear;
+  font: {
+    family: "Open Sans Condensed";
+    size: 17px;
+    weight: 700;
+  }
+}
+
+.cf_form_add_branch_plus {
+  border-radius: 50%;
+  color: #01b4f0;
+  border: 3px solid #01b4f0;
+  width: 30px;
+  height: 30px;
+  margin-top: 17px;
+  padding-left: 6px;
+  padding-top: 1px;
+  transition: all 0.3s linear;
+}
+
+.cf_form_firstline,
+.cf_form_secondline {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all 0.3s linear;
+}
+
+.cf_form_secondline {
+  margin-top: 10px;
+}
+
+.cf_form_schedule_tit, .cf_form_monday, .cf_form_tuesday, .cf_form_wednesday, .cf_form_thursday, .cf_form_friday,
+.cf_form_saturday, .cf_form_services {
+  color: #01b4f0;
+  font: {
+    family: "Open Sans Condensed";
+    size: 1.125rem;
+    weight: 700;
+  }
+}
+
+.cf_form_day,
+.cf_form_day_add {
+  color: #01b4f0;
+  font: {
+    family: "Open Sans Condensed";
+    size: 1.125rem;
+    weight: 700;
+  }
+  padding: 0;
+  margin: 0;
+}
+
+.cf_form_day_add {
+  margin-right: 7px;
+}
+
+.cf_form_day {
+  margin-right: 4px;
+}
+
+.cf_form_shedule_day {
+  display: flex;
+  color: #01b4f0;
+  font: {
+    family: "Open Sans Condensed";
+    size: 1.125rem;
+    weight: 700;
+  }
+}
+
+input[type="time"] {
+  width: 90px;
+  height: 34px;
+  border: 4px solid #cff1fb;
+  background-color: #ffffff;
+  border-radius: 7px;
+}
+
+.cf_form_schedule_tit {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cf_form_monday,
+{
+  input[type="time"]:first-child {
+    margin-left: 5px;
+  }
+}
+
+.cf_form_tuesday,
+.cf_form_wednesday,
+.cf_form_thursday,
+.cf_form_friday,
+.cf_form_saturday {
+  input[type="time"]:first-child {
+    margin-left: 7px;
+  }
+}
+
+.cf_form_shedule {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  transition: all 0.3s linear;
+}
+
+.cf_form_services {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+textarea {
+  resize: none;
+  padding: 5px 7px 5px 5px;
+  height: 11rem;
+  color: #01b4f0;
+  border: 4px solid #cff1fb;
+  background-color: #ffffff;
+  font: {
+    family: "Open Sans Condensed";
+    size: 1.125rem;
+    weight: 700;
+  }
+}
+
+input[type="submit"] {
+  margin: 0 0 7% 25%;
+}
+
+@media (max-width: 1300px) {
+  .clinic_form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1110px) {
+  .cf_left {
+    width: 53rem;
+  }
+  .cf_right {
+    padding-top: 0;
+  }
+  .cf_left_logo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 0;
+  }
+  .cf_left_logo_load_licence {
+    img {
+      width: 24px;
+      height: 51px;
+    }
+  }
+  .cf_left_logo_load_logo {
+    margin-right: 15px;
+  }
+  input[type="submit"] {
+    margin: 0 0 7% 18%;
+  }
+}
+
+@media (max-width: 700px) {
+  input[type="submit"] {
+    margin: 0 0 7% 5%;
+  }
+}
+
+@media (max-width: 590px) {
+  .cf_form_address {
+    margin-top: 7px;
+  }
+  .cf_form_add_branch {
+    margin-top: 3px;
+  }
+  .cf_form_firstline {
+    flex-direction: column;
+    padding-left: 18%;
+  }
+  .cf_form_secondline {
+    flex-direction: column;
+    padding-left: 18%;
+  }
+  .cf_form_shedule {
+    padding-left: 18%;
+  }
+  .cf_left_logo {
+    padding: 30px 0 0 18%;
+  }
+  input[type="submit"] {
+    width: 15rem;
+    height: 3rem;
+    font-size: 20px;
+    margin: 0 0 7% 8%;
+  }
+  .cf_tit {
+    font-size: 2rem;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .cf_form_firstline {
+    padding-left: 4%;
+  }
+  .cf_form_secondline {
+    padding-left: 4%;
+  }
+  .cf_form_shedule {
+    padding-left: 4%;
+  }
+  .cf_left_logo {
+    padding: 30px 0 0 5%;
+  }
+  .cf_form_services {
+    margin-bottom: 20px;
+  }
+  input[type="submit"] {
+    width: 14rem;
+    height: 3rem;
+    font-size: 18px;
+    margin: 0 0 5% 4%;
+  }
+}

@@ -7,7 +7,11 @@
   margin-top: 40px;
 
   @media (max-width: 1101px) {
-    margin: 0 20px;
+    margin: 0 40px !important;
+  }
+
+  @media (max-width: 400px) {
+    margin: 0 5px !important;
   }
   padding: 15px;
   form{

@@ -7,7 +7,7 @@ class ProfileData extends Component {
   render() {
     return (
       <Fragment>
-        <img style={{width:'21%'}} src="https://placeholdit.co//i/100x100?&bg=4775d1&text=User Photo"/>
+        <img style={{width:'21%'}} src={require('../../images/avatar-profile.png')} />
 
         <div className={styles.profile}>
           <Link className={styles.settings} to="/">
