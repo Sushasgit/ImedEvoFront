@@ -3,11 +3,13 @@ import { alert } from './alertReducer'
 import { reducer as form } from 'redux-form';
 import { modelReducer, formReducer } from 'react-redux-form';
 import authReducer from './authReducer';
+import LocationReducer from './locationReducer';
 
 const rootReducer = combineReducers({
   form,
   auth: authReducer,
   alert,
+  location: LocationReducer,
   registrationUserForm: formReducer('registrationUser', {
     email: '',
     password: '',

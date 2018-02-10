@@ -24,6 +24,7 @@ import BlogArticlePage from '../../pages/BlogArticlePage/BlogArticlePage';
 import ForClinic from '../../pages/ForClinic/ForClinic';
 import HelpPage from '../../pages/HelpPage/HelpPage';
 import NotFound from '../../pages/NotFound/NotFound';
+import GetUserLocation from '../../components/Map/GetUserLocation';
 
 
 class App extends React.Component {
@@ -61,6 +62,7 @@ class App extends React.Component {
                 <Route exact path="/forgot" component={ForgotPassword}/>
                 <Route exact path="/rules" component={ServiceRules}/>
                 <Route exact path="/privacy" component={PrivacyPolicy}/>
+                  <Route exact path="/location" component={GetUserLocation}/>
                 <Route path="*" component={NotFound} />
                 </Switch>
               </div>

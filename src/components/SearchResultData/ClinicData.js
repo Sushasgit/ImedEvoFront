@@ -5,9 +5,7 @@ import styles from  '../SearchResult/search-result.scss'
 import { Link } from 'react-router-dom'
 
 export default ({ clinic, index }) => {
-  console.log(clinic.id)
   return (
-
     <article className={styles.clinic}>
 
       <div className={styles.clinic__info}>
