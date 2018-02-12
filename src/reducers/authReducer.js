@@ -5,12 +5,19 @@ import {
   FETCH_MESSAGE
 } from '../actions/types';
 
-export default function(state = {}, action) {
+const INITIAL_STATE = {
+  error:'',
+  authenticated:false,
+  message:'',
+  user:{}
+}
+
+export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
     case AUTH_USER:
-      return { ...state, error: '', authenticated: true };
+      return { ...state, error: '', authenticated: true, user:action.payload};
     case UNAUTH_USER:
-      return { ...state, authenticated: false };
+      return { ...state, authenticated: false, error: action.payload };
     case AUTH_ERROR:
       return { ...state, error: action.payload };
     case FETCH_MESSAGE:

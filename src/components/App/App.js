@@ -28,6 +28,7 @@ import AboutUs from '../../pages/AboutUs/AboutUs';
 import Contacts from '../../pages/Contacts/Contacts';
 import Vacancy from '../../pages/Vacancy/Vacancy';
 import Promotion from '../../pages/Promotion/Promotion';
+import RequireAuth from '../../components/Authentication/Authentication';
 
 class App extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class App extends React.Component {
                 <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
                 <Route exact path="/signupclinic" component={RegistrationClinicPage} />
                 <Route exact path="/searchresult" component={SearchResultPage} />
-                <Route exact path="/profile/:userID" component={UserProfilePage} />
+                <Route exact path="/profile/:userID" component={RequireAuth(UserProfilePage)}/>
                 <Route exact path="/blog" component={BlogArticlePage}/>
                 <Route exact path="/help" component={HelpPage}/>
                 <Route exact path="/forClinic" component={ForClinic}/>

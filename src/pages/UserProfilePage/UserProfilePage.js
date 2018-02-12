@@ -5,38 +5,38 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import WidjetsClinic from '../../components/WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../../components/WidjetsDoctors/WidjetsDoctors'
-import axios from 'axios'
+import { connect } from 'react-redux'
 import CalendarComponent from './CalendarComponent'
 import styles from '../../components/ClinicCard/clinic-profile.scss'
 import ProfileData from './ProfileData'
 
 class UserProfilePage extends Component {
 
-  componentDidMount() {
-    let id = this.props.match.params.userID
-    const ROOT_URL = "http://54.37.125.178:80";
-    let userData = localStorage.getItem('testData');
-    let userDataObj = JSON.parse(userData)
-    console.log(userDataObj)
-    if (axios.defaults.headers.common.hasOwnProperty('Authorization')) {
-      delete axios.defaults.headers.common.Authorization;
-    }
-    axios(`${ROOT_URL}/users/getuser/${id}`,
-
-      {
-        withCredentials:true,
-
-        auth: {
-          Username:userData.email,
-          password:userData.password,
-        }
-      })
-      .then(response => {
-        console.log(response)})
-      .catch(error => {
-        {console.log("Error: " + error)}
-      });
-  }
+  // componentDidMount() {
+  //   let id = this.props.match.params.userID
+  //   const ROOT_URL = "http://54.37.125.178:80";
+  //   let userData = localStorage.getItem('testData');
+  //   let userDataObj = JSON.parse(userData)
+  //   console.log(userDataObj)
+  //   if (axios.defaults.headers.common.hasOwnProperty('Authorization')) {
+  //     delete axios.defaults.headers.common.Authorization;
+  //   }
+  //   axios(`${ROOT_URL}/users/getuser/${id}`,
+  //
+  //     {
+  //       withCredentials:true,
+  //
+  //       auth: {
+  //         Username:userData.email,
+  //         password:userData.password,
+  //       }
+  //     })
+  //     .then(response => {
+  //       console.log(response)})
+  //     .catch(error => {
+  //       {console.log("Error: " + error)}
+  //     });
+  // }
 
 
   constructor (props) {
@@ -68,6 +68,7 @@ class UserProfilePage extends Component {
   }
 
   render () {
+    const user = this.props.user
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -76,7 +77,7 @@ class UserProfilePage extends Component {
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
-                    <ProfileData/>
+                    <ProfileData user={user}/>
                 </article>
               </section>
               <section className={styles.clinic}>
@@ -147,4 +148,11 @@ class UserProfilePage extends Component {
   }
 }
 
-export default UserProfilePage
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated,
+    user:state.auth.user
+  };
+}
+export default connect(mapStateToProps)(UserProfilePage);
+

@@ -3,47 +3,39 @@ import { history } from '../history';
 import {
   AUTH_USER,
   AUTH_ERROR,
-  RESET_PASSWORD
-
+  RESET_PASSWORD,
+  UNAUTH_USER
 } from './types';
 
 const ROOT_URL = "http://54.37.125.178:80";
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/users/login?email=${email}&password=${password}`,
-      {
-        withCredentials: true
-      },
-      { email, password })
+    axios.post(`${ROOT_URL}/users/login?email=${email}&password=${password}`,{ email, password })
       .then(response => {
-        dispatch({ type: AUTH_USER })
-        // TODO save token to cookie or localStorage
-        let testData = {email,password}
-        localStorage.setItem('testData', JSON.stringify(testData));
-        /*localStorage.setItem('token', response.data.token);*/
-        history.push(`/profile/${response.data.user.id}`);
+        if (response.data.status.code === 710){
+          dispatch(authSuccess(response.data.user));
+          history.push(`/profile/${response.data.user.id}`);
+        } else{
+          dispatch(authError('Что то пошло не так'));
+        }
       })
       .catch(() => {
-        dispatch(authError('Bad Login Info'));
+        dispatch(authError('Что то пошло не так'));
       });
   }
 }
 
 export function signupUser({ password, email, lastName, firstName, birthDate, phone }) {
-  return (dispatch, state) => {
-    axios.post(`${ROOT_URL}/users/registration`,
-      {
-        withCredentials: true
-      },
-      {password, email, lastName, firstName, birthDate, phone})
-
+  return (dispatch) => {
+    axios.post(`${ROOT_URL}/users/registration`,{password, email, lastName, firstName, birthDate, phone})
       .then(response => {
-        console.log(response)
-        dispatch({ type: AUTH_USER });
-        // TODO save token to cookie or localStorage
-        // localStorage.setItem('token', response.data.token);
-        history.push(`/profile/${response.data.user.id}`);
+        if (response) {
+          dispatch(authSuccess(response.data.user));
+          history.push(`/profile/${response.data.user.id}`)
+        } else{
+          dispatch(authError('Что то пошло не так'));
+        }
       })
       .catch(error => {
         {console.log("Error: " + error)}
@@ -84,5 +76,12 @@ export function authError(error) {
   return {
     type: AUTH_ERROR,
     payload: error
+  };
+}
+
+export function authSuccess(success) {
+  return {
+    type: AUTH_USER,
+    payload: success
   };
 }
