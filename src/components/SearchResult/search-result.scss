@@ -220,6 +220,13 @@
   }
 }
 
+.h_container_footer{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 14px;
+}
+
 .filter__item {
   font-weight: 700;
   width: 100%;

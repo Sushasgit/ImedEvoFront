@@ -35,6 +35,7 @@ class RandomDiagnostics extends Component {
       <div className={styles.h_col2_container}>
         <div className={styles.random_results}>
           <DiagnosticsList {...this.state}/>
+
         </div>
         <div className={styles.map}>
           <Map

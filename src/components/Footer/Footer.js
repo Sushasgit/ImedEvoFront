@@ -37,7 +37,7 @@ class Footer extends Component {
             </li>
 
             <li>
-              <a href="">Реклама и продвижение</a>
+              <Link to="/promotion" >Реклама и продвижение</Link>
             </li>
           </ul>
 
@@ -46,15 +46,13 @@ class Footer extends Component {
               <h2>О нас</h2>
             </li>
             <li>
-              <a href="">О компании</a>
+              <Link to="/about">О компании</Link>
             </li>
             <li>
-              <a href="">
-                Контакты
-              </a>
+              <Link to="/contacts">Контакты</Link>
             </li>
             <li>
-              <a href="">Вакансии</a>
+              <Link to="/vacancy">Вакансии</Link>
             </li>
           </ul>
 

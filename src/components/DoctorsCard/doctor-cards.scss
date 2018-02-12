@@ -25,7 +25,7 @@
     font-weight: 300;
     padding: 11px;
     img{
-      width: 211px;
+      width: 130px;
       border-radius: 50%;
     }
 
@@ -49,18 +49,10 @@
       font-size: 0.9em;
       font-weight: 700;
     }
+
     button{
-      box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
-      border-radius: 5px;
-      background-color: #347ECF;
-      color: #fefefe;
-      font-size: 1em;
-      font-weight: 300;
-      padding: 7px 17px;
-      border: none;
-      margin: 0 auto;
-      display: inherit;
-      margin-bottom: 75px;
+      margin: 20px auto;
+      display: block;
     }
   }
   &__name{

@@ -25,26 +25,26 @@ export const userConstants = {
 };
 export const TestDoctorsCards =[
   {
-    doctorName:'Владимир Николаевич',
-    doctorLastName:'Войтенко',
+    firstName:'Владимир Николаевич',
+    lastName:'Войтенко',
     position:'Педиатр',
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShziYt6xgZPa1FJP-5MTIGbzeuge4jrqb9P4Wq60digp3YDSUT4g'
   },
   {
-    doctorName:'Татьяна Анатольевна',
-    doctorLastName:'Долгушина',
+    firstName:'Татьяна Анатольевна',
+    lastName:'Долгушина',
     position:'Педиатр',
     image:'https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
   },
   {
-    doctorName:'Елена Игоревна',
-    doctorLastName:'Евтушенко',
+    firstName:'Елена Игоревна',
+    lastName:'Евтушенко',
     position:'Педиатр',
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-suGSy7c18MU6PhTpd7wKVPYdXXOrcz3FdijbAByPXUnANsTOg'
   },
   {
-    doctorName:'Елена Владимировна',
-    doctorLastName:'Марчук',
+    firstName:'Елена Владимировна',
+    lastName:'Марчук',
     position:'Педиатр',
     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9Sf2xYJtQHyFfMHb9IPQ6xm_lRqqlWmFcjOlzDAInE3i1MfnFw'
   }

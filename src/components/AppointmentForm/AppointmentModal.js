@@ -1,13 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import { reduxForm } from 'redux-form'
-import * as actions from  '../../actions/AuthSActions'
-import SignInForm from './SignInForm'
+import AppointmentForm from './AppointmentForm'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 import Modal from '../customComponents/Modal'
 
+class AppointmentModal extends Component {
 
-class SignInModal extends Component {
   constructor (props) {
     super(props)
 
@@ -17,6 +15,10 @@ class SignInModal extends Component {
     }
     this.closeModal = this.closeModal.bind(this)
     this.openModal = this.openModal.bind(this)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.setState({clinic: nextProps.data})
   }
 
   closeModal () {
@@ -33,26 +35,22 @@ class SignInModal extends Component {
     })
     document.body.style.overflow = 'hidden';
   }
+
   render () {
+    console.log(this.props)
     return (
       <Fragment>
-        <button
-          className={styles.login__button}
-          onClick={this.openModal}>
-          Войти
-        </button>
+        <button onClick={this.openModal} className={styles.login__button}>Записаться на прием</button>
 
         <Modal
           isModalOpen={this.state.isModalOpen}
-          closeModal={this.closeModal}
-        >
+          closeModal={this.closeModal}>
           <img width="100%" style={{borderRadius: 3}} src={require('../../images/sign-up.png')} alt="unsplash"/>
-          <SignInForm/>
+          <AppointmentForm {...this.props}/>
 
           <button
             className={styles.close}
-             onClick={this.closeModal}>
-
+            onClick={this.closeModal}>
             <Icons.IconCloseModal/>
           </button>
         </Modal>
@@ -61,6 +59,4 @@ class SignInModal extends Component {
   }
 }
 
-
-
-export default SignInModal;
+export default AppointmentModal;

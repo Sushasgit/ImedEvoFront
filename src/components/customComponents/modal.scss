@@ -32,6 +32,10 @@
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
   position: relative;
 
+  @media (max-width: 638px) {
+    width: 500px;
+  }
+
   @media (max-width: 500px) {
     width: 400px;
   }

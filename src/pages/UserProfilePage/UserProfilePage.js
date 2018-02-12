@@ -14,7 +14,7 @@ class UserProfilePage extends Component {
 
   componentDidMount() {
     let id = this.props.match.params.userID
-    const ROOT_URL = "http://54.37.125.178:8087";
+    const ROOT_URL = "http://54.37.125.178:80";
     let userData = localStorage.getItem('testData');
     let userDataObj = JSON.parse(userData)
     console.log(userDataObj)

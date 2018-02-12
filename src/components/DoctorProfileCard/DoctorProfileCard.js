@@ -17,8 +17,15 @@ class DoctorProfileCard extends Component {
     super(props)
     this.state = {
       doctor: [],
-      doctorPersonalInfo:[]
+      doctorPersonalInfo:[],
+      hasError: false
     }
+  }
+
+  componentDidCatch(error, info) {
+    this.setState({
+      hasError: true
+    });
   }
 
   componentDidMount () {
@@ -41,6 +48,7 @@ class DoctorProfileCard extends Component {
 
   render () {
     let doctor = this.state.doctorPersonalInfo;
+    console.log(this.state.doctor)
     let doctorAchievements = this.state.doctor;
     return (
       <Fragment>
@@ -57,7 +65,7 @@ class DoctorProfileCard extends Component {
                     <div className={styles.h_container_rate}>
                       <div className={styles.clinic__name}>
                         <h2 className={styles.name}>
-                          <span>{`${doctor.lastName} ${doctor.firstName} ${doctor.patronymic}`}</span>
+                          {/*<span>{`${doctor.lastName} ${doctor.firstName} ${doctor.patronymic}`}</span>*/}
                           </h2>
                         <RatingStars
                           starSelectingHoverColor="rgb(249, 215, 73)"

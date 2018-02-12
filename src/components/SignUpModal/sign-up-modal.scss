@@ -202,6 +202,11 @@
     margin-top: 15px;
     width: 34%;
     text-align: right;
+
+    @media (max-width: 480px){
+      display: block;
+      width: 86%;
+    }
   }
 
   input{
@@ -212,6 +217,10 @@
     box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
     border: none;
     padding: 12px 20px;
+
+    @media (max-width: 480px){
+      width: 100%;
+    }
   }
   input::placeholder{
     color: #000;
@@ -260,8 +269,22 @@
 
 .close{
   transition: color 1s;
+  margin: 0;
+  width: auto;
+  margin-top: 10px;
+  background-color: transparent;
+  position: absolute;
+  top: -48px;
+  right: -60px;
+  border: none;
+
+  @media (max-width: 700px) {
+    top: -4px;
+    right: 0;
+  }
 }
-.close:hover{
+.close:hover,
+.close:focus{
   path{
     fill: #fff;
   }
@@ -319,6 +342,42 @@
   &:hover{
     background-color: #ffffff;
     border: 1px solid #4775d1;
-    color:#4775d1;
+    color: #4775d1;
+  }
+}
+
+.appointment_doctor{
+
+  &__title{
+    text-align: center;
+    margin: 0;
+    background-color: #ff8533;
+    color: #ffffff;
+  }
+
+  &__subtitle{
+    color: #4775d1;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  &__form{
+    @extend .signup;
+    input[type="time"]{
+      width: 30%;
+      @media (max-width: 480px) {
+        width: 37%;
+      }
+      @media (max-width: 400px) {
+        width: 49%;
+      }
+    }
+
+  }
+
+  &__confirm{
+    color: #4775d1;
+    text-align: center;
+    font-size: 1.4em;
   }
 }

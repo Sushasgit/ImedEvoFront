@@ -3,9 +3,10 @@ import RatingStars from '../customComponents/RatingStars'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SearchResult/search-result.scss'
 import { Link } from 'react-router-dom'
+import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 export default ({ doctor, index }) => {
-
+console.log(doctor)
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
@@ -44,9 +45,8 @@ export default ({ doctor, index }) => {
           </span>
           {doctor.education}
         </p>
-        <div className={styles.h_container}>
-          <a className={styles.doctors__link} href="/">Читать отзывы(39)</a>
-          <button className={styles.doctors__btn}>Записаться на прием</button>
+        <div className={styles.h_container_footer}>
+          <AppointmentModal data={doctor}/>
         </div>
 
         <div className={styles.h_container}>

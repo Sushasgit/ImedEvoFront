@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom'
 import styles from  './doctor-cards.scss'
 import * as constants from '../../constants/constants'
 import RatingStars from '../customComponents/RatingStars'
+import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 class DoctorsCard extends Component {
   render () {
+    console.log(constants.TestDoctorsCards)
     return (
       <Fragment>
         <div className="container">
@@ -21,7 +23,7 @@ class DoctorsCard extends Component {
                 </div>
 
                 <div className={styles.widjet__rate}>
-                  <h3 className={styles.widjet__name}>{doctor.doctorLastName} <p>{doctor.doctorName}</p></h3>
+                  <h3 className={styles.widjet__name}>{doctor.lastName} <p>{doctor.firstName}</p></h3>
                   <div className={styles.widjet__position}>
                     <span>Педиатр</span>
                     <RatingStars
@@ -87,7 +89,7 @@ class DoctorsCard extends Component {
                     </tbody>
 
                   </table>
-                  <button> Записаться на прием</button>
+                  <AppointmentModal data={doctor}/>
                 </div>
               </article>
             )}
@@ -99,4 +101,4 @@ class DoctorsCard extends Component {
   }
 }
 
-export default DoctorsCard
+export default DoctorsCard;

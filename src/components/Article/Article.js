@@ -2,6 +2,7 @@ import React,  { Component } from 'react'
 import styles from './article-style.scss'
 import Author from './Author'
 import * as Icons from '../SvgIcons/SvgIcons.js'
+import ArticleBody from './ArticleBody'
 
 class Article extends Component {
 
@@ -21,7 +22,7 @@ class Article extends Component {
           <Author {...this.props.author} />
 
           <div className={styles.article_body}>
-            {this.props.body}
+            <ArticleBody {...this.props.body}/>
             <blockquote className={styles.blockquote}>
               {this.props.blockquote}
             </blockquote>

@@ -6,8 +6,13 @@
   background-repeat: no-repeat;
   min-height: 440px;
 
-
   @media (max-width: 970px) {
     padding-bottom: 0;
   }
+}
+
+.title__doctor{
+  text-align: center;
+  color:#4775d1;
+  font-size: 2em;
 }

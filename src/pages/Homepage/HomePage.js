@@ -21,7 +21,7 @@ class HomePage extends Component {
 
         <NavigationMenu/>
         <DoctorsCategories/>
-        <h2 style={{textAlign:'center'}}>Ваш доктор</h2>
+        <h2 className={styles.title__doctor} style={{textAlign:'center'}}>Ваш доктор</h2>
         <div style={{backgroundColor: '#eaedf2', marginTop: '36px', paddingBottom: '40px', marginBottom: '90px', paddingTop:'40px'}}>
           <DoctorsCard/>
         </div>
