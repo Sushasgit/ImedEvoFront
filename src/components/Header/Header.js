@@ -28,8 +28,8 @@ console.log(this.props)
             }
             {this.props.authenticated &&
             <div>
-              <Link to="/"> Главная </Link>
-              <Link to={`/profile/${userID}`}> Профиль </Link>
+              <Link className={styles.container__button_home} to="/"> Главная </Link>
+              <Link className={styles.container__button_profile} to={`/profile/${userID}`}> Профиль </Link>
             </div>
             }
           </div>

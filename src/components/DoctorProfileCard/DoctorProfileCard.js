@@ -1,15 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios';
 import ProfileMap from '../Map/ProfileMap'
-import styles from '../ClinicCard/clinic-profile.scss'
 import RatingStars from '../customComponents/RatingStars'
-import * as FontAwesome from 'react-icons/lib/fa'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 import WidjetsClinic from '../WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../WidjetsDoctors/WidjetsDoctors'
 import ClinicInfoPanel from '../ClinicInfoPanel/ClinicInfoPanel'
+import DoctorProfileData from './DoctorProfileData'
+import * as constants from '../../constants/constants'
 import * as Icons from '../../components/SvgIcons/SvgIcons.js'
+import * as FontAwesome from 'react-icons/lib/fa'
+import styles from '../ClinicCard/clinic-profile.scss'
+
 
 
 class DoctorProfileCard extends Component {
@@ -18,25 +21,17 @@ class DoctorProfileCard extends Component {
     this.state = {
       doctor: [],
       doctorPersonalInfo:[],
-      hasError: false
     }
-  }
-
-  componentDidCatch(error, info) {
-    this.setState({
-      hasError: true
-    });
   }
 
   componentDidMount () {
     let id = this.props.match.params.doctorId;
-    const ROOT_URL = "http://54.37.125.178:8080";
-    axios.get(`${ROOT_URL}/doctors/${id}`)
+    axios.get(`${constants.ROOT_URL}/doctors/${id}`)
       .then(response => {
-        console.log(response.data)
-        let doctor = response.data;
-        let th = this
-        th.setState({
+        console.log(response.data['doctor'])
+        let doctor = response.data['doctor'];
+        console.log(doctor)
+        this.setState({
           doctor:doctor,
           doctorPersonalInfo: doctor.user
         })
@@ -47,9 +42,8 @@ class DoctorProfileCard extends Component {
   }
 
   render () {
-    let doctor = this.state.doctorPersonalInfo;
-    console.log(this.state.doctor)
-    let doctorAchievements = this.state.doctor;
+    let doctor = this.state.doctor;
+    console.log(doctor.user)
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -60,13 +54,12 @@ class DoctorProfileCard extends Component {
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
                   <img src={require('../../images/doctor-profile.png')} alt="doctor-photo"/>
-                  {/*<img src={this.state.picture}/>*/}
                   <div className={styles.clinic__description}>
                     <div className={styles.h_container_rate}>
                       <div className={styles.clinic__name}>
-                        <h2 className={styles.name}>
-                          {/*<span>{`${doctor.lastName} ${doctor.firstName} ${doctor.patronymic}`}</span>*/}
-                          </h2>
+
+                        <DoctorProfileData data={doctor.user}/>
+
                         <RatingStars
                           starSelectingHoverColor="rgb(249, 215, 73)"
                           starRatedColor="rgb(249, 215, 73)"
@@ -77,40 +70,45 @@ class DoctorProfileCard extends Component {
                         />
                       </div>
                     </div>
-                    <h2>{doctorAchievements.doctorAchievements}</h2>
-                    <h3>{doctorAchievements.doctorGualification}</h3>
-                    <p>Про врача</p>
-                    <p>
-                      Медицинский центр  основан более 10 лет назад (2005 год) кандидатом медицинских наук
-                      врачом-ревматологом, возглавлявшим Городской ревматологический центр города Киева более
-                      40 лет, Тер-Вартаньян Семеном Христофоровичем. Стремление к оказанию современной и эффективной
-                      медицинской помощи пациентам с ревматическими болезнями объединило в центре несколько поколений
-                      квалифицированных ревматологов.
-                    </p>
+                    <h2 className={styles.about_doctor_title}>Про врача</h2>
+                    <h3 className={styles.doctor_qualification_title}>{doctor.doctorQualification}</h3>
+                    <h3 className={styles.doctor_qualification_title}>{doctor.doctorAchievements}</h3>
                   </div>
                 </article>
                 <section className={styles.clinic__rating_doctor_profile}>
                   <div className={styles.doctor_container}>
                     <Icons.IconEducation/>
                     <h3 className={styles.general_doctor_info}>
-                      {doctorAchievements.education}
+                      {doctor.education}
                     </h3>
                   </div>
                   <div className={styles.doctor_container}>
                     <Icons.IconPrice/>
                     <h3 className={styles.general_doctor_info}>
-                      {`${doctorAchievements.price} грн`}
+                      {`${doctor.price} грн`}
                     </h3>
                   </div>
 
                   <div className={styles.doctor_container}>
                     <Icons.IconExperience/>
                     <h3 className={styles.general_doctor_info}>
-                      {`${doctorAchievements.workExperience} лет`}
+                      {doctor.workExperience}
                     </h3>
-                    </div>
+                  </div>
                 </section>
               </section>
+
+
+
+
+
+
+
+
+
+
+
+
               <section className={styles.clinic}>
 
               </section>
@@ -118,7 +116,7 @@ class DoctorProfileCard extends Component {
               <section className={styles.clinic}>
                 <div className={styles.clinic__main_info}>
                   <div className={styles.doctor__map}>
-                    <ProfileMap {...this.state}/>
+                    <ProfileMap {...this.state.doctor}/>
                   </div>
                   <div className={styles.work_place}>
                     <table className={styles.appointment__table}>
@@ -153,23 +151,6 @@ class DoctorProfileCard extends Component {
                   </div>
                 </div>
               </section>
-
-              {/*<section className={styles.clinic}>*/}
-              {/*<h2 className={styles.clinic__title}>Филиалы</h2>*/}
-              {/*<div className={styles.branches}>*/}
-              {/*<section  className={styles.branches__card}>*/}
-              {/*<article className={styles.branches__address}>*/}
-              {/*<h3>МЦ на Неждановой</h3>*/}
-              {/*<ul className={styles.clinic__contacts}>*/}
-              {/*<li><FontAwesome.FaMapMarker />г. Одесса, ул. Варненская, 2</li>*/}
-              {/*<li><FontAwesome.FaPhone />(0482) 307-500, (0482) 343 -062</li>*/}
-              {/*<li><FontAwesome.FaEnvelope /> into-sana@ukr.net</li>*/}
-              {/*<li><FontAwesome.FaClockO />Пн-Вск: 08.00-20.00</li>*/}
-              {/*</ul>*/}
-              {/*</article>*/}
-              {/*</section>*/}
-              {/*</div>*/}
-              {/*</section>*/}
 
               <section className={styles.clinic}>
                 <section className={styles.clinic__feedback}>

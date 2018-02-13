@@ -1,3 +1,5 @@
+export const ROOT_URL = "http://54.37.125.178:8080";
+
 export const alertConstants = {
   SUCCESS: 'ALERT_SUCCESS',
   ERROR: 'ALERT_ERROR',

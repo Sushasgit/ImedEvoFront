@@ -3,6 +3,10 @@
   display: flex;
   justify-content: flex-start;
 
+  .error{
+    color: #ffbf80;
+  }
+
   @media (max-width: 793px) {
     justify-content: center;
   }

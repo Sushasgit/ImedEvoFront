@@ -6,15 +6,15 @@ import {
   RESET_PASSWORD,
   UNAUTH_USER
 } from './types';
-
-const ROOT_URL = "http://54.37.125.178:80";
+import * as constants from '../constants/constants'
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/users/login?email=${email}&password=${password}`,{ email, password })
+    axios.post(`${constants.ROOT_URL}/users/login?email=${email}&password=${password}`,{ email, password })
       .then(response => {
         if (response.data.status.code === 710){
           dispatch(authSuccess(response.data.user));
+          document.body.style.overflow = 'auto'
           history.push(`/profile/${response.data.user.id}`);
         } else{
           dispatch(authError('Что то пошло не так'));
@@ -28,10 +28,11 @@ export function signinUser({ email, password }) {
 
 export function signupUser({ password, email, lastName, firstName, birthDate, phone }) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/users/registration`,{password, email, lastName, firstName, birthDate, phone})
+    axios.post(`${constants.ROOT_URL}/users/registration`,{password, email, lastName, firstName, birthDate, phone})
       .then(response => {
         if (response) {
           dispatch(authSuccess(response.data.user));
+          document.body.style.overflow = 'auto'
           history.push(`/profile/${response.data.user.id}`)
         } else{
           dispatch(authError('Что то пошло не так'));
@@ -45,7 +46,7 @@ export function signupUser({ password, email, lastName, firstName, birthDate, ph
 
 export function ForgotPassword({ email }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/forgot/reset?email=${email}`, { email })
+    axios.post(`${constants.ROOT_URL}/forgot/reset?email=${email}`, { email })
       .then(response => {
        if(response.data.status.code === 50){
          dispatch(resetSucces(response.data.status.message));

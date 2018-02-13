@@ -62,3 +62,28 @@
     }
   }
 }
+
+.container__button_profile{
+  padding: 8px 20px;
+  background-color: #4775d1;
+  border: 1px solid #4775d1;
+  border-radius: 3px;
+  color: #ffffff;
+  margin-top: 20px;
+  text-decoration: none;
+  font-size: 1.4em;
+  margin-right: 10px;
+  font-weight: 700;
+
+  &:hover{
+    background-color: #ffffff;
+    border: 1px solid #4775d1;
+    color: #4775d1;
+  }
+}
+
+.container__button_home {
+  @extend .container__button_profile;
+  background-color: #ff8533;
+  border: 1px solid #ff8533;
+}

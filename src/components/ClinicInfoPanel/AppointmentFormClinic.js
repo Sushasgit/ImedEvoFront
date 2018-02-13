@@ -15,7 +15,7 @@ const renderInput = (field) => {
         {...input}
         type={type}
         className="form-control"/>
-      {touched && error && <div className="error">{error}</div>}
+      {touched && error && <div className={styles.error}>{error}</div>}
     </div>
   )
 }
@@ -146,12 +146,41 @@ class AppointmentFormClinic extends Component {
   }
 }
 
+function validate (formProps) {
+  const errors = {}
+
+  if (!formProps.doctorName) {
+    errors.doctorName = 'Это обязательное поле для заполнения'
+  }
+  if(!formProps.clinicName){
+    errors.clinicName = 'Это обязательное поле для заполнения'
+  }
+
+  if(!formProps.specialization){
+    errors.specialization = 'Это обязательное поле для заполнения'
+  }
+
+  if (!formProps.phone || formProps.phone.length < 13) {
+    errors.phone = 'Формат номера +380 XX XXX XXXX'
+  }
+  if (!formProps.email) {
+    errors.email = 'Пожалуйста введите email'
+  }
+  if (!formProps.appointmentDate) {
+    errors.appointmentDate = 'Пожалуйста введите желаемую дату записи'
+  }
+  if (!formProps.appointmentTime) {
+    errors.appointmentTime = 'Пожалуйста введите желаемое время записи'
+  }
+  return errors
+}
+
 function mapStateToProps (state) {
   return {
     errorMessage: state.auth.error
   }
 }
 
-const form = reduxForm({form: 'appointment-form-clinic'})
+const form = reduxForm({form: 'appointment-form-clinic', validate})
 export default connect(mapStateToProps)(form(AppointmentFormClinic))
 

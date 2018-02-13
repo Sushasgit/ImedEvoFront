@@ -36,7 +36,6 @@ export default ({ laboratory, index }) => {
           <p className={styles.doctors__price}><Icons.IconPrice/>Консультация: {laboratory.price} грн</p>
         </div>
       </div>
-
     </article>
   );
 };

@@ -21,7 +21,6 @@ class ProfileData extends Component {
             </span>
             {user.birthDate}
           </h3>
-
           <h3>
             <span className={styles.icons_h}>
               <Icons.IconMail/>
