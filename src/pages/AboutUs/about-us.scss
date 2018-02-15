@@ -1,0 +1,136 @@
+.about_us {
+  background: url(../../images/heart-about-us.jpg);
+  background-attachment: fixed;
+  margin-top: -101px;
+  display: flex;
+  align-items: center;
+  min-height: 400px;
+
+  .about_us__banner_info {
+    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+    width: 30%;
+    border-radius: 4px;
+    margin-left: 21px;
+    position: relative;
+    background-color: #ffffff;
+
+    @media (max-width: 1181px) {
+      width: 45%;
+    }
+
+    @media (max-width: 613px) {
+      width: 88%;
+    }
+    &:before {
+      content: '';
+      background-color: #4775d1;
+      height: 20px;
+      width: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
+  }
+  p{
+    color: #4775d1;
+    font-size: 1.5em;
+    padding: 7px;
+    font-weight: 400;
+    margin-left: 15px;
+    margin-top: 0;
+  }
+
+  h5{
+    font-size: 1.9em;
+    color: #ff8533;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  h4{
+    text-align: center;
+    color: #4775d1;
+    font-size: 1.2em;
+  }
+
+  &__advantages{
+    display: flex;
+    justify-content: space-around;
+    max-width: 60%;
+    margin: 114px auto;
+    @media (max-width: 981px) {
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__advantages_item{
+    width: 30%;
+    text-align: center;
+
+    @media (max-width: 981px) {
+      width: 50%;
+    }
+    @media (max-width: 677px) {
+      width: 100%;
+
+    }
+  }
+}
+
+.about_us__info{
+  box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+  text-align: center;
+  max-width: 60%;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 60px;
+  @media (max-width: 613px) {
+    width: 88%;
+    max-width: 88%;
+  }
+
+  &:before {
+    content: '';
+    background-color: #4775d1;
+    height: 15px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-bottom: 40px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  h5{
+    font-size: 3em;
+    color: #ff8533;
+    margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+  }
+  p{
+    color: #333333;
+    font-size: 1.5em;
+    padding: 7px;
+    font-weight: 400;
+    margin-left: 15px;
+    margin-top: 0;
+  }
+}
+.about_us_title{
+  font-size: 3em;
+  color: #ff8533;
+  margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

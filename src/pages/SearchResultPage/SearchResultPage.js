@@ -1,46 +1,42 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component, Fragment } from 'react'
+import { connect } from 'react-redux'
 import styles from '../../pages/Homepage/home-page.scss'
 import logoStyles from './search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import SearchResult from '../../components/SearchResult/SearchResult'
-
-// import {
-//   getSearchResult,
-// } from '../../actions/userAuthActions';
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 class SearchResultPage extends Component {
 
-  render() {
+  render () {
     return (
-      <div>
-        <div  className={logoStyles.container__search_result}>
-          <div className={logoStyles.logo__container}>
-          <a style={{paddingBottom:'50px'}} className={logoStyles.logo} href="">
-            <img src={require('../../images/logo.png')} alt="logo"/>
-            IMED
-          </a>
-        </div>
-          <SearchPanel />
-        </div>
+      <Fragment>
+        <div>
+          <div className={logoStyles.container__search_result}>
+            <Header/>
+            <SearchPanel />
+          </div>
           <SearchResult/>
-      </div>
+        </div>
+        <Footer/>
+      </Fragment>
 
-    );
+    )
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     // searchUserAction: bindActionCreators(getSearchResult, dispatch),
-  };
+  }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     searchResult: state.searchResult,
-  };
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResultPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchResultPage)
 

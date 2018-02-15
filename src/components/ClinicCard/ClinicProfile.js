@@ -58,7 +58,6 @@ class ClinicProfile extends Component {
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
                   <img src={require('../../images/placeholder-clinic.png')}  alt="clinic-photo"/>
-
                   {/*<img src={this.state.picture}/>*/}
                   <div className={styles.clinic__description}>
                     <div className={styles.h_container_rate}>

@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
-import RandomResultDoctors from '../../components/RandomResults/RandomResultDoctors'
+import React, { Component,Fragment } from 'react'
+import RandomDoctorResultContainer from '../../containers/RandomDoctorResultContainer/RandomDoctorResultContainer'
 import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
-import FilterDoctorsPanel from '../../components/FilterPanel/FilterDoctorsPanel'
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 class DoctorsPage extends Component {
-  render() {
+  render () {
     return (
-      <div>
-        <div  className={logoStyles.container__search_result}>
+      <Fragment>
+        <div className={logoStyles.container__search_result}>
           <Header/>
           <SearchPanel />
         </div>
-        <FilterDoctorsPanel/>
-       <RandomResultDoctors/>
-      </div>
-    );
+        <RandomDoctorResultContainer/>
+        <Footer/>
+      </Fragment>
+    )
   }
 }
 

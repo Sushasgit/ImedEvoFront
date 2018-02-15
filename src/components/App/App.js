@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 import { history } from '../../history';
 import { alertActions } from '../../actions/alertActions';
 //import { PrivateRoute } from '../PrivateRoute/PrivateRoute';
@@ -28,6 +28,7 @@ import AboutUs from '../../pages/AboutUs/AboutUs';
 import Contacts from '../../pages/Contacts/Contacts';
 import Vacancy from '../../pages/Vacancy/Vacancy';
 import Promotion from '../../pages/Promotion/Promotion';
+import SpecialtySearchResultPage from '../../pages/SpecialtySearchResult/SpecialtySearchResult';
 import RequireAuth from '../../components/Authentication/Authentication';
 
 class App extends React.Component {
@@ -44,7 +45,8 @@ class App extends React.Component {
             {alert.message &&
             <div className={`alert ${alert.type}`}>{alert.message}</div>
             }
-            <Router history={history}>
+            <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+              <ScrollToTop>
               <div>
                 <Switch>
                 <Route exact path="/" component={HomePage} />
@@ -58,6 +60,7 @@ class App extends React.Component {
                 <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
                 <Route exact path="/signupclinic" component={RegistrationClinicPage} />
                 <Route exact path="/searchresult" component={SearchResultPage} />
+                <Route exact path="/searchresult/:doctorSpecialty" component={SpecialtySearchResultPage} />
                 <Route exact path="/profile/:userID" component={RequireAuth(UserProfilePage)}/>
                 <Route exact path="/blog" component={BlogArticlePage}/>
                 <Route exact path="/help" component={HelpPage}/>
@@ -72,6 +75,7 @@ class App extends React.Component {
                 <Route path="*" component={NotFound} />
                 </Switch>
               </div>
+              </ScrollToTop>
             </Router>
           </div>
         </div>

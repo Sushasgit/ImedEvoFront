@@ -21,7 +21,7 @@ class DoctorsCategories extends Component {
               На сайте вы можете выбрать семейного доктора, узнать сколько стоит прием,
               какие услуги оказывает врач, и записаться на консультацию, осмотр или лечение.
             </p>
-            <Link className={styles.specialisation__link} to="/">Перейти</Link>
+            <Link className={styles.specialisation__link} to="/searchresult/family-doctor">Перейти</Link>
           </section>
 
           <section className={styles.specialisation__card}>
@@ -37,7 +37,7 @@ class DoctorsCategories extends Component {
               На сайте вы можете выбрать взрослого или детского доктора кардиолога, узнать сколько стоит прием,
               какие услуги оказывает врач, и записаться на консультацию, осмотр или лечение.
             </p>
-            <Link className={styles.specialisation__link} to="/">Перейти</Link>
+            <Link className={styles.specialisation__link} to="/searchresult/cardiologist">Перейти</Link>
           </section>
 
           <section className={styles.specialisation__card}>
@@ -53,7 +53,7 @@ class DoctorsCategories extends Component {
               На сайте вы можете выбрать педиатра, узнать сколько стоит прием, какие услуги оказывает врач,
               и записаться на консультацию, осмотр или лечение.
             </p>
-            <Link className={styles.specialisation__link} to="/">Перейти</Link>
+            <Link className={styles.specialisation__link} to="/searchresult/pediatrician">Перейти</Link>
           </section>
 
           <section className={styles.specialisation__card}>
@@ -68,7 +68,7 @@ class DoctorsCategories extends Component {
               На сайте вы можете выбрать детского или взрослого стоматолога, узнать сколько стоит прием, какие
               услуги оказывает врач, и записаться на консультацию, осмотр или лечение.
             </p>
-            <Link className={styles.specialisation__link} to="/">Перейти</Link>
+            <Link className={styles.specialisation__link} to="/searchresult/dantist">Перейти</Link>
           </section>
 
           <section className={styles.specialisation__card}>
@@ -84,7 +84,7 @@ class DoctorsCategories extends Component {
               На сайте вы можете выбрать взрослого или детского гинеколога, узнать сколько стоит прием, какие услуги
               оказывает врач, и записаться на консультацию, осмотр или лечение.
             </p>
-            <Link className={styles.specialisation__link} to="/">Перейти</Link>
+            <Link className={styles.specialisation__link} to="/searchresult/ginecologiest">Перейти</Link>
           </section>
         </section>
       </Fragment>

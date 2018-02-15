@@ -22,7 +22,7 @@
 
 .map {
   width: 50%;
-  height: 700px;
+  height: 620px;
 
   @media (max-width: 1230px) {
     width: 100%;
@@ -143,6 +143,9 @@
   }
   &__main {
     width: 70%;
+    @media (max-width: 555px) {
+    text-align: center;
+    }
   }
   &__title {
     color: #0b689a;
@@ -225,6 +228,10 @@
   justify-content: flex-start;
   align-items: center;
   margin-top: 14px;
+
+  @media (max-width: 555px) {
+    justify-content: center;
+  }
 }
 
 .filter__item {
@@ -292,15 +299,16 @@ label {
 
 .h_col2_container {
   display: flex;
+  margin-bottom: -80px;
 
   @media (max-width: 1230px) {
     flex-direction: column;
+    margin-bottom: 0px;
   }
 }
 
 .map_container {
-  height: 400px;
-  width: 100%;
+  width: 50%;
 
   @media (max-width: 1230px) {
     width: 100%;
@@ -332,14 +340,15 @@ label {
 
 .random_results{
   width: 50%;
-  height: 700px;
+  height: 620px;
   overflow: scroll;
+  margin-bottom: -80px;
 
   @media (max-width: 1230px) {
     margin-top: 100px;
     width: 100%;
     height: auto;
-    order:50;
+    order: 50;
     overflow: auto;
   }
 }

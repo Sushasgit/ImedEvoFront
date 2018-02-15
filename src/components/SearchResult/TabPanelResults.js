@@ -51,8 +51,9 @@ export default class TabPanelResults extends React.Component {
             <article className={styles.h_col2_container}>
               <div style={{width:'50%'}}>
             <ClinicList {...this.props}/>
+              </div>
             <div className={styles.map_container}>
-            </div>
+
               <Map
                 googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places"
                 loadingElement={<div style={{height: `700px`}}/>}

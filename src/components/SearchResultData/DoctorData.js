@@ -6,11 +6,10 @@ import { Link } from 'react-router-dom'
 import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 export default ({ doctor, index }) => {
-console.log(doctor)
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
-        <Link to = {`/doctors/${doctor.id}`}>
+        <Link target="_blank" to = {`/doctors/${doctor.id}`}>
         <img src={require('../../images/doctor-profile.png')} className="user-image" alt='doctor-photo'/>
         <p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>
         </Link>
@@ -18,7 +17,7 @@ console.log(doctor)
 
       <div className={styles.doctors__main}>
         <div className={styles.h_container}>
-          <Link to = {`/doctors/${doctor.id}`}>
+          <Link target="_blank" to = {`/doctors/${doctor.id}`}>
             <h2 className={styles.doctors__title}><span>{doctor.user.firstName}</span> <span>{doctor.user.lastName}</span></h2>
           </Link>
           <RatingStars
@@ -52,9 +51,7 @@ console.log(doctor)
         <div className={styles.h_container}>
           <p className={styles.doctors__address}>
             <Icons.IconPlace/>
-            <span>{doctor.user.city}</span>
-            <span>{doctor.user.street}</span>
-            <span>{doctor.user.house}</span>
+            <span>{`г.${doctor.user.city} ул.${doctor.user.street} ${doctor.user.house}`}</span>
           </p>
           <p className={styles.doctors__price}><Icons.IconPrice/>Консультация: {doctor.price} грн</p>
         </div>

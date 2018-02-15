@@ -11,7 +11,7 @@ class ProfileData extends Component {
       <Fragment>
         <img style={{width:'21%'}} src={require('../../images/avatar-profile.png')} />
         <div className={styles.profile}>
-          <Link className={styles.settings} to="/">
+          <Link target="_blank" className={styles.settings} to="/">
             <Icons.IconEdit/>
           </Link>
           <h3 className={styles.profile__user_name}>{`${user.firstName} ${user.lastName}`}</h3>

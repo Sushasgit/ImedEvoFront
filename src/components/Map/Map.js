@@ -23,54 +23,56 @@ const Map = compose(
   withScriptjs,
   withGoogleMap
 )(props =>
-
   <GoogleMap
     defaultZoom={12}
     defaultCenter={props.center}
     defaultOptions={{styles: styleMap}}>
-
     <GetUserLocation/>
-    {props.doctors.map((a, i) => {
-      let lat = parseFloat(a.coordinatesLatitude)
-      let lon = parseFloat(a.coordinatesLongitude)
-      return (
-        <Marker
-          onClick={() => props.updateSelectedDoctorsPlace(i)}
-          key={i}
-          position={{lat: lat, lng: lon}}
-          animation={google.maps.Animation.DROP}
-          icon={{
-            url: 'data:image/svg+xml;utf-8,' + Icons.IconMarker,
-            size: new google.maps.Size(35, 40),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(0, 32)
-          }}
-        >
-          {props.selectedDoctorsPlace === i &&
-          <InfoBox onCloseClick={() => props.updateSelectedDoctorsPlace(null)}>
-            <div className={styles.doctor__card}>
-              <img className={styles.doctor__img} src='http://www.sibs-visa.com/wp-content/uploads/2014/07/vrach.jpg'/>
-              <div className={styles.main_info}>
-                <h2 className={styles.doctor__name}><span>{a.firstname}</span> <span>{a.lastname}</span></h2>
-                <h2 className={styles.doctor__position}>Педиатр</h2>
-                <h3 className={styles.doctor__works}>{a.clinic}</h3>
-                <RatingStars
-                  starSelectingHoverColor="rgb(249, 215, 73)"
-                  starRatedColor="rgb(249, 215, 73)"
-                  starWidthAndHeight="20px"
-                  starSpacing='0px'
-                  isSelectable={false}
-                  rating={a.range}
-                />
-                <p className={styles.doctor__address}><Icons.IconPlace/>{a.address}</p>
-              </div>
-            </div>
-          </InfoBox>
-          }
-        </Marker>
-      )
-    })}
-    {props.clinics.map((a, i) => {
+
+
+        {props.doctors &&
+          props.doctors.map((a, i) => {
+          let lat = parseFloat(a.coordinatesLatitude)
+          let lon = parseFloat(a.coordinatesLongitude)
+          return (
+            <Marker
+              onClick={() => props.updateSelectedDoctorsPlace(i)}
+              key={i}
+              position={{lat: lat, lng: lon}}
+              animation={google.maps.Animation.DROP}
+              icon={{
+                url: 'data:image/svg+xml;utf-8,' + Icons.IconMarker,
+                size: new google.maps.Size(35, 40),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 32)
+              }}
+            >
+              {props.selectedDoctorsPlace === i &&
+              <InfoBox onCloseClick={() => props.updateSelectedDoctorsPlace(null)}>
+                <div className={styles.doctor__card}>
+                  <img className={styles.doctor__img} src='http://www.sibs-visa.com/wp-content/uploads/2014/07/vrach.jpg'/>
+                  <div className={styles.main_info}>
+                    <h2 className={styles.doctor__name}><span>{a.firstname}</span> <span>{a.lastname}</span></h2>
+                    <h2 className={styles.doctor__position}>Педиатр</h2>
+                    <h3 className={styles.doctor__works}>{a.clinic}</h3>
+                    <RatingStars
+                      starSelectingHoverColor="rgb(249, 215, 73)"
+                      starRatedColor="rgb(249, 215, 73)"
+                      starWidthAndHeight="20px"
+                      starSpacing='0px'
+                      isSelectable={false}
+                      rating={a.range}
+                    />
+                    <p className={styles.doctor__address}><Icons.IconPlace/>{a.address}</p>
+                  </div>
+                </div>
+              </InfoBox>
+              }
+            </Marker>
+          )
+        })}
+    {props.clinics &&
+      props.clinics.map((a, i) => {
       let lat = parseFloat(a.coordinatesLatitude)
       let lon = parseFloat(a.coordinatesLongitude)
       return (
@@ -111,6 +113,11 @@ const Map = compose(
         </Marker>
       )
     })}
+
+
+
+
+
   </GoogleMap>
 )
 

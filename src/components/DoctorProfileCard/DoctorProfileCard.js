@@ -24,23 +24,6 @@ class DoctorProfileCard extends Component {
     }
   }
 
-  componentDidMount () {
-    let id = this.props.match.params.doctorId;
-    axios.get(`${constants.ROOT_URL}/doctors/${id}`)
-      .then(response => {
-        console.log(response.data['doctor'])
-        let doctor = response.data['doctor'];
-        console.log(doctor)
-        this.setState({
-          doctor:doctor,
-          doctorPersonalInfo: doctor.user
-        })
-      })
-      .catch((error) => {
-        console.log(error)
-      });
-  }
-
   render () {
     let doctor = this.state.doctor;
     console.log(doctor.user)
@@ -97,22 +80,8 @@ class DoctorProfileCard extends Component {
                   </div>
                 </section>
               </section>
-
-
-
-
-
-
-
-
-
-
-
-
               <section className={styles.clinic}>
-
               </section>
-
               <section className={styles.clinic}>
                 <div className={styles.clinic__main_info}>
                   <div className={styles.doctor__map}>
