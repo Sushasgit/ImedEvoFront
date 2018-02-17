@@ -15,22 +15,31 @@ class DoctorProfileData extends Component {
       doctor: nextProps.data
     })
   }
+
   render () {
     const doctorInfo = this.state.doctor
-    return (
+    console.log(doctorInfo.lastName)
+    if(doctorInfo.lastName){
+      return (
+        <Fragment>
+          <h2 className={styles.name}>
+            <span>{`${doctorInfo.lastName} ${doctorInfo.firstName} ${doctorInfo.patronymic}`}</span>
+          </h2>
+        </Fragment>
+      )
+      }else{
+      return (
+        <Fragment>
+          <img src={require('../../images/giphy.gif')} alt="loading"/>
+        </Fragment>
+      )
 
-      <Fragment>
-        <h2 className={styles.name}>
-          <span>{`${doctorInfo.lastName} ${doctorInfo.firstName} ${doctorInfo.patronymic}`}</span>
-        </h2>
-
-      </Fragment>
-    )
+    }
 
   }
 }
 
-export default DoctorProfileData;
+export default DoctorProfileData
 
 
 

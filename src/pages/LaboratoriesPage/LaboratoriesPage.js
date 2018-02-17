@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
-import RandomLaboratories from '../../components/RandomResults/RandomLaboratories'
+import RandomLaboratoryContainer from '../../containers/RandomDoctorResultContainer/RandomLaboratoryContainer'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 
@@ -15,7 +15,7 @@ class LaboratoriesPage extends Component {
             <Header/>
             <SearchPanel />
           </div>
-          <RandomLaboratories/>
+          <RandomLaboratoryContainer/>
         </div>
         <Footer/>
       </div>

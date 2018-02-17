@@ -25,18 +25,15 @@ const ProfileMap = compose(
 
   <GoogleMap
     defaultZoom={12}
-    defaultCenter={props.clinic ? {
-      lat: parseFloat(props.clinic.coordinatesLatitude),
-      lng: parseFloat(props.clinic.coordinatesLongitude)
-    } : {lat: 46.4632302, lng: 30.6895109}}
+    defaultCenter={{lat: 46.4632302, lng: 30.6895109}}
     defaultOptions={{styles: styleMap}}
   >
     <GetUserLocation/>
-    {props.clinic &&
+    {props &&
     <Marker
       position={{
-        lat: parseFloat(props.clinic.coordinatesLatitude),
-        lng: parseFloat(props.clinic.coordinatesLongitude)}}
+        lat: parseFloat(props.coordinatesLatitude),
+        lng: parseFloat(props.coordinatesLongitude)}}
       animation={google.maps.Animation.DROP}
       icon={{
         url: 'data:image/svg+xml;utf-8,' + Icons.IconMarker,

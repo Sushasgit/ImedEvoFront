@@ -13,7 +13,7 @@ export default ({ clinic, index }) => {
         <Link to = {`/clinics/${clinic.id}`}>
         <img src={require('../../images/placeholder-clinic.png')} className="user-image" alt="clinic-photo"/>
         <p className={styles.clinic__address}><Icons.IconPlace/>{clinic.address}</p>
-        <p className={styles.clinic__hours}><Icons.IconTime/>9.00-18.00</p>
+        <p className={styles.clinic__hours}><Icons.IconTime/>{clinic.workingHours}</p>
         </Link>
       </div>
 
@@ -32,7 +32,7 @@ export default ({ clinic, index }) => {
           />
         </div>
         <p className={styles.clinic_description}>
-          Первая частная Клиника полного цикла, открытая в Днепропетровске в 1996 году. Наша Клиника - это медицинский центр европейского типа с усовершенствованным и качественно новым уровнем обслуживания пациентов. Приходя в нашу клинику, люди уверены, что доверяют заботу о своем здоровье настоящим специалистам.
+          {clinic.description}
         </p>
         <div style={{display:'flex',justifyContent:'space-around',alignItems:'center'}}>
           <a href="/">Подробнее</a>

@@ -9,7 +9,7 @@ export default ({ doctor, index }) => {
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
-        <Link target="_blank" to = {`/doctors/${doctor.id}`}>
+        <Link to = {`/doctors/${doctor.id}`}>
         <img src={require('../../images/doctor-profile.png')} className="user-image" alt='doctor-photo'/>
         <p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>
         </Link>
@@ -17,7 +17,7 @@ export default ({ doctor, index }) => {
 
       <div className={styles.doctors__main}>
         <div className={styles.h_container}>
-          <Link target="_blank" to = {`/doctors/${doctor.id}`}>
+          <Link to = {`/doctors/${doctor.id}`}>
             <h2 className={styles.doctors__title}><span>{doctor.user.firstName}</span> <span>{doctor.user.lastName}</span></h2>
           </Link>
           <RatingStars
@@ -28,6 +28,10 @@ export default ({ doctor, index }) => {
             isSelectable={false}
             rating={doctor.reting}
           />
+          {doctor.pediatrician &&
+          <Icons.IconPushChair/>
+          }
+
         </div>
 
         <p className={styles.doctors_description}>

@@ -14,7 +14,8 @@ module.exports = {
   devServer: {
     hot: true,
     publicPath: '/',
-    port: 8080
+    port: 8085,
+    host:'127.0.0.1'
   },
 
   resolve: {
@@ -23,7 +24,7 @@ module.exports = {
 
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:8085',
     path.resolve(DIRNAME, 'src')
   ],
 

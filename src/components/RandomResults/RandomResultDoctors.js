@@ -16,10 +16,11 @@ class RandomResultDoctors extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    this.setState({
-      doctors: nextProps,
-      isLoading:nextProps
-    })
+      this.setState({
+        doctors: nextProps,
+        isLoading:nextProps.isLoading
+      })
+
 }
 
   render () {
@@ -30,11 +31,11 @@ class RandomResultDoctors extends Component {
       <div className={styles.h_col2_container}>
         <div className={styles.random_results}>
 
-          {this.state.isLoading.isLoading &&
+          {this.state.isLoading &&
           <img src={require('../../images/loading.gif')}/>
           }
 
-          {!this.state.isLoading.isLoading &&
+          {!this.state.isLoading &&
           <DoctorList  {...this.state.doctors}/>
           }
 

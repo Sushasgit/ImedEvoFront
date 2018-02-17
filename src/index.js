@@ -5,10 +5,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { store } from './store';
 import { App } from '../src/components/App/App';
-var registerObserver = require('react-perf-devtool')
 
-// Simple, no?
-registerObserver()
+
+//
 
 render(
   <Provider store={store}>

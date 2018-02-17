@@ -16,15 +16,16 @@ class SearchResultPage extends Component {
       discount:[]
     }
   }
-
-  componentWillReceiveProps (nextProps) {
+  componentDidMount () {
     this.setState({
-      doctors: nextProps.searchResult.doctors,
-      clinics:nextProps.searchResult.clinics,
+      doctors: this.props.searchResult.doctors,
+      clinics: this.props.searchResult.clinics,
     })
+
   }
+
   render () {
-    console.log(this.state)
+    console.log(this.props)
     return (
       <div>
         <TabPanelResults {...this.state}/>

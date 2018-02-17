@@ -18,7 +18,7 @@ class RandomDoctorResultContainer extends Component {
       orderLastName:true,
       orderPrice:true,
       orderWorkExperience:true,
-      isPediatrician:true
+      isPediatrician:false
     }
   }
 
@@ -48,9 +48,10 @@ class RandomDoctorResultContainer extends Component {
     this.props.filterDoctorsExperience(this.props, this.state.orderWorkExperience)
   }
 
-  filterPediatrician (){
-    this.setState(prevState => ({isPediatrician: !prevState.isPediatrician}));
-    this.props.filterPediatrician(this.props, this.state.isPediatrician)
+  filterPediatrician (e){
+    console.log(e.target.checked)
+    let onlyPediatrician = e.target.checked
+     onlyPediatrician ? this.props.filterPediatrician(this.props, e.target.checked) :  this.props.getAllDoctors()
   }
 
   render () {
@@ -108,7 +109,12 @@ class RandomDoctorResultContainer extends Component {
 
           <li>
             <label>Педиатр</label>
-            <input onChange={this.filterPediatrician.bind(this)} className={styles.filter_checkbox} type="checkbox"/>
+            <input
+              onChange={this.filterPediatrician.bind(this)}
+              className={styles.filter_checkbox}
+              type="checkbox"
+              defaultChecked={this.state.isPediatrician}
+            />
           </li>
         </ul>
       </nav>

@@ -22,6 +22,8 @@ export default function register () { // Register the service worker
           console.error('Error during service worker registration:', error);
         });
     });
+  } else {
+    console.log('This browser does not have support for Service Workers yet!!')
   }
 }
 

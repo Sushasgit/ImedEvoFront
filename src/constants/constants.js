@@ -1,4 +1,4 @@
-export const ROOT_URL = "http://54.37.125.178:8085";
+export const ROOT_URL = "https://54.37.125.178:8085";
 
 export const alertConstants = {
   SUCCESS: 'ALERT_SUCCESS',

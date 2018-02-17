@@ -3,7 +3,7 @@ import DoctorData from '../SearchResultData/DoctorData';
 import styles from '../SearchResult/search-result.scss'
 
 export default ({ doctors }) => {
-  console.log(doctors)
+
   if (!doctors || doctors.length === 0 ) { return (<p className={styles.title_not_found}>По Вашему запросу ничего не найдено</p>); }
 
   const doctorsList = doctors.map((doctor, index) => {

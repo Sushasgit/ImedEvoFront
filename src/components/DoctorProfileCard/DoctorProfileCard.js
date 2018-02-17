@@ -24,14 +24,32 @@ class DoctorProfileCard extends Component {
     }
   }
 
+  componentDidMount () {
+    let id = this.props.match.params.doctorId;
+    axios.get(`${constants.ROOT_URL}/doctors/${id}`)
+      .then(response => {
+        console.log(response.data['doctor'])
+        let doctor = response.data['doctor'];
+        console.log(doctor)
+        this.setState({
+          doctor:doctor,
+          doctorPersonalInfo: doctor.user
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      });
+  }
+
   render () {
     let doctor = this.state.doctor;
-    console.log(doctor.user)
+    console.log(doctor)
     return (
       <Fragment>
         <div className={styles.h_background}>
           <Header/>
           <ClinicInfoPanel/>
+          {doctor &&
           <div className={styles.profile}>
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
@@ -102,21 +120,21 @@ class DoctorProfileCard extends Component {
                       </tr>
                       </tbody>
                     </table>
-                  <table className={styles.appointment__table}>
-                    <tbody>
-                    <tr>
-                      <th>Название клиники</th>
-                      <th>Время</th>
-                      <th>Дени недели</th>
-                    </tr>
-                    <tr>
-                      <td>Одрекс</td>
-                      <td>9:00 - 12:00</td>
-                      <td>Понедельник, Среда, Пятница</td>
-                    </tr>
-                    </tbody>
+                    <table className={styles.appointment__table}>
+                      <tbody>
+                      <tr>
+                        <th>Название клиники</th>
+                        <th>Время</th>
+                        <th>Дени недели</th>
+                      </tr>
+                      <tr>
+                        <td>Одрекс</td>
+                        <td>9:00 - 12:00</td>
+                        <td>Понедельник, Среда, Пятница</td>
+                      </tr>
+                      </tbody>
 
-                  </table>
+                    </table>
                   </div>
                 </div>
               </section>
@@ -176,6 +194,7 @@ class DoctorProfileCard extends Component {
               </div>
             </div>
           </div>
+          }
         </div>
         <Footer/>
       </Fragment>

@@ -95,7 +95,7 @@ class DoctorsCard extends Component {
             )}
           </div>
         </div>
-        <Link className={styles.link__all} to="/"> Посмотреть все специализации</Link>
+        <Link className={styles.link__all} to="/doctors"> Посмотреть все специализации</Link>
       </Fragment>
     )
   }

@@ -45,7 +45,7 @@ class App extends React.Component {
             {alert.message &&
             <div className={`alert ${alert.type}`}>{alert.message}</div>
             }
-            <Router onUpdate={() => window.scrollTo(0, 0)} history={history}>
+            <Router history={history}>
               <ScrollToTop>
               <div>
                 <Switch>

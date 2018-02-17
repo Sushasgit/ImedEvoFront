@@ -5,17 +5,17 @@ const FILTER_DOCTORS_RATING = 'FILTER_DOCTORS_RATING';
 const FILTER_DOCTORS_PEDIATRICIAN = 'FILTER_DOCTORS_PEDIATRICIAN';
 const FILTER_DOCTORS_PRICE = 'FILTER_DOCTORS_PRICE';
 const FILTER_DOCTORS_EXPERIENCE = 'FILTER_DOCTORS_EXPERIENCE';
+
 import * as constants from '../constants/constants'
 import axios from 'axios';
 
 
 export function getAllDoctors() {
   return function (dispatch) {
+    dispatch(getDoctorsRequest())
     axios.get(`${constants.ROOT_URL}/doctors/getall`)
       .then(response => {
-        console.log(response.data)
         let doctors = response.data;
-        dispatch(getDoctorsRequest())
         dispatch(getDoctorsSuccess(doctors))
       })
       .catch((error) => {
@@ -23,6 +23,8 @@ export function getAllDoctors() {
       });
   }
 }
+
+
 
 export function filterDoctors(doctors, order) {
   return function (dispatch) {
@@ -78,14 +80,16 @@ export function filterDoctorsRating(doctors, order) {
 }
 
 export function filterPediatrician(doctors, order) {
+  let filteredDoctors = doctors
   return function (dispatch) {
     if (order) {
-      let filterDoctors = doctors.allResults.doctors.filter(item => {return item.pediatrician === true;});
+      console.log(filteredDoctors.allResults.doctors)
+      let filterDoctors = filteredDoctors.allResults.doctors.filter(item => {return item.pediatrician === true;});
       dispatch(filterPediatricianSuccess(filterDoctors))
     }
     else{
-      let filterDoctors = doctors.allResults.doctors.filter(item => {return item.pediatrician === true;});
-      dispatch(filterPediatricianSuccess(filterDoctors))
+      console.log(filteredDoctors.allResults.doctors)
+      dispatch(doctors.allResults.doctors)
     }
   }
 }
@@ -100,7 +104,7 @@ export function getDoctorsSuccess(doctors) {
 export function getDoctorsRequest() {
   return {
     type: GET_ALL_DOCTORS_REQUEST,
-    payload: true
+    isLoading: true
   };
 }
 

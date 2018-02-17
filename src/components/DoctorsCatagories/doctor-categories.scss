@@ -1,6 +1,6 @@
 .title{
   text-align: center;
-  color:#4775d1;
+  color: #245999;
   font-size: 2em;
 }
 
@@ -69,9 +69,8 @@
     position: absolute;
     top: 95%;
     left: 50%;
-    /* bring your own prefixes */
     transform: translate(-50%, -50%);
-    background-color: #347ECF;
+    background-color: #245999;
     padding: 5px 8px;
     border-radius: 4px;
   }
@@ -92,12 +91,17 @@
   &__link{
     margin-top: auto;
     text-align: center;
-    border:1px solid #347ECF;
+    border:1px solid #245999;
     padding: 10px;
     border-radius: 4px;
     text-decoration: none;
     font-size: 18px;
-    color: #347ECF;
+    color: #245999;
     font-weight: 900;
+    transition: color 0.7s;
+    &:hover{
+      background-color: #245999;
+      color:#ffffff;
+    }
   }
 }

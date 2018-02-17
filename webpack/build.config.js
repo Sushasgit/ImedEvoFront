@@ -6,10 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin');
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DIRNAME = path.resolve(__dirname, '../')
+var ImageminPlugin = require('imagemin-webpack-plugin').default
 
 module.exports = {
   resolve: {
@@ -35,6 +36,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -107,30 +109,36 @@ module.exports = {
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
     }),
-    new UglifyJsPlugin({
-      uglifyOptions:{
-        output: {
-          comments: false,
-        },
-        compress: {
-          unused: true,
-          dead_code: true,
-          warnings: false,
-          drop_debugger: true,
-          conditionals: true,
-          evaluate: true,
-          drop_console: true,
-          sequences: true,
-          booleans: true,
-        }
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: true,
+      compress: {
+        warnings: false, // Suppress uglification warnings
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true
       },
+      output: {
+        comments: false,
+      },
+      exclude: [/\.min\.js$/gi]
     }),
     new webpack.DefinePlugin({
       'process.env': {NODE_ENV: JSON.stringify('production')}
     }),
     new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0
@@ -153,6 +161,11 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '95-100'
+      }
+    }),
     new SWPrecacheWebpackPlugin({
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: 'service-worker.js',
@@ -167,6 +180,7 @@ module.exports = {
       navigateFallback: '/index.html',
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
+
     new CopyWebpackPlugin([
       { from: 'src/pwa' },
     ])
