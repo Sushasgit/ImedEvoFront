@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RandomResultClinic from '../../components/RandomResults/RandomResultClinic'
+import RandomClinicResultContainer from '../../containers/RandomDoctorResultContainer/RandomClinicResultContainer'
 import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import FilterClinicsPanel from '../../components/FilterPanel/FilterClinicsPanel'
@@ -14,8 +14,7 @@ class ClinicsPage extends Component {
           <Header/>
           <SearchPanel />
         </div>
-        <FilterClinicsPanel/>
-        <RandomResultClinic/>
+        <RandomClinicResultContainer/>
       </div>
     </div>
     );

@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import data from '../../constants/test.json'
+import React, { Component, Fragment } from 'react'
 import Map from '../../components/Map/Map'
 import DiscountList from '../SearchResultLists/DiscountList'
 import { connect } from 'react-redux'
@@ -14,27 +13,28 @@ class RandomDiscounts extends Component {
     super(props)
 
     this.state = {
-      clinics: [],
-      doctors: [],
-      laboratories:[],
-      discounts:[]
-
+      discounts:[],
+      isLoading: true
     }
   }
 
-  componentDidMount () {
-    var th = this
-    th.setState({
-      discount: data.discounts
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      discounts: nextProps,
+      isLoading:nextProps.isLoading
     })
   }
 
   render () {
     console.log(this.state)
     return (
+      <Fragment>
+      {this.state &&
       <div className={styles.h_col2_container}>
         <div className={styles.random_results}>
-          <DiscountList {...this.state}/>
+          {!this.state.isLoading &&
+           <DiscountList {...this.state.discounts}/>
+          }
         </div>
         <div className={styles.map}>
           <Map
@@ -42,17 +42,18 @@ class RandomDiscounts extends Component {
             loadingElement={<div style={{height: `700px`}}/>}
             containerElement={<div style={{height: `800px`}}/>}
             mapElement={<div style={{height: `700px`, width: '700px'}}/>}
-            {...this.state}
+            {...this.state.discounts}
           />
         </div>
 
       </div>
+
+      }
+    </Fragment>
     )
   }
 }
-const mapStateToProps = state => ({
-  someProp: state.someProp
-})
 
-export default connect(mapStateToProps)(RandomDiscounts)
+
+export default RandomDiscounts;
 

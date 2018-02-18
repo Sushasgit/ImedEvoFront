@@ -3,6 +3,7 @@
 .blog{
   display: flex;
   justify-content: space-between;
+  padding: 24px;
 
   @media (max-width: 1102px) {
     justify-content: center;
@@ -19,7 +20,9 @@
   justify-content: space-between;
   box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
   background-color: #ffffff;
-  padding-bottom: 24px;
+  padding-bottom: 51px;
+  padding-top: 47px;
+  border-radius: 5px;
 
   @media (max-width: 1102px) {
     width: 70%;
@@ -31,13 +34,13 @@
     font-weight: 700;
     box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
     border-radius: 0 0 5px 5px;
-    background-color: #347ECF;
+    background-color: #245999;
     position: absolute;
     left: 50%;
     top: -7%;
     transform: translate(-50%, -50%);
     padding: 7px;
-    width: 63%;
+    width: 77%;
     text-align: center;
 
     @media (max-width: 1102px) {
@@ -49,10 +52,10 @@
     font-size: 18px;
     font-weight: 300;
     text-align: center;
+    padding: 10px;
   }
   &__img{
-    width: 100%;
-    height: 260px;
+    width: 80%;
 
     @media (max-width: 1102px) {
       width: 100%;
@@ -62,8 +65,8 @@
   &__btn{
     box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
     border-radius: 5px;
-    border: 1px solid #347ECF;
-    background-color: #347ECF;
+    border: 1px solid #245999;
+    background-color: #245999;
     padding: 15px;
     color: #ffffff;
     font-size: 18px;
@@ -72,7 +75,7 @@
     text-decoration: none;
     &:hover{
       background-color: #ffffff;
-      color: #347ECF;
+      color: #245999;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RandomDiagnostics from '../../components/RandomResults/RandomDiagnostics'
+import RandomDiagnosticContainer from '../../containers/RandomDoctorResultContainer/RandomDiagnosticContainer'
 import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import Header from '../../components/Header/Header'
@@ -12,7 +12,7 @@ class DiagnosticsPage extends Component {
           <Header/>
           <SearchPanel />
         </div>
-        <RandomDiagnostics/>
+        <RandomDiagnosticContainer/>
       </div>
     );
   }

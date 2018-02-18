@@ -23,12 +23,15 @@ class SignInModal extends Component {
     this.setState({
       isModalOpen: false
     })
+    document.body.style.overflow = this.state.originalBodyOverflow;
   }
 
   openModal () {
     this.setState({
-      isModalOpen: true
+      isModalOpen: true,
+      originalBodyOverflow: document.body.style.overflow
     })
+    document.body.style.overflow = 'hidden';
   }
   render () {
     return (
@@ -48,16 +51,7 @@ class SignInModal extends Component {
 
           <button
             className={styles.close}
-            style={{
-              margin: 0,
-              width: 'auto',
-              marginTop: 10,
-              backgroundColor:'transparent',
-              position:'absolute',
-              top:'-48px',
-              right:'-60px',
-              border:'none'
-            }} onClick={this.closeModal}>
+             onClick={this.closeModal}>
 
             <Icons.IconCloseModal/>
           </button>

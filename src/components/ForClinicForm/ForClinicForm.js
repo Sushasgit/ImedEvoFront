@@ -77,7 +77,7 @@ class ForClinicForm extends Component {
             <h4>СПАСИБО, СООБЩЕНИЕ ОТПРАВЛЕНО. МЫ СВЯЖЕМСЯ С ВАМИ В БЛИЖАЙШЕЕ ВРЕМЯ.</h4>
           </Modal>
 
-          <Form style={{display:'flex', alignItems:'center'}} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+          <Form className={styles.contact} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field
               name="email"
               type="email"

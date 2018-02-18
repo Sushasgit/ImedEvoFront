@@ -1,9 +1,9 @@
-.registration{
-  &__body{
+.registration {
+  &__body {
     display: flex;
     background-color: #f2f5fb;
 
-    form{
+    form {
       width: 50%;
       text-align: center;
       padding-bottom: 40px;
@@ -12,38 +12,38 @@
       }
     }
 
-    img{
-      width:50%;
+    img {
+      width: 50%;
     }
-    input{
+    input {
       width: 70%;
       background-color: #e8e8e8;
       height: 29px;
-      border:none;
+      border: none;
       font-size: 0.8em;
       font-weight: 700;
-      padding-left:10px ;
+      padding-left: 10px;
       color: #566b76;
     }
-    input:not(lastchild){
+    input:not(lastchild) {
       margin-bottom: 19px;
     }
-    input[type=date]{
+    input[type=date] {
       width: 33%;
     }
-    input::placeholder{
+    input::placeholder {
       color: #90a4ae;
       font-size: 1.1em;
       font-weight: 700;
-      padding-left:10px ;
+      padding-left: 10px;
     }
-    label{
+    label {
       color: #90a4ae;
       font-size: 1.1em;
       font-weight: 300;
       margin-right: 10px;
     }
-    input[type=submit]{
+    input[type=submit] {
       color: #fefefe;
       font-size: 16px;
       font-weight: 300;
@@ -51,28 +51,28 @@
       border-radius: 5px;
       background-color: #4fa7d8;
     }
-    input[type=checkbox]{
+    input[type=checkbox] {
       margin-bottom: 0;
       width: 10%;
       vertical-align: middle;
     }
   }
 
-  &__checkboxes{
-    padding: 0 40px 0 68px;
+  &__checkboxes {
     text-align: left;
 
-    label{
+    label {
       color: #0b689a;
       font-size: 14px;
       font-weight: 700;
     }
   }
 
-  &__logo{
+  &__logo {
     background-size: cover;
     width: 50%;
     text-align: center;
+
     @media (max-width: 764px) {
       display: none;
     }
@@ -84,13 +84,13 @@
       text-transform: uppercase;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      font-family: "Open Sans Condensed",sans-serif;
-      position:absolute ;
+      font-family: "Open Sans Condensed", sans-serif;
+      position: absolute;
       top: 244px;
       right: 89px;
     }
 
-    &::before{
+    &::before {
       content: '';
       background: inherit;
       position: absolute;
@@ -103,14 +103,14 @@
       height: 261px;
     }
 
-    img{
+    img {
       width: 118px;
       display: block;
       margin: 0 auto;
     }
   }
 
-  &__content{
+  &__content {
     position: relative;
     width: auto;
     max-width: 700px;
@@ -119,50 +119,52 @@
     text-align: center;
   }
 
-  &__signin_button{
+  &__signin_button {
     margin-top: 38px;
     margin-bottom: 68px;
   }
 
-  &__title{
+  &__title {
     color: #0b689a;
     font-size: 36px;
     font-weight: 700;
   }
 
-  &__close{
-    svg{
-      path{
-        fill:black;
+  &__close {
+    svg {
+      path {
+        fill: black;
       }
     }
   }
 }
 
 .logo__container {
-   width: 50%;
-   background-size: cover;
+  width: 50%;
+  background-size: cover;
+
   @media (max-width: 766px) {
     display: none;
   }
-   a {
-     background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
-     color: #01b4f0;
-     font-size: 6.06em;
-     font-weight: 700;
-     text-transform: uppercase;
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-     margin: 200px auto 0;
-     display: block;
-   }
- }
+  a {
+    background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
+    color: #01b4f0;
+    font-size: 6.06em;
+    font-weight: 700;
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 200px auto 0;
+    display: block;
+  }
+}
+
 @keyframes fadeIn {
   0% {
-    background:rgba(0,0,0,.0);
+    background: rgba(0, 0, 0, .0);
   }
   100% {
-    background:rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, .7);
   }
 }
 
@@ -172,27 +174,28 @@
   background-color: #ff8533;
   margin-right: 10px;
   padding: 10px 27px;
-  color: #fff;
+  color: #000000;
   border-radius: 4px;
   transform-style: flat;
   transition: color 400ms ease-out;
-  border: #ff8533;
+  border: 1px solid #ff8533;
 }
 
-.login__button:hover{
+.login__button:hover {
   background: transparent;
-  color: #347ECF;
+  color: #000000;
   border: 1px solid #347ECF;
 }
+
 .sign_up_button {
   @extend .login__button;
   background-color: #347ECF;
   border: #347ECF;
 }
 
-.signup{
+.signup {
   background-color: #f5f5f5;
-  padding:10px;
+  padding: 10px;
   width: 100%;
   text-align: center;
   label {
@@ -202,18 +205,27 @@
     margin-top: 15px;
     width: 34%;
     text-align: right;
+
+    @media (max-width: 480px) {
+      display: block;
+      width: 86%;
+    }
   }
 
-  input{
+  input {
     color: #4775d1;
     font-size: 1em;
     width: 57%;
     border-radius: 10px;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10 0 rgba(0, 0, 0, 0.1);
     border: none;
     padding: 12px 20px;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
   }
-  input::placeholder{
+  input::placeholder {
     color: #000;
     font-size: 1.1em;
     font-weight: 700;
@@ -221,14 +233,25 @@
   }
 }
 
-.registration__checkboxes{
-  input{
+.registration__checkboxes {
+  input {
     width: 5%;
     box-shadow: none;
+    @media (max-width: 480px) {
+      font-size: 0.9em;
+      width: 20%;
+      display: inline-block;
+    }
   }
-  label{
+  label {
     font-size: 0.9em;
     width: 71%;
+
+    @media (max-width: 480px) {
+      font-size: 0.9em;
+      width: 62%;
+      display: inline-block;
+    }
   }
 }
 
@@ -241,34 +264,49 @@
   font-size: 1em;
   margin-top: 20px;
 
-  &:hover{
+  &:hover {
     background-color: #ffffff;
     border: 1px solid #4775d1;
-    color:#4775d1;
+    color: #4775d1;
   }
 }
 
-.signin{
+.signin {
   @extend .btn__signup;
   padding: 10px 30px;
   margin-bottom: 20px;
 }
 
-.error{
+.error {
   color: #ff5050;
 }
 
-.close{
+.close {
   transition: color 1s;
+  margin: 0;
+  width: auto;
+  margin-top: 10px;
+  background-color: transparent;
+  position: absolute;
+  top: -48px;
+  right: -60px;
+  border: none;
+
+  @media (max-width: 700px) {
+    top: -4px;
+    right: 0;
+  }
 }
-.close:hover{
-  path{
+
+.close:hover, .close:focus {
+  path {
     fill: #fff;
   }
 }
-.forgot{
+
+.forgot {
   background-color: #f5f5f5;
-  padding:80px;
+  padding: 80px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -283,7 +321,7 @@
     text-align: right;
   }
 
-  input{
+  input {
     color: #4775d1;
     font-size: 1em;
     width: 77%;
@@ -292,7 +330,7 @@
     border: none;
     padding: 12px 20px;
   }
-  input::placeholder{
+  input::placeholder {
     color: #000;
     font-size: 1.1em;
     font-weight: 700;
@@ -300,13 +338,13 @@
   }
 }
 
-.forgot_title{
+.forgot_title {
   color: #4775d1;
   font-size: 2.2em;
   text-align: center;
 }
 
-.forgot_btn{
+.forgot_btn {
   padding: 8px 20px;
   background-color: #4775d1;
   border: 1px solid #4775d1;
@@ -316,9 +354,61 @@
   margin-top: 11px;
   margin-left: 20px;
 
-  &:hover{
+  &:hover {
     background-color: #ffffff;
     border: 1px solid #4775d1;
-    color:#4775d1;
+    color: #4775d1;
+  }
+}
+
+.appointment_doctor {
+
+  &__title {
+    text-align: center;
+    margin: 0;
+    background-color: #ff8533;
+    color: #ffffff;
+  }
+
+  &__subtitle {
+    color: #4775d1;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  &__form {
+    @extend .signup;
+    input[type="time"] {
+      width: 30%;
+
+      @media (max-width: 480px) {
+        width: 37%;
+      }
+
+      @media (max-width: 400px) {
+        width: 49%;
+      }
+    }
+  }
+
+  &__confirm {
+    color: #4775d1;
+    text-align: center;
+    font-size: 1.4em;
+  }
+}
+
+.appointment_button {
+  font-size: 1em;
+  font-weight: 700;
+  background-color: #ff8533;
+  padding: 10px 27px;
+  color: #07153C;
+  border-radius: 4px;
+  transform-style: flat;
+  transition: color 400ms ease-out;
+  border: 1px solid #ff8533;
+  &:hover{
+    background-color: #ebedf3;
   }
 }

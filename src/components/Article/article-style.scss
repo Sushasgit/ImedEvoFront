@@ -136,6 +136,8 @@
   padding-left: 16px;
   width: 80%;
   border-left: 8px solid #ff8533;
+  font-size: 1.5em;
+  font-weight: 700;
 }
 
 .article_author{
@@ -156,6 +158,12 @@
 
 .article_date{
   background-color: #4775d1;
-  color:#ffffff;
+  color: #ffffff;
 }
 
+.article__headlines {
+  font-size: 1.4em;
+  font-family: 'Hind Vadodara', sans-serif;
+  text-align: center;
+  color: #4775d1;
+}

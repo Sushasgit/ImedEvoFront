@@ -1,0 +1,41 @@
+import React, { Component, Fragment } from 'react'
+import RandomLaboratories from '../../components/RandomResults/RandomLaboratories'
+import * as actions from '../../actions/laboratoriesActions'
+import { connect } from 'react-redux'
+
+class RandomDoctorResultContainer extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      isLoading:true,
+      laboratories:[]
+    }
+  }
+
+  componentDidMount (){
+    this.props.getAllLaboratories()
+  }
+
+  render () {
+    console.log(this.props)
+    return (
+      <Fragment>
+        <RandomLaboratories {...this.props.allResults} />
+      </Fragment>
+    )
+  }
+}
+
+const mapStateToProps = state => ({
+  allResults: state.allResults
+})
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getAllLaboratories: () => dispatch(actions.getAllLaboratories()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RandomDoctorResultContainer)
+

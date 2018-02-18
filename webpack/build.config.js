@@ -6,17 +6,33 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin');
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin')
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DIRNAME = path.resolve(__dirname, '../')
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const PurifyCSSPlugin = require('purifycss-webpack');
+const glob = require('glob');
 
 module.exports = {
   resolve: {
     modules: [path.join(DIRNAME, 'src'), 'node_modules']
   },
 
-  entry: [path.resolve(DIRNAME, 'src')],
+  entry:{
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router-dom',
+      'redux',
+      'redux-thunk',
+      'moment'
+    ],
+    MyPages: [path.resolve(DIRNAME, 'src')]
+  },
 
   output: {
     filename: `assets/js/[name].[hash].bundle.js`,
@@ -35,6 +51,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
@@ -44,7 +61,7 @@ module.exports = {
                 root: '/assets',
                 minimize: true,
                 modules: true,
-                localIdentName: '[hash:base64:5]'
+                localIdentName: 'purify_[hash:base64:5]'
               }
             },
             {
@@ -63,9 +80,10 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 modules: true,
+                minimize: true,
                 sourceMap: true,
                 importLoaders: 2,
-                localIdentName: '[name]__[local]___[hash:base64:5]'
+                localIdentName: 'purify_[name]__[local]___[hash:base64:5]'
               }
             },
             'sass-loader'
@@ -93,6 +111,8 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({names: ['MyPages','vendor'], filename: 'bundle--[name].js'}),
+    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin('build', {
       root: DIRNAME,
       verbose: true,
@@ -107,16 +127,43 @@ module.exports = {
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
     }),
+    new PurifyCSSPlugin({
+      purifyOptions: {
+        whitelist: ['*purify*'],
+        minify: true
+      },
+      paths: glob.sync(path.join(__dirname, 'build/*.html')),
+    }),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      include: /\.min\.js$/,
-      minimize: true
+      mangle: true,
+      compress: {
+        warnings: false, // Suppress uglification warnings
+        pure_getters: true,
+        unsafe: true,
+        unsafe_comps: true,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true
+      },
+      output: {
+        comments: false,
+      },
+      exclude: [/\.min\.js$/gi]
     }),
     new webpack.DefinePlugin({
       'process.env': {NODE_ENV: JSON.stringify('production')}
     }),
     new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0
@@ -139,6 +186,17 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '95-100'
+      }
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true
+    }),
     new SWPrecacheWebpackPlugin({
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: 'service-worker.js',
@@ -153,6 +211,7 @@ module.exports = {
       navigateFallback: '/index.html',
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
+
     new CopyWebpackPlugin([
       { from: 'src/pwa' },
     ])

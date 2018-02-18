@@ -3,9 +3,9 @@ import RatingStars from '../customComponents/RatingStars'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SearchResult/search-result.scss'
 import { Link } from 'react-router-dom'
+import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 export default ({ doctor, index }) => {
-
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
@@ -28,6 +28,10 @@ export default ({ doctor, index }) => {
             isSelectable={false}
             rating={doctor.reting}
           />
+          {doctor.pediatrician &&
+          <Icons.IconPushChair/>
+          }
+
         </div>
 
         <p className={styles.doctors_description}>
@@ -44,17 +48,14 @@ export default ({ doctor, index }) => {
           </span>
           {doctor.education}
         </p>
-        <div className={styles.h_container}>
-          <a className={styles.doctors__link} href="/">Читать отзывы(39)</a>
-          <button className={styles.doctors__btn}>Записаться на прием</button>
+        <div className={styles.h_container_footer}>
+          <AppointmentModal data={doctor}/>
         </div>
 
         <div className={styles.h_container}>
           <p className={styles.doctors__address}>
             <Icons.IconPlace/>
-            <span>{doctor.user.city}</span>
-            <span>{doctor.user.street}</span>
-            <span>{doctor.user.house}</span>
+            <span>{`г.${doctor.user.city} ул.${doctor.user.street} ${doctor.user.house}`}</span>
           </p>
           <p className={styles.doctors__price}><Icons.IconPrice/>Консультация: {doctor.price} грн</p>
         </div>

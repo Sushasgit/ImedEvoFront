@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import styles from './widjets-clinic.scss'
-import * as FontAwesome from 'react-icons/lib/fa'
 // import ProfileMap from '../Map/ProfileMap'
 // import styles from './clinic-profile.scss'
 // import RatingStars from '../customComponents/RatingStars'
@@ -76,10 +75,10 @@ class WidjetsClinic extends Component {
               <article className={styles.widjet__address}>
                 <h3>МЦ на Неждановой</h3>
                 <ul className={styles.clinic__contacts}>
-                  <li><FontAwesome.FaMapMarker />г. Одесса, ул. Варненская, 2</li>
-                  <li><FontAwesome.FaPhone />(0482) 307-500, (0482) 343 -062</li>
-                  <li><FontAwesome.FaEnvelope /> into-sana@ukr.net</li>
-                  <li><FontAwesome.FaClockO />Пн-Вск: 08.00-20.00</li>
+                  <li>г. Одесса, ул. Варненская, 2</li>
+                  <li>(0482) 307-500, (0482) 343 -062</li>
+                  <li> into-sana@ukr.net</li>
+                  <li>Пн-Вск: 08.00-20.00</li>
                 </ul>
               </article>
             </section>

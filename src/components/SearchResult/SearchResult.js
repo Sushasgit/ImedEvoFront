@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import data from '../../constants/test.json'
 import 'rc-checkbox/assets/index.css'
-import axios from 'axios';
 import TabPanelResults from './TabPanelResults'
 import 'react-tabs/style/react-tabs.scss';
 
@@ -18,45 +16,16 @@ class SearchResultPage extends Component {
       discount:[]
     }
   }
-
   componentDidMount () {
-    const ROOT_URL = "http://54.37.125.178:8080";
-    axios.get(`${ROOT_URL}/doctors/getall`)
-      .then(response => {
-       console.log(response.data)
-        let doctors = response.data;
-        let th = this
-        th.setState({
-          doctors:doctors,
-        })
-      })
-      .catch((error) => {
-          console.log(error)
-      });
-
-    axios.get(`${ROOT_URL}/clinics/getall`)
-      .then(response => {
-        console.log(response.data)
-        let clinics = response.data;
-        let th = this
-        th.setState({
-          clinics:clinics,
-        })
-      })
-      .catch(() => {
-
-      });
-
-    let th = this
-    th.setState({
-      diagnostics:data.diagnostics,
-      laboratories:data.laboratories,
-      discount:data.discounts
+    this.setState({
+      doctors: this.props.searchResult.doctors,
+      clinics: this.props.searchResult.clinics,
     })
+
   }
 
   render () {
-    console.log(this.state)
+    console.log(this.props)
     return (
       <div>
         <TabPanelResults {...this.state}/>
@@ -64,8 +33,9 @@ class SearchResultPage extends Component {
     )
   }
 }
+
 const mapStateToProps = state => ({
-  someProp: state.someProp
+  searchResult: state.searchResult
 })
 
 export default connect(mapStateToProps)(SearchResultPage)

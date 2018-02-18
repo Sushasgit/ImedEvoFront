@@ -24,7 +24,7 @@
     margin: 0;
     padding: 0;
     position: relative;
-    min-width: 15%;
+    min-width: 12%;
     margin-right: 5px;
 
     @media (max-width: 1110px) {
@@ -33,22 +33,46 @@
     }
 
     @media (max-width: 591px) {
-      min-width: 49%;
+      min-width: 55%;
     }
 
     @media (max-width: 400px) {
       min-width: 68%;
     }
   }
-  a {
+  a, button {
     background: #fff;
     color: #0b689a;
-    display: block;
     font: bold 16px/50px sans-serif;
     padding: 0 25px;
     text-align: center;
     text-decoration: none;
     transition: all .25s ease;
+    display: inline-block;
+    width: 100%;
+    svg{
+      margin-left: 15px;
+      margin-top: 15px;
+    }
+  }
+  label{
+    display: inline-block;
+    font: bold 16px/50px sans-serif;
+    padding: 0 25px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    vertical-align: middle;
+    margin-right: 5px;
+    padding-right: 0;
+    font-size:22px;
+  }
+
+  .filter_checkbox{
+    height: 22px;
+    width: 20px;
+    vertical-align: middle;
+    margin: 0;
   }
 
   li:hover a {
@@ -57,6 +81,7 @@
 
   nav .dropdown:after {
     content: ' \25bc';
+    margin-left: 5px;
   }
 
   li ul {
@@ -81,9 +106,6 @@
 
   li ul a:hover {
     background-color: #01b4f0;
-  }
-  label{
-    display: block;
   }
 }
 

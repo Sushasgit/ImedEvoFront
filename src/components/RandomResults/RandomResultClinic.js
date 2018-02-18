@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 import axios from 'axios';
 import Map from '../../components/Map/Map'
 import ClinicList from '../SearchResultLists/ClinicList'
@@ -20,41 +20,27 @@ class RandomResultClinic extends Component {
     }
   }
 
-  componentDidMount () {
-      const ROOT_URL = "http://54.37.125.178:8080";
-    axios.get(`${ROOT_URL}/clinics/getall`)
-        .then(response => {
-          console.log(response.data)
-          let clinics = response.data;
-          let th = this
-          th.setState({
-            clinics:clinics,
-            isLoading:false
-          })
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    }
-
-
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      clinics: nextProps,
+      isLoading:nextProps.isLoading
+    })
+  }
 
   render () {
     return (
+    <Fragment>
+      {this.state &&
       <div className={styles.h_col2_container}>
         <div className={styles.random_results}>
-
-          {this.state.clinics.length===0 && this.state.isLoading &&
-            <img src={require('../../images/loading.gif')}/>
+          {this.state.isLoading &&
+          <img src={require('../../images/loading.gif')}/>
           }
 
-          {this.state.clinics.length>0 &&
-            <ClinicList {...this.state}/>
+          {!this.state.isLoading &&
+          <ClinicList {...this.state.clinics}/>
           }
 
-          {this.state.clinics.length === 0 && !this.state.isLoading &&
-          <h4 className={styles.title_not_found}>По вашему запросу ничего не найдено</h4>
-          }
         </div>
         <div className={styles.map}>
           <Map
@@ -62,16 +48,16 @@ class RandomResultClinic extends Component {
             loadingElement={<div style={{height: `700px`}}/>}
             containerElement={<div style={{height: `800px`}}/>}
             mapElement={<div style={{height: `700px`, width: '700px'}}/>}
-            {...this.state}
+            {...this.state.clinics}
           />
         </div>
-
       </div>
+      }
+
+    </Fragment>
     )
   }
 }
-const mapStateToProps = state => ({
-  someProp: state.someProp
-})
 
-export default connect(mapStateToProps)(RandomResultClinic)
+
+export default RandomResultClinic;

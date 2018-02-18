@@ -57,7 +57,7 @@
 }
 
 .map {
-  height: 700px;
+  height: 620px;
   width: 100%;
 
   @media (max-width: 1230px) {
@@ -65,10 +65,13 @@
     order: 10;
     height: 300px;
   }
+  .infoBox{
+    width: 333px!important;
+  }
 }
 
 .map_container {
-  height: 400px;
+  height: 620px;
   width: 100%;
 
   @media (max-width: 1230px) {

@@ -89,9 +89,8 @@ class SignUpForm extends Component {
               label="Телефон"
               format={phoneFormatter}
               parse={phoneParser}
+            />
 
-            >
-            </Field>
 
             <Field
               name="email"

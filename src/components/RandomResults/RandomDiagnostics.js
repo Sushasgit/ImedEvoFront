@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import data from '../../constants/test.json'
 import Map from '../../components/Map/Map'
 import DiagnosticsList from '../SearchResultLists/DiagnosticsList'
-import { connect } from 'react-redux'
 import styles from  '../SearchResult/search-result.scss'
 
 import 'rc-checkbox/assets/index.css'
@@ -13,28 +11,23 @@ class RandomDiagnostics extends Component {
     super(props)
 
     this.state = {
-      clinics: [],
-      doctors: [],
-      laboratories:[],
-      discounts:[],
       diagnostics:[]
-
     }
   }
 
-  componentDidMount () {
-    var th = this
-    th.setState({
-      diagnostics: data.diagnostics
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      diagnostics: nextProps,
+      isLoading:nextProps.isLoading
     })
   }
-
   render () {
-    console.log(this.state)
+    console.log(this.state.diagnostics)
     return (
       <div className={styles.h_col2_container}>
         <div className={styles.random_results}>
-          <DiagnosticsList {...this.state}/>
+          <DiagnosticsList {...this.state.diagnostics}/>
+
         </div>
         <div className={styles.map}>
           <Map
@@ -42,7 +35,7 @@ class RandomDiagnostics extends Component {
             loadingElement={<div style={{height: `700px`}}/>}
             containerElement={<div style={{height: `800px`}}/>}
             mapElement={<div style={{height: `700px`, width: '700px'}}/>}
-            {...this.state}
+            {...this.state.diagnostics}
           />
         </div>
 
@@ -50,9 +43,6 @@ class RandomDiagnostics extends Component {
     )
   }
 }
-const mapStateToProps = state => ({
-  someProp: state.someProp
-})
 
-export default connect(mapStateToProps)(RandomDiagnostics)
+export default RandomDiagnostics;
 

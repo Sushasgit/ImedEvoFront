@@ -3,6 +3,10 @@
   display: flex;
   justify-content: flex-start;
 
+  .error{
+    color: #ffbf80;
+  }
+
   @media (max-width: 793px) {
     justify-content: center;
   }
@@ -26,6 +30,12 @@
       width:100%;
     }
   }
+  input::placeholder{
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding-left: 10px;
+  }
   &__btn{
     padding: 10px 47px;
     background-color: #ff8533;
@@ -34,6 +44,12 @@
     margin-top: 14px;
     font-size: 18px;
     border: none;
+  }
+
+  &__confirm{
+    color: #4775d1;
+    text-align: center;
+    font-size: 1.4em;
   }
 }
 
@@ -54,5 +70,17 @@
 
   @media (max-width: 793px) {
     justify-content: center;
+  }
+
+  input {
+    color: #ffffff;
+    font-size: 1em;
+
+    &::placeholder {
+      color: #ffffff;
+      font-size: 1.1em;
+      font-weight: 700;
+      padding-left: 10px;
+    }
   }
 }

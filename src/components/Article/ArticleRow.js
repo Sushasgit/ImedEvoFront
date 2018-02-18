@@ -33,7 +33,7 @@ class ArticleRow extends Component {
     return (
       <section className={styles.article_row} onClick={this.handleClick}>
         <header>
-          <img src={this.props.img}/>
+          <img src={require(`../../images/${this.props.name}`)} alt="Profile"/>
         </header>
         <div>
           <div className={styles.article_title}>{this.props.title}</div>
