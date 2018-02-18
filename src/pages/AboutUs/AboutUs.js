@@ -52,7 +52,7 @@ class AboutUs extends Component {
             <p>Запись на приём с помощью IMED теперь не только удобнее, но и выгоднее, чем в клинике.</p>
           </div>
         </section>
-        <h5  className={styles.about_us_title}>Нас можно тнайти здесь:</h5>
+        <h5  className={styles.about_us_title}>Нас можно  найти здесь:</h5>
         <MapAboutUs />
         <Footer/>
       </Fragment>

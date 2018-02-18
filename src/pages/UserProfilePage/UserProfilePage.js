@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import RatingStars from '../../components/customComponents/RatingStars'
-import * as FontAwesome from 'react-icons/lib/fa'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import WidjetsClinic from '../../components/WidjetsClinic/WidjetsClinic'
@@ -76,42 +75,42 @@ class UserProfilePage extends Component {
                 <section className={styles.clinic__feedback}>
                   <h2 className={styles.clinic__title}>Отзывы</h2>
                   <div className={styles.feedback}>
-                    {this.state.feedbacks.map((feedback, index) => {
-                      return (
-                        <section key={index} className={styles.feedback__card}>
-                          <div className={styles.h_row}>
-                            <div className={styles.feedback__range}>
-                              <div className={styles.feedback__range_item}>
-                                <FontAwesome.FaTrash/> <span>5</span>
-                                <p>Комфорт</p>
-                              </div>
+                    {/*{this.state.feedbacks.map((feedback, index) => {*/}
+                      {/*return (*/}
+                        {/*<section key={index} className={styles.feedback__card}>*/}
+                          {/*<div className={styles.h_row}>*/}
+                            {/*<div className={styles.feedback__range}>*/}
+                              {/*<div className={styles.feedback__range_item}>*/}
+                                {/*<FontAwesome.FaTrash/> <span>5</span>*/}
+                                {/*<p>Комфорт</p>*/}
+                              {/*</div>*/}
 
-                              <div className={styles.feedback__range_item}>
-                                <FontAwesome.FaAmbulance/><span>5</span>
-                                <p>Специалисты</p>
-                              </div>
+                              {/*<div className={styles.feedback__range_item}>*/}
+                                {/*<FontAwesome.FaAmbulance/><span>5</span>*/}
+                                {/*<p>Специалисты</p>*/}
+                              {/*</div>*/}
 
-                              <div className={styles.feedback__range_item}>
-                                <FontAwesome.FaDollar/><span>5</span>
-                                <p>Доброжелательность</p>
-                              </div>
-                            </div>
-                            <RatingStars
-                              starSelectingHoverColor="rgb(249, 215, 73)"
-                              starRatedColor="rgb(249, 215, 73)"
-                              starWidthAndHeight="30px"
-                              starSpacing='0px'
-                              isSelectable={true}
-                              rating={this.state.range}
-                            />
-                          </div>
-                          <p>{feedback.feedbackText}</p>
-                          <time>
-                            {feedback.date}
-                          </time>
-                        </section>
-                      )
-                    })}
+                              {/*<div className={styles.feedback__range_item}>*/}
+                                {/*<FontAwesome.FaDollar/><span>5</span>*/}
+                                {/*<p>Доброжелательность</p>*/}
+                              {/*</div>*/}
+                            {/*</div>*/}
+                            {/*<RatingStars*/}
+                              {/*starSelectingHoverColor="rgb(249, 215, 73)"*/}
+                              {/*starRatedColor="rgb(249, 215, 73)"*/}
+                              {/*starWidthAndHeight="30px"*/}
+                              {/*starSpacing='0px'*/}
+                              {/*isSelectable={true}*/}
+                              {/*rating={this.state.range}*/}
+                            {/*/>*/}
+                          {/*</div>*/}
+                          {/*<p>{feedback.feedbackText}</p>*/}
+                          {/*<time>*/}
+                            {/*{feedback.date}*/}
+                          {/*</time>*/}
+                        {/*</section>*/}
+                      {/*)*/}
+                    {/*})}*/}
                   </div>
                 </section>
               </section>

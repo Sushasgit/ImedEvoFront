@@ -46,6 +46,9 @@
   &__info {
     width: 30%;
     text-align: center;
+    a {
+      text-decoration: none;
+    }
     img {
       width: 76%;
       height: 49%;
@@ -60,6 +63,9 @@
   }
   &__main {
     width: 60%;
+    p{
+      text-align: center;
+    }
 
     @media (max-width: 500px) {
     width: 85%;

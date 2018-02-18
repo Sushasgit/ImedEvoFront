@@ -143,8 +143,8 @@ const Map = compose(
 
     {props.laboratories &&
     props.laboratories.map((a, i) => {
-      let lat = parseFloat(a.coordinatesLatitude)
-      let lon = parseFloat(a.coordinatesLongitude)
+      let lat = parseFloat(a.latitude)
+      let lon = parseFloat(a.longitude)
       return (
         <Marker
           onClick={() => props.updateSelectedClinicsPlace(i)}

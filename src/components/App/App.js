@@ -15,7 +15,7 @@ import RegistrationDoctorPage from '../../pages/RegistrationDoctorPage/Registrat
 import RegistrationClinicPage from '../../pages/RegistrationClinicPage/RegistrationClinicPage';
 import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
 import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
-import DoctorProfileCard from '../../components/DoctorProfileCard/DoctorProfileCard';
+import DoctorProfile from '../../components/DoctorProfileCard/DoctorProfile';
 import ForgotPassword from '../../components/ForgotPassword/ForgotPassword';
 import ClinicProfile from '../../components/ClinicCard/ClinicProfile';
 import PrivacyPolicy from '../../pages/PrivacyPolicy/PrivacyPolicy';
@@ -53,7 +53,7 @@ class App extends React.Component {
                 <Route exact path="/doctors" component={DoctorsPage} />
                 <Route exact path="/clinics" component={ClinicsPage} />
                 <Route exact path="/clinics/:clinicId" component={ClinicProfile} />
-                <Route exact path="/doctors/:doctorId" component={DoctorProfileCard} />
+                <Route exact path="/doctors/:doctorId" component={DoctorProfile} />
                 <Route exact path="/laboratories" component={LaboratoriesPage} />
                 <Route exact path="/diagnostics" component={DiagnosticsPage} />
                 <Route exact path="/sale" component={SalePage} />

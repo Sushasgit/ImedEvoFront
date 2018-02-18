@@ -3,6 +3,7 @@
 .blog{
   display: flex;
   justify-content: space-between;
+  padding: 24px;
 
   @media (max-width: 1102px) {
     justify-content: center;

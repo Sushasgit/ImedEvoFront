@@ -10,14 +10,29 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DIRNAME = path.resolve(__dirname, '../')
-var ImageminPlugin = require('imagemin-webpack-plugin').default
+const ImageminPlugin = require('imagemin-webpack-plugin').default
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const PurifyCSSPlugin = require('purifycss-webpack');
+const glob = require('glob');
 
 module.exports = {
   resolve: {
     modules: [path.join(DIRNAME, 'src'), 'node_modules']
   },
 
-  entry: [path.resolve(DIRNAME, 'src')],
+  entry:{
+    vendor: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'react-router-dom',
+      'redux',
+      'redux-thunk',
+      'moment'
+    ],
+    MyPages: [path.resolve(DIRNAME, 'src')]
+  },
 
   output: {
     filename: `assets/js/[name].[hash].bundle.js`,
@@ -46,7 +61,7 @@ module.exports = {
                 root: '/assets',
                 minimize: true,
                 modules: true,
-                localIdentName: '[hash:base64:5]'
+                localIdentName: 'purify_[hash:base64:5]'
               }
             },
             {
@@ -65,9 +80,10 @@ module.exports = {
               loader: 'css-loader',
               options: {
                 modules: true,
+                minimize: true,
                 sourceMap: true,
                 importLoaders: 2,
-                localIdentName: '[name]__[local]___[hash:base64:5]'
+                localIdentName: 'purify_[name]__[local]___[hash:base64:5]'
               }
             },
             'sass-loader'
@@ -95,6 +111,8 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({names: ['MyPages','vendor'], filename: 'bundle--[name].js'}),
+    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin('build', {
       root: DIRNAME,
       verbose: true,
@@ -108,6 +126,13 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
+    }),
+    new PurifyCSSPlugin({
+      purifyOptions: {
+        whitelist: ['*purify*'],
+        minify: true
+      },
+      paths: glob.sync(path.join(__dirname, 'build/*.html')),
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -165,6 +190,12 @@ module.exports = {
       pngquant: {
         quality: '95-100'
       }
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true
     }),
     new SWPrecacheWebpackPlugin({
       dontCacheBustUrlsMatching: /\.\w{8}\./,

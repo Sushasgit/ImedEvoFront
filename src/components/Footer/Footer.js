@@ -49,9 +49,6 @@ class Footer extends Component {
               <Link to="/about">О компании</Link>
             </li>
             <li>
-              <Link to="/contacts">Контакты</Link>
-            </li>
-            <li>
               <Link to="/vacancy">Вакансии</Link>
             </li>
           </ul>

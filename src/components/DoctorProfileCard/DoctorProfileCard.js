@@ -10,9 +10,8 @@ import ClinicInfoPanel from '../ClinicInfoPanel/ClinicInfoPanel'
 import DoctorProfileData from './DoctorProfileData'
 import * as constants from '../../constants/constants'
 import * as Icons from '../../components/SvgIcons/SvgIcons.js'
-import * as FontAwesome from 'react-icons/lib/fa'
 import styles from '../ClinicCard/clinic-profile.scss'
-
+import { history } from '../../history';
 
 
 class DoctorProfileCard extends Component {
@@ -23,33 +22,16 @@ class DoctorProfileCard extends Component {
       doctorPersonalInfo:[],
     }
   }
-
-  componentDidMount () {
-    let id = this.props.match.params.doctorId;
-    axios.get(`${constants.ROOT_URL}/doctors/${id}`)
-      .then(response => {
-        console.log(response.data['doctor'])
-        let doctor = response.data['doctor'];
-        console.log(doctor)
-        this.setState({
-          doctor:doctor,
-          doctorPersonalInfo: doctor.user
-        })
-      })
-      .catch((error) => {
-        console.log(error)
-      });
+  componentWillReceiveProps (nextProps) {
+    this.setState({
+      doctor: nextProps,
+    })
   }
-
   render () {
     let doctor = this.state.doctor;
-    console.log(doctor)
     return (
       <Fragment>
         <div className={styles.h_background}>
-          <Header/>
-          <ClinicInfoPanel/>
-          {doctor &&
           <div className={styles.profile}>
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
@@ -144,41 +126,6 @@ class DoctorProfileCard extends Component {
                   <h2 className={styles.clinic__title}>Отзывы</h2>
                   <div className={styles.feedback}>
 
-                    <section className={styles.feedback__card}>
-                      <div className={styles.h_row}>
-                        <div className={styles.feedback__range}>
-                          <div className={styles.feedback__range_item}>
-                            <FontAwesome.FaTrash/> <span>5</span>
-                            <p>Комфорт</p>
-                          </div>
-
-                          <div className={styles.feedback__range_item}>
-                            <FontAwesome.FaAmbulance/><span>5</span>
-                            <p>Специалисты</p>
-                          </div>
-
-                          <div className={styles.feedback__range_item}>
-                            <FontAwesome.FaDollar/><span>5</span>
-                            <p>Доброжелательность</p>
-                          </div>
-                        </div>
-                        <RatingStars
-                          starSelectingHoverColor="rgb(249, 215, 73)"
-                          starRatedColor="rgb(249, 215, 73)"
-                          starWidthAndHeight="30px"
-                          starSpacing='0px'
-                          isSelectable={true}
-                          rating={this.state.range}
-                        />
-                      </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet consequuntur error eum
-                        iste omnis pariatur quia ut. Adipisci distinctio enim ipsum obcaecati sint soluta tempora
-                        velit. Dolore, eaque, illum!
-                      </p>
-                      <time>
-                        Оставлен: Январь 2018
-                      </time>
-                    </section>
                   </div>
                 </section>
               </section>
@@ -194,9 +141,8 @@ class DoctorProfileCard extends Component {
               </div>
             </div>
           </div>
-          }
         </div>
-        <Footer/>
+
       </Fragment>
     )
 

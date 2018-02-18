@@ -13,13 +13,15 @@ const GET_ALL_LABORATORIES = 'GET_ALL_LABORATORIES'
 const GET_ALL_LABORATORIES_REQUEST = 'GET_ALL_LABORATORIES_REQUEST'
 const GET_ALL_DIAGNOSTIC = 'GET_ALL_DIAGNOSTIC'
 const GET_ALL_DIAGNOSTIC_REQUEST = 'GET_ALL_DIAGNOSTIC_REQUEST'
+const GET_ALL_DISCOUNTS = 'GET_ALL_DISCOUNTS'
+const GET_ALL_DISCOUNTS_REQUEST = 'GET_ALL_DISCOUNTS_REQUEST'
 
 const INIT_STATE = {
   clinics: [],
   doctors: [],
   diagnostics:[],
   laboratories:[],
-  discount:[],
+  discounts:[],
   isLoading: false
 }
 
@@ -36,6 +38,12 @@ export default function getAllReducer  (state = INIT_STATE, action)  {
 
     case GET_ALL_DOCTORS_REQUEST:
       return {isLoading: true};
+
+    case GET_ALL_DISCOUNTS_REQUEST:
+      return {isLoading: true};
+
+    case GET_ALL_DISCOUNTS:
+      return {discounts:action.payload, isLoading: false};
 
     case GET_ALL_LABORATORIES:
       return {laboratories:action.payload, isLoading: false};

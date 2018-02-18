@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import data from '../../constants/test.json'
 import Map from '../../components/Map/Map'
 import DiagnosticsList from '../SearchResultLists/DiagnosticsList'
-import { connect } from 'react-redux'
 import styles from  '../SearchResult/search-result.scss'
 
 import 'rc-checkbox/assets/index.css'
