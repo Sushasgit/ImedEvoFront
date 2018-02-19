@@ -7,7 +7,12 @@ import Modal from '../customComponents/Modal'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  './sign-up-modal.scss'
 
-
+const styleBody = {
+  overflow:'hidden',
+  height: '100%',
+  width: '100%',
+  position: 'fixed'
+}
 
 class SignUpModal extends Component {
   constructor (props) {
@@ -26,6 +31,7 @@ class SignUpModal extends Component {
       isModalOpen: false
     })
     document.body.style.overflow = this.state.originalBodyOverflow;
+    document.body.style.position = 'static';
   }
 
   openModal () {
@@ -34,6 +40,7 @@ class SignUpModal extends Component {
       originalBodyOverflow: document.body.style.overflow
     })
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
   }
 
   render () {

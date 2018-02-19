@@ -26,6 +26,7 @@ class AppointmentModal extends Component {
       isModalOpen: false
     })
     document.body.style.overflow = this.state.originalBodyOverflow;
+    document.body.style.position = 'static';
   }
 
   openModal () {
@@ -34,6 +35,7 @@ class AppointmentModal extends Component {
       originalBodyOverflow: document.body.style.overflow
     })
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
   }
 
   render () {

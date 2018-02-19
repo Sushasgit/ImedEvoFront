@@ -11,8 +11,8 @@ export default ({ doctors }) => {
   });
 
   return (
-   <Fragment>
+    <div style={{height:'100%', overflow:'auto'}}>
       {doctorsList}
-   </Fragment>
+    </div>
   );
 };

@@ -73,8 +73,9 @@ class App extends React.Component {
                 <Route exact path="/contacts" component={Contacts}/>
                 <Route exact path="/vacancy" component={Vacancy}/>
                 <Route exact path="/promotion" component={Promotion}/>
-                <Route path="*" component={NotFound} />
                 <Route path="/forgot/resetpassword" component={ChangePassword}/>
+                <Route path="*" component={NotFound} />
+
                 </Switch>
               </div>
               </ScrollToTop>

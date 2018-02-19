@@ -10,7 +10,7 @@ export default ({ diagnostics }) => {
   });
 
   return (
-    <div style={{height:'700px', overflow:'auto'}}>
+    <div style={{height:'100%', overflow:'auto'}}>
       {diagnosticList}
     </div>
   );

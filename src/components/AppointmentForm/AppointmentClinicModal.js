@@ -34,6 +34,7 @@ class AppointmentClinicModal extends Component {
       originalBodyOverflow: document.body.style.overflow
     })
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed'
   }
 
   render () {

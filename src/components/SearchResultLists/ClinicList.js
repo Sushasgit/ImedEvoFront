@@ -10,7 +10,7 @@ export default ({ clinics }) => {
   });
 
   return (
-    <div>
+    <div style={{height:'100%', overflow:'auto'}}>
       {clinicList}
     </div>
   );

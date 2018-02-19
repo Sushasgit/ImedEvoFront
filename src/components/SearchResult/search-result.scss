@@ -357,3 +357,14 @@ label {
     overflow: auto;
   }
 }
+
+.loading_img{
+
+  @media (max-width: 1178px) {
+  width: 50%;
+    display: block;
+    margin: 0 auto;
+    padding:0 21px 30px;
+    margin-bottom: 20px;
+  }
+}

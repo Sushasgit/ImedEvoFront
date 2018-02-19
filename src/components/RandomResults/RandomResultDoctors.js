@@ -32,7 +32,7 @@ class RandomResultDoctors extends Component {
         <div className={styles.random_results}>
 
           {this.state.isLoading &&
-          <img src={require('../../images/loading.gif')}/>
+          <img className={styles.loading_img}  src={require('../../images/loading.gif')}/>
           }
 
           {!this.state.isLoading &&
