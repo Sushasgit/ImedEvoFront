@@ -32,7 +32,7 @@ class DoctorsCategories extends Component {
               </span>
             </header>
 
-            <h3 className={styles.specialisation__title}>Кардилог</h3>
+            <h3 className={styles.specialisation__title}>Кардиолог</h3>
             <p className={styles.specialisation__description}>
               На сайте вы можете выбрать взрослого или детского доктора кардиолога, узнать сколько стоит прием,
               какие услуги оказывает врач, и записаться на консультацию, осмотр или лечение.

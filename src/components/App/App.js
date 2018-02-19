@@ -30,6 +30,7 @@ import Vacancy from '../../pages/Vacancy/Vacancy';
 import Promotion from '../../pages/Promotion/Promotion';
 import SpecialtySearchResultPage from '../../pages/SpecialtySearchResult/SpecialtySearchResult';
 import RequireAuth from '../../components/Authentication/Authentication';
+import ChangePassword from '../../components/ChangePassword/ChangePassword';
 
 class App extends React.Component {
   constructor(props) {
@@ -73,6 +74,7 @@ class App extends React.Component {
                 <Route exact path="/vacancy" component={Vacancy}/>
                 <Route exact path="/promotion" component={Promotion}/>
                 <Route path="*" component={NotFound} />
+                <Route path="/forgot/resetpassword" component={ChangePassword}/>
                 </Switch>
               </div>
               </ScrollToTop>

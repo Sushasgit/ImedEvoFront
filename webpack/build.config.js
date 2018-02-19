@@ -57,6 +57,7 @@ module.exports = {
           use: [
             {
               loader: 'css-loader',
+              include: /react-infinite-calendar/,
               options: {
                 root: '/assets',
                 minimize: true,

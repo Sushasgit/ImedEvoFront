@@ -24,7 +24,7 @@ class Footer extends Component {
               <Link to="/blog">Блог</Link>
             </li>
             <li>
-              <Link to="/help">Помощь</Link>
+              <Link to="/help">Обратная связь</Link>
             </li>
           </ul>
 

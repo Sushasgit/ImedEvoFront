@@ -179,6 +179,7 @@
   transform-style: flat;
   transition: color 400ms ease-out;
   border: 1px solid #ff8533;
+  cursor: pointer;
 }
 
 .login__button:hover {
@@ -191,6 +192,7 @@
   @extend .login__button;
   background-color: #347ECF;
   border: #347ECF;
+  cursor: pointer;
 }
 
 .signup {
@@ -263,6 +265,7 @@
   color: #ffffff;
   font-size: 1em;
   margin-top: 20px;
+  cursor: pointer;
 
   &:hover {
     background-color: #ffffff;

@@ -39,7 +39,7 @@ class SignInModal extends Component {
         <button
           className={styles.login__button}
           onClick={this.openModal}>
-          Войти
+          Вход
         </button>
 
         <Modal
