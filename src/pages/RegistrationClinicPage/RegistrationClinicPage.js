@@ -9,13 +9,7 @@ class RegistrationClinicPage extends Component {
   render() {
     return (
       <div>
-        <div className={styles.container_clinic}>
-          <div className="h-background">
-            <div className="container-search--doctors">
-              <LogoItem/>
-            </div>
-          </div>
-        </div>
+        <Header/>
         <ClinicRegistrationForm/>
         <Footer/>
       </div>

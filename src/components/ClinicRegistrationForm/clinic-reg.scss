@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .clinic_form {
   margin: 0 auto;
   width: 81.25rem;
+  
 }
 
 .cf_tit {
-  color: #9f45cd;
+  color: #4775d1;
   text-align: center;
   margin: 0 auto;
   margin-top: 4rem;
@@ -15,7 +17,7 @@
   font: {
     family: "Open Sans Condensed";
     size: 2.5rem;
-    weight: 300;
+    weight: 600;
   }
 }
 
@@ -24,6 +26,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
+
 }
 
 .cf_left {
@@ -31,11 +35,12 @@
   width: 15rem;
   display: flex;
   flex-direction: column;
+
 }
 
 .cf_left_logo {
   margin-top: 3.875rem;
-  background-color: #01b4f0;
+  background-color: #347ECF;
   padding: 30px 0 0 30px;
   height: 100%;
 }
@@ -73,11 +78,12 @@
 }
 
 .cf_right {
-  background-color: #01b4f0;
+  background-color: #347ECF;
   width: 53rem;
   display: flex;
   flex-direction: column;
   padding-top: 3.875rem;
+
 }
 
 .cf_form {
@@ -85,6 +91,36 @@
   padding: 13px 0 0 30px;
 
 }
+
+.cf_form_name_new{
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+     color: #01b4f0;
+      font: {
+        family: "Open Sans Condensed";
+        size: 1.125rem;
+        weight: 700;
+      }
+   input {
+    width: 15.75rem;
+    height: 2.5625rem;
+    border: 4px solid #cff1fb;
+    background-color: #ffffff;
+    padding: 0 5px;
+    border-radius: 7px;
+    margin-left: -3px;
+    color: #01b4f0;
+    font: {
+      family: "Open Sans Condensed";
+      size: 1.125rem;
+      weight: 700;
+    }
+  }
+}
+
+
 
 .cf_form_name,
 .cf_form_address,
@@ -114,6 +150,7 @@
     }
   }
 }
+
 
 .cf_form_name,
 .cf_form_phone {
@@ -211,14 +248,15 @@
     size: 1.125rem;
     weight: 700;
   }
-}
 
-input[type="time"] {
-  width: 90px;
-  height: 34px;
-  border: 4px solid #cff1fb;
-  background-color: #ffffff;
-  border-radius: 7px;
+
+  input[type="time"] {
+    width: 90px;
+    height: 34px;
+    border: 4px solid #cff1fb;
+    background-color: #ffffff;
+    border-radius: 7px;
+  }
 }
 
 .cf_form_schedule_tit {
@@ -228,8 +266,8 @@ input[type="time"] {
 
 .cf_form_monday,
 {
-  input[type="time"]:first-child {
-    margin-left: 5px;
+  input[type=time]:first-child {
+    // margin-left: 5px;
   }
 }
 
@@ -254,10 +292,10 @@ input[type="time"] {
 .cf_form_services {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 93%;
   margin-bottom: 50px;
   margin-top: 10px;
-}
+
 
 textarea {
   resize: none;
@@ -272,10 +310,35 @@ textarea {
     weight: 700;
   }
 }
-
-input[type="submit"] {
-  margin: 0 0 7% 25%;
 }
+
+
+.cf_form_submit{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #4775d1;
+    border: 1px solid #4775d1;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    width: 14rem;
+    height: 2.5rem;
+    &:hover{
+      background-color: #ffffff;
+      color: #4775d1;
+    }
+    margin-bottom: 5%;
+
+}
+
+.cf_form_thirdline{
+  // border: 1px solid red;
+
+}
+
+
 
 @media (max-width: 1300px) {
   .clinic_form {
@@ -310,6 +373,19 @@ input[type="submit"] {
   }
 }
 
+
+// @media (max-width: 754px) {
+//     .cf_form_name_new{
+//       width: 46%;
+//       input{
+//         width: 100%;
+//       }
+//     }
+//   }
+
+
+
+
 @media (max-width: 700px) {
   input[type="submit"] {
     margin: 0 0 7% 5%;
@@ -323,13 +399,29 @@ input[type="submit"] {
   .cf_form_add_branch {
     margin-top: 3px;
   }
-  .cf_form_firstline {
-    flex-direction: column;
-    padding-left: 18%;
+  .cf_form {
+  padding: 13px 0 0 0;
   }
+  .cf_form_firstline,
   .cf_form_secondline {
     flex-direction: column;
-    padding-left: 18%;
+    justify-content: center;
+    width: 93%;
+    margin: 0 auto;
+  }
+  .cf_form_name_new{
+   input {
+    width: 100%;
+  }
+}
+  .cf_form_thirdline{
+    width: 93%;
+    margin: 0 auto;
+  }
+  .cf_form_services {
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 10px;
   }
   .cf_form_shedule {
     padding-left: 18%;
@@ -350,25 +442,25 @@ input[type="submit"] {
 }
 
 @media (max-width: 420px) {
-  .cf_form_firstline {
-    padding-left: 4%;
-  }
-  .cf_form_secondline {
-    padding-left: 4%;
-  }
-  .cf_form_shedule {
-    padding-left: 4%;
-  }
+  // .cf_form_firstline {
+  //   padding-left: 4%;
+  // }
+  // .cf_form_secondline {
+  //   padding-left: 4%;
+  // }
+  // .cf_form_shedule {
+  //   padding-left: 4%;
+  // }
   .cf_left_logo {
     padding: 30px 0 0 5%;
   }
-  .cf_form_services {
-    margin-bottom: 20px;
-  }
-  input[type="submit"] {
-    width: 14rem;
-    height: 3rem;
-    font-size: 18px;
-    margin: 0 0 5% 4%;
-  }
+  // .cf_form_services {
+  //   margin-bottom: 20px;
+  // }
+  // input[type="submit"] {
+  //   width: 14rem;
+  //   height: 3rem;
+  //   font-size: 18px;
+  //   margin: 0 0 5% 4%;
+  // }
 }
