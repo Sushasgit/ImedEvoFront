@@ -55,6 +55,7 @@
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
     "react-big-calendar": "^0.17.0",
+    "react-datepicker": "^1.2.1",
     "react-dom": "^16.2.0",
     "react-google-maps": "^9.4.5",
     "react-https-redirect": "^1.0.10",

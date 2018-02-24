@@ -5,7 +5,7 @@ import * as actions from  '../../actions/updateUserActions'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 
 const renderInput = (field) => {
-  const {label, type,input, meta: {error, touched}} = field
+  const {label, type, defaultValue,input, meta: {error, touched}} = field
 
   return (
     <div>
@@ -13,7 +13,7 @@ const renderInput = (field) => {
       <input
         {...input}
         type={type}
-        value={input.value}
+        defaultValue={defaultValue}
         className="form-control"/>
       {touched && error && <div className="error">{error}</div>}
     </div>
@@ -23,6 +23,22 @@ const renderInput = (field) => {
 class SettingsForm extends Component {
   constructor (props) {
     super(props)
+  }
+
+  componentDidMount() {
+    this.handleInitialize();
+  }
+
+  handleInitialize() {
+    const initData = {
+      "firstName": this.props.user.firstName,
+      "lastName": this.props.user.lastName,
+      "phone": this.props.user.phone,
+      "city":this.props.user.city,
+      "street":this.props.user.street
+    };
+
+    this.props.initialize(initData);
   }
 
   handleFormSubmit (formProps) {
@@ -37,19 +53,14 @@ class SettingsForm extends Component {
       <Fragment>
         <section className={styles.signup}>
           <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            <Field
-              name="email"
-              type="email"
-              component={renderInput}
-              label="Email"
-              value={user.email}
-            />
 
             <Field
               name="firstName"
-              type="email"
+              type="text"
               component={renderInput}
-              label="Имя"/>
+              label="Имя"
+
+            />
 
             <Field
               name="lastName"
@@ -98,7 +109,8 @@ class SettingsForm extends Component {
 
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.error
+    errorMessage: state.auth.error,
+    user:state.auth.user
   }
 }
 

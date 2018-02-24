@@ -10,6 +10,8 @@
     display: block;
     text-align: center;
   }
+
+
 }
 
 .footer__nav{
@@ -36,7 +38,7 @@
     margin-bottom: 15px;
   }
 
-  a, button{
+  li>a, li > button{
     color: #ffffff;
     padding: 0;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -47,10 +49,37 @@
     border: none;
   }
 
-  a:hover,
-  a:focus,
-  button:hover,
-  button:focus {
+  .btn__signup {
+    padding: 8px 20px;
+    background-color: #4775d1;
+    border: 1px solid #4775d1;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffffff;
+      border: 1px solid #4775d1;
+      color: #4775d1;
+    }
+  }
+
+  .signin {
+    @extend .btn__signup;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+
+    &__btn_approve{
+      border:1px solid black;
+    }
+  }
+
+  li>a:hover,
+  li>a:focus,
+  li>button:hover,
+  li>button:focus {
     color: #ff8533;
     border: none;
   }

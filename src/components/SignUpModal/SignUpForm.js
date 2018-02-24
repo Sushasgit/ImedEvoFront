@@ -21,7 +21,6 @@ class SignUpForm extends Component {
     super(props)
   }
 
-
   handleFormSubmit (formProps) {
     this.props.signupUser(formProps)
   }

@@ -10,6 +10,7 @@ import axios from 'axios'
 
 export function forgotPassword ({email}) {
   return function (dispatch) {
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS)
     axios.post(`https://www.imed.od.ua/forgot/reset?email=${email}`, {email})
       .then(response => {
         if (response.data.status.code === 50) {
@@ -50,7 +51,7 @@ export function resetSucces (response) {
 
 export function resetFailure (response) {
   return {
-    type: RESET_PASSWORD,
+    type: constants.RESET_PASSWORD_FAILED,
     payload: response
   }
 }

@@ -27,18 +27,30 @@ class UserProfilePage extends Component {
     this.setState({
       isModalOpen: false
     })
-    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS)
   }
 
   openModal () {
     this.setState({
       isModalOpen: true,
     })
-    document.body.classList.add(constants.MODAL_OPEN_CLASS);
+    document.body.classList.add(constants.MODAL_OPEN_CLASS)
+  }
+
+  renderAlert () {
+    const {message} = this.props
+    if (message) {
+      return (
+        <div className="alert alert-danger">
+          <strong className={styles.message}>{message}</strong>
+        </div>
+      )
+    }
   }
 
   render () {
     const user = this.props.user
+    const message = this.props.message
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -49,8 +61,10 @@ class UserProfilePage extends Component {
             <img width="100%" style={{borderRadius: 3}} src={require('../../images/sign-up.png')} alt="unsplash"/>
 
             <h2 className={styles.settings__title}> Настройки профиля</h2>
-            <SettingsForm user={user}/>
 
+            {message === '' && <SettingsForm user={user}/>}
+
+            {message !== '' && this.renderAlert()}
             <button
               className={stylesModal.close}
               onClick={this.closeModal}>
@@ -109,7 +123,8 @@ class UserProfilePage extends Component {
 function mapStateToProps (state) {
   return {
     authenticated: state.auth.authenticated,
-    user: state.auth.user
+    user: state.auth.user,
+    message: state.auth.message
   }
 }
 export default connect(mapStateToProps)(UserProfilePage)

@@ -108,7 +108,7 @@ class RandomDoctorResultContainer extends Component {
           </li>
 
           <li>
-            <label>Педиатр</label>
+            <label>Работает с детьми</label>
             <input
               onChange={this.filterPediatrician.bind(this)}
               className={styles.filter_checkbox}

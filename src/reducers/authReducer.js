@@ -16,7 +16,7 @@ export default function(state = INITIAL_STATE, action) {
         return { ...state, authenticated: false, error: action.payload };
 
       case constants.UPDATE_USER_SUCCESS:
-        return { ...state, error: '', authenticated: true, user:action.payload};
+        return { ...state, error: '', authenticated: true, user:action.payload, message:'Ваш профиль успешно обновлен'};
 
       case constants.UPDATE_USER_FAILED:
         return { ...state, authenticated: false, error: action.payload };

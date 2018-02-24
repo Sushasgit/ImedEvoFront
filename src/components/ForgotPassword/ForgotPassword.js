@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 import Modal from '../customComponents/Modal'
+import * as constants from '../../constants/constants'
 
 const renderInput = (field) => {
   const {label, type, input, meta: {error, touched}} = field
@@ -37,6 +38,10 @@ class ForgotPassword extends Component {
     this.openModal = this.openModal.bind(this)
   }
 
+  componentWillMount(){
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS)
+  }
+
   closeModal () {
     this.setState({
       isModalOpen: true
@@ -50,32 +55,31 @@ class ForgotPassword extends Component {
   }
 
   renderAlert () {
-    const {errorMessage} = this.props
-    if (errorMessage) {
-
-      this.openModal()
+    const {message} = this.props
+    if (message) {
+      return (
+        <div className="alert alert-danger">
+          <strong className={styles.message}>{message}</strong>
+        </div>
+      )
     }
   }
 
   handleFormSubmit ({email}) {
     this.props.forgotPassword({email})
-
-    this.renderAlert()
   }
 
   render () {
     console.log(this.props)
-    const {handleSubmit, errorMessage} = this.props
+    const {handleSubmit} = this.props
+    const message = this.props.message
+    console.log(message)
     return (
       <Fragment>
         <Modal
           isModalOpen={this.state.isModalOpen}
           closeModal={this.closeModal}
         >
-          <div className="alert alert-danger">
-            <strong>{errorMessage}</strong>
-          </div>
-
           <button
             className={styles.close}
             style={{
@@ -92,16 +96,22 @@ class ForgotPassword extends Component {
             <Icons.IconCloseModal/>
           </button>
         </Modal>
+
         <Header/>
-        <h4 className={styles.forgot_title}>Для восстановления пароля введите свой email</h4>
-        <Form className={styles.forgot} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-          <Field
-            name="email"
-            type="email"
-            component={renderInput}
-            label="Email"/>
-          <button action="submit" className={styles.forgot_btn}>Отправить</button>
-        </Form>
+        {message !== "" && this.renderAlert()}
+        {message === "" &&
+        <div>
+          <h4 className={styles.forgot_title}>Для восстановления пароля введите свой email</h4>
+          <Form className={styles.forgot} onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <Field
+              name="email"
+              type="email"
+              component={renderInput}
+              label="Email"/>
+            <button action="submit" className={styles.forgot_btn}>Отправить</button>
+          </Form>
+        </div>
+        }
         <Footer/>
       </Fragment>
     )
@@ -110,7 +120,7 @@ class ForgotPassword extends Component {
 
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.error
+     message: state.message.message
   }
 }
 

@@ -3,7 +3,9 @@ import Header from '../Header/Header'
 import { connect } from 'react-redux'
 import Footer from '../Footer/Footer'
 import { reduxForm, Field, Form } from 'redux-form'
+import * as actions from  '../../actions/forgotPasswordActions'
 import styles from  '../SignUpModal/sign-up-modal.scss'
+
 
 const renderInput = (field) => {
   const {label, type, input, meta: {error, touched}} = field
@@ -21,20 +23,24 @@ const renderInput = (field) => {
 }
 
 class ChangePassword extends Component {
-
-  componentDidMount(){
-    let token =  this.props.match.params.token;
-    console.log(token)
+  constructor (props) {
+    super(props)
   }
 
   renderAlert () {
-    if (this.props.errorMessage) {
+    const {message} = this.props
+    if (message) {
       return (
         <div className="alert alert-danger">
-          <strong>Что-то пошло не так</strong> {this.props.errorMessage}
+          <strong>{message}</strong>
         </div>
       )
     }
+  }
+
+  handleFormSubmit ({email}) {
+    let token = this.props.match.params.token
+    this.props.changePassword({email, token})
   }
 
   render () {
@@ -43,7 +49,7 @@ class ChangePassword extends Component {
       <Fragment>
         <Header/>
         <section className={styles.recover_password}>
-          <Form>
+          <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field
               name="newPassword"
               type="password"
@@ -66,12 +72,25 @@ class ChangePassword extends Component {
   }
 }
 
+function validate (formProps) {
+  const errors = {}
+
+  if (!formProps.password) {
+    errors.password = 'Пожалуйста введите пароль'
+  }
+
+  if (formProps.password !== formProps.newPassword) {
+    errors.password = 'Пароли должны совпадать'
+  }
+  return errors
+}
+
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.error
+    message: state.message.message
   }
 }
 
-const form = reduxForm({form: 'recover_password'})
-export default connect(mapStateToProps)(form(ChangePassword))
+const form = reduxForm({form: 'recover_password'}, validate)
+export default connect(mapStateToProps, actions)(form(ChangePassword))
 
