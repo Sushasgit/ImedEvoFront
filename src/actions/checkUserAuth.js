@@ -1,8 +1,9 @@
 //TODO DELETE THIS FUNCTION WHEN WE HAVE TOKEN AFTER REGISTRATION
+
 import {
   AUTH_USER,
   AUTH_ERROR,
-} from '../constants/constants';
+} from '../constants/constants'
 
 import * as constants from '../constants/constants'
 import axios from 'axios'
@@ -16,7 +17,7 @@ export function getUser (token, id) {
         headers: {Authorization: 'Bearer ' + token}
       })
       .then(response => {
-        document.body.classList.remove(constants.MODAL_OPEN_CLASS);
+        document.body.classList.remove(constants.MODAL_OPEN_CLASS)
         if (response.status === 200) {
           console.log('get successful')
           dispatch(authSuccess(response.data))
@@ -28,16 +29,16 @@ export function getUser (token, id) {
   }
 }
 
-export function authError(error) {
+export function authError (error) {
   return {
     type: AUTH_ERROR,
     payload: error
-  };
+  }
 }
 
-export function authSuccess(success) {
+export function authSuccess (success) {
   return {
     type: AUTH_USER,
     payload: success
-  };
+  }
 }

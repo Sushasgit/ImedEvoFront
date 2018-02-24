@@ -29,8 +29,8 @@ class SignUpForm extends Component {
   renderAlert () {
     if (this.props.errorMessage) {
       return (
-        <div className="alert alert-danger">
-          <strong>Что-то  пошло не так</strong> {this.props.errorMessage}
+        <div className={styles.error__message}>
+          <strong>{this.props.errorMessage}</strong>
         </div>
       )
     }
@@ -93,7 +93,7 @@ class SignUpForm extends Component {
 
 
             <Field
-              name="email"
+              name="username"
               type="email"
               component={renderInput}
               label="Email"/>
@@ -148,11 +148,23 @@ class SignUpForm extends Component {
 function validate (formProps) {
   const errors = {}
 
+  function isValidDate(dateString) {
+    let regEx = /^\d{4}-\d{2}-\d{2}$/;
+    if(!dateString.match(regEx)) return false;
+    let d = new Date(dateString);
+    if(!d.getTime() && d.getTime() !== 0) return false;
+    return d.toISOString().slice(0,10) === dateString;
+  }
+
   if (!formProps.lastName) {
     errors.lastName = 'Введите пожалуйста фамилию'
   }
   if (!formProps.firstName) {
     errors.firstName = 'Введите пожалуйста имя'
+  }
+
+  if (formProps.birthDate && !isValidDate(formProps.birthDate) || !formProps.birthDate){
+    errors.birthDate = 'Введите правильную дату рождения'
   }
 
   if (!formProps.termConditions) {

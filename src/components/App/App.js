@@ -3,7 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 import { history } from '../../history';
-import { alertActions } from '../../actions/alertActions';
+
 //import { PrivateRoute } from '../PrivateRoute/PrivateRoute';
 import HomePage from '../../pages/Homepage/HomePage';
 import DoctorsPage from '../../pages/DoctorsPage/DoctorsPage';
@@ -56,9 +56,6 @@ class App extends React.Component {
     return (
         <div>
           <div>
-            {alert.message &&
-            <div className={`alert ${alert.type}`}>{alert.message}</div>
-            }
             <Router history={history}>
               <ScrollToTop>
               <div>
@@ -100,10 +97,7 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { alert } = state;
-  return {
-    alert
-  };
+
 }
 
 

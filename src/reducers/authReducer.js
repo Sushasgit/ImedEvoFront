@@ -1,11 +1,4 @@
-import {
-  AUTH_USER,
-  UNAUTH_USER,
-  AUTH_ERROR,
-  FETCH_MESSAGE,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILED,
-} from '../constants/constants';
+import * as constants from '../constants/constants'
 
 const INITIAL_STATE = {
   error:'',
@@ -16,22 +9,22 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
-      case AUTH_USER:
+      case constants.AUTH_USER:
         return { ...state, error: '', authenticated: true, user:action.payload};
 
-      case UNAUTH_USER:
+      case constants.UNAUTH_USER:
         return { ...state, authenticated: false, error: action.payload };
 
-      case UPDATE_USER_SUCCESS:
+      case constants.UPDATE_USER_SUCCESS:
         return { ...state, error: '', authenticated: true, user:action.payload};
 
-      case UPDATE_USER_FAILED:
+      case constants.UPDATE_USER_FAILED:
         return { ...state, authenticated: false, error: action.payload };
 
-      case AUTH_ERROR:
+      case constants.AUTH_ERROR:
       return { ...state, error: action.payload };
 
-      case FETCH_MESSAGE:
+      case constants.FETCH_MESSAGE:
       return { ...state, message: action.payload };
   }
   return state;

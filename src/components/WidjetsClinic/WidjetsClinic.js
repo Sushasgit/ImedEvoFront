@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import styles from './widjets-clinic.scss'
-// import ProfileMap from '../Map/ProfileMap'
-// import styles from './clinic-profile.scss'
-// import RatingStars from '../customComponents/RatingStars'
-// import * as FontAwesome from 'react-icons/lib/fa'
-// import Footer from '../Footer/Footer'
+import RatingStars from '../customComponents/RatingStars'
+
 
 class WidjetsClinic extends Component {
   constructor (props) {
@@ -14,52 +11,35 @@ class WidjetsClinic extends Component {
         {
           clinicName: 'Медея',
           range: 5,
-          picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR72Pv0OtwqTXlvzb1WZcKyfLHygIwn4CY6ZVKUQTqxB0ZoW7cB',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
+          picture: 'medea-logo.png',
+          address:'ул. Армейская, 11 корп. 7, оф. 1'
         },
         {
           clinicName: 'Одрекс',
           range: 5,
-          picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR72Pv0OtwqTXlvzb1WZcKyfLHygIwn4CY6ZVKUQTqxB0ZoW7cB',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
+          picture: 'odreks-logo.png',
+          address:'Одесса, Раскидайловская, 69/71'
         },
         {
-          clinicName: 'Одрекс',
+          clinicName: 'Клиника Святой Екатерины',
           range: 5,
-          picture: 'https://storage1a.censor.net.ua/images/6/c/e/c/6cec0548c5c06c4912087258cb836927/original.jpg',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
+          picture: 'ekaterina-logo.jpg',
+          address:'проспект Шевченка, 12/1, Одеса, Одеська область, 65082'
         },
         {
-          clinicName: 'Одрекс',
+          clinicName: 'Интосана',
           range: 5,
-          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
+          picture: 'intosana-logo.png',
+          address:'г. Одеса ул. Варненская, 2',
+          time:'08:00 – 20:00'
         },
         {
-          clinicName: 'Одрекс',
+          clinicName: 'Виртус',
           range: 5,
-          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
+          picture: 'virtus-logo.jpg',
+          address:'Одесса, Судостроительная, 3',
+          time:'08:00 – 20:00'
         },
-        {
-          clinicName: 'Одрекс',
-          range: 5,
-          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-        {
-          clinicName: 'Одрекс',
-          range: 5,
-          picture: 'http://i90.fastpic.ru/big/2017/0111/a2/0b7c8e234547cd7c2eb82f1f64f44ea2.png',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-        {
-          clinicName: 'Одрекс',
-          range: 5,
-          picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR72Pv0OtwqTXlvzb1WZcKyfLHygIwn4CY6ZVKUQTqxB0ZoW7cB',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-
       ]
     }
   }
@@ -71,14 +51,20 @@ class WidjetsClinic extends Component {
         {this.state.topClinics.map((clinic, index) => {
           return (
             <section key={index} className={styles.widjet}>
-              <img src={clinic.picture}/>
+              <img src={require(`../../images/${clinic.picture}`)} alt={clinic.clinicName}/>
               <article className={styles.widjet__address}>
-                <h3>МЦ на Неждановой</h3>
+                <h3>{clinic.clinicName}</h3>
+                <RatingStars
+                  starSelectingHoverColor="rgb(249, 215, 73)"
+                  starRatedColor="rgb(249, 215, 73)"
+                  starWidthAndHeight="30px"
+                  starSpacing='0px'
+                  isSelectable={true}
+                  rating={clinic.range}
+                />
                 <ul className={styles.clinic__contacts}>
-                  <li>г. Одесса, ул. Варненская, 2</li>
-                  <li>(0482) 307-500, (0482) 343 -062</li>
-                  <li> into-sana@ukr.net</li>
-                  <li>Пн-Вск: 08.00-20.00</li>
+                  <li>{clinic.address}</li>
+                  <li>{clinic.time}</li>
                 </ul>
               </article>
             </section>

@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { alert } from './alertReducer'
 import { reducer as form } from 'redux-form';
 import { modelReducer, formReducer } from 'react-redux-form';
 import authReducer from './authReducer';
@@ -11,7 +10,6 @@ import changePassword from './changePasswordReducer';
 const rootReducer = combineReducers({
   form,
   auth: authReducer,
-  alert,
   location: LocationReducer,
   searchResult: searchReducer,
   allResults: getAllReducer,

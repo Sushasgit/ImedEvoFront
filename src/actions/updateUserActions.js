@@ -1,9 +1,5 @@
 //TODO DELETE THIS FUNCTION WHEN WE HAVE TOKEN AFTER REGISTRATION
-import {
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILED,
-} from '../constants/constants';
-import * as helpers from '../helpers/helpers';
+import * as helpers from '../helpers/helpers'
 import * as constants from '../constants/constants'
 import axios from 'axios'
 
@@ -12,7 +8,7 @@ export function updateUser ({email, firstName, lastName}) {
     let id = helpers.getId()
     axios.put(`${constants.ROOT_URL}/users/updateuser}`, {id, email, firstName, lastName})
       .then(response => {
-        document.body.classList.remove(constants.MODAL_OPEN_CLASS);
+        document.body.classList.remove(constants.MODAL_OPEN_CLASS)
         if (response.status === 200) {
           console.log('get successful')
           dispatch(upDateSuccess(response.data))
@@ -24,16 +20,16 @@ export function updateUser ({email, firstName, lastName}) {
   }
 }
 
-export function updateError(error) {
+export function updateError (error) {
   return {
-    type: UPDATE_USER_FAILED,
+    type: constants.UPDATE_USER_FAILED,
     payload: error
-  };
+  }
 }
 
-export function upDateSuccess(success) {
+export function upDateSuccess (success) {
   return {
-    type: UPDATE_USER_SUCCESS,
+    type: constants.UPDATE_USER_SUCCESS,
     payload: success
-  };
+  }
 }

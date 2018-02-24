@@ -1,8 +1,6 @@
-const USER_SEARCH = 'USER_SEARCH';
 import * as constants from '../constants/constants'
 import axios from 'axios';
 import { history } from '../history';
-
 
 export default function userSearch(query) {
   return function(dispatch) {
@@ -21,7 +19,7 @@ export default function userSearch(query) {
 
 export function searchSuccess(searchResult) {
   return {
-    type: USER_SEARCH,
+    type: constants.USER_SEARCH,
     payload: searchResult
   };
 }

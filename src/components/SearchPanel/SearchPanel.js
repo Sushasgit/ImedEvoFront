@@ -28,7 +28,7 @@ class SearchPanel extends Component {
     return (
       <div className={`${generalStyle.container} ${styles.search_box}`}>
         <form onSubmit={this.onSubmit.bind(this)}>
-          <label style={{width: '100%'}}>
+          <label className={styles.search_box__label_input} style={{width: '100%'}}>
             <Input
               className={styles.search_box__input}
               placeholder="Врач, Клиника, Анализ, Процедура"

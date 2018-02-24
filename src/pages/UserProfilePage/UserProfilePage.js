@@ -81,9 +81,8 @@ class UserProfilePage extends Component {
 
               <section className={styles.clinic}>
                 <section className={styles.clinic__feedback}>
-                  <h2 className={styles.clinic__title}>Отзывы</h2>
+                  <h2 className={styles.clinic__title}>Здесь будут Ваши отзывы</h2>
                   <div className={styles.feedback}>
-                    <h2>Здесь буду Ваши отзывы</h2>
                   </div>
                 </section>
               </section>

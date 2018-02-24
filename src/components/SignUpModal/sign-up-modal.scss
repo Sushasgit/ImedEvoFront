@@ -183,6 +183,13 @@
   @media (max-width: 400px) {
     margin-left: 0px;
   }
+
+  &__message{
+    background-color: #ff8533;
+    margin-top: 15px;
+    font-size: 18px;
+    padding: 10px;
+  }
 }
 
 .close {
@@ -312,6 +319,8 @@
   transform-style: flat;
   transition: color 400ms ease-out;
   border: 1px solid #ff8533;
+  cursor: pointer;
+
   &:hover {
     background-color: #ebedf3;
   }
