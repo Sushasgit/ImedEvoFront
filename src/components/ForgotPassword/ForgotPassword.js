@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field, Form } from 'redux-form'
-import * as actions from  '../../actions/AuthSActions'
+import * as actions from  '../../actions/forgotPasswordActions'
 import Header from '../../components/Header/Header'
 import Footer from '../Footer/Footer'
 import * as Icons from '../SvgIcons/SvgIcons.js'
@@ -58,7 +58,7 @@ class ForgotPassword extends Component {
   }
 
   handleFormSubmit ({email}) {
-    this.props.ForgotPassword({email})
+    this.props.forgotPassword({email})
 
     this.renderAlert()
   }

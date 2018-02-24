@@ -36,6 +36,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
 
     @media (max-width: 500px) {
       display: block;
@@ -359,11 +360,30 @@
 .doctor_qualification_title{
   margin-bottom: 20px;
   color: #333333;
-
 }
 
 .about_doctor_title {
   margin-bottom: 20px;
   color: #4775d1;
   text-align: center;
+}
+
+.settings{
+  background-color: #4775d1;
+  padding: 5px 9px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 12px;
+
+  @media (max-width: 500px) {
+    right: 0px;
+  }
+
+    &__title {
+      text-align: center;
+      margin: 0;
+      background-color: #ff8533;
+      color: #ffffff;
+  }
 }

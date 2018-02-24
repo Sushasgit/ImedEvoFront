@@ -148,6 +148,13 @@ class SignUpForm extends Component {
 function validate (formProps) {
   const errors = {}
 
+  if (!formProps.lastName) {
+    errors.lastName = 'Введите пожалуйста фамилию'
+  }
+  if (!formProps.firstName) {
+    errors.firstName = 'Введите пожалуйста имя'
+  }
+
   if (!formProps.termConditions) {
     errors.termConditions = 'Необходимо подтверждение пользовательского соглашения'
   }

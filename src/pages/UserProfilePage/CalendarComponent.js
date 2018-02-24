@@ -78,19 +78,19 @@ class CalendarComponent extends Component {
       if (isMobile) {
         return (
           <section className={styles.appointment}>
-            <InfiniteCalendar
-              className={styles.mobile_calendar}
-              width={360}
-              height={200}
-              selected={today}
-              minDate={lastWeek}
-              theme={theme}
-              displayOptions={{
-                layout: 'portrait',
-                showOverlay: false,
-                shouldHeaderAnimate: false
-              }}
-            />
+            {/*<InfiniteCalendar*/}
+              {/*className={styles.mobile_calendar}*/}
+              {/*width={360}*/}
+              {/*height={200}*/}
+              {/*selected={today}*/}
+              {/*minDate={lastWeek}*/}
+              {/*theme={theme}*/}
+              {/*displayOptions={{*/}
+                {/*layout: 'portrait',*/}
+                {/*showOverlay: false,*/}
+                {/*shouldHeaderAnimate: false*/}
+              {/*}}*/}
+            {/*/>*/}
 
             <table className={styles.appointment__table}>
               <tbody>

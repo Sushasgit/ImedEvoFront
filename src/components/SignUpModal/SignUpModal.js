@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { reduxForm } from 'redux-form'
-import * as actions from  '../../actions/AuthSActions'
+import * as  constants  from '../../constants/constants'
 
 import SignUpForm from './SignUpForm'
 import Modal from '../customComponents/Modal'
@@ -30,8 +29,7 @@ class SignUpModal extends Component {
     this.setState({
       isModalOpen: false
     })
-    document.body.style.overflow = this.state.originalBodyOverflow;
-    document.body.style.position = 'static';
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
   }
 
   openModal () {
@@ -39,8 +37,7 @@ class SignUpModal extends Component {
       isModalOpen: true,
       originalBodyOverflow: document.body.style.overflow
     })
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
+    document.body.classList.add(constants.MODAL_OPEN_CLASS);
   }
 
   render () {

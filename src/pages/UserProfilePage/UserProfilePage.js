@@ -1,58 +1,63 @@
 import React, { Component, Fragment } from 'react'
-import RatingStars from '../../components/customComponents/RatingStars'
+import Modal from '../../components/customComponents/Modal'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import WidjetsClinic from '../../components/WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../../components/WidjetsDoctors/WidjetsDoctors'
+import SettingsForm from '../../components/SettingsForm/SettingsForm'
 import { connect } from 'react-redux'
 import CalendarComponent from './CalendarComponent'
 import styles from '../../components/ClinicCard/clinic-profile.scss'
 import ProfileData from './ProfileData'
+import * as Icons from '../../components/SvgIcons/SvgIcons.js'
+import * as  constants  from '../../constants/constants'
+import stylesModal from  '../../components/SignUpModal/sign-up-modal.scss'
 
 class UserProfilePage extends Component {
 
   constructor (props) {
     super(props)
-    this.state = {
-      feedbacks: [
-        {
-          feedbackText:
-            `Dr Ojjeh is simply the best! No wait time, he is very gentle and funny, never had any pain 
-             during any of my visits. Because of him I don’t mind going to the dentist.`,
-          date: 'Оставлен: Январь 2018',
-          range: 5
-        },
-        {
-          feedbackText:
-            `Dr. Ojjeh has been our dentist for many years, he is an outstanding doctor, he truly cares
-             about his patients, he explains everything in details, we are very happy with his care. we would go
-             anywhere else.`,
-          date: 'Оставлен:Январь 2018',
-          range: 1
-        },
-        {
-          feedbackText:
-            `Dr Ojjeh is simply the best! No wait time, he is very gentle and funny, never had any pain 
-             during any of my visits. Because of him I don’t mind going to the dentist.`,
-          date: 'Оставлен: Январь 2018',
-          range: 5
-        },
-        {
-          feedbackText:
-            `Dr. Ojjeh has been our dentist for many years, he is an outstanding doctor, he truly cares
-             about his patients, he explains everything in details, we are very happy with his care. we would go
-             anywhere else.`,
-          date: 'Оставлен: Январь 2018',
-          range: 5,
-        }
-      ]
-    }
+    this.state = {}
+
+    this.closeModal = this.closeModal.bind(this)
+    this.openModal = this.openModal.bind(this)
   }
+
+  closeModal () {
+    this.setState({
+      isModalOpen: false
+    })
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
+  }
+
+  openModal () {
+    this.setState({
+      isModalOpen: true,
+    })
+    document.body.classList.add(constants.MODAL_OPEN_CLASS);
+  }
+
   render () {
     const user = this.props.user
     return (
       <Fragment>
         <div className={styles.h_background}>
+          <Modal
+            isModalOpen={this.state.isModalOpen}
+            closeModal={this.closeModal}>
+
+            <img width="100%" style={{borderRadius: 3}} src={require('../../images/sign-up.png')} alt="unsplash"/>
+
+            <h2 className={styles.settings__title}> Настройки профиля</h2>
+            <SettingsForm user={user}/>
+
+            <button
+              className={stylesModal.close}
+              onClick={this.closeModal}>
+
+              <Icons.IconCloseModal/>
+            </button>
+          </Modal>
 
           <Header/>
 
@@ -63,6 +68,9 @@ class UserProfilePage extends Component {
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
                   <ProfileData user={user}/>
+                  <button onClick={this.openModal} className={styles.settings}>
+                    <Icons.IconEdit/>
+                  </button>
                 </article>
               </section>
 
@@ -75,42 +83,7 @@ class UserProfilePage extends Component {
                 <section className={styles.clinic__feedback}>
                   <h2 className={styles.clinic__title}>Отзывы</h2>
                   <div className={styles.feedback}>
-                    {/*{this.state.feedbacks.map((feedback, index) => {*/}
-                      {/*return (*/}
-                        {/*<section key={index} className={styles.feedback__card}>*/}
-                          {/*<div className={styles.h_row}>*/}
-                            {/*<div className={styles.feedback__range}>*/}
-                              {/*<div className={styles.feedback__range_item}>*/}
-                                {/*<FontAwesome.FaTrash/> <span>5</span>*/}
-                                {/*<p>Комфорт</p>*/}
-                              {/*</div>*/}
-
-                              {/*<div className={styles.feedback__range_item}>*/}
-                                {/*<FontAwesome.FaAmbulance/><span>5</span>*/}
-                                {/*<p>Специалисты</p>*/}
-                              {/*</div>*/}
-
-                              {/*<div className={styles.feedback__range_item}>*/}
-                                {/*<FontAwesome.FaDollar/><span>5</span>*/}
-                                {/*<p>Доброжелательность</p>*/}
-                              {/*</div>*/}
-                            {/*</div>*/}
-                            {/*<RatingStars*/}
-                              {/*starSelectingHoverColor="rgb(249, 215, 73)"*/}
-                              {/*starRatedColor="rgb(249, 215, 73)"*/}
-                              {/*starWidthAndHeight="30px"*/}
-                              {/*starSpacing='0px'*/}
-                              {/*isSelectable={true}*/}
-                              {/*rating={this.state.range}*/}
-                            {/*/>*/}
-                          {/*</div>*/}
-                          {/*<p>{feedback.feedbackText}</p>*/}
-                          {/*<time>*/}
-                            {/*{feedback.date}*/}
-                          {/*</time>*/}
-                        {/*</section>*/}
-                      {/*)*/}
-                    {/*})}*/}
+                    <h2>Здесь буду Ваши отзывы</h2>
                   </div>
                 </section>
               </section>

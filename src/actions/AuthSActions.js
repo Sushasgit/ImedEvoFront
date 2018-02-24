@@ -3,28 +3,9 @@ import { history } from '../history';
 import {
   AUTH_USER,
   AUTH_ERROR,
-  RESET_PASSWORD,
-  UNAUTH_USER
-} from './types';
+} from '../constants/constants';
 import * as constants from '../constants/constants'
 
-export function signinUser({ email, password }) {
-  return function(dispatch) {
-    axios.post(`${constants.ROOT_URL}/users/login?email=${email}&password=${password}`,{ email, password })
-      .then(response => {
-        if (response.data.status.code === 710){
-          dispatch(authSuccess(response.data.user));
-          document.body.style.overflow = 'auto'
-          history.push(`/profile/${response.data.user.id}`);
-        } else{
-          dispatch(authError('Что то пошло не так'));
-        }
-      })
-      .catch(() => {
-        dispatch(authError('Что то пошло не так'));
-      });
-  }
-}
 
 export function signupUser({ password, email, lastName, firstName, birthDate, phone }) {
   return (dispatch) => {
@@ -32,7 +13,7 @@ export function signupUser({ password, email, lastName, firstName, birthDate, ph
       .then(response => {
         if (response) {
           dispatch(authSuccess(response.data.user));
-          document.body.style.overflow = 'auto'
+          document.body.classList.remove(constants.MODAL_OPEN_CLASS);
           history.push(`/profile/${response.data.user.id}`)
         } else{
           dispatch(authError('Что то пошло не так'));
@@ -42,35 +23,6 @@ export function signupUser({ password, email, lastName, firstName, birthDate, ph
         {console.log("Error: " + error)}
       });
   }
-}
-
-export function ForgotPassword({ email }) {
-  return function(dispatch) {
-    axios.post(`${constants.ROOT_URL}/forgot/reset?email=${email}`, { email })
-      .then(response => {
-       if(response.data.status.code === 50){
-         dispatch(resetSucces(response.data.status.message));
-       }
-      })
-      .catch((error) => {
-        console.log(error)
-        dispatch(resetFailure("Пользователь не найден,проверьте пожалуйста Ваш email"));
-      });
-  }
-}
-
-export function resetSucces(response) {
-  return {
-    type: RESET_PASSWORD,
-    payload: response
-  };
-}
-
-export function resetFailure(response) {
-  return {
-    type: RESET_PASSWORD,
-    payload: response
-  };
 }
 
 export function authError(error) {

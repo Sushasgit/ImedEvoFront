@@ -22,6 +22,11 @@ const renderInput = (field) => {
 
 class ChangePassword extends Component {
 
+  componentDidMount(){
+    let token =  this.props.match.params.token;
+    console.log(token)
+  }
+
   renderAlert () {
     if (this.props.errorMessage) {
       return (

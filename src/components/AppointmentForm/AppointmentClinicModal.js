@@ -3,6 +3,7 @@ import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 import Modal from '../customComponents/Modal'
 import AppointmentClinicForm from './AppointmentClinicForm'
+import * as  constants  from '../../constants/constants'
 
 class AppointmentClinicModal extends Component {
 
@@ -25,7 +26,7 @@ class AppointmentClinicModal extends Component {
     this.setState({
       isModalOpen: false
     })
-    document.body.style.overflow = this.state.originalBodyOverflow;
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
   }
 
   openModal () {
@@ -33,8 +34,7 @@ class AppointmentClinicModal extends Component {
       isModalOpen: true,
       originalBodyOverflow: document.body.style.overflow
     })
-    document.body.style.overflow = 'hidden';
-    document.body.style.position = 'fixed'
+    document.body.classList.add(constants.MODAL_OPEN_CLASS);
   }
 
   render () {

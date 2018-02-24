@@ -4,6 +4,7 @@ import { reduxForm, Field, Form, reset } from 'redux-form'
 import Modal from '../customComponents/Modal'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from './appointment-form.scss'
+import * as  constants  from '../../constants/constants'
 
 const renderInput = (field) => {
   const {label, type, input, meta: {error, touched}} = field
@@ -36,12 +37,14 @@ class AppointmentFormClinic extends Component {
     this.setState({
       isModalOpen: false
     })
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
   }
 
   openModal () {
     this.setState({
       isModalOpen: true
     })
+    document.body.classList.add(constants.MODAL_OPEN_CLASS);
   }
 
   handleFormSubmit ({email, password}) {
