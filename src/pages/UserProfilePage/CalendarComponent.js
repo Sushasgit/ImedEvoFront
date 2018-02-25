@@ -1,47 +1,35 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 import moment from 'moment'
 import BigCalendar from 'react-big-calendar'
 import styles from './profile-data.scss'
-import axios from 'axios'
-import * as constants from '../../constants/constants'
-import * as helpers from '../../helpers/helpers'
 import * as Icons from '../../components/SvgIcons/SvgIcons.js'
 import '!style-loader!css-loader!react-big-calendar/lib/css/react-big-calendar.css'
 BigCalendar.momentLocalizer(moment)
-import {Tooltip} from 'react-lightweight-tooltip';
+import { Tooltip } from 'react-lightweight-tooltip'
 
 class CalendarComponent extends Component {
-  constructor() {
-    super();
+  constructor () {
+    super()
     this.state = {
       width: window.innerWidth,
-      events:[],
-      appointments:[]
-    };
+      events: [],
+      appointments: []
+    }
   }
 
-  componentWillMount() {
-    window.addEventListener('resize', this.handleWindowSizeChange);
+  componentWillMount () {
+    window.addEventListener('resize', this.handleWindowSizeChange)
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleWindowSizeChange);
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.handleWindowSizeChange)
   }
 
   handleWindowSizeChange = () => {
-    this.setState({ width: window.innerWidth });
-  };
+    this.setState({width: window.innerWidth})
+  }
 
-//   componentWillReceiveProps() {
-//     let appointments = this.state.events.map(function (event) {
-//       return event.date
-//     })
-//     console.log(this.props.events)
-//     this.setState({appointments: appointments})
-//     console.log(this.state.appointments)
-// }
-
-  render() {
+  render () {
     const tooltipRoundedStyle = {
       content: {
         backgroundColor: '#fff',
@@ -56,17 +44,17 @@ class CalendarComponent extends Component {
       arrow: {
         borderTop: 'solid #4775d1 5px',
       },
-    };
-    const events = this.props.events;
-    const { width } = this.state;
-    const isMobile = width <= 789;
-    const calendarHide = width <= 400;
-    let today = new Date();
-    if(!calendarHide){
+    }
+    const events = this.props.events
+    const {width} = this.state
+    const isMobile = width <= 789
+    const calendarHide = width <= 400
+    let today = new Date()
+    if (!calendarHide) {
       if (isMobile) {
         return (
           <section className={styles.appointment}>
-            {events.length >0 &&
+            {events.length > 0 &&
             <table className={styles.appointments__table}>
               <tbody>
               <tr>
@@ -97,29 +85,29 @@ class CalendarComponent extends Component {
             </table>
             }
 
-            {events.length ===0 &&
+            {events.length === 0 &&
             <h3> У Вас еще нет текущих записей</h3>
             }
           </section>
-        );
-      }  else {
+        )
+      } else {
         return (
           <section className={styles.appoinments}>
             <BigCalendar
-              style={{height: '600px',borderColor:'blue'}}
+              style={{height: '600px', borderColor: 'blue'}}
               events={events}
               messages={{
-                next:"Следующий",
-                previous:"Предыдущий",
-                today:"Сегодня",
-                month:'месяц',
-                week:'неделя',
-                day:'день',
-                agenda:'расписание'
+                next: 'Следующий',
+                previous: 'Предыдущий',
+                today: 'Сегодня',
+                month: 'месяц',
+                week: 'неделя',
+                day: 'день',
+                agenda: 'расписание'
               }}
             />
 
-            {events.length >0 &&
+            {events.length > 0 &&
             <table className={styles.appointments__table}>
               <tbody>
               <tr>
@@ -138,7 +126,7 @@ class CalendarComponent extends Component {
 
                     {!event.approved &&
                     <Tooltip styles={tooltipRoundedStyle} content="Запись еще не подтверждена специалистом">
-                    <Icons.IconNotProve/>
+                      <Icons.IconNotProve/>
                     </Tooltip>
                     }
                   </td>
@@ -149,10 +137,10 @@ class CalendarComponent extends Component {
             </table>
             }
           </section>
-        );
+        )
       }
     }
   }
 }
 
-export default CalendarComponent;
+export default CalendarComponent

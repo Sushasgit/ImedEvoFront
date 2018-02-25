@@ -119,8 +119,7 @@ class AppointmentForm extends Component {
               <button className={styles.signin} onClick={this.handleAppointment}>Записаться</button>
             </div>
           }
-
-
+          
           {!this.state.isSubmmited && !this.props.authenticated &&
           <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field

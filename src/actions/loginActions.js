@@ -11,7 +11,6 @@ export function signinUser ({username, password}) {
         console.log(response.data.response)
         let jsonDataToken = response.data.response.token.split(' ')[1]
         let jsonDataId = response.data.response.user.id
-        console.log(jsonDataToken)
         helpers.setToken(jsonDataToken)
         helpers.setId(jsonDataId)
         return jsonDataId

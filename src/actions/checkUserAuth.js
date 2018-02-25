@@ -19,7 +19,7 @@ export function getUser (token, id) {
       .then(response => {
         document.body.classList.remove(constants.MODAL_OPEN_CLASS)
         if (response.status === 200) {
-          console.log('get successful')
+          console.log(response)
           dispatch(authSuccess(response.data))
         }
         else if (response.status === 401) {
