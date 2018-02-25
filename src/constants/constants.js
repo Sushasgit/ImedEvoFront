@@ -42,30 +42,41 @@ export const FILTER_CLINIC_RATING = 'FILTER_CLINIC_RATING'
 export const USER_SEARCH = 'USER_SEARCH';
 export const GET_LOCATION = 'GET_LOCATION';
 
+export const MAKE_APPOINTMENT_SUCCESS = 'MAKE_APPOINTMENT_SUCCESS';
+export const MAKE_APPOINTMENT_REQUEST = 'MAKE_APPOINTMENT_REQUEST';
+export const MAKE_APPOINTMENT_FAILED = 'MAKE_APPOINTMENT_FAILED';
+
+export const GET_APPOINTMENT_SUCCESS = 'GET_APPOINTMENT_SUCCESS';
+export const GET_APPOINTMENT_FAILED = 'GET_APPOINTMENT_FAILED';
+
 export const TestDoctorsCards =[
   {
     firstName:'Владимир Николаевич',
     lastName:'Войтенко',
     position:'Педиатр',
+    id:7,
     image:'real-doctor-photo2.jpg'
   },
   {
     firstName:'Татьяна Анатольевна',
     lastName:'Долгушина',
     position:'Педиатр',
-    image:'real-doctor-photo1.jpg'
+    image:'real-doctor-photo1.jpg',
+    id:10,
   },
   {
     firstName:'Елена Игоревна',
     lastName:'Евтушенко',
     position:'Педиатр',
-    image:'real-doctor-photo4.jpg'
+    image:'real-doctor-photo4.jpg',
+    id:6
   },
   {
     firstName:'Елена Владимировна',
     lastName:'Марчук',
     position:'Педиатр',
-    image:'real-doctor-photo3.jpg'
+    image:'real-doctor-photo3.jpg',
+    id:7
   }
 ]
 

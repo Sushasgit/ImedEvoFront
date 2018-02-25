@@ -5,7 +5,6 @@ const INIT_STATE = {
 }
 
 export default function changePassword (state = INIT_STATE, action) {
-  console.log(action.payload)
   switch (action.type) {
     case constants.RESET_PASSWORD:
       return {...state, message: action.payload}

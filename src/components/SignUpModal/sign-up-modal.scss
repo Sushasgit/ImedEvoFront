@@ -1,3 +1,6 @@
+:global {
+  @import "../../calendar-styles.scss";
+}
 .registration {
   &__body {
     display: flex;

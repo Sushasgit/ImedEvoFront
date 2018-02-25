@@ -48,3 +48,22 @@
     }
   }
 }
+
+.appointments__table {
+  margin-top: 40px;
+  width: 100%;
+  color: #000;
+  font-size: 1.2em;
+  tr {
+    background-color: #e5e5e5;
+  }
+  td{
+    text-align: center;
+  }
+  th {
+    background-color: #ff8533;
+  }
+  tr {
+    border: 1px solid black;
+  }
+}

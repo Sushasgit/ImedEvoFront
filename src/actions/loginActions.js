@@ -8,8 +8,10 @@ export function signinUser ({username, password}) {
 
     axios.post(`${constants.TEST_ROOT_URL}/login`, {username, password})
       .then(response => {
-        let jsonDataToken = response.data.token.split(' ')[1]
-        let jsonDataId = response.data.user.split('{')[1].split('=')[1].split(',')[0]
+        console.log(response.data.response)
+        let jsonDataToken = response.data.response.token.split(' ')[1]
+        let jsonDataId = response.data.response.user.id
+        console.log(jsonDataToken)
         helpers.setToken(jsonDataToken)
         helpers.setId(jsonDataId)
         return jsonDataId

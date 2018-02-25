@@ -12,6 +12,7 @@ import ProfileData from './ProfileData'
 import * as Icons from '../../components/SvgIcons/SvgIcons.js'
 import * as  constants  from '../../constants/constants'
 import stylesModal from  '../../components/SignUpModal/sign-up-modal.scss'
+import * as actions from '../../actions/appointmentsGetAllUser'
 
 class UserProfilePage extends Component {
 
@@ -21,6 +22,10 @@ class UserProfilePage extends Component {
 
     this.closeModal = this.closeModal.bind(this)
     this.openModal = this.openModal.bind(this)
+  }
+
+  componentDidMount (){
+    this.props.getAppoinmentsUser()
   }
 
   closeModal () {
@@ -51,6 +56,8 @@ class UserProfilePage extends Component {
   render () {
     const user = this.props.user
     const message = this.props.message
+    const events = this.props.events
+    console.log(events)
     return (
       <Fragment>
         <div className={styles.h_background}>
@@ -90,7 +97,7 @@ class UserProfilePage extends Component {
 
               <section className={styles.clinic}>
                 <h2 className={styles.clinic__title}>Текущие записи</h2>
-                <CalendarComponent/>
+                <CalendarComponent {...this.props}/>
               </section>
 
               <section className={styles.clinic}>
@@ -124,8 +131,15 @@ function mapStateToProps (state) {
   return {
     authenticated: state.auth.authenticated,
     user: state.auth.user,
-    message: state.auth.message
+    message: state.auth.message,
+    events:state.events.events
   }
 }
-export default connect(mapStateToProps)(UserProfilePage)
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getAppoinmentsUser: () => dispatch(actions.getAppoinmentsUser()),
+  };
+}
+export default connect(mapStateToProps,mapDispatchToProps)(UserProfilePage)
 

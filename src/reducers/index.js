@@ -6,7 +6,7 @@ import LocationReducer from './locationReducer';
 import searchReducer from './searchReducer';
 import getAllReducer from './getAllReducer';
 import changePassword from './changePasswordReducer';
-
+import getAppointmentReducer from './getAppointmentsUserReducer'
 const rootReducer = combineReducers({
   form,
   auth: authReducer,
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   searchResult: searchReducer,
   allResults: getAllReducer,
   message: changePassword,
-
+  events:getAppointmentReducer,
   registrationUserForm: formReducer('registrationUser', {
     email: '',
     password: '',
