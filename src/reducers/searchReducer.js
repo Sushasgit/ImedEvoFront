@@ -1,4 +1,5 @@
-const USER_SEARCH = 'USER_SEARCH';
+import * as constants from '../constants/constants'
+
 const INIT_STATE = {
   clinics: [],
   doctors: [],
@@ -9,7 +10,7 @@ const INIT_STATE = {
 
 export default function searchReducer  (state = INIT_STATE, action)  {
   switch(action.type) {
-    case USER_SEARCH:
+    case constants.USER_SEARCH:
       return action.payload;
     default:
       return state

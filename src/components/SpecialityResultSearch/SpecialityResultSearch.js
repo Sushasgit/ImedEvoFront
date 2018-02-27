@@ -25,7 +25,6 @@ class SpecialityResultSearch extends Component {
   }
 
   render () {
-    console.log(this.props.doctors)
     return (
       <Fragment>
         {this.state &&

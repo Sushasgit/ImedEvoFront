@@ -22,7 +22,6 @@ class RandomDiagnostics extends Component {
     })
   }
   render () {
-    console.log(this.state.diagnostics)
     return (
       <div className={styles.h_col2_container}>
         <div className={styles.random_results}>

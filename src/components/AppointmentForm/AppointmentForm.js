@@ -2,6 +2,13 @@ import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field, Form } from 'redux-form'
 import styles from  '../SignUpModal/sign-up-modal.scss'
+import DatePicker from 'react-datepicker'
+import moment from 'moment'
+import * as helpers from '../../helpers/helpers'
+import * as actions from '../../actions/appointmentDoctorActions'
+import 'react-datepicker/dist/react-datepicker.css'
+
+//TODO Change structure this component (make it easier)
 
 const renderInput = (field) => {
   const {label, type, input, meta: {error, touched}} = field
@@ -23,12 +30,16 @@ class AppointmentForm extends Component {
 
     this.state = {
       isSubmmited: false,
+      startDate: moment()
     }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleAppointment = this.handleAppointment.bind(this)
   }
 
   handleFormSubmit ({email}) {
     this.setState({isSubmmited: true})
-    this.props.dispatch(reset('appointment-doctor'));
+    this.props.dispatch(reset('appointment-doctor'))
   }
 
   renderAlert () {
@@ -42,6 +53,22 @@ class AppointmentForm extends Component {
     }
   }
 
+  handleChange (date) {
+    this.setState({
+      startDate: date
+    })
+  }
+
+  handleAppointment(){
+    let appointmentInfo = this.state.startDate.format("YYYY-MM-DD HH:mm:ss").toString();
+    let helperDate = appointmentInfo.split(' ');
+    let date = helperDate[0];
+    let time = helperDate[1];
+    let doctorId = this.props.data.id
+    let userId = helpers.getId()
+    this.props.makeAppoinment(userId, doctorId, time, date)
+  }
+
   render () {
     const phoneFormatter = (number) => {
       if (!number) return ''
@@ -49,6 +76,7 @@ class AppointmentForm extends Component {
       number = number.substring(0, 13)
       return number.substring(0, 10).match(splitter).join('-') + number.substring(10)
     }
+
     const phoneParser = (number) => number ? number.replace(/-/g, '') : ''
     const doctor = this.props.data.user
     const doctorCard = this.props.data
@@ -71,8 +99,26 @@ class AppointmentForm extends Component {
         </div>
 
         <section className={styles.appointment_doctor__form}>
-          {!this.state.isSubmmited &&
+          {this.props.authenticated &&
+            <div>
+              <DatePicker
+                inline
+                locale="ru"
+                utcOffset={-4}
+                onChange={this.handleChange}
+                showTimeSelect
+                timeFormat="HH:mm"
+                timeIntervals={15}
+                dateFormat="YYYY-MM-DD"
+                timeCaption="Время"
+                selected={this.state.startDate}
+              />
 
+              <button className={styles.signin} onClick={this.handleAppointment}>Записаться</button>
+            </div>
+          }
+          
+          {!this.state.isSubmmited && !this.props.authenticated &&
           <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field
               name="fullName"
@@ -111,8 +157,8 @@ class AppointmentForm extends Component {
             {this.renderAlert()}
             <button action="submit" className={styles.signin}>Записаться</button>
           </Form>
-          }
 
+          }
           {this.state.isSubmmited && doctor &&
           <section className={styles.appointment_doctor__confirm}>
             {`Вы записаны на прием к ${doctor.firstName} ${doctor.lastName}.
@@ -157,9 +203,16 @@ function validate (formProps) {
 
 function mapStateToProps (state) {
   return {
-    errorMessage: state.auth.error
+    errorMessage: state.auth.error,
+    authenticated: state.auth.authenticated,
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    makeAppoinment: (idUser, idDoctor, time, date) => dispatch(actions.makeAppoinment(idUser, idDoctor, time, date)),
+  };
+}
+
 const form = reduxForm({form: 'appointment-doctor', validate})
-export default connect(mapStateToProps)(form(AppointmentForm))
+export default connect(mapStateToProps, mapDispatchToProps)(form(AppointmentForm))

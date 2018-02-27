@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 class FilterDoctorsPanel extends Component {
 
   render() {
-    console.log(this.props)
     return (
       <nav className={styles.sort}>
         <ul className={styles.filter}>

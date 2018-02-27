@@ -7,7 +7,6 @@ import Footer from '../../components/Footer/Footer'
 
 class DiagnosticsPage extends Component {
   render() {
-    console.log(this.state)
     return (
       <div>
         <div  className={logoStyles.container__search_result}>

@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
 
-:global {
-  @import '../../common';
-}
-
 .header__container {
   box-shadow: 0 0 8px 1px rgba(28, 39, 40, 0.56);
   background-color: #ffffff;
@@ -68,7 +64,7 @@
   background-color: #4775d1;
   border: 1px solid #4775d1;
   border-radius: 3px;
-  color: #ffffff;
+  color: #000000;
   margin-top: 20px;
   text-decoration: none;
   font-size: 1.4em;

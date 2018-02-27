@@ -368,3 +368,11 @@ label {
     margin-bottom: 20px;
   }
 }
+
+.h_col2_container_result {
+  width: 50%;
+
+  @media (max-width: 1232px) {
+    width: 100%;
+  }
+}

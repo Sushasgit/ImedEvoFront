@@ -19,7 +19,6 @@ class RandomDiscountsContainer extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <Fragment>
         <RandomDiscounts {...this.props.allResults} />

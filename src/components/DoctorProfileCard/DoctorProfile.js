@@ -30,9 +30,7 @@ class DoctorProfile extends Component {
 
       axios.get(`${constants.ROOT_URL}/doctors/${id}`)
         .then(response => {
-          console.log(response.data['doctor'])
           let doctor = response.data['doctor'];
-          console.log(doctor)
           this.setState({
             doctor: doctor,
             doctorPersonalInfo: doctor.user

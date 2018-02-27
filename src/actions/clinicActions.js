@@ -1,7 +1,3 @@
-const GET_ALL_CLINICS = 'GET_ALL_CLINICS'
-const GET_ALL_CLINICS_REQUEST = 'GET_ALL_CLINICS_REQUEST'
-const FILTER_CLINIC_NAME = 'FILTER_CLINIC_NAME'
-const FILTER_CLINIC_RATING = 'FILTER_CLINIC_RATING'
 import axios from 'axios'
 import * as constants from '../constants/constants'
 
@@ -21,7 +17,6 @@ export function getAllClinics () {
 
 export function filterClinicName (clinics, order) {
   return function (dispatch) {
-    console.log(order)
     let filterDoctors = clinics.allResults.clinics.sort(function (a, b) {
       if (order) {
         return a.clinicName.localeCompare(b.clinicName)
@@ -48,28 +43,28 @@ export function filterClinicRating (clinics, order) {
 
 export function filterClinicSuccess (filterClinic) {
   return {
-    type: FILTER_CLINIC_NAME,
+    type: constants.FILTER_CLINIC_NAME,
     payload: filterClinic
   }
 }
 
 export function filterClinicRatingSuccess (filterClinic) {
   return {
-    type: FILTER_CLINIC_RATING,
+    type: constants.FILTER_CLINIC_RATING,
     payload: filterClinic
   }
 }
 
 export function getClinicsSuccess (doctors) {
   return {
-    type: GET_ALL_CLINICS,
+    type: constants.GET_ALL_CLINICS,
     payload: doctors
   }
 }
 
 export function getClinicsRequest () {
   return {
-    type: GET_ALL_CLINICS_REQUEST,
+    type: constants.GET_ALL_CLINICS_REQUEST,
     isLoading: true
   }
 }

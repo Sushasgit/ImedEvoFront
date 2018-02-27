@@ -26,7 +26,6 @@ class RandomDiscounts extends Component {
   }
 
   render () {
-    console.log(this.state)
     return (
       <Fragment>
       {this.state &&

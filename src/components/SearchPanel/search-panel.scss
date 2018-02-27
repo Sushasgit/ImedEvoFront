@@ -44,6 +44,14 @@
         font-size: calc(15px + (25 - 15) * (100vw - 320px) / (1200 - 320));
       }
     }
+    @media (max-width: 500px){
+      margin-right: 0;
+      padding-left: 5px;
+    }
+  }
+
+  &__label_input{
+    margin: 0;
   }
 
   &__btn{
@@ -55,6 +63,10 @@
 .container__search_box{
   width: 100%;
   margin-right: 20px;
+
+  @media (max-width: 500px) {
+    margin-right: 0;
+  }
 
   @media (max-width: 1045px) {
     margin-bottom: 15px;

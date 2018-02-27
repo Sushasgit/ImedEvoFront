@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { alert } from './alertReducer'
 import { reducer as form } from 'redux-form';
 import { modelReducer, formReducer } from 'react-redux-form';
 import authReducer from './authReducer';
@@ -7,15 +6,18 @@ import LocationReducer from './locationReducer';
 import searchReducer from './searchReducer';
 import getAllReducer from './getAllReducer';
 import signupClinicReducer from './signupClinicReducer';
+import changePassword from './changePasswordReducer';
+import getAppointmentReducer from './getAppointmentsUserReducer'
 
 const rootReducer = combineReducers({
   form,
   auth: authReducer,
-  alert,
   location: LocationReducer,
   searchResult: searchReducer,
   allResults: getAllReducer,
   signupClinic: signupClinicReducer,
+  message: changePassword,
+  events:getAppointmentReducer,
   registrationUserForm: formReducer('registrationUser', {
     email: '',
     password: '',
@@ -32,9 +34,6 @@ const rootReducer = combineReducers({
     passwordDoc:'',
     favoiriteColor:''
   }),
-
-
-
 });
 
 export default rootReducer;

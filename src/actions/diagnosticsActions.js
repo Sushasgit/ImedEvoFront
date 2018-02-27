@@ -1,6 +1,3 @@
-const GET_ALL_DIAGNOSTIC = 'GET_ALL_DIAGNOSTIC'
-const GET_ALL_DIAGNOSTIC_REQUEST = 'GET_ALL_DIAGNOSTIC_REQUEST'
-
 import axios from 'axios'
 import * as constants from '../constants/constants'
 
@@ -20,14 +17,14 @@ export function getAllDiagnostics () {
 
 export function getDiagnosticSuccess (diagnostic) {
   return {
-    type: GET_ALL_DIAGNOSTIC,
+    type: constants.GET_ALL_DIAGNOSTIC,
     payload: diagnostic
   }
 }
 
 export function getDiagnosticRequest () {
   return {
-    type: GET_ALL_DIAGNOSTIC_REQUEST,
+    type: constants.GET_ALL_DIAGNOSTIC_REQUEST,
     isLoading: true
   }
 }

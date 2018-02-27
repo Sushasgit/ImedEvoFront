@@ -1,8 +1,3 @@
-const GET_ALL_LABORATORIES = 'GET_ALL_LABORATORIES'
-const GET_ALL_LABORATORIES_REQUEST = 'GET_ALL_LABORATORIES_REQUEST'
-const GET_ALL_DISCOUNTS = 'GET_ALL_DISCOUNTS'
-const GET_ALL_DISCOUNTS_REQUEST = 'GET_ALL_DISCOUNTS_REQUEST'
-
 import axios from 'axios'
 import * as constants from '../constants/constants'
 
@@ -22,14 +17,14 @@ export function getAllDiscounts () {
 
 export function getDiscountsSuccess (discounts) {
   return {
-    type: GET_ALL_DISCOUNTS,
+    type: constants.GET_ALL_DISCOUNTS,
     payload: discounts
   }
 }
 
 export function getDiscountsRequest () {
   return {
-    type: GET_ALL_DISCOUNTS_REQUEST,
+    type: constants.GET_ALL_DISCOUNTS_REQUEST,
     isLoading: true
   }
 }

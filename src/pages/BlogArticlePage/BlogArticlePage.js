@@ -39,7 +39,6 @@ class BlogArticlePage extends Component {
   }
 
   render () {
-    console.log(this.state.data.articles)
     return (
       <Fragment>
         <Header/>

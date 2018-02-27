@@ -18,7 +18,6 @@ class DoctorProfileData extends Component {
 
   render () {
     const doctorInfo = this.state.doctor
-    console.log(doctorInfo.lastName)
     if(doctorInfo.lastName){
       return (
         <Fragment>

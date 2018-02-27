@@ -53,6 +53,7 @@ class ClinicRegistrationForm extends Component {
 		
 
 	render() {
+
 		const phoneFormatter = (number) => {
 		    if (!number) return '';
 		      const splitter = /.{1,3}/g;
@@ -62,6 +63,7 @@ class ClinicRegistrationForm extends Component {
    		const phoneParser = (number) => number ? number.replace(/-/g, '') : '';
 		console.log(this.props);
 		const {handleSubmit} = this.props;
+    
     return (
     	<div className={styles.clinic_form}>
     		<h2 className={styles.cf_tit}>Форма регистрации Клиники</h2>

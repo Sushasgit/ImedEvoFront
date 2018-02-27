@@ -7,7 +7,6 @@ import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 class DoctorsCard extends Component {
   render () {
-    console.log(constants.TestDoctorsCards)
     return (
       <Fragment>
         <div className="container">
@@ -15,7 +14,7 @@ class DoctorsCard extends Component {
             {constants.TestDoctorsCards.map((doctor, index) =>
               <article key={index} className={styles.widjet__doctor}>
                 <div className={styles.widjet__description}>
-                  <img src={doctor.image} alt=''/>
+                  <img src={require(`../../images/${doctor.image}`)} alt={doctor.lastName}/>
                   <p>
                     «Грамотный специалист, помогла справиться с атопическим дерматитом за 2 недели.
                     Прекрасно находит общий язык с детьми, даже с таким непоседой как наш Павлик...»

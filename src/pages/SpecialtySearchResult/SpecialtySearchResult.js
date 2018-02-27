@@ -22,7 +22,6 @@ class SpecialtySearchResultPage extends Component {
 
   componentDidMount () {
     let doctorSpecialty = this.props.match.params.doctorSpecialty;
-    console.log(doctorSpecialty)
     if(doctorSpecialty === 'family-doctor' ) {
       axios.get(`${constants.ROOT_URL}/search/byanyparams?params=Уролог`)
         .then(response => {

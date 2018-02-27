@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field, Form } from 'redux-form'
-import * as actions from  '../../actions/AuthSActions'
+import * as actions from  '../../actions/loginActions'
 import { Link } from 'react-router-dom'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 
@@ -25,8 +25,8 @@ class SignInForm extends Component {
     super(props)
   }
 
-  handleFormSubmit ({email, password}) {
-    this.props.signinUser({email, password})
+  handleFormSubmit ({username, password}) {
+    this.props.signinUser({username, password})
   }
 
   renderAlert () {
@@ -47,7 +47,7 @@ class SignInForm extends Component {
         <section className={styles.signup}>
           <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field
-              name="email"
+              name="username"
               type="email"
               component={renderInput}
               label="Email"/>

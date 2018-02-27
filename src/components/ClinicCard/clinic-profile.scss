@@ -36,6 +36,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    position: relative;
 
     @media (max-width: 500px) {
       display: block;
@@ -320,21 +321,6 @@
 
 .work_place {
   width: 60%;
-  .appointment__table {
-    margin-top: 40px;
-    width: 100%;
-    color: #ffffff;
-    font-size: 1.2em;
-    tr {
-      background-color: #4775d1;
-    }
-    th {
-      background-color: #ff8533;
-    }
-    tr {
-      border: 1px solid black;
-    }
-  }
 }
 
 .doctor__map {
@@ -359,7 +345,6 @@
 .doctor_qualification_title{
   margin-bottom: 20px;
   color: #333333;
-
 }
 
 .about_doctor_title {
@@ -367,3 +352,46 @@
   color: #4775d1;
   text-align: center;
 }
+
+.settings{
+  background-color: #4775d1;
+  padding: 5px 9px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 12px;
+
+  @media (max-width: 500px) {
+    right: 0px;
+  }
+
+    &__title {
+      text-align: center;
+      margin: 0;
+      background-color: #ff8533;
+      color: #ffffff;
+  }
+}
+
+.message{
+  text-align: center;
+  color: #4775d1;
+  font-size: 24px;
+  margin-top: 45px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.appointment__table{
+  width: 100%;
+  margin-bottom: 30px;
+  th{
+    background-color: #ff8533;
+  }
+
+  td{
+    background-color: #4775d1;
+    color: #ffffff;
+  }
+}
+

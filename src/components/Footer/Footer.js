@@ -35,10 +35,6 @@ class Footer extends Component {
             <li>
               <Link to="/forClinic">IMED для клиник</Link>
             </li>
-
-            <li>
-              <Link to="/promotion" >Реклама и продвижение</Link>
-            </li>
           </ul>
 
           <ul>
