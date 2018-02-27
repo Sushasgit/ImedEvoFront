@@ -1,1 +1,4 @@
+export const  CLINIC_AUTH_SUCCESS = 'CLINIC_AUTH_SUCCESS';
+export const  CLINIC_AUTH_ERROR = 'CLINIC_AUTH_ERROR';
+
 

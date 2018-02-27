@@ -6,6 +6,9 @@
   width: 81.25rem;
   
 }
+.error {
+  color: #ff5050;
+}
 
 .cf_tit {
   color: #4775d1;
@@ -267,7 +270,6 @@
 .cf_form_monday,
 {
   input[type=time]:first-child {
-    // margin-left: 5px;
   }
 }
 
@@ -374,23 +376,14 @@ textarea {
 }
 
 
-// @media (max-width: 754px) {
-//     .cf_form_name_new{
-//       width: 46%;
-//       input{
-//         width: 100%;
-//       }
-//     }
-//   }
-
-
-
-
-@media (max-width: 700px) {
-  input[type="submit"] {
-    margin: 0 0 7% 5%;
+@media (max-width: 775px) {
+    .cf_form_name_new{
+      width: 46%;
+      input{
+        width: 100%;
+      }
+    }
   }
-}
 
 @media (max-width: 590px) {
   .cf_form_address {
@@ -410,6 +403,7 @@ textarea {
     margin: 0 auto;
   }
   .cf_form_name_new{
+    width: 95%;
    input {
     width: 100%;
   }
@@ -442,25 +436,7 @@ textarea {
 }
 
 @media (max-width: 420px) {
-  // .cf_form_firstline {
-  //   padding-left: 4%;
-  // }
-  // .cf_form_secondline {
-  //   padding-left: 4%;
-  // }
-  // .cf_form_shedule {
-  //   padding-left: 4%;
-  // }
   .cf_left_logo {
     padding: 30px 0 0 5%;
   }
-  // .cf_form_services {
-  //   margin-bottom: 20px;
-  // }
-  // input[type="submit"] {
-  //   width: 14rem;
-  //   height: 3rem;
-  //   font-size: 18px;
-  //   margin: 0 0 5% 4%;
-  // }
 }

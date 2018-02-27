@@ -5,14 +5,17 @@ import authReducer from './authReducer';
 import LocationReducer from './locationReducer';
 import searchReducer from './searchReducer';
 import getAllReducer from './getAllReducer';
+import signupClinicReducer from './signupClinicReducer';
 import changePassword from './changePasswordReducer';
 import getAppointmentReducer from './getAppointmentsUserReducer'
+
 const rootReducer = combineReducers({
   form,
   auth: authReducer,
   location: LocationReducer,
   searchResult: searchReducer,
   allResults: getAllReducer,
+  signupClinic: signupClinicReducer,
   message: changePassword,
   events:getAppointmentReducer,
   registrationUserForm: formReducer('registrationUser', {
@@ -31,23 +34,6 @@ const rootReducer = combineReducers({
     passwordDoc:'',
     favoiriteColor:''
   }),
-
-  regClinic: modelReducer('regClinic', {
-    clinicname:'',
-    clinicaddress:'',
-    clinicphone:'',
-    clinicemail:'',
-    clinicschedule:'',
-    cliniceservices:''
-  }),
-  regClinicForm: formReducer('regClinic', {
-    clinicname:'',
-    clinicaddress:'',
-    clinicphone:'',
-    clinicemail:'',
-    clinicschedule:'',
-    cliniceservices:''
-  })
 });
 
 export default rootReducer;
