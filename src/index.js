@@ -5,12 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 import HttpsRedirect from 'react-https-redirect';
 import { store } from './store';
 import { App } from '../src/components/App/App';
-import {
-  AUTH_USER,
-} from '../src/constants/constants';
-import * as actions from 'actions/checkUserAuth';
-
-
 
 render(
   <Provider store={store}>

@@ -7,7 +7,6 @@ export default function userSearch(query) {
     axios.get(`${constants.ROOT_URL}/search/byanyparams?params=${query}`)
       .then(({data}) => {
         let searchResult = data
-        console.log(searchResult)
         dispatch(searchSuccess(searchResult))
         history.push(`/searchresult`);
       })

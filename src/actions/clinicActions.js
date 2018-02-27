@@ -17,7 +17,6 @@ export function getAllClinics () {
 
 export function filterClinicName (clinics, order) {
   return function (dispatch) {
-    console.log(order)
     let filterDoctors = clinics.allResults.clinics.sort(function (a, b) {
       if (order) {
         return a.clinicName.localeCompare(b.clinicName)

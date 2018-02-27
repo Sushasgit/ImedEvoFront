@@ -3,8 +3,6 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 import { history } from '../../history';
-
-//import { PrivateRoute } from '../PrivateRoute/PrivateRoute';
 import HomePage from '../../pages/Homepage/HomePage';
 import DoctorsPage from '../../pages/DoctorsPage/DoctorsPage';
 import ClinicsPage from '../../pages/ClinicsPage/ClinicsPage';
@@ -42,14 +40,10 @@ class App extends React.Component {
     history.listen((location, action) => {});
   }
 
-
-
   render() {
     if (token) {
       const id = localStorage.getItem('id_user');
-      console.log('token successful')
        this.props.getUser(token, id);
-      // store.dispatch({ type: AUTH_USER });
     }
 
     const { alert } = this.props;
@@ -60,32 +54,31 @@ class App extends React.Component {
               <ScrollToTop>
               <div>
                 <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/doctors" component={DoctorsPage} />
-                <Route exact path="/clinics" component={ClinicsPage} />
-                <Route exact path="/clinics/:clinicId" component={ClinicProfile} />
-                <Route exact path="/doctors/:doctorId" component={DoctorProfile} />
-                <Route exact path="/laboratories" component={LaboratoriesPage} />
-                <Route exact path="/diagnostics" component={DiagnosticsPage} />
-                <Route exact path="/sale" component={SalePage} />
-                <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
-                <Route exact path="/signupclinic" component={RegistrationClinicPage} />
-                <Route exact path="/searchresult" component={SearchResultPage} />
-                <Route exact path="/searchresult/:doctorSpecialty" component={SpecialtySearchResultPage} />
-                <Route exact path="/profile/:userID" component={RequireAuth(UserProfilePage)}/>
-                <Route exact path="/blog" component={BlogArticlePage}/>
-                <Route exact path="/help" component={HelpPage}/>
-                <Route exact path="/forClinic" component={ForClinic}/>
-                <Route exact path="/forgot" component={ForgotPassword}/>
-                <Route exact path="/rules" component={ServiceRules}/>
-                <Route exact path="/privacy" component={PrivacyPolicy}/>
-                <Route exact path="/about" component={AboutUs}/>
-                <Route exact path="/contacts" component={Contacts}/>
-                <Route exact path="/vacancy" component={Vacancy}/>
-                <Route exact path="/promotion" component={Promotion}/>
-                <Route path="/forgot/resetpassword:token" component={ChangePassword}/>
-                <Route path="*" component={NotFound} />
-
+                  <Route exact path="/" component={HomePage} />
+                  <Route exact path="/doctors" component={DoctorsPage} />
+                  <Route exact path="/clinics" component={ClinicsPage} />
+                  <Route exact path="/clinics/:clinicId" component={ClinicProfile} />
+                  <Route exact path="/doctors/:doctorId" component={DoctorProfile} />
+                  <Route exact path="/laboratories" component={LaboratoriesPage} />
+                  <Route exact path="/diagnostics" component={DiagnosticsPage} />
+                  <Route exact path="/sale" component={SalePage} />
+                  <Route exact path="/signupdoctor" component={RegistrationDoctorPage} />
+                  <Route exact path="/signupclinic" component={RegistrationClinicPage} />
+                  <Route exact path="/searchresult" component={SearchResultPage} />
+                  <Route exact path="/searchresult/:doctorSpecialty" component={SpecialtySearchResultPage} />
+                  <Route exact path="/profile/:userID" component={RequireAuth(UserProfilePage)}/>
+                  <Route exact path="/blog" component={BlogArticlePage}/>
+                  <Route exact path="/help" component={HelpPage}/>
+                  <Route exact path="/forClinic" component={ForClinic}/>
+                  <Route exact path="/forgot" component={ForgotPassword}/>
+                  <Route exact path="/rules" component={ServiceRules}/>
+                  <Route exact path="/privacy" component={PrivacyPolicy}/>
+                  <Route exact path="/about" component={AboutUs}/>
+                  <Route exact path="/contacts" component={Contacts}/>
+                  <Route exact path="/vacancy" component={Vacancy}/>
+                  <Route exact path="/promotion" component={Promotion}/>
+                  <Route path="/forgot/resetpassword:token" component={ChangePassword}/>
+                  <Route path="*" component={NotFound} />
                 </Switch>
               </div>
               </ScrollToTop>

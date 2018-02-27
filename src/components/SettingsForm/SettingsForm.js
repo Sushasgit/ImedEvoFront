@@ -81,7 +81,7 @@ class SettingsForm extends Component {
               label="Улица"/>
 
             <Field
-              name="street"
+              name="house"
               type="text"
               component={renderInput}
               label="Дом"/>

@@ -1,6 +1,6 @@
-// export const ROOT_URL = "https://www.imed.od.ua";
-export const ROOT_URL = "http://54.37.125.178:8085";
-export const TEST_ROOT_URL = "http://54.37.125.178:8087";
+export const ROOT_URL = "https://www.imed.od.ua";
+// export const ROOT_URL = "http://54.37.125.178:8085";
+// export const TEST_ROOT_URL = "http://54.37.125.178:8087";
 
 export const MODAL_OPEN_CLASS = "modal-open";
 export const AUTH_USER = 'auth_user';

@@ -71,12 +71,10 @@ export function filterPediatrician (doctors, order) {
   let filteredDoctors = doctors
   return function (dispatch) {
     if (order) {
-      console.log(filteredDoctors.allResults.doctors)
       let filterDoctors = filteredDoctors.allResults.doctors.filter(item => {return item.pediatrician === true})
       dispatch(filterPediatricianSuccess(filterDoctors))
     }
     else {
-      console.log(filteredDoctors.allResults.doctors)
       dispatch(doctors.allResults.doctors)
     }
   }

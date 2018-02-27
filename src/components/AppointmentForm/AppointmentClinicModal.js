@@ -38,7 +38,6 @@ class AppointmentClinicModal extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <Fragment>
         <button onClick={this.openModal} className={styles.login__button}>Записаться на прием</button>

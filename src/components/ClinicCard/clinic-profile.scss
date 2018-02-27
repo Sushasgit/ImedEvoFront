@@ -381,3 +381,17 @@
   display: block;
   margin-bottom: 20px;
 }
+
+.appointment__table{
+  width: 100%;
+  margin-bottom: 30px;
+  th{
+    background-color: #ff8533;
+  }
+
+  td{
+    background-color: #4775d1;
+    color: #ffffff;
+  }
+}
+

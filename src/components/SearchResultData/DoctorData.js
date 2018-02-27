@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 export default ({ doctor, index }) => {
-  console.log(doctor)
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>

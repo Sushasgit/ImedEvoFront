@@ -63,7 +63,7 @@ class CalendarComponent extends Component {
                 <th>Подтверждение</th>
               </tr>
               {events.map((event, index) =>
-                <tr>
+                <tr key={index}>
                   <td>{event.date}</td>
                   <td>{event.time}</td>
                   <td>

@@ -57,7 +57,6 @@ class UserProfilePage extends Component {
     const user = this.props.user
     const message = this.props.message
     const events = this.props.events
-    console.log(events)
     return (
       <Fragment>
         <div className={styles.h_background}>

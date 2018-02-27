@@ -4,7 +4,6 @@ import styles from './not-find.scss'
 
 class NotFound extends Component {
   render() {
-    console.log(this.state)
     return (
       <Fragment>
        <Header/>

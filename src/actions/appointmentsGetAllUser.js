@@ -8,7 +8,7 @@ export function getAppoinmentsUser () {
     document.body.classList.remove(constants.MODAL_OPEN_CLASS)
     let token = helpers.getToken()
     let idUser = helpers.getId()
-    axios.get(`${constants.TEST_ROOT_URL}/appointments/byusers/${idUser}`,
+    axios.get(`${constants.ROOT_URL}/appointments/byusers/${idUser}`,
       {
         headers: {Authorization: 'Bearer ' + token}
       })
@@ -25,12 +25,10 @@ export function getAppoinmentsUser () {
               (u) => {
                 u.start = u.date
                 u.end = u.date
-                u.title = `Вы записаны к специалисту на ${u.time}`
+                u.title = `Вы записаны к специалисту ${u.doctorName} на ${u.time}`
                 return u
               }
             )
-
-        console.log(appointments)
 
         response ? dispatch(getAppointmentsSuccess(appointments)) : dispatch(getAppointmentsFailed('Что то пошло не так'))
       })

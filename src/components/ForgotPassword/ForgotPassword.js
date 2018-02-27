@@ -70,10 +70,8 @@ class ForgotPassword extends Component {
   }
 
   render () {
-    console.log(this.props)
     const {handleSubmit} = this.props
     const message = this.props.message
-    console.log(message)
     return (
       <Fragment>
         <Modal

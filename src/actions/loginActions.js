@@ -6,9 +6,8 @@ import axios from 'axios'
 export function signinUser ({username, password}) {
   return function (dispatch) {
 
-    axios.post(`${constants.TEST_ROOT_URL}/login`, {username, password})
+    axios.post(`${constants.ROOT_URL}/login`, {username, password})
       .then(response => {
-        console.log(response.data.response)
         let jsonDataToken = response.data.response.token.split(' ')[1]
         let jsonDataId = response.data.response.user.id
         helpers.setToken(jsonDataToken)

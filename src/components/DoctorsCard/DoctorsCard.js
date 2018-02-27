@@ -7,7 +7,6 @@ import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 class DoctorsCard extends Component {
   render () {
-    console.log(constants.TestDoctorsCards)
     return (
       <Fragment>
         <div className="container">

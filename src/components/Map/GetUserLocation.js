@@ -12,7 +12,6 @@ class GetUserLocation extends Component {
 
 
   render () {
-    console.log(this.props.location instanceof Error)
     if(this.props.location instanceof Error === false) {
       const {coords: {latitude, longitude}} = this.props.location
 

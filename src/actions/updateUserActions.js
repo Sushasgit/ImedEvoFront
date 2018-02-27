@@ -8,7 +8,7 @@ export function updateUser ({username, firstName, lastName, phone}) {
   return function (dispatch) {
     let id = helpers.getId()
     let token = helpers.getToken()
-    axios.put(`${constants.TEST_ROOT_URL}/users/updateuser`, {id, username, firstName, lastName, phone},
+    axios.put(`${constants.ROOT_URL}/users/updateuser`, {id, username, firstName, lastName, phone},
       {
         headers: {Authorization: 'Bearer ' + token}
       })

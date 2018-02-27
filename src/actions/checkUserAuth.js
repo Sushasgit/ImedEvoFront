@@ -9,9 +9,7 @@ import * as constants from '../constants/constants'
 import axios from 'axios'
 
 export function getUser (token, id) {
-  console.log('getuser running' + token + id)
   return function (dispatch) {
-    console.log('getuser disptch running')
     axios.get(`${constants.ROOT_URL}/users/${id}`,
       {
         headers: {Authorization: 'Bearer ' + token}
@@ -19,7 +17,6 @@ export function getUser (token, id) {
       .then(response => {
         document.body.classList.remove(constants.MODAL_OPEN_CLASS)
         if (response.status === 200) {
-          console.log(response)
           dispatch(authSuccess(response.data))
         }
         else if (response.status === 401) {

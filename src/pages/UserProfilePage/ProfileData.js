@@ -23,7 +23,7 @@ class ProfileData extends Component {
             <span className={styles.icons_h}>
               <Icons.IconMail/>
             </span>
-            {user.username}
+            {user.username || user.email}
           </h3>
           <h3>
              <span className={styles.icons_h}>

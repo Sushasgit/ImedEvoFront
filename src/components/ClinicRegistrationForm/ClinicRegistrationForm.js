@@ -45,7 +45,6 @@ class ClinicRegistrationForm extends Component {
 
 
 	render() {
-		console.log(this.props);
     return (
     	<div className={styles.clinic_form}>
     		<h2 className={styles.cf_tit}>Форма регистрации Клиники</h2>

@@ -18,7 +18,6 @@ class RandomDoctorResultContainer extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <Fragment>
         <RandomLaboratories {...this.props.allResults} />

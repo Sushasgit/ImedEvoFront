@@ -66,12 +66,10 @@ class AppointmentForm extends Component {
     let time = helperDate[1];
     let doctorId = this.props.data.id
     let userId = helpers.getId()
-    console.log(this.props)
     this.props.makeAppoinment(userId, doctorId, time, date)
   }
 
   render () {
-    console.log(this.state.startDate.format("YYYY-MM-DD HH:mm:ss").toString())
     const phoneFormatter = (number) => {
       if (!number) return ''
       const splitter = /.{1,3}/g

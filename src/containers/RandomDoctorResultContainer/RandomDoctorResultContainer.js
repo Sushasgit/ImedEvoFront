@@ -49,7 +49,6 @@ class RandomDoctorResultContainer extends Component {
   }
 
   filterPediatrician (e){
-    console.log(e.target.checked)
     let onlyPediatrician = e.target.checked
      onlyPediatrician ? this.props.filterPediatrician(this.props, e.target.checked) :  this.props.getAllDoctors()
   }
