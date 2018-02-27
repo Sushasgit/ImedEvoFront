@@ -11,17 +11,18 @@ const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const DIRNAME = path.resolve(__dirname, '../')
 const ImageminPlugin = require('imagemin-webpack-plugin').default
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const PurifyCSSPlugin = require('purifycss-webpack');
-const glob = require('glob');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+
 
 module.exports = {
   resolve: {
     modules: [path.join(DIRNAME, 'src'), 'node_modules']
   },
 
-  entry:{
+  entry: {
+    entry: path.resolve(DIRNAME, 'src') + '/app/app.js',
     vendor: [
       'react',
       'react-dom',
@@ -111,7 +112,7 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({names: ['MyPages','vendor'], filename: 'bundle--[name].js'}),
+    new webpack.optimize.CommonsChunkPlugin({names: ['MyPages', 'vendor'], filename: 'bundle--[name].js'}),
     new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin('build', {
       root: DIRNAME,
@@ -126,13 +127,6 @@ module.exports = {
     new ExtractTextPlugin({
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
-    }),
-    new PurifyCSSPlugin({
-      purifyOptions: {
-        whitelist: ['*purify*'],
-        minify: true
-      },
-      paths: glob.sync(path.join(__dirname, 'build/*.html')),
     }),
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
@@ -162,11 +156,12 @@ module.exports = {
       'process.env': {NODE_ENV: JSON.stringify('production')}
     }),
     new CompressionPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
-      threshold: 10240,
-      minRatio: 0
+      threshold: 100000,
+      minRatio: 1,
+      //deleteOriginalAssets: true
     }),
     new FaviconsWebpackPlugin({
       logo: './src/images/logo.png',
@@ -194,7 +189,7 @@ module.exports = {
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.optimize\.css$/g,
       cssProcessor: require('cssnano'),
-      cssProcessorOptions: { discardComments: { removeAll: true } },
+      cssProcessorOptions: {discardComments: {removeAll: true}},
       canPrint: true
     }),
     new SWPrecacheWebpackPlugin({
@@ -203,9 +198,9 @@ module.exports = {
       logger(message) {
         if (message.indexOf('Total precache size is') === 0) {
           // This message occurs for every build and is a bit too noisy.
-          return;
+          return
         }
-        console.log(message);
+        console.log(message)
       },
       minify: true, // minify and uglify the script
       navigateFallback: '/index.html',
@@ -213,7 +208,7 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([
-      { from: 'src/pwa' },
+      {from: 'src/pwa'},
     ])
   ]
 }

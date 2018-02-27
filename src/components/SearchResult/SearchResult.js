@@ -25,7 +25,6 @@ class SearchResultPage extends Component {
   }
 
   render () {
-    console.log(this.props)
     return (
       <div>
         <TabPanelResults {...this.state}/>

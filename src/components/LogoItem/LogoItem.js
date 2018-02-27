@@ -8,8 +8,8 @@ class LogoItem extends Component {
   render() {
     return (
         <div className={styles.logo}>
-          <Icons.IconLogo/>
           <Link to="/">
+            <Icons.IconLogo/>
             IMED
           </Link>
         </div>

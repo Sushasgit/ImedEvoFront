@@ -4,6 +4,7 @@ import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import FilterClinicsPanel from '../../components/FilterPanel/FilterClinicsPanel'
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 class ClinicsPage extends Component {
   render() {
@@ -16,6 +17,7 @@ class ClinicsPage extends Component {
         </div>
         <RandomClinicResultContainer/>
       </div>
+      <Footer/>
     </div>
     );
   }

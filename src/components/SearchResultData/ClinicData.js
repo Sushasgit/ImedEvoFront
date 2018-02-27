@@ -35,7 +35,7 @@ export default ({ clinic, index }) => {
           {clinic.description}
         </p>
         <div style={{display:'flex',justifyContent:'space-around',alignItems:'center'}}>
-          <a href="/">Подробнее</a>
+          <Link to = {`/clinics/${clinic.id}`}>Подробнее</Link>
           <AppointmentClinicModal data={clinic}/>
         </div>
 

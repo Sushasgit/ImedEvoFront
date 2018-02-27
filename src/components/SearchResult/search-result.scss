@@ -347,7 +347,6 @@ label {
 .random_results{
   width: 50%;
   height: 620px;
-  overflow: scroll;
   margin-bottom: -80px;
 
   @media (max-width: 1230px) {
@@ -356,5 +355,24 @@ label {
     height: auto;
     order: 50;
     overflow: auto;
+  }
+}
+
+.loading_img{
+
+  @media (max-width: 1178px) {
+  width: 50%;
+    display: block;
+    margin: 0 auto;
+    padding:0 21px 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.h_col2_container_result {
+  width: 50%;
+
+  @media (max-width: 1232px) {
+    width: 100%;
   }
 }

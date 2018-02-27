@@ -23,7 +23,6 @@ class TabPanelResults extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.searchResult.doctors)
     this.setState({
       doctors: nextProps.searchResult.doctors,
       clinics:nextProps.searchResult.clinics,
@@ -34,7 +33,6 @@ class TabPanelResults extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <section>
         <Tabs>
@@ -48,8 +46,8 @@ class TabPanelResults extends React.Component {
 
           <TabPanel>
             <article className={styles.h_col2_container}>
-              <div style={{width:'50%'}}>
-              <DoctorList {...this.state}/>
+              <div className={styles.h_col2_container_result}>
+                <DoctorList {...this.state}/>
               </div>
               <div className={styles.map_container}>
                 <Map
@@ -65,7 +63,7 @@ class TabPanelResults extends React.Component {
 
           <TabPanel>
             <article className={styles.h_col2_container}>
-              <div style={{width:'50%'}}>
+              <div className={styles.h_col2_container_result}>
             <ClinicList {...this.state}/>
               </div>
             <div className={styles.map_container}>
@@ -83,7 +81,7 @@ class TabPanelResults extends React.Component {
 
           <TabPanel>
             <article className={styles.h_col2_container}>
-              <div style={{width:'50%'}}>
+              <div className={styles.h_col2_container_result}>
             <LaboratoriesList {...this.state}/>
               </div>
               <div className={styles.map_container}>
@@ -100,7 +98,7 @@ class TabPanelResults extends React.Component {
 
           <TabPanel>
           <article className={styles.h_col2_container}>
-            <div style={{width:'50%'}}>
+            <div className={styles.h_col2_container_result}>
             <DiagnosticsList {...this.state}/>
             </div>
             <div className={styles.map_container}>
@@ -116,7 +114,7 @@ class TabPanelResults extends React.Component {
           </TabPanel>
           <TabPanel>
             <article className={styles.h_col2_container}>
-              <div style={{width:'50%'}}>
+              <div className={styles.h_col2_container_result}>
               <DiscountList {...this.state}/>
               </div>
               <div className={styles.map_container}>

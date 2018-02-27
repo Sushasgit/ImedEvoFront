@@ -33,7 +33,6 @@ class ClinicProfileData extends Component {
     //TODO CREATE WIDJETS (top clinic and doctors)
     //TODO Change image when it will return from server
     let clinic = this.state
-    console.log(this.state)
     return (
       <Fragment>
             <div className={styles.profile}>

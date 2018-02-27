@@ -12,54 +12,51 @@ class WidjetsDoctors extends Component {
     this.state = {
       topDoctors: [
         {
+          doctorName:'Елена Дмитриевна',
+          doctorLastName:'Биленко',
+          position:'Педиатр',
+          clinic:'Интосана',
+          image:'real-doctor-photo5.png',
+          phoneClinic:'(0482) 307-500',
+          address:'г. Одесса ул. Варненская, 2',
+          time:'08:00 – 20:00'
+        },
+        {
+          doctorName:'Ирина Сергеевна',
+          doctorLastName:'Бекало',
+          position:'Педиатр',
+          image:'real-doctor-photo6.jpg',
+          clinic:'Интосана',
+          phoneClinic:'(0482) 307-500',
+          address:'г. Одесса ул. Варненская, 2',
+          time:'08:00 – 20:00'
+        },
+        {
+          doctorName:'Александр Борисович',
+          doctorLastName:'Смирнов',
+          position:'Cосудистый хирург',
+          image:'real-doctor-photo7.jpg',
+          clinic:'Одрекс',
+          address:'Раскидайловская 69/71',
+          phoneClinic:'(048) 752-93-66',
+          time:'08:00 – 20:00'
+        },
+        {
           range: 5,
-          address:'1304 Macom DrNaperville, IL, United States 60564',
+          address:'г. Одесса ул. Варненская, 2',
           doctorName:'Владимир Николаевич',
           doctorLastName:'Войтенко',
           position:'Педиатр',
-          image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShziYt6xgZPa1FJP-5MTIGbzeuge4jrqb9P4Wq60digp3YDSUT4g'
+          image:'real-doctor-photo2.jpg',
+          time:'08:00 – 20:00'
         },
         {
-          address:'1304 Macom DrNaperville, IL, United States 60564',
+          address:'г. Одесса ул. Варненская, 2',
           doctorName:'Татьяна Анатольевна',
           doctorLastName:'Долгушина',
           position:'Педиатр',
-          image:'https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
-        },
-        {
-          doctorName:'Елена Игоревна',
-          doctorLastName:'Евтушенко',
-          position:'Педиатр',
-          image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5-suGSy7c18MU6PhTpd7wKVPYdXXOrcz3FdijbAByPXUnANsTOg',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-        {
-          doctorName:'Елена Владимировна',
-          doctorLastName:'Марчук',
-          position:'Педиатр',
-          image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9Sf2xYJtQHyFfMHb9IPQ6xm_lRqqlWmFcjOlzDAInE3i1MfnFw',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-        {
-          doctorName:'Елена Владимировна',
-          doctorLastName:'Марчук',
-          position:'Педиатр',
-          image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9Sf2xYJtQHyFfMHb9IPQ6xm_lRqqlWmFcjOlzDAInE3i1MfnFw',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-        {
-          doctorName:'Елена Владимировна',
-          doctorLastName:'Марчук',
-          position:'Педиатр',
-          image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9Sf2xYJtQHyFfMHb9IPQ6xm_lRqqlWmFcjOlzDAInE3i1MfnFw',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
-        },
-        {
-          doctorName:'Елена Владимировна',
-          doctorLastName:'Марчук',
-          position:'Педиатр',
-          image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM9Sf2xYJtQHyFfMHb9IPQ6xm_lRqqlWmFcjOlzDAInE3i1MfnFw',
-          address:'1304 Macom DrNaperville, IL, United States 60564'
+          image:'real-doctor-photo1.jpg',
+          time:'08:00 – 20:00'
         },
       ]
     }
@@ -72,14 +69,14 @@ class WidjetsDoctors extends Component {
         {this.state.topDoctors.map((doctor, index) => {
           return (
             <section key={index} className={styles.widjet}>
-              <img src={doctor.image}/>
+              <img src={require(`../../images/${doctor.image}`)} alt={doctor.doctorLastName}/>
               <article className={styles.widjet__address}>
                 <h3>{`${doctor.doctorName} ${doctor.doctorLastName}`}</h3>
                 <ul className={styles.clinic__contacts}>
-                  <li>г. Одесса, ул. Варненская, 2</li>
-                  <li>(0482) 307-500, (0482) 343 -062</li>
-                  <li>into-sana@ukr.net</li>
-                  <li>Пн-Вск: 08.00-20.00</li>
+                  <li>{doctor.clinic}</li>
+                  <li>{doctor.address}</li>
+                  <li>{doctor.phoneClinic}</li>
+                  <li>Пн-Вск: {doctor.time}</li>
                 </ul>
               </article>
             </section>

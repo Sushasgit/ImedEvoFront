@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const PurifyCSSPlugin = require('purifycss-webpack');
-const glob = require('glob');
 
 const DIRNAME = __dirname + '/../';
 
@@ -109,12 +107,6 @@ module.exports = {
     }),
     new ExtractTextPlugin({
       filename: 'styles.css', allChunks: true,
-    }),
-    new PurifyCSSPlugin({
-      purifyOptions: {
-        whitelist: ['*purify*']
-      },
-      paths: glob.sync(path.join(__dirname, 'src/*.html')),
     }),
     new HtmlWebpackPlugin({
       template: 'index.html',

@@ -3,10 +3,10 @@ import RandomDiscountsContainer from '../../containers/RandomDoctorResultContain
 import logoStyles from '../../pages/SearchResultPage/search-page.scss'
 import SearchPanel from '../../components/SearchPanel/SearchPanel'
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 class DiagnosticsPage extends Component {
   render() {
-    console.log(this.state)
     return (
       <div>
         <div  className={logoStyles.container__search_result}>
@@ -14,6 +14,7 @@ class DiagnosticsPage extends Component {
           <SearchPanel />
         </div>
         <RandomDiscountsContainer/>
+        <Footer/>
       </div>
     );
   }

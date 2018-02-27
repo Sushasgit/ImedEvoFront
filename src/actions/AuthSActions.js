@@ -1,88 +1,57 @@
-import axios from 'axios';
-import { history } from '../history';
+import axios from 'axios'
+import { history } from '../history'
 import {
   AUTH_USER,
   AUTH_ERROR,
-  RESET_PASSWORD,
-  UNAUTH_USER
-} from './types';
+} from '../constants/constants'
 import * as constants from '../constants/constants'
+import * as helpers from '../helpers/helpers'
 
-export function signinUser({ email, password }) {
-  return function(dispatch) {
-    axios.post(`${constants.ROOT_URL}/users/login?email=${email}&password=${password}`,{ email, password })
-      .then(response => {
-        if (response.data.status.code === 710){
-          dispatch(authSuccess(response.data.user));
-          document.body.style.overflow = 'auto'
-          history.push(`/profile/${response.data.user.id}`);
-        } else{
-          dispatch(authError('Что то пошло не так'));
-        }
-      })
-      .catch(() => {
-        dispatch(authError('Что то пошло не так'));
-      });
-  }
-}
-
-export function signupUser({ password, email, lastName, firstName, birthDate, phone }) {
+export function signupUser ({password, username, lastName, firstName, birthDate, phone}) {
   return (dispatch) => {
-    axios.post(`${constants.ROOT_URL}/users/registration`,{password, email, lastName, firstName, birthDate, phone})
+    axios.post(`${constants.ROOT_URL}/users/registration`, {
+      password,
+      username,
+      lastName,
+      firstName,
+      birthDate,
+      phone
+    })
       .then(response => {
-        if (response) {
-          dispatch(authSuccess(response.data.user));
-          document.body.style.overflow = 'auto'
+        if (response.data.status.code === 700) {
+          dispatch(authSuccess(response.data.user))
+          document.body.classList.remove(constants.MODAL_OPEN_CLASS)
+          helpers.setId(response.data.user.id)
           history.push(`/profile/${response.data.user.id}`)
-        } else{
-          dispatch(authError('Что то пошло не так'));
+        }
+        else if (response.data.status.code === 708) {
+          dispatch(authError('Дата Рождения введена не верно'))
+        }
+
+        else if (response.data.status.code === 705) {
+          dispatch(authError('Не заполнен номер телефона'))
+        }
+
+        else if (response.data.status.code === 702) {
+          dispatch(authError('Такой пользователь уже существует'))
         }
       })
       .catch(error => {
-        {console.log("Error: " + error)}
-      });
-  }
-}
-
-export function ForgotPassword({ email }) {
-  return function(dispatch) {
-    axios.post(`${constants.ROOT_URL}/forgot/reset?email=${email}`, { email })
-      .then(response => {
-       if(response.data.status.code === 50){
-         dispatch(resetSucces(response.data.status.message));
-       }
+        {console.log('Error: ' + error)}
       })
-      .catch((error) => {
-        console.log(error)
-        dispatch(resetFailure("Пользователь не найден,проверьте пожалуйста Ваш email"));
-      });
   }
 }
 
-export function resetSucces(response) {
-  return {
-    type: RESET_PASSWORD,
-    payload: response
-  };
-}
-
-export function resetFailure(response) {
-  return {
-    type: RESET_PASSWORD,
-    payload: response
-  };
-}
-
-export function authError(error) {
+export function authError (error) {
   return {
     type: AUTH_ERROR,
     payload: error
-  };
+  }
 }
 
-export function authSuccess(success) {
+export function authSuccess (success) {
   return {
     type: AUTH_USER,
     payload: success
-  };
+  }
 }

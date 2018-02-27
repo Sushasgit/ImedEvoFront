@@ -5,15 +5,18 @@ import LogoItem from '../LogoItem/LogoItem'
 import SignUpModal from '../SignUpModal/SignUpModal'
 import SignInModal from '../SignInModal/SignInModal'
 import { Link } from 'react-router-dom'
+import * as helpers from '../../helpers/helpers'
 
 class Header extends Component {
   constructor(props) {
     super(props);
   }
 
+
+
   render() {
-console.log(this.props)
-    const userID = this.props.user.id
+
+    const userID = helpers.getId()
     return (
       <Fragment>
 

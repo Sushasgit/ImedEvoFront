@@ -6,9 +6,6 @@ import HttpsRedirect from 'react-https-redirect';
 import { store } from './store';
 import { App } from '../src/components/App/App';
 
-
-//
-
 render(
   <Provider store={store}>
     <HttpsRedirect>

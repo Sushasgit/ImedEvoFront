@@ -24,7 +24,7 @@ class Footer extends Component {
               <Link to="/blog">Блог</Link>
             </li>
             <li>
-              <Link to="/help">Помощь</Link>
+              <Link to="/help">Обратная связь</Link>
             </li>
           </ul>
 
@@ -34,10 +34,6 @@ class Footer extends Component {
             </li>
             <li>
               <Link to="/forClinic">IMED для клиник</Link>
-            </li>
-
-            <li>
-              <Link to="/promotion" >Реклама и продвижение</Link>
             </li>
           </ul>
 

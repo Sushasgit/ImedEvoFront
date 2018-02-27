@@ -1,113 +1,13 @@
+:global {
+  @import "../../calendar-styles.scss";
+}
 .registration {
   &__body {
     display: flex;
     background-color: #f2f5fb;
-
-    form {
-      width: 50%;
-      text-align: center;
-      padding-bottom: 40px;
-      @media (max-width: 764px) {
-        width: 100%;
-      }
-    }
-
-    img {
-      width: 50%;
-    }
-    input {
-      width: 70%;
-      background-color: #e8e8e8;
-      height: 29px;
-      border: none;
-      font-size: 0.8em;
-      font-weight: 700;
-      padding-left: 10px;
-      color: #566b76;
-    }
-    input:not(lastchild) {
-      margin-bottom: 19px;
-    }
-    input[type=date] {
-      width: 33%;
-    }
-    input::placeholder {
-      color: #90a4ae;
-      font-size: 1.1em;
-      font-weight: 700;
-      padding-left: 10px;
-    }
-    label {
-      color: #90a4ae;
-      font-size: 1.1em;
-      font-weight: 300;
-      margin-right: 10px;
-    }
-    input[type=submit] {
-      color: #fefefe;
-      font-size: 16px;
-      font-weight: 300;
-      box-shadow: 0 4px 8px 1px rgba(28, 39, 40, 0.42);
-      border-radius: 5px;
-      background-color: #4fa7d8;
-    }
-    input[type=checkbox] {
-      margin-bottom: 0;
-      width: 10%;
-      vertical-align: middle;
-    }
   }
-
-  &__checkboxes {
-    text-align: left;
-
-    label {
-      color: #0b689a;
-      font-size: 14px;
-      font-weight: 700;
-    }
-  }
-
-  &__logo {
-    background-size: cover;
+  img {
     width: 50%;
-    text-align: center;
-
-    @media (max-width: 764px) {
-      display: none;
-    }
-    a {
-      background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
-      color: #01b4f0;
-      font-size: 6.06em;
-      font-weight: 700;
-      text-transform: uppercase;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-family: "Open Sans Condensed", sans-serif;
-      position: absolute;
-      top: 244px;
-      right: 89px;
-    }
-
-    &::before {
-      content: '';
-      background: inherit;
-      position: absolute;
-      right: 74px;
-      top: 230px;
-      box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.7);
-      -webkit-filter: blur(10px);
-      filter: blur(10px);
-      width: 236px;
-      height: 261px;
-    }
-
-    img {
-      width: 118px;
-      display: block;
-      margin: 0 auto;
-    }
   }
 
   &__content {
@@ -179,6 +79,7 @@
   transform-style: flat;
   transition: color 400ms ease-out;
   border: 1px solid #ff8533;
+  cursor: pointer;
 }
 
 .login__button:hover {
@@ -191,6 +92,7 @@
   @extend .login__button;
   background-color: #347ECF;
   border: #347ECF;
+  cursor: pointer;
 }
 
 .signup {
@@ -263,6 +165,7 @@
   color: #ffffff;
   font-size: 1em;
   margin-top: 20px;
+  cursor: pointer;
 
   &:hover {
     background-color: #ffffff;
@@ -279,6 +182,17 @@
 
 .error {
   color: #ff5050;
+  margin-left: 165px;
+  @media (max-width: 400px) {
+    margin-left: 0px;
+  }
+
+  &__message{
+    background-color: #ff8533;
+    margin-top: 15px;
+    font-size: 18px;
+    padding: 10px;
+  }
 }
 
 .close {
@@ -408,7 +322,54 @@
   transform-style: flat;
   transition: color 400ms ease-out;
   border: 1px solid #ff8533;
-  &:hover{
+  cursor: pointer;
+
+  &:hover {
     background-color: #ebedf3;
   }
+}
+
+.recover_password {
+  background-color: #f5f5f5;
+  padding: 80px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  label {
+    display: inline-block;
+    color: #4775d1;
+    font-size: 1.7em;
+    margin-top: 15px;
+    width: 100%;
+    text-align: right;
+    font-weight: 700;
+  }
+
+  input {
+    color: #4775d1;
+    font-size: 1em;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 12px 20px;
+  }
+  input::placeholder {
+    color: #000;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding-left: 10px;
+  }
+}
+
+.message{
+  text-align: center;
+  color: #4775d1;
+  font-size: 30px;
+  margin-top: 45px;
+  display: block;
+  margin-bottom: 20px;
+  padding: 130px;
 }

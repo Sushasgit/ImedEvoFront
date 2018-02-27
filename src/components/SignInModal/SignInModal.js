@@ -1,11 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import { reduxForm } from 'redux-form'
-import * as actions from  '../../actions/AuthSActions'
 import SignInForm from './SignInForm'
 import * as Icons from '../SvgIcons/SvgIcons.js'
 import styles from  '../SignUpModal/sign-up-modal.scss'
 import Modal from '../customComponents/Modal'
-
+import * as  constants  from '../../constants/constants'
 
 class SignInModal extends Component {
   constructor (props) {
@@ -23,15 +21,14 @@ class SignInModal extends Component {
     this.setState({
       isModalOpen: false
     })
-    document.body.style.overflow = this.state.originalBodyOverflow;
+    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
   }
 
   openModal () {
     this.setState({
       isModalOpen: true,
-      originalBodyOverflow: document.body.style.overflow
     })
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add(constants.MODAL_OPEN_CLASS);
   }
   render () {
     return (
@@ -39,7 +36,7 @@ class SignInModal extends Component {
         <button
           className={styles.login__button}
           onClick={this.openModal}>
-          Войти
+          Вход
         </button>
 
         <Modal
