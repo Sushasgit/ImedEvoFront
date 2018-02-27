@@ -6,6 +6,7 @@ import authReducer from './authReducer';
 import LocationReducer from './locationReducer';
 import searchReducer from './searchReducer';
 import getAllReducer from './getAllReducer';
+import signupClinicReducer from './signupClinicReducer';
 
 const rootReducer = combineReducers({
   form,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   location: LocationReducer,
   searchResult: searchReducer,
   allResults: getAllReducer,
+  signupClinic: signupClinicReducer,
   registrationUserForm: formReducer('registrationUser', {
     email: '',
     password: '',
@@ -31,22 +33,8 @@ const rootReducer = combineReducers({
     favoiriteColor:''
   }),
 
-  regClinic: modelReducer('regClinic', {
-    clinicname:'',
-    clinicaddress:'',
-    clinicphone:'',
-    clinicemail:'',
-    clinicschedule:'',
-    cliniceservices:''
-  }),
-  regClinicForm: formReducer('regClinic', {
-    clinicname:'',
-    clinicaddress:'',
-    clinicphone:'',
-    clinicemail:'',
-    clinicschedule:'',
-    cliniceservices:''
-  })
+
+
 });
 
 export default rootReducer;

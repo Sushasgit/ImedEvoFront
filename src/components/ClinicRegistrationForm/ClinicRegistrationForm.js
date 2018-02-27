@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import styles from './clinic-reg.scss';
 import { connect } from 'react-redux';
 import { reduxForm, Field, Form } from 'redux-form';
+import * as actions from  '../../actions/signupClinicActions';
 
 
 const standartInput = (field) => {
-  const {label, type, input} = field
+  const {label, type, input, meta: {error, touched}} = field
   return (
     <div className={styles.cf_form_name_new}>
       <label>{label}</label>
       <input {...input} type={type}
              className=""/>
+      {touched && error && <div className={styles.error}>{error}</div>}
     </div>
   )
 }
@@ -43,9 +45,23 @@ class ClinicRegistrationForm extends Component {
 
   }
 
+	handleFormSubmit (formProps) {
+		console.log(formProps)
+    	this.props.signupClinic(formProps)
+  	}
+	
+		
 
 	render() {
+		const phoneFormatter = (number) => {
+		    if (!number) return '';
+		      const splitter = /.{1,3}/g;
+		      number = number.substring(0, 13);
+		      return number.substring(0, 10).match(splitter).join('-') + number.substring(10);
+		    };
+   		const phoneParser = (number) => number ? number.replace(/-/g, '') : '';
 		console.log(this.props);
+		const {handleSubmit} = this.props;
     return (
     	<div className={styles.clinic_form}>
     		<h2 className={styles.cf_tit}>Форма регистрации Клиники</h2>
@@ -63,7 +79,7 @@ class ClinicRegistrationForm extends Component {
     				</div>    							
     			</div>
     			<div className={styles.cf_right}>
-    				<Form className={styles.cf_form}>
+    				<Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className={styles.cf_form}>
     					<div className={styles.cf_form_firstline}>
 		    			 	<Field
 					            type="text"
@@ -73,7 +89,7 @@ class ClinicRegistrationForm extends Component {
 				            />
 				            <Field
 					            type="text"
-					            name="clinicAddress"
+					            name="address"
 					            component={standartInput}
 					            label="Адрес Клиники*:"
 				            />
@@ -87,13 +103,15 @@ class ClinicRegistrationForm extends Component {
 				        <div className={styles.cf_form_secondline}>
 				        	<Field
 					            type="tel"
-					            name="clinicPhone"
+					            name="phoneNumber"
 					            component={standartInput}
 					            label="Телефон:"
+					            format={phoneFormatter}
+             					parse={phoneParser}
 				            />
 				            <Field
 					            type="email"
-					            name="clinicEmail"
+					            name="email"
 					            component={standartInput}
 					            label="E-mail:"
 				            />
@@ -186,11 +204,11 @@ class ClinicRegistrationForm extends Component {
 				            </div>
 			            </div>
 			            <Field
-					        name="cliniceservices"
+					        name="services"
 					        component={textarea}
 					        label="Описание предоставляемых услуг:"
 				        />
-			            <button action="submit" className={styles.cf_form_submit}>Зарегистрироваться</button>
+				        <button action="submit" className={styles.cf_form_submit}>Зарегистрироваться</button>
     				</Form>
     			</div>				
     		</div>
@@ -200,11 +218,35 @@ class ClinicRegistrationForm extends Component {
 }
 
 
+function validate(formProps) {
+  const errors = {}
+
+  if (!formProps.phoneNumber || formProps.phoneNumber.length < 13 ) {
+    errors.phoneNumber = 'Формат номера +380 XX XXX XXXX'
+  }
+  if (!formProps.email) {
+    errors.email = 'Пожалуйста введите email'
+  }
+  if(!formProps.clinicName){
+  	errors.clinicName = "Пожалуйста введите имя"
+  }
+  if(!formProps.address){
+  	errors.address = "Пожалуйста укажите адрес"
+  }
+  return errors
+}
+
+function mapStateToProps (state) {
+  console.log(this.state)
+  return {
+    error: state.signupClinic.error
+  }
+}
+
+const form = reduxForm({form: 'signupClinic', validate});
+
+export default connect(mapStateToProps, actions)(form(ClinicRegistrationForm));
 
 
-
-const form = reduxForm({form: 'signupClinic'});
-
-export default (form(ClinicRegistrationForm));
 
 
