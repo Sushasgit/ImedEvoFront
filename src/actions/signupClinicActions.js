@@ -8,7 +8,7 @@ import axios from 'axios';
 
 export function signupClinic({ clinicName, address, phoneNumber, email, services }) {
   return function(dispatch) {
-    axios.post('http://54.37.125.178:8085/clinics/createclinic', {clinicName, address, phoneNumber, email, services})
+    axios.post(`${constants.ROOT_URL}/clinics/createclinic`, {clinicName, address, phoneNumber, email, services})
       .then(response => {
         if (response.data.status.code === 900){
           console.log(response.data)
@@ -19,7 +19,7 @@ export function signupClinic({ clinicName, address, phoneNumber, email, services
       })
       .catch(error => {
         {console.log("Ошибка! " + error)}
-      });;
+      });
   }
 }
 

@@ -48,7 +48,6 @@ class SettingsForm extends Component {
   render () {
     const {handleSubmit} = this.props
     const user = this.props.user
-    console.log(user)
     return (
       <Fragment>
         <section className={styles.signup}>

@@ -46,7 +46,6 @@ class ClinicRegistrationForm extends Component {
   }
 
 	handleFormSubmit (formProps) {
-		console.log(formProps)
     	this.props.signupClinic(formProps)
   	}
 	
@@ -61,7 +60,6 @@ class ClinicRegistrationForm extends Component {
 		      return number.substring(0, 10).match(splitter).join('-') + number.substring(10);
 		    };
    		const phoneParser = (number) => number ? number.replace(/-/g, '') : '';
-		console.log(this.props);
 		const {handleSubmit} = this.props;
     
     return (
@@ -239,7 +237,6 @@ function validate(formProps) {
 }
 
 function mapStateToProps (state) {
-  console.log(this.state)
   return {
     error: state.signupClinic.error
   }

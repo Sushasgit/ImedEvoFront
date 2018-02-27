@@ -10,7 +10,6 @@ const INITIAL_STATE = {
 }
 
 export default function(state = INITIAL_STATE, action) {
-  console.log(action.payload)
   switch(action.type) {
     case  CLINIC_AUTH_SUCCESS:
       return { ...state, error: '', authenticated: true, clinic:action.payload};
