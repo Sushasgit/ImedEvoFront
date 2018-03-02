@@ -44,16 +44,16 @@ class WidjetsDoctors extends Component {
         {
           range: 5,
           address:'г. Одесса ул. Варненская, 2',
-          doctorName:'Владимир Николаевич',
-          doctorLastName:'Войтенко',
+          doctorName:'Леонид Владимирович',
+          doctorLastName:'Соколов',
           position:'Педиатр',
           image:'real-doctor-photo2.jpg',
           time:'08:00 – 20:00'
         },
         {
           address:'г. Одесса ул. Варненская, 2',
-          doctorName:'Татьяна Анатольевна',
-          doctorLastName:'Долгушина',
+          doctorName:'Людмила Георгиевна',
+          doctorLastName:'Малютина',
           position:'Педиатр',
           image:'real-doctor-photo1.jpg',
           time:'08:00 – 20:00'

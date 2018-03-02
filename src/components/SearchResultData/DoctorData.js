@@ -6,12 +6,18 @@ import { Link } from 'react-router-dom'
 import AppointmentModal from '../AppointmentForm/AppointmentModal'
 
 export default ({ doctor, index }) => {
+    doctor.user.image?console.log(doctor.user.image.link):''
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
         <Link to = {`/doctors/${doctor.id}`}>
-        <img src={require('../../images/doctor-profile.png')} className="user-image" alt='doctor-photo'/>
-        <p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>
+            { doctor.user.image &&
+            <img src={`${doctor.user.image.link}`} className="user-image" alt='doctor-photo'/>
+            }
+            { !doctor.user.image &&
+            <img src={require('../../images/default-placeholder.png')} className="user-image" alt='doctor-photo'/>
+            }
+        {/*<p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>*/}
         </Link>
       </div>
 
