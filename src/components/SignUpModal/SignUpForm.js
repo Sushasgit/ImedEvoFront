@@ -145,48 +145,58 @@ class SignUpForm extends Component {
 }
 
 function validate (formProps) {
-  const errors = {}
 
-  function isValidDate(dateString) {
-    let regEx = /^\d{4}-\d{2}-\d{2}$/;
-    if(!dateString.match(regEx)) return false;
-    let d = new Date(dateString);
-    if(!d.getTime() && d.getTime() !== 0) return false;
-    return d.toISOString().slice(0,10) === dateString;
-  }
+      const errors = {}
 
-  if (!formProps.lastName) {
-    errors.lastName = 'Введите пожалуйста фамилию'
-  }
-  if (!formProps.firstName) {
-    errors.firstName = 'Введите пожалуйста имя'
-  }
+      function isValidDate(dateString) {
+          let regEx = /^\d{4}-\d{2}-\d{2}$/;
+          if(!dateString.match(regEx)) return false;
+          let d = new Date(dateString);
+          if(!d.getTime() && d.getTime() !== 0) return false;
+          return d.toISOString().slice(0,10) === dateString;
+      }
 
-  if (formProps.birthDate && !isValidDate(formProps.birthDate) || !formProps.birthDate){
-    errors.birthDate = 'Введите правильную дату рождения'
-  }
+      function isValidDateName(dateString) {
 
-  if (!formProps.termConditions) {
-    errors.termConditions = 'Необходимо подтверждение пользовательского соглашения'
-  }
+        return /^\S{1,}$/.test(dateString)
+      }
 
-  if (!formProps.phone || formProps.phone.length < 13 ) {
-    errors.phone = 'Формат номера +380 XX XXX XXXX'
-  }
-  if (!formProps.email) {
-    errors.email = 'Пожалуйста введите email'
-  }
-  if (!formProps.password) {
-    errors.password = 'Пожалуйста введите пароль'
-  }
-  if (!formProps.passwordConfirm) {
-    errors.passwordConfirm = 'Пожалуйста введите подтверждение пароля'
-  }
-  if (formProps.password !== formProps.passwordConfirm) {
-    errors.password = 'Пароли должны совпадать'
-  }
+      if (!formProps.lastName || !isValidDateName(formProps.lastName)) {
+          errors.lastName = 'Введите пожалуйста фамилию'
+      }
 
-  return errors
+
+      if (!formProps.firstName || !isValidDateName(formProps.firstName)) {
+          errors.firstName = 'Введите пожалуйста имя'
+      }
+
+      if (formProps.birthDate && !isValidDate(formProps.birthDate) || !formProps.birthDate){
+          errors.birthDate = 'Введите правильную дату рождения'
+      }
+
+      if (!formProps.termConditions) {
+          errors.termConditions = 'Необходимо подтверждение пользовательского соглашения'
+      }
+
+      if (!formProps.phone || formProps.phone.length < 13 ) {
+          errors.phone = 'Формат номера +380 XX XXX XXXX'
+      }
+      if (!formProps.email) {
+          errors.email = 'Пожалуйста введите email'
+      }
+      if (!formProps.password) {
+          errors.password = 'Пожалуйста введите пароль'
+      }
+      if (!formProps.passwordConfirm) {
+          errors.passwordConfirm = 'Пожалуйста введите подтверждение пароля'
+      }
+      if (formProps.password !== formProps.passwordConfirm) {
+          errors.password = 'Пароли должны совпадать'
+      }
+
+      return errors
+
+
 }
 
 

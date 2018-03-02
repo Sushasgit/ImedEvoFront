@@ -51,22 +51,22 @@ export const GET_APPOINTMENT_FAILED = 'GET_APPOINTMENT_FAILED';
 
 export const TestDoctorsCards =[
   {
-    firstName:'Владимир Николаевич',
-    lastName:'Войтенко',
+    firstName:'Леонид Владимирович',
+    lastName:'Соколов',
     position:'Педиатр',
     id:7,
     image:'real-doctor-photo2.jpg'
   },
   {
-    firstName:'Татьяна Анатольевна',
-    lastName:'Долгушина',
+    firstName:'Людмила Георгиевна',
+    lastName:'Малютина',
     position:'Педиатр',
     image:'real-doctor-photo1.jpg',
     id:10,
   },
   {
-    firstName:'Елена Игоревна',
-    lastName:'Евтушенко',
+    firstName:'Елена Анатольевна',
+    lastName:'Андрущенко',
     position:'Педиатр',
     image:'real-doctor-photo4.jpg',
     id:6

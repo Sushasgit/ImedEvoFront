@@ -18,6 +18,9 @@ class DoctorProfileData extends Component {
 
   render () {
     const doctorInfo = this.state.doctor
+      console.log(doctorInfo)
+      doctorInfo.image?console.log(doctorInfo.image.link):""
+
     if(doctorInfo.lastName){
       return (
         <Fragment>

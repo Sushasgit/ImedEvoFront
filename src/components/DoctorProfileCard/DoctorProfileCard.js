@@ -8,6 +8,7 @@ import WidjetsClinic from '../WidjetsClinic/WidjetsClinic'
 import WidjetsDoctors from '../WidjetsDoctors/WidjetsDoctors'
 import ClinicInfoPanel from '../ClinicInfoPanel/ClinicInfoPanel'
 import DoctorProfileData from './DoctorProfileData'
+import DoctorImage from './DoctorImage'
 import * as constants from '../../constants/constants'
 import * as Icons from '../../components/SvgIcons/SvgIcons.js'
 import styles from '../ClinicCard/clinic-profile.scss'
@@ -36,7 +37,7 @@ class DoctorProfileCard extends Component {
             <div className={styles.container_clinic_card}>
               <section className={styles.clinic}>
                 <article className={styles.clinic__info}>
-                  <img src={require('../../images/doctor-profile.png')} alt="doctor-photo"/>
+                  <DoctorImage data={doctor.user}/>
                   <div className={styles.clinic__description}>
                     <div className={styles.h_container_rate}>
                       <div className={styles.clinic__name}>
