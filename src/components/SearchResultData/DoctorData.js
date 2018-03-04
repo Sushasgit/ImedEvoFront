@@ -46,7 +46,7 @@ export default ({ doctor, index }) => {
           </p>
         <p className={styles.doctors_description}>
           <span className={styles.doctors_description__title}>Категория:</span>
-          {doctor.doctorGualification}
+          {doctor.doctorQualification}
           </p>
         <p className={styles.doctors_description}>
           <span className={styles.doctors_description__title}>

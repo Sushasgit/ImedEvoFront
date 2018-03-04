@@ -86,6 +86,7 @@ const Map = compose(
       props.clinics.map((a, i) => {
       let lat = parseFloat(a.coordinatesLatitude)
       let lon = parseFloat(a.coordinatesLongitude)
+          let logo = a.logo
       return (
         <Marker
           onClick={() => props.updateSelectedClinicsPlace(i)}
@@ -115,7 +116,7 @@ const Map = compose(
             onCloseClick={() => props.updateSelectedClinicsPlace(null)}>
             <div>
               <div className={styles.doctor__card}>
-                <img className={styles.doctor__img} src={require('../../images/placeholder-clinic.png')}
+                <img className={styles.doctor__img} src={logo}
                      alt="image-doctor"/>
                 <div className={styles.main_info}>
                   <h2 className={styles.doctor__name}><span>{a.firstname}</span> <span>{a.lastname}</span></h2>

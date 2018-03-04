@@ -39,8 +39,7 @@ class ClinicProfileData extends Component {
               <div className={styles.container_clinic_card}>
                 <section className={styles.clinic}>
                   <article className={styles.clinic__info}>
-                    <img src={require('../../images/placeholder-clinic.png')}  alt="clinic-photo"/>
-                    {/*<img src={this.state.picture}/>*/}
+                    <img src={`${clinic.clinic.logo}`}  alt="clinic-photo"/>
                     <div className={styles.clinic__description}>
                       <div className={styles.h_container_rate}>
                         <div className={styles.clinic__name}>
