@@ -1,57 +1,67 @@
 import axios from 'axios'
-import { history } from '../history'
 import {
-  AUTH_USER,
-  AUTH_ERROR,
+    SIGNUP_ERROR,
+    SIGNUP_USER_SUCCESS,
 } from '../constants/constants'
 import * as constants from '../constants/constants'
 import * as helpers from '../helpers/helpers'
 
-export function signupUser ({password, username, lastName, firstName, birthDate, phone}) {
-  return (dispatch) => {
-    axios.post(`${constants.ROOT_URL}/users/registration`, {
-      password,
-      username,
-      lastName,
-      firstName,
-      birthDate,
-      phone
-    })
-      .then(response => {
-        if (response.data.status.code === 700) {
-          dispatch(authSuccess(response.data.user))
-          document.body.classList.remove(constants.MODAL_OPEN_CLASS)
-          helpers.setId(response.data.user.id)
-          history.push(`/profile/${response.data.user.id}`)
-        }
-        else if (response.data.status.code === 708) {
-          dispatch(authError('Дата Рождения введена не верно'))
-        }
+export function signupUser({password, username, lastName, firstName, birthDate, phone}) {
+    phone = phone.replace(/\s/g, '');
+    return (dispatch) => {
+        axios.post(`${constants.ROOT_URL}/users/registration`, {
+            password,
+            username,
+            lastName,
+            firstName,
+            birthDate,
+            phone
+        })
+            .then(response => {
+                if (response.data.status.code === 700) {
+                    dispatch(authSuccess());
+                    document.body.classList.remove(constants.MODAL_OPEN_CLASS);
+                    helpers.setId(response.data.user.id);
+                }
+                else if (response.data.status.code === 708 || response.data.status.code === 706) {
+                    dispatch(authError('Дата Рождения введена не верно'))
+                }
 
-        else if (response.data.status.code === 705) {
-          dispatch(authError('Не заполнен номер телефона'))
-        }
+                else if (response.data.status.code === 705) {
+                    dispatch(authError('Не заполнен номер телефона'))
+                }
 
-        else if (response.data.status.code === 702) {
-          dispatch(authError('Такой пользователь уже существует'))
-        }
-      })
-      .catch(error => {
-        {console.log('Error: ' + error)}
-      })
-  }
+                else if (response.data.status.code === 702) {
+                    dispatch(authError('Такой пользователь уже существует'))
+                }
+
+                else if (response.data.status.code === 707) {
+                    dispatch(authError('Имя или фамилия не заполнены'))
+                }
+
+                else if (response.data.status.code === 709) {
+                    dispatch(authError('Телефон введен не верно'))
+                }
+            })
+            .catch(error => {
+                {
+                    console.log('Error: ' + error)
+                }
+            })
+    }
 }
 
-export function authError (error) {
-  return {
-    type: AUTH_ERROR,
-    payload: error
-  }
+export function authError(error) {
+    return {
+        type: SIGNUP_ERROR,
+        payload: error,
+        registrationSuccess:false
+    }
 }
 
-export function authSuccess (success) {
-  return {
-    type: AUTH_USER,
-    payload: success
-  }
+export function authSuccess() {
+    return {
+        type: SIGNUP_USER_SUCCESS,
+        registrationSuccess:true
+    }
 }

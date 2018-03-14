@@ -7,10 +7,12 @@ import searchReducer from './searchReducer';
 import getAllReducer from './getAllReducer';
 import signupClinicReducer from './signupClinicReducer';
 import changePassword from './changePasswordReducer';
-import getAppointmentReducer from './getAppointmentsUserReducer'
+import getAppointmentReducer from './getAppointmentsUserReducer';
+import ModalReducer from './modalReducer'
 
 const rootReducer = combineReducers({
   form,
+    modal:ModalReducer,
   auth: authReducer,
   location: LocationReducer,
   searchResult: searchReducer,

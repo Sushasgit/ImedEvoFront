@@ -1,40 +1,218 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Router, Route, Switch } from 'react-router-dom';
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 import { history } from '../../history';
-import HomePage from '../../pages/Homepage/HomePage';
-import DoctorsPage from '../../pages/DoctorsPage/DoctorsPage';
-import ClinicsPage from '../../pages/ClinicsPage/ClinicsPage';
-import LaboratoriesPage from '../../pages/LaboratoriesPage/LaboratoriesPage';
-import DiagnosticsPage from '../../pages/DiagnosticsPage/DiagnosticsPage';
-import SalePage from '../../pages/SalePage/SalePage';
-import RegistrationDoctorPage from '../../pages/RegistrationDoctorPage/RegistrationDoctorPage';
-import RegistrationClinicPage from '../../pages/RegistrationClinicPage/RegistrationClinicPage';
-import SearchResultPage from '../../pages/SearchResultPage/SearchResultPage';
-import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage';
-import DoctorProfile from '../../components/DoctorProfileCard/DoctorProfile';
-import ForgotPassword from '../../components/ForgotPassword/ForgotPassword';
-import ClinicProfile from '../../components/ClinicCard/ClinicProfile';
-import PrivacyPolicy from '../../pages/PrivacyPolicy/PrivacyPolicy';
-import ServiceRules from '../../pages/ServiceRules/ServiceRules';
-import BlogArticlePage from '../../pages/BlogArticlePage/BlogArticlePage';
-import ForClinic from '../../pages/ForClinic/ForClinic';
-import HelpPage from '../../pages/HelpPage/HelpPage';
-import NotFound from '../../pages/NotFound/NotFound';
-import AboutUs from '../../pages/AboutUs/AboutUs';
-import Contacts from '../../pages/Contacts/Contacts';
-import Vacancy from '../../pages/Vacancy/Vacancy';
-import Promotion from '../../pages/Promotion/Promotion';
-import SpecialtySearchResultPage from '../../pages/SpecialtySearchResult/SpecialtySearchResult';
 import RequireAuth from '../../components/Authentication/Authentication';
-import ChangePassword from '../../components/ChangePassword/ChangePassword';
-import * as actions from 'actions/checkUserAuth';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import DynamicImport from '../../components/DynamicImport/DynamicImport'
+import * as actions from '../../actions/checkUserAuth';
 
 const token = localStorage.getItem('id_token');
 
 
+const HomePage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "homepage" */'../../pages/Homepage/HomePage')}>
+        {(Component) => Component === null
+            ? <img src={require('../../images/loading.gif')}/>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const DoctorsPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "doctorspage" */'../../pages/DoctorsPage/DoctorsPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const ClinicsPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "ClinicsPage" */'../../pages/ClinicsPage/ClinicsPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const ClinicProfile = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "ClinicProfile" */'../../components/ClinicCard/ClinicProfile')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const DoctorProfile = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "DoctorProfile" */'../../components/DoctorProfileCard/DoctorProfile')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const LaboratoriesPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "LaboratoriesPage" */'../../pages/LaboratoriesPage/LaboratoriesPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const DiagnosticsPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "DiagnosticsPage" */'../../pages/DiagnosticsPage/DiagnosticsPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const SalePage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "SalePage" */'../../pages/SalePage/SalePage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const SearchResultPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "SearchResultPage" */'../../pages/SearchResultPage/SearchResultPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const SpecialtySearchResultPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "SearchResultPage" */'../../pages/SpecialtySearchResult/SpecialtySearchResult')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const UserProfilePage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "UserProfilePage" */'../../pages/UserProfilePage/UserProfilePage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const BlogArticlePage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "BlogArticlePage" */'../../pages/BlogArticlePage/BlogArticlePage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const HelpPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "HelpPage" */'../../pages/HelpPage/HelpPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const ForClinic = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "ForClinic" */'../../pages/ForClinic/ForClinic')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const ForgotPassword = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "ForgotPassword" */'../../components/ForgotPassword/ForgotPassword')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const ServiceRules = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "ServiceRules" */'../../pages/ServiceRules/ServiceRules')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const PrivacyPolicy = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "PrivacyPolicy" */'../../pages/PrivacyPolicy/PrivacyPolicy')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const AboutUs = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "AboutUs" */'../../pages/AboutUs/AboutUs')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const Contacts = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "Contacts" */'../../pages/Contacts/Contacts')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const Promotion = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "Promotion" */'../../pages/Vacancy/Vacancy')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const Vacancy = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "Vacancy" */'../../pages/Promotion/Promotion')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const ChangePassword = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "ChangePassword" */'../../components/ChangePassword/ChangePassword')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const NotFound = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "NotFound" */'../../pages/NotFound/NotFound')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const RegistrationDoctorPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "RegistrationDoctorPage" */'../../pages/RegistrationDoctorPage/RegistrationDoctorPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
+const RegistrationClinicPage = (props) => (
+    <DynamicImport load={() => import(/* webpackChunkName: "RegistrationClinicPage" */'../../pages/RegistrationClinicPage/RegistrationClinicPage')}>
+        {(Component) => Component === null
+            ? <p>Loading</p>
+            : <Component {...props} />}
+    </DynamicImport>
+);
+
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     history.listen((location, action) => {});
@@ -42,14 +220,15 @@ class App extends React.Component {
 
   render() {
     if (token) {
+        console.log('test')
       const id = localStorage.getItem('id_user');
        this.props.getUser(token, id);
     }
 
-    const { alert } = this.props;
     return (
         <div>
           <div>
+              <MuiThemeProvider>
             <Router history={history}>
               <ScrollToTop>
               <div>
@@ -83,6 +262,7 @@ class App extends React.Component {
               </div>
               </ScrollToTop>
             </Router>
+              </MuiThemeProvider>
           </div>
         </div>
     );
@@ -94,5 +274,5 @@ function mapStateToProps(state) {
 }
 
 
-const connectedApp = connect(mapStateToProps,actions)(App);
+const connectedApp = connect(mapStateToProps, actions)(App);
 export { connectedApp as App };

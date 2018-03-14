@@ -1,375 +1,220 @@
 :global {
-  @import "../../calendar-styles.scss";
-}
-.registration {
-  &__body {
-    display: flex;
-    background-color: #f2f5fb;
-  }
-  img {
-    width: 50%;
-  }
-
-  &__content {
-    position: relative;
-    width: auto;
-    max-width: 700px;
-    margin: 30px auto;
-    background-color: white;
-    text-align: center;
-  }
-
-  &__signin_button {
-    margin-top: 38px;
-    margin-bottom: 68px;
-  }
-
-  &__title {
-    color: #0b689a;
-    font-size: 36px;
-    font-weight: 700;
-  }
-
-  &__close {
-    svg {
-      path {
-        fill: black;
-      }
-    }
-  }
-}
-
-.logo__container {
-  width: 50%;
-  background-size: cover;
-
-  @media (max-width: 766px) {
-    display: none;
-  }
-  a {
-    background: linear-gradient(to top, #0288d1 0%, #5bb3e3 100%);
-    color: #01b4f0;
-    font-size: 6.06em;
-    font-weight: 700;
-    text-transform: uppercase;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 200px auto 0;
-    display: block;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    background: rgba(0, 0, 0, .0);
-  }
-  100% {
-    background: rgba(0, 0, 0, .7);
-  }
-}
-
-.login__button {
-  font-size: 1.1em;
-  font-weight: 700;
-  background-color: #ff8533;
-  margin-right: 10px;
-  padding: 10px 27px;
-  color: #000000;
-  border-radius: 4px;
-  transform-style: flat;
-  transition: color 400ms ease-out;
-  border: 1px solid #ff8533;
-  cursor: pointer;
-}
-
-.login__button:hover {
-  background: transparent;
-  color: #000000;
-  border: 1px solid #347ECF;
-}
-
-.sign_up_button {
-  @extend .login__button;
-  background-color: #347ECF;
-  border: #347ECF;
-  cursor: pointer;
+    @import "../../calendar-styles.scss";
 }
 
 .signup {
-  background-color: #f5f5f5;
-  padding: 10px;
-  width: 100%;
-  text-align: center;
-  label {
-    display: inline-block;
-    color: #4775d1;
-    font-size: 1.3em;
-    margin-top: 15px;
-    width: 34%;
-    text-align: right;
+    background-color: #f5f5f5;
+    padding: 0 80px;
+    width: 100%;
 
-    @media (max-width: 480px) {
-      display: block;
-      width: 86%;
+    @media (max-width: 505px) {
+        padding: 0 12px;
     }
-  }
-
-  input {
-    color: #4775d1;
-    font-size: 1em;
-    width: 57%;
-    border-radius: 10px;
-    box-shadow: 0 3px 10 0 rgba(0, 0, 0, 0.1);
-    border: none;
-    padding: 12px 20px;
-
-    @media (max-width: 480px) {
-      width: 100%;
-    }
-  }
-  input::placeholder {
-    color: #000;
-    font-size: 1.1em;
-    font-weight: 700;
-    padding-left: 10px;
-  }
 }
 
-.registration__checkboxes {
-  input {
-    width: 5%;
-    box-shadow: none;
-    @media (max-width: 480px) {
-      font-size: 0.9em;
-      width: 20%;
-      display: inline-block;
-    }
-  }
-  label {
-    font-size: 0.9em;
-    width: 71%;
-
-    @media (max-width: 480px) {
-      font-size: 0.9em;
-      width: 62%;
-      display: inline-block;
-    }
-  }
-}
-
-.btn__signup {
-  padding: 8px 20px;
-  background-color: #4775d1;
-  border: 1px solid #4775d1;
-  border-radius: 3px;
-  color: #ffffff;
-  font-size: 1em;
-  margin-top: 20px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #ffffff;
-    border: 1px solid #4775d1;
-    color: #4775d1;
-  }
-}
-
-.signin {
-  @extend .btn__signup;
-  padding: 10px 30px;
-  margin-bottom: 20px;
-}
 
 .error {
-  color: #ff5050;
-  margin-left: 165px;
-  @media (max-width: 400px) {
-    margin-left: 0px;
-  }
+    color: #ff5050;
+    @media (max-width: 400px) {
+        margin-left: 0px;
+    }
 
-  &__message{
-    background-color: #ff8533;
-    margin-top: 15px;
-    font-size: 18px;
-    padding: 10px;
-  }
+    &__message {
+        background-color: #ff8533;
+        margin-top: 15px;
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+    }
 }
 
 .close {
-  transition: color 1s;
-  margin: 0;
-  width: auto;
-  margin-top: 10px;
-  background-color: transparent;
-  position: absolute;
-  top: -48px;
-  right: -60px;
-  border: none;
+    transition: color 1s;
+    margin: 0;
+    width: auto;
+    margin-top: 10px;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right:0;
+    border: none;
 
-  @media (max-width: 700px) {
-    top: -4px;
-    right: 0;
-  }
+    @media (max-width: 700px) {
+        top: -4px;
+        right: 0;
+    }
 }
 
 .close:hover, .close:focus {
-  path {
-    fill: #fff;
-  }
+    path {
+        fill: #fff;
+    }
 }
 
 .forgot {
-  background-color: #f5f5f5;
-  padding: 80px;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  label {
-    display: inline-block;
-    color: #4775d1;
-    font-size: 1.3em;
-    margin-top: 15px;
-    width: 14%;
-    text-align: right;
-  }
+    background-color: #f5f5f5;
+    padding: 80px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    label {
+        display: inline-block;
+        color: #4775d1;
+        font-size: 1.3em;
+        margin-top: 15px;
+        width: 14%;
+        text-align: right;
+    }
 
-  input {
-    color: #4775d1;
-    font-size: 1em;
-    width: 77%;
-    border-radius: 10px;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
-    border: none;
-    padding: 12px 20px;
-  }
-  input::placeholder {
-    color: #000;
-    font-size: 1.1em;
-    font-weight: 700;
-    padding-left: 10px;
-  }
+    input {
+        color: #4775d1;
+        font-size: 1em;
+        width: 77%;
+        border-radius: 10px;
+        box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+        border: none;
+        padding: 12px 20px;
+    }
+    input::placeholder {
+        color: #000;
+        font-size: 1.1em;
+        font-weight: 700;
+        padding-left: 10px;
+    }
 }
 
 .forgot_title {
-  color: #4775d1;
-  font-size: 2.2em;
-  text-align: center;
+    color: #4775d1;
+    font-size: 2.2em;
+    text-align: center;
 }
 
 .forgot_btn {
-  padding: 8px 20px;
-  background-color: #4775d1;
-  border: 1px solid #4775d1;
-  border-radius: 3px;
-  color: #ffffff;
-  font-size: 1em;
-  margin-top: 11px;
-  margin-left: 20px;
-
-  &:hover {
-    background-color: #ffffff;
+    padding: 8px 20px;
+    background-color: #4775d1;
     border: 1px solid #4775d1;
-    color: #4775d1;
-  }
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 1em;
+    margin-top: 11px;
+    margin-left: 20px;
+
+    &:hover {
+        background-color: #ffffff;
+        border: 1px solid #4775d1;
+        color: #4775d1;
+    }
 }
 
 .appointment_doctor {
 
-  &__title {
-    text-align: center;
-    margin: 0;
-    background-color: #ff8533;
-    color: #ffffff;
-  }
-
-  &__subtitle {
-    color: #4775d1;
-    text-align: center;
-    font-size: 1.4em;
-  }
-
-  &__form {
-    @extend .signup;
-    input[type="time"] {
-      width: 30%;
-
-      @media (max-width: 480px) {
-        width: 37%;
-      }
-
-      @media (max-width: 400px) {
-        width: 49%;
-      }
+    &__title {
+        text-align: center;
+        margin: 0;
+        background-color: #ff8533;
+        color: #ffffff;
     }
-  }
 
-  &__confirm {
-    color: #4775d1;
-    text-align: center;
-    font-size: 1.4em;
-  }
+    &__subtitle {
+        color: #4775d1;
+        text-align: center;
+        font-size: 1.4em;
+    }
+
+    &__form {
+        @extend .signup;
+        input[type="time"] {
+            width: 30%;
+
+            @media (max-width: 480px) {
+                width: 37%;
+            }
+
+            @media (max-width: 400px) {
+                width: 49%;
+            }
+        }
+    }
+
+    &__confirm {
+        color: #4775d1;
+        text-align: center;
+        font-size: 1.4em;
+    }
 }
 
 .appointment_button {
-  font-size: 1em;
-  font-weight: 700;
-  background-color: #ff8533;
-  padding: 10px 27px;
-  color: #07153C;
-  border-radius: 4px;
-  transform-style: flat;
-  transition: color 400ms ease-out;
-  border: 1px solid #ff8533;
-  cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: #ff8533;
+    padding: 10px 27px;
+    color: #07153C;
+    border-radius: 4px;
+    transform-style: flat;
+    transition: color 400ms ease-out;
+    border: 1px solid #ff8533;
+    cursor: pointer;
 
-  &:hover {
-    background-color: #ebedf3;
-  }
+    &:hover {
+        background-color: #ebedf3;
+    }
 }
 
 .recover_password {
-  background-color: #f5f5f5;
-  padding: 80px;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  label {
-    display: inline-block;
-    color: #4775d1;
-    font-size: 1.7em;
-    margin-top: 15px;
+    background-color: #f5f5f5;
+    padding: 80px;
     width: 100%;
-    text-align: right;
-    font-weight: 700;
-  }
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    label {
+        display: inline-block;
+        color: #4775d1;
+        font-size: 1.7em;
+        margin-top: 15px;
+        width: 100%;
+        text-align: right;
+        font-weight: 700;
+    }
 
-  input {
-    color: #4775d1;
-    font-size: 1em;
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
-    border: none;
-    padding: 12px 20px;
-  }
-  input::placeholder {
-    color: #000;
-    font-size: 1.1em;
-    font-weight: 700;
-    padding-left: 10px;
-  }
+    input {
+        color: #4775d1;
+        font-size: 1em;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.1);
+        border: none;
+        padding: 12px 20px;
+    }
+    input::placeholder {
+        color: #000;
+        font-size: 1.1em;
+        font-weight: 700;
+        padding-left: 10px;
+    }
 }
 
-.message{
-  text-align: center;
-  color: #4775d1;
-  font-size: 30px;
-  margin-top: 45px;
-  display: block;
-  margin-bottom: 20px;
-  padding: 130px;
+.message {
+    text-align: center;
+    color: #4775d1;
+    font-size: 30px;
+    margin-top: 45px;
+    display: block;
+    margin-bottom: 20px;
+    padding: 130px;
+}
+
+.registration__checkboxes {
+  padding: 20px;
+    input {
+        width: 27px;
+        height: auto;
+    }
+
+    label {
+        margin-right: 2px;
+    }
 }

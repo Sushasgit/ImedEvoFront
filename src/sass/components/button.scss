@@ -1,0 +1,49 @@
+$main-blue: #4775d1;
+$orange-main: #ff8533;
+$text-color : #050c15;
+
+.btn {
+    border-radius: 3px;
+    font-size: 1.1em;
+    cursor: pointer;
+    padding: 10px 39px;
+    color: $text-color;
+    font-weight: 900;
+
+    &_blue {
+        background-color: $main-blue;
+        border: 1px solid $main-blue;
+        margin-bottom: 15px;
+        margin-top: 20px;
+        transition: background-color 0.2s ease-in;
+
+        &:hover {
+            background-color: #ffffff;
+            border: 1px solid #4775d1;
+            color: $text-color;
+        }
+    }
+
+    &_orange {
+        background-color: $orange-main;
+        border-color: $orange-main;
+        transition: background-color 0.2s ease-in;
+        &:hover {
+            background-color: #ffffff;
+            border: 1px solid $orange-main;
+            color: $text-color;
+        }
+    }
+
+    &_close_modal {
+        transition: color 1s;
+        margin: 0;
+        width: auto;
+        margin-top: 10px;
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        right: 0px;
+        border: none;
+    }
+}

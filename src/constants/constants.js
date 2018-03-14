@@ -10,6 +10,9 @@ export const FETCH_MESSAGE = 'fetch_message';
 export const RESET_PASSWORD = 'RESET_PASSWORD';
 export const RESET_PASSWORD_FAILED = 'RESET_PASSWORD_FAILED';
 
+export const SIGNUP_USER_SUCCESS ='SIGN_USER_SUCCESS';
+export const SIGNUP_ERROR ='SIGN_ERROR';
+
 export const CHANGE_PASSWORD_SUCCSES = 'CHANGE_PASSWORD_SUCCSES';
 export const CHANGE_PASSWORD_REQUEST = 'CHANGE_PASSWORD_REQUEST';
 export const CHANGE_PASSWORD_FAILED = 'CHANGE_PASSWORD_FAILED';
@@ -49,34 +52,37 @@ export const MAKE_APPOINTMENT_FAILED = 'MAKE_APPOINTMENT_FAILED';
 export const GET_APPOINTMENT_SUCCESS = 'GET_APPOINTMENT_SUCCESS';
 export const GET_APPOINTMENT_FAILED = 'GET_APPOINTMENT_FAILED';
 
-export const TestDoctorsCards =[
-  {
-    firstName:'Леонид Владимирович',
-    lastName:'Соколов',
-    position:'Педиатр',
-    id:7,
-    image:'real-doctor-photo2.jpg'
-  },
-  {
-    firstName:'Людмила Георгиевна',
-    lastName:'Малютина',
-    position:'Педиатр',
-    image:'real-doctor-photo1.jpg',
-    id:10,
-  },
-  {
-    firstName:'Елена Анатольевна',
-    lastName:'Андрущенко',
-    position:'Педиатр',
-    image:'real-doctor-photo4.jpg',
-    id:6
-  },
-  {
-    firstName:'Елена Владимировна',
-    lastName:'Марчук',
-    position:'Педиатр',
-    image:'real-doctor-photo3.jpg',
-    id:7
-  }
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
+
+export const TestDoctorsCards = [
+    {
+        firstName: 'Леонид Владимирович',
+        lastName: 'Соколов',
+        position: 'Педиатр',
+        id: 7,
+        image: 'real-doctor-photo2.jpg'
+    },
+    {
+        firstName: 'Людмила Георгиевна',
+        lastName: 'Малютина',
+        position: 'Педиатр',
+        image: 'real-doctor-photo1.jpg',
+        id: 10,
+    },
+    {
+        firstName: 'Елена Анатольевна',
+        lastName: 'Андрущенко',
+        position: 'Педиатр',
+        image: 'real-doctor-photo4.jpg',
+        id: 6
+    },
+    {
+        firstName: 'Елена Владимировна',
+        lastName: 'Марчук',
+        position: 'Педиатр',
+        image: 'real-doctor-photo3.jpg',
+        id: 7
+    }
 ]
 

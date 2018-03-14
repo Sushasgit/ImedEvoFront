@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
 import HttpsRedirect from 'react-https-redirect';
 import { store } from './store';
-import { App } from '../src/components/App/App';
+import  {App} from '../src/components/App/App';
 
 render(
   <Provider store={store}>

@@ -1,0 +1,77 @@
+.modal {
+    background: #fff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    padding: 1em;
+
+    @media (min-width: 43.75em) {
+        padding: 1.5em;
+    }
+
+    &__overlay {
+        background-color: rgba(0,0,0,0.8);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        text-shadow: none;
+        top: 0;
+        z-index: 600;
+        animation: leaves 1s ease-in-out alternate;
+        transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        overflow: scroll;
+    }
+
+    &__wrap {
+        padding: 1em 0;
+        margin: 0 auto;
+        max-width: 700px;
+        width: 90%;
+        background-color: #fff;
+        left: 50%;
+        position: absolute;
+        top: 63%;
+        transform: translate(-50%, -80%);
+
+        @media (min-width: 50em) {
+            padding: 1.75em;
+        }
+
+        @media (min-height: 37.5em) {
+            left: 50%;
+            position: absolute;
+            top: 63%;
+            transform: translate(-50%, -80%);
+        }
+
+       &_big {
+           top: 77%;
+           height: calc(100vh - 40px);
+           margin: auto;
+           overflow: auto;
+       }
+    }
+}
+
+@keyframes leaves {
+    0% {
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

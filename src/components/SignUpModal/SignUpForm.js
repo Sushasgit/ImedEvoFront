@@ -1,213 +1,254 @@
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
-import { reduxForm, Field, Form } from 'redux-form'
-import * as actions from  '../../actions/AuthSActions'
-import styles from  './sign-up-modal.scss'
+import React, {Component, Fragment} from 'react'
+import {connect} from 'react-redux'
+import {reduxForm, Field, Form} from 'redux-form'
+import * as actions from '../../actions/AuthSActions'
+import * as modalActions from '../../actions/modalActions'
+import styles from './sign-up-modal.scss'
+import InputMask from 'react-input-mask'
+import inputStyles from '../../sass/components/input.scss'
+import formStyles from '../../sass/components/form.scss'
+import buttonStyles from '../../sass/components/button.scss'
 
 const renderInput = (field) => {
-  const {label, type, input, meta: {error, touched}} = field
-  return (
-    <div>
-      <label>{label}:</label>
-      <input {...input} type={type}
-             className="form-control"/>
-      {touched && error && <div className={styles.error}>{error}</div>}
-    </div>
-  )
-}
+    const {label, type, input, meta: {error, touched}} = field
+    return (
+        <div>
+            <label className={inputStyles.label}>{label}:</label>
+            <input {...input} type={type}
+                   className={inputStyles.input}/>
+            {touched && error && <div className={styles.error}>{error}</div>}
+        </div>
+    )
+};
+
+const renderInputPhone = (field) => {
+    const {label, type, input, meta: {error, touched}} = field
+    return (
+        <div>
+            <label className={inputStyles.label}>{label}:</label>
+            <InputMask className={inputStyles.input} {...input} mask="+380\ 99 999 99 99" maskChar=" "/>
+            {touched && error && <div className={styles.error}>{error}</div>}
+        </div>
+    )
+};
 
 class SignUpForm extends Component {
-  constructor (props) {
-    super(props)
-  }
-
-  handleFormSubmit (formProps) {
-    this.props.signupUser(formProps)
-  }
-
-  renderAlert () {
-    if (this.props.errorMessage) {
-      return (
-        <div className={styles.error__message}>
-          <strong>{this.props.errorMessage}</strong>
-        </div>
-      )
+    constructor(props) {
+        super(props)
     }
-  }
 
-  render () {
-    const phoneFormatter = (number) => {
-      if (!number) return '';
-      const splitter = /.{1,3}/g;
-      number = number.substring(0, 13);
-      return number.substring(0, 10).match(splitter).join('-') + number.substring(10);
-    };
-    const phoneParser = (number) => number ? number.replace(/-/g, '') : '';
-    const {handleSubmit} = this.props
-    return (
-      <Fragment>
-        <section className={styles.signup}>
-          <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            <Field
-              type="text"
-              name="lastName"
-              placeholder="Фамилия"
-              component={renderInput}
-              label="Фамилия"
-            />
+    handleFormSubmit(formProps) {
+        console.log('test')
+        this.props.signupUser(formProps)
+    }
 
-            <Field
-              type="text"
-              name="firstName"
-              placeholder="Имя"
-              component={renderInput}
-              label="Имя">
-            </Field>
+    renderAlert() {
+        if (this.props.errorMessage) {
+            return (
+                <div className={styles.error__message}>
+                    <strong>{this.props.errorMessage}</strong>
+                </div>
+            )
+        }
+    }
 
-            <Field
-              type="text"
-              name="secondName"
-              placeholder="Отчество"
-              component={renderInput}
-              label="Отчество">
-            </Field>
+    render() {
+        const {handleSubmit} = this.props;
+        console.log(this.props.registrationSuccess);
+        return (
+            <Fragment>
+                {!this.props.registrationSuccess.registrationSuccess &&
+                <section className={formStyles.form}>
+                    <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+                        <Field
+                            type="text"
+                            name="lastName"
+                            placeholder="Фамилия"
+                            component={renderInput}
+                            label="Фамилия"
+                        />
 
-            <Field
-              type="date"
-              name="birthDate"
-              component={renderInput}
-              label="Дата Рождения">
-            </Field>
+                        <Field
+                            type="text"
+                            name="firstName"
+                            placeholder="Имя"
+                            component={renderInput}
+                            label="Имя">
+                        </Field>
 
-            <Field
-              model="registrationUser.phone"
-              type="text"
-              name="phone"
-              placeholder={'NNN-NNN-NNNN'}
-              component={renderInput}
-              label="Телефон"
-              format={phoneFormatter}
-              parse={phoneParser}
-            />
+                        <Field
+                            type="text"
+                            name="secondName"
+                            placeholder="Отчество"
+                            component={renderInput}
+                            label="Отчество">
+                        </Field>
 
+                        <Field
+                            type="date"
+                            name="birthDate"
+                            component={renderInput}
+                            label="Дата Рождения">
+                        </Field>
 
-            <Field
-              name="username"
-              type="email"
-              component={renderInput}
-              label="Email"/>
-
-            <Field
-              name="password"
-              type="password"
-              component={renderInput}
-              label="Пароль"/>
-
-            <Field
-              name="passwordConfirm"
-              type="password"
-              component={renderInput}
-              label="Подтвердить пароль"/>
+                        <Field
+                            model="registrationUser.phone"
+                            type="text"
+                            name="phone"
+                            placeholder={'NNN-NNN-NNNN'}
+                            component={renderInputPhone}
+                            label="Телефон"
+                        />
 
 
-            <div className={styles.registration__checkboxes}>
-              <Field
-                name="rememberMe"
-                type="checkbox"
-                component={renderInput}
-                label="Запомнить меня"
-              >
-              </Field>
+                        <Field
+                            name="username"
+                            type="email"
+                            component={renderInput}
+                            label="Email"/>
 
-              <Field
-                name="emailCampign"
-                type="checkbox"
-                component={renderInput}
-                label="Подписаться на рассылку">
-              </Field>
+                        <Field
+                            name="password"
+                            type="password"
+                            component={renderInput}
+                            label="Пароль"/>
 
-              <Field
-                required
-                name="termConditions"
-                type="checkbox"
-                component={renderInput}
-                label="Принимаю условия пользовательского соглашения">
-              </Field>
-            </div>
-            {this.renderAlert()}
-            <button action="submit" className={styles.btn__signup}>Зарегистрироваться</button>
-          </Form>
+                        <Field
+                            name="passwordConfirm"
+                            type="password"
+                            component={renderInput}
+                            label="Подтвердить пароль"/>
 
-        </section>
-      </Fragment>
-    )
-  }
+
+                        <div className={styles.registration__checkboxes}>
+                            <Field
+                                name="rememberMe"
+                                type="checkbox"
+                                component={renderInput}
+                                label="Запомнить меня"
+                            >
+                            </Field>
+
+                            <Field
+                                name="emailCampign"
+                                type="checkbox"
+                                component={renderInput}
+                                label="Подписаться на рассылку">
+                            </Field>
+
+                            <Field
+                                required
+                                name="termConditions"
+                                type="checkbox"
+                                component={renderInput}
+                                label="Принимаю условия пользовательского соглашения">
+                            </Field>
+                        </div>
+                        {this.renderAlert()}
+                        <div className={formStyles.form__btn}>
+                            <button action="submit"
+                                    className={`${buttonStyles.btn} ${buttonStyles.btn_blue}`}>Зарегистрироваться
+                            </button>
+                        </div>
+                    </Form>
+
+                </section>
+                }
+
+                {this.props.registrationSuccess.registrationSuccess &&
+                <div>
+                    <h4>Вы зарегестрировались успешно! Авторизируйтесь пожалуйста здесь</h4>
+                    <button
+                        className={`${buttonStyles.btn} ${buttonStyles.btn_blue}`}
+                        onClick={() => {this.props.hideModal(), this.props.showModal('isShowingSignInModal')}}>
+                        Войти
+                    </button>
+
+                </div>
+                }
+            </Fragment>
+        )
+    }
 }
 
-function validate (formProps) {
+function validate(formProps) {
 
-      const errors = {}
+    const errors = {};
 
-      function isValidDate(dateString) {
-          let regEx = /^\d{4}-\d{2}-\d{2}$/;
-          if(!dateString.match(regEx)) return false;
-          let d = new Date(dateString);
-          if(!d.getTime() && d.getTime() !== 0) return false;
-          return d.toISOString().slice(0,10) === dateString;
-      }
+    function isValidDate(dateString) {
+        let regEx = /^\d{4}-\d{2}-\d{2}$/;
+        if (!dateString.match(regEx)) return false;
+        let d = new Date(dateString);
+        if (!d.getTime() && d.getTime() !== 0) return false;
+        return d.toISOString().slice(0, 10) === dateString;
+    }
 
-      function isValidDateName(dateString) {
+    function isValidDateName(dateString) {
 
         return /^\S{1,}$/.test(dateString)
-      }
+    }
 
-      if (!formProps.lastName || !isValidDateName(formProps.lastName)) {
-          errors.lastName = 'Введите пожалуйста фамилию'
-      }
+    if (!formProps.lastName || !isValidDateName(formProps.lastName)) {
+        errors.lastName = 'Введите пожалуйста фамилию'
+    }
 
 
-      if (!formProps.firstName || !isValidDateName(formProps.firstName)) {
-          errors.firstName = 'Введите пожалуйста имя'
-      }
+    if (!formProps.firstName || !isValidDateName(formProps.firstName)) {
+        errors.firstName = 'Введите пожалуйста имя'
+    }
 
-      if (formProps.birthDate && !isValidDate(formProps.birthDate) || !formProps.birthDate){
-          errors.birthDate = 'Введите правильную дату рождения'
-      }
+    if (formProps.birthDate && !isValidDate(formProps.birthDate) || !formProps.birthDate) {
+        errors.birthDate = 'Введите правильную дату рождения'
+    }
 
-      if (!formProps.termConditions) {
-          errors.termConditions = 'Необходимо подтверждение пользовательского соглашения'
-      }
+    if (!formProps.termConditions) {
+        errors.termConditions = 'Необходимо подтверждение пользовательского соглашения'
+    }
 
-      if (!formProps.phone || formProps.phone.length < 13 ) {
-          errors.phone = 'Формат номера +380 XX XXX XXXX'
-      }
-      if (!formProps.email) {
-          errors.email = 'Пожалуйста введите email'
-      }
-      if (!formProps.password) {
-          errors.password = 'Пожалуйста введите пароль'
-      }
-      if (!formProps.passwordConfirm) {
-          errors.passwordConfirm = 'Пожалуйста введите подтверждение пароля'
-      }
-      if (formProps.password !== formProps.passwordConfirm) {
-          errors.password = 'Пароли должны совпадать'
-      }
+    if (!formProps.phone) {
+        errors.phone = 'Формат номера +380 XX XXX XXXX'
+    }
+    if (!formProps.email) {
+        errors.email = 'Пожалуйста введите email'
+    }
+    if (!formProps.password) {
+        errors.password = 'Пожалуйста введите пароль'
+    }
+    if (!formProps.passwordConfirm) {
+        errors.passwordConfirm = 'Пожалуйста введите подтверждение пароля'
+    }
+    if (formProps.password !== formProps.passwordConfirm) {
+        errors.password = 'Пароли должны совпадать'
+    }
 
-      return errors
+    return errors
 
 
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showModal: (id) => {
+            dispatch(modalActions.showModal(id));
+        },
+        hideModal: () => {
+            dispatch(modalActions.hideModal());
+        },
+
+        signupUser: (formProps) => {
+            dispatch(actions.signupUser(formProps));
+        }
+    };
+};
 
 
-
-
-function mapStateToProps (state) {
-  return {
-    errorMessage: state.auth.error
-  }
+function mapStateToProps(state) {
+    return {
+        registrationSuccess: state.auth,
+        modal: state.modal,
+        errorMessage: state.auth.error
+    }
 }
 
 const form = reduxForm({form: 'signup', validate})
-export default connect(mapStateToProps, actions)(form(SignUpForm))
+export default connect(mapStateToProps, mapDispatchToProps)(form(SignUpForm))

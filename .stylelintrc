@@ -45,7 +45,7 @@
     "at-rule-semicolon-newline-after": "always",
     "at-rule-semicolon-space-before": "never",
     "comment-no-empty": true,
-    "indentation": 2,
+    "indentation": 4,
     "max-empty-lines": 1,
     "no-empty-source": true,
     "no-extra-semicolons": true,

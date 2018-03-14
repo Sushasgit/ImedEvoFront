@@ -4,7 +4,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
@@ -22,7 +21,7 @@ module.exports = {
   },
 
   entry: {
-    entry: path.resolve(DIRNAME, 'src') + '/app/app.js',
+    entry: path.resolve(DIRNAME, 'src'),
     vendor: [
       'react',
       'react-dom',
@@ -30,7 +29,10 @@ module.exports = {
       'react-router-dom',
       'redux',
       'redux-thunk',
-      'moment'
+      'moment',
+        'react-redux-form',
+        'redux-form'
+
     ],
     MyPages: [path.resolve(DIRNAME, 'src')]
   },
@@ -62,7 +64,7 @@ module.exports = {
                 root: '/assets',
                 minimize: true,
                 modules: true,
-                localIdentName: 'purify_[hash:base64:5]'
+                localIdentName: '[hash:base64:5]'
               }
             },
             {
@@ -84,7 +86,7 @@ module.exports = {
                 minimize: true,
                 sourceMap: true,
                 importLoaders: 2,
-                localIdentName: 'purify_[name]__[local]___[hash:base64:5]'
+                localIdentName: '[name]__[local]___[hash:base64:5]'
               }
             },
             'sass-loader'
@@ -122,13 +124,18 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(DIRNAME, 'index.html'),
       filename: 'index.html',
-      inject: 'body'
+      inject: 'body',
+        minify: {
+            collapseBooleanAttributes: true,
+            removeComments: true,
+            collapseWhitespace: true,
+        }
     }),
     new ExtractTextPlugin({
       filename: 'assets/css/styles.[hash].css',
       allChunks: true
     }),
-    new webpack.optimize.AggressiveMergingPlugin(),
+    //new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       mangle: true,
@@ -154,14 +161,6 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {NODE_ENV: JSON.stringify('production')}
-    }),
-    new CompressionPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: /\.js$|\.css$|\.html$/,
-      threshold: 100000,
-      minRatio: 1,
-      //deleteOriginalAssets: true
     }),
     new FaviconsWebpackPlugin({
       logo: './src/images/logo.png',

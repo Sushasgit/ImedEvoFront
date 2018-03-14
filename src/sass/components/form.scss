@@ -1,0 +1,14 @@
+.form {
+    background-color: #f5f5f5;
+    padding: 30px 80px;
+    width: 100%;
+    text-align: left;
+
+    @media (max-width: 505px) {
+        padding: 0 12px;
+    }
+
+    &__btn {
+        text-align: center;
+    }
+}
