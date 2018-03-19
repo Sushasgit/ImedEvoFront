@@ -10,16 +10,12 @@ import buttonStyles from '../../sass/components/button.scss'
 import helperStyles from '../../sass/helpers.scss'
 
 class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
 
-        const userID = helpers.getId()
+        const userID = helpers.getId();
         return (
             <Fragment>
-
                 <header className={styles.header__container}>
                     <LogoItem/>
                     <div className={styles.container__buttons}>

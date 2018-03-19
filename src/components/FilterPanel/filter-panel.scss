@@ -1,116 +1,116 @@
-.sort{
-  width: 100%;
-  margin-bottom: 0;
-  .filter {
-    background: #fff;
-    font-size: 0;
-    list-style: none;
-    margin: 0;
-    padding: 35px;
-    text-align: center;
+.sort {
     width: 100%;
-    margin-bottom: 40px;
-    background-color: #4775d1;
+    margin-bottom: 0;
+    .filter {
+        background: #fff;
+        font-size: 0;
+        list-style: none;
+        margin: 0;
+        padding: 35px;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 40px;
+        background-color: #4775d1;
 
-  }
-  ul{
-    background-color: #ffffff;
-    padding: 10px;
-    line-height: 32px;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    min-width: 12%;
-    margin-right: 5px;
-
-    @media (max-width: 1110px) {
-      min-width: 32%;
-      margin-bottom: 10px;
+    }
+    ul {
+        background-color: #ffffff;
+        padding: 10px;
+        line-height: 32px;
     }
 
-    @media (max-width: 591px) {
-      min-width: 55%;
+    li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        min-width: 12%;
+        margin-right: 5px;
+
+        @media (max-width: 1110px) {
+            min-width: 32%;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 591px) {
+            min-width: 55%;
+        }
+
+        @media (max-width: 400px) {
+            min-width: 68%;
+        }
+    }
+    a, button {
+        background: #fff;
+        color: #0b689a;
+        font: bold 16px/50px sans-serif;
+        padding: 0 25px;
+        text-align: center;
+        text-decoration: none;
+        transition: all .25s ease;
+        display: inline-block;
+        width: 100%;
+        svg {
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+    }
+    label {
+        display: inline-block;
+        font: bold 16px/50px sans-serif;
+        padding: 0 25px;
+        text-align: center;
+        text-decoration: none;
+        color: #ffffff;
+        vertical-align: middle;
+        margin-right: 5px;
+        padding-right: 0;
+        font-size: 22px;
     }
 
-    @media (max-width: 400px) {
-      min-width: 68%;
+    .filter_checkbox {
+        height: 22px;
+        width: 20px;
+        vertical-align: middle;
+        margin: 0;
     }
-  }
-  a, button {
-    background: #fff;
-    color: #0b689a;
-    font: bold 16px/50px sans-serif;
-    padding: 0 25px;
-    text-align: center;
-    text-decoration: none;
-    transition: all .25s ease;
-    display: inline-block;
-    width: 100%;
-    svg{
-      margin-left: 15px;
-      margin-top: 15px;
+
+    li:hover a {
+        background: #01b4f0;
     }
-  }
-  label{
-    display: inline-block;
-    font: bold 16px/50px sans-serif;
-    padding: 0 25px;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    vertical-align: middle;
-    margin-right: 5px;
-    padding-right: 0;
-    font-size:22px;
-  }
 
-  .filter_checkbox{
-    height: 22px;
-    width: 20px;
-    vertical-align: middle;
-    margin: 0;
-  }
+    nav .dropdown:after {
+        content: ' \25bc';
+        margin-left: 5px;
+    }
 
-  li:hover a {
-    background: #01b4f0;
-  }
+    li ul {
+        left: 0;
+        opacity: 0;
+        position: absolute;
+        top: 35px;
+        visibility: hidden;
+        z-index: 1;
+        transition: all .25s ease;
+        width: 100%;
+    }
+    li:hover ul {
+        opacity: 1;
+        top: 50px;
+        visibility: visible;
+    }
 
-  nav .dropdown:after {
-    content: ' \25bc';
-    margin-left: 5px;
-  }
+    li ul li {
+        width: 100%;
+    }
 
-  li ul {
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 35px;
-    visibility: hidden;
-    z-index: 1;
-    transition: all .25s ease;
-    width: 100%;
-  }
-  li:hover ul {
-    opacity: 1;
-    top: 50px;
-    visibility: visible;
-  }
-
-  li ul li {
-    width: 100%;
-  }
-
-  li ul a:hover {
-    background-color: #01b4f0;
-  }
+    li ul a:hover {
+        background-color: #01b4f0;
+    }
 }
 
 .h_title {
-  margin: 0;
+    margin: 0;
 }
 
 

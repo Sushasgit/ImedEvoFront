@@ -8,7 +8,7 @@ export default ({ discounts, index }) => {
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
-        <img src={require('../../images/default-placeholder.png')} className="user-image" alt='doctor-photo'/>
+        <img src={require('../../images/default-placeholder.png')} className="user-image" alt={`discount-${discounts.name}`}/>
         <p className={styles.doctors__position}>Акция:{discounts.name}</p>
       </div>
 

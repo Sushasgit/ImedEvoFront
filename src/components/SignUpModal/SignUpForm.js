@@ -10,7 +10,7 @@ import formStyles from '../../sass/components/form.scss'
 import buttonStyles from '../../sass/components/button.scss'
 
 const renderInput = (field) => {
-    const {label, type, input, meta: {error, touched}} = field
+    const {label, type, input, meta: {error, touched}} = field;
     return (
         <div>
             <label className={inputStyles.label}>{label}:</label>
@@ -22,7 +22,7 @@ const renderInput = (field) => {
 };
 
 const renderInputPhone = (field) => {
-    const {label, type, input, meta: {error, touched}} = field
+    const {label, input, meta: {error, touched}} = field;
     return (
         <div>
             <label className={inputStyles.label}>{label}:</label>
@@ -33,12 +33,8 @@ const renderInputPhone = (field) => {
 };
 
 class SignUpForm extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     handleFormSubmit(formProps) {
-        console.log('test')
         this.props.signupUser(formProps)
     }
 
@@ -157,10 +153,14 @@ class SignUpForm extends Component {
 
                 {this.props.registrationSuccess.registrationSuccess &&
                 <div>
-                    <h4>Вы зарегестрировались успешно! Авторизируйтесь пожалуйста здесь</h4>
+                    <h4 style={{textAlign: 'center', color: '#245999', fontSize: '1.6em'}}>
+                        Вы зарегестрировались успешно! Авторизируйтесь пожалуйста здесь</h4>
                     <button
                         className={`${buttonStyles.btn} ${buttonStyles.btn_blue}`}
-                        onClick={() => {this.props.hideModal(), this.props.showModal('isShowingSignInModal')}}>
+                        onClick={() => {
+                            this.props.hideModal();
+                            this.props.showModal('isShowingSignInModal')
+                        }}>
                         Войти
                     </button>
 
@@ -197,7 +197,7 @@ function validate(formProps) {
         errors.firstName = 'Введите пожалуйста имя'
     }
 
-    if (formProps.birthDate && !isValidDate(formProps.birthDate) || !formProps.birthDate) {
+    if (formProps.birthDate && !isValidDate(formProps.birthDate) && !formProps.birthDate) {
         errors.birthDate = 'Введите правильную дату рождения'
     }
 
@@ -250,5 +250,5 @@ function mapStateToProps(state) {
     }
 }
 
-const form = reduxForm({form: 'signup', validate})
+const form = reduxForm({form: 'signup', validate});
 export default connect(mapStateToProps, mapDispatchToProps)(form(SignUpForm))

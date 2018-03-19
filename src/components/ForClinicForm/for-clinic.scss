@@ -1,117 +1,117 @@
-.banner{
-  background: url(../../images/doctors-for-clinic.jpg);
-  background-attachment: fixed;
-  margin-top: -101px;
-  display: flex;
-  align-items: center;
-  min-height: 400px;
+.banner {
+    background: url(../../images/doctors-for-clinic.jpg);
+    background-attachment: fixed;
+    margin-top: -101px;
+    display: flex;
+    align-items: center;
+    min-height: 400px;
 
-  &__info{
-    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
-    width: 30%;
-    border-radius: 4px;
-    margin-left: 21px;
-    position: relative;
-    background-color: #ffffff;
+    &__info {
+        box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+        width: 30%;
+        border-radius: 4px;
+        margin-left: 21px;
+        position: relative;
+        background-color: #ffffff;
 
-    @media (max-width: 1181px) {
-      width: 45%;
+        @media (max-width: 1181px) {
+            width: 45%;
+        }
+
+        @media (max-width: 613px) {
+            width: 88%;
+        }
+        &:before {
+            content: '';
+            background-color: #4775d1;
+            height: 20px;
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
     }
 
-    @media (max-width: 613px) {
-      width: 88%;
+    img {
+        width: 400px;
+        box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
     }
-    &:before{
-      content: '';
-      background-color: #4775d1;
-      height: 20px;
-      width: 100%;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
+
+    p {
+        color: #4775d1;
+        font-size: 1.5em;
+        padding: 7px;
+        font-weight: 400;
+        margin-left: 15px;
+        margin-top: 0;
     }
-  }
 
-  img{
-    width: 400px;
-    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
-  }
+    h5 {
+        font-size: 1.9em;
+        color: #ff8533;
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 0;
+    }
 
-  p{
-    color: #4775d1;
-    font-size: 1.5em;
-    padding: 7px;
-    font-weight: 400;
-    margin-left: 15px;
-    margin-top: 0;
-  }
-
-  h5{
-    font-size: 1.9em;
-    color: #ff8533;
-    margin-top: 20px;
-    text-align: center;
-    margin-bottom: 0;
-  }
-
-  h4{
-    text-align: center;
-    color: #4775d1;
-    font-size: 1.2em;
-  }
+    h4 {
+        text-align: center;
+        color: #4775d1;
+        font-size: 1.2em;
+    }
 }
 
 .for_clinics {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  background-color: #f6f6f6;
-  padding: 80px;
-  margin-bottom: -80px;
-
-  input {
-    color: #4775d1;
-    font-size: 1em;
-    width: 320px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-    border: none;
-    padding: 12px 20px;
-
-    @media (max-width: 490px) {
-     width: 100%;
-    }
-  }
-
-  .btn__for_clinic {
-    padding: 13px 50px;
-    background-color: #4775d1;
-    border: 1px solid #4775d1;
-    border-radius: 3px;
-    color: #ffffff;
-    font-size: 1em;
-    display: inline-block;
-    font-weight: 900;
-    margin-left: 20px;
-    @media (max-width: 700px) {
-     margin-top: 20px;
-    }
-  }
-
-  label{
-    font-size: 1.7em;
-  }
-
-  .contact{
+    text-align: center;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+    padding: 80px;
+    margin-bottom: -80px;
 
-    @media (max-width: 700px) {
-      flex-wrap: wrap;
-      justify-content: center;
+    input {
+        color: #4775d1;
+        font-size: 1em;
+        width: 320px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+        border: none;
+        padding: 12px 20px;
+
+        @media (max-width: 490px) {
+            width: 100%;
+        }
     }
-  }
+
+    .btn__for_clinic {
+        padding: 13px 50px;
+        background-color: #4775d1;
+        border: 1px solid #4775d1;
+        border-radius: 3px;
+        color: #ffffff;
+        font-size: 1em;
+        display: inline-block;
+        font-weight: 900;
+        margin-left: 20px;
+        @media (max-width: 700px) {
+            margin-top: 20px;
+        }
+    }
+
+    label {
+        font-size: 1.7em;
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 700px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
 }

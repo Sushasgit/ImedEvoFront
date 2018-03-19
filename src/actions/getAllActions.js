@@ -3,10 +3,10 @@ import axios from 'axios'
 
 export function getAllDoctors () {
   return function (dispatch) {
-    dispatch(getDoctorsRequest())
+    dispatch(getDoctorsRequest());
     axios.get(`${constants.ROOT_URL}/doctors/getall`)
       .then(response => {
-        let doctors = response.data
+        let doctors = response.data;
         dispatch(getDoctorsSuccess(doctors))
       })
       .catch((error) => {
@@ -23,7 +23,7 @@ export function filterDoctors (doctors, order) {
       } else {
         return b.user.lastName.localeCompare(a.user.lastName)
       }
-    })
+    });
     dispatch(filterDoctorsSuccess(filterDoctors))
   }
 }
@@ -36,7 +36,7 @@ export function filterDoctorsPrice (doctors, order) {
       } else {
         return b.price < a.price ? -1 : b.price > a.price ? 1 : 0
       }
-    })
+    });
     dispatch(filterDoctorsPriceSuccess(filterDoctors))
   }
 }
@@ -49,7 +49,7 @@ export function filterDoctorsExperience (doctors, order) {
       } else {
         return b.price < a.price ? -1 : b.price > a.price ? 1 : 0
       }
-    })
+    });
     dispatch(filterDoctorsExperienceSuccess(filterDoctors))
   }
 }
@@ -62,13 +62,13 @@ export function filterDoctorsRating (doctors, order) {
       } else {
         return b.reting < a.reting ? -1 : b.reting > a.reting ? 1 : 0
       }
-    })
+    });
     dispatch(filterDoctorsRatingSuccess(filterDoctors))
   }
 }
 
 export function filterPediatrician (doctors, order) {
-  let filteredDoctors = doctors
+  let filteredDoctors = doctors;
   return function (dispatch) {
     if (order) {
       let filterDoctors = filteredDoctors.allResults.doctors.filter(item => {return item.pediatrician === true})

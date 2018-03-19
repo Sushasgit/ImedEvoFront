@@ -1,12 +1,11 @@
-import React, { Component, Fragment } from 'react'
-import RandomLaboratories from '../../components/RandomResults/RandomLaboratories'
-import * as actions from '../../actions/discountsActions'
-import { connect } from 'react-redux'
-import RandomDiscounts from '../../components/RandomResults/RandomDiscounts'
+import React, { Component, Fragment } from 'react';
+import * as actions from '../../actions/discountsActions';
+import { connect } from 'react-redux';
+import RandomDiscounts from '../../components/RandomResults/RandomDiscounts';
 
 class RandomDiscountsContainer extends Component {
   constructor (props) {
-    super(props)
+    super(props);
 
     this.state = {
       isLoading:true,
@@ -29,7 +28,7 @@ class RandomDiscountsContainer extends Component {
 
 const mapStateToProps = state => ({
   allResults: state.allResults
-})
+});
 
 function mapDispatchToProps(dispatch) {
   return {

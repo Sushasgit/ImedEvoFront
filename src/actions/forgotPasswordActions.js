@@ -1,12 +1,11 @@
 import {
   RESET_PASSWORD,
   CHANGE_PASSWORD_SUCCSES,
-  CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_FAILED
-} from '../constants/constants'
-import { history } from '../history'
-import * as constants from '../constants/constants'
-import axios from 'axios'
+} from '../constants/constants';
+import { history } from '../history';
+import * as constants from '../constants/constants';
+import axios from 'axios';
 
 export function forgotPassword ({email}) {
   return function (dispatch) {
@@ -29,14 +28,14 @@ export function changePassword ({token, newPassword}) {
     axios.post(`https://www.imed.od.ua/forgot/newpassword?token=${token}&newpassword=${newPassword}`)
       .then(response => {
         if (response.data.status.code === 53) {
-          dispatch(changeSuccses(response.data.status.message))
+          dispatch(changeSuccses(response.data.status.message));
           history.push(`/home`)
         } else {
           dispatch(changeSuccses('Пароль успешно изменён'))
         }
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
         dispatch(changeFailed('Пароль не изменён, попробуйте снова'))
       })
   }

@@ -1,8 +1,6 @@
-import React, {Component} from 'react'
-import styles from './footer.scss'
-import {Link} from 'react-router-dom'
-import SignUpModal from '../SignUpModal/SignUpModal'
-import SignInModal from '../SignInModal/SignInModal'
+import React, {Component} from 'react';
+import styles from './footer.scss';
+import {Link} from 'react-router-dom';
 
 class Footer extends Component {
 

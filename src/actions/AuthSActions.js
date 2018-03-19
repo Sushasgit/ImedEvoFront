@@ -44,9 +44,7 @@ export function signupUser({password, username, lastName, firstName, birthDate, 
                 }
             })
             .catch(error => {
-                {
-                    console.log('Error: ' + error)
-                }
+                console.log('Error: ' + error)
             })
     }
 }
@@ -55,13 +53,13 @@ export function authError(error) {
     return {
         type: SIGNUP_ERROR,
         payload: error,
-        registrationSuccess:false
+        registrationSuccess: false
     }
 }
 
 export function authSuccess() {
     return {
         type: SIGNUP_USER_SUCCESS,
-        registrationSuccess:true
+        registrationSuccess: true
     }
 }

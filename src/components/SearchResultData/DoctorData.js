@@ -1,21 +1,20 @@
 import React from 'react';
-import RatingStars from '../customComponents/RatingStars'
-import * as Icons from '../SvgIcons/SvgIcons.js'
-import styles from  '../SearchResult/search-result.scss'
-import { Link } from 'react-router-dom'
-import AppointmentModal from '../AppointmentForm/AppointmentModal'
+import RatingStars from '../customComponents/RatingStars';
+import * as Icons from '../SvgIcons/SvgIcons.js';
+import styles from  '../SearchResult/search-result.scss';
+import { Link } from 'react-router-dom';
+import buttonStyles from '../../sass/components/button.scss';
 
 export default ({ doctor, index }) => {
-    doctor.user.image?console.log(doctor.user.image.link):''
   return (
     <article className={styles.doctors}>
       <div className={styles.doctors__info}>
         <Link to = {`/doctors/${doctor.id}`}>
             { doctor.user.image &&
-            <img src={`${doctor.user.image.link}`} className="user-image" alt='doctor-photo'/>
+            <img src={`${doctor.user.image.link}`} className="user-image" alt={`doctor-${doctor.user.lastName}`}/>
             }
             { !doctor.user.image &&
-            <img src={require('../../images/default-placeholder.png')} className="user-image" alt='doctor-photo'/>
+            <img src={require('../../images/default-placeholder.png')} className="user-image" alt={`doctor-${doctor.user.lastName}`}/>
             }
         {/*<p className={styles.doctors__position}>Клиника:{doctor.clinic}</p>*/}
         </Link>
@@ -55,7 +54,11 @@ export default ({ doctor, index }) => {
           {doctor.education}
         </p>
         <div className={styles.h_container_footer}>
-          <AppointmentModal data={doctor}/>
+            <button
+                className={`${buttonStyles.btn} ${buttonStyles.btn_orange}`}
+                onClick={() => this.props.showModal('isShowingAppointmentDoctorModal')}>
+                Записаться на прием
+            </button>
         </div>
 
         <div className={styles.h_container}>

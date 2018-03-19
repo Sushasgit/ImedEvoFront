@@ -1,17 +1,16 @@
 import React from 'react';
-import * as Icons from '../SvgIcons/SvgIcons.js'
-import RatingStars from '../customComponents/RatingStars'
-import styles from  '../SearchResult/search-result.scss'
-import { Link } from 'react-router-dom'
-import AppointmentClinicModal from '../AppointmentForm/AppointmentClinicModal'
+import * as Icons from '../SvgIcons/SvgIcons.js';
+import RatingStars from '../customComponents/RatingStars';
+import styles from  '../SearchResult/search-result.scss';
+import { Link } from 'react-router-dom';
+
 
 export default ({ clinic, index }) => {
   return (
-    <article className={styles.clinic}>
-
+    <article key={index} className={styles.clinic}>
       <div className={styles.clinic__info}>
         <Link to = {`/clinics/${clinic.id}`}>
-        <img src={`${clinic.logo}`} className="user-image" alt="clinic-photo"/>
+        <img src={`${clinic.logo}`} className="user-image" alt={`clinic ${clinic.clinicName}`}/>
         <p className={styles.clinic__address}><Icons.IconPlace/>{clinic.address}</p>
         <p className={styles.clinic__hours}><Icons.IconTime/>{clinic.workingHours}</p>
         </Link>
@@ -36,7 +35,7 @@ export default ({ clinic, index }) => {
         </p>
         <div className={styles.clinic__buttons_group} style={{display:'flex',justifyContent:'space-around',alignItems:'center'}}>
           <Link to = {`/clinics/${clinic.id}`}>Подробнее</Link>
-          <AppointmentClinicModal data={clinic}/>
+          {/*<AppointmentClinicModal data={clinic}/>*/}
         </div>
 
       </div>

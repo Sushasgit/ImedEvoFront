@@ -23,9 +23,6 @@ const renderInput = (field) => {
 }
 
 class SignInForm extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     handleFormSubmit({username, password}) {
         this.props.signinUser({username, password})

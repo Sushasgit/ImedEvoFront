@@ -40,6 +40,7 @@ export default function (state = INITIAL_STATE, action) {
 
         case constants.SIGNUP_USER_SUCCESS:
             return {...state, registrationSuccess: true, message: 'Вы успешно зарегстрировались!'};
+        default:
+            return state;
     }
-    return state;
 }

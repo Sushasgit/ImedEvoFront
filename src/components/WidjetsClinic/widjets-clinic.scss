@@ -1,23 +1,23 @@
-.widjet{
-  text-align: center;
-  background-color: #ffffff;
-  margin: 40px;
-  padding: 20px;
-  box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
-  border-radius: 4px;
-  padding: 20px;
-  img {
-    width: 120px;
-  }
+.widjet {
+    text-align: center;
+    background-color: #ffffff;
+    margin: 40px;
+    padding: 20px;
+    box-shadow: 2px 3px 8px 1px rgba(28, 39, 40, 0.42);
+    border-radius: 4px;
+    padding: 20px;
+    img {
+        width: 120px;
+    }
 
-  &__address{
-    border-bottom: 1px solid #228fcc;
-    ul{
-      padding: 0;
+    &__address {
+        border-bottom: 1px solid #228fcc;
+        ul {
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
     }
-    li{
-      list-style: none;
-    }
-  }
 
 }

@@ -1,6 +1,6 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import DoctorData from '../SearchResultData/DoctorData';
-import styles from '../SearchResult/search-result.scss'
+import styles from '../SearchResult/search-result.scss';
 
 export default ({ doctors }) => {
 

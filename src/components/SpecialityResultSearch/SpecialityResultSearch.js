@@ -1,14 +1,12 @@
-import React, { Component, Fragment } from 'react'
-import Map from '../../components/Map/Map'
-import DoctorList from '../SearchResultLists/DoctorList'
-import styles from  '../SearchResult/search-result.scss'
-import 'rc-checkbox/assets/index.css'
-import axios from 'axios';
-import * as constants from '../../constants/constants'
+import React, { Component, Fragment } from 'react';
+import Map from '../../components/Map/Map';
+import DoctorList from '../SearchResultLists/DoctorList';
+import styles from  '../SearchResult/search-result.scss';
+import 'rc-checkbox/assets/index.css';
 
 class SpecialityResultSearch extends Component {
   constructor (props) {
-    super(props)
+    super(props);
 
     this.state = {
       isLoading:true,
@@ -32,7 +30,7 @@ class SpecialityResultSearch extends Component {
           <div className={styles.random_results}>
 
             {this.state.isLoading.isLoading &&
-            <img src={require('../../images/loading.gif')}/>
+            <img src={require('../../images/loading.gif')} alt='loading'/>
             }
 
             {!this.state.isLoading.isLoading &&

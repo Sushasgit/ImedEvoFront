@@ -1,47 +1,44 @@
-import React, { Component } from 'react'
-import Map from '../../components/Map/Map'
-import LaboratoriesList from '../SearchResultLists/LaboratoriesList'
-import styles from  '../SearchResult/search-result.scss'
-
-
-import 'rc-checkbox/assets/index.css'
-
+import React, {Component} from 'react';
+import Map from '../../components/Map/Map';
+import LaboratoriesList from '../SearchResultLists/LaboratoriesList';
+import styles from '../SearchResult/search-result.scss';
+import 'rc-checkbox/assets/index.css';
 
 class RandomLaboratories extends Component {
-  constructor (props) {
-    super(props)
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      laboratories:[]
+        this.state = {
+            laboratories: []
+        }
     }
-  }
 
-  componentWillReceiveProps (nextProps) {
-    this.setState({
-      laboratories: nextProps,
-      isLoading:nextProps.isLoading
-    })
-  }
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            laboratories: nextProps,
+            isLoading: nextProps.isLoading
+        })
+    }
 
-  render () {
-    return (
-      <div className={styles.h_col2_container}>
-        <div className={styles.random_results}>
-          <LaboratoriesList {...this.state.laboratories}/>
-        </div>
-        <div className={styles.map}>
-          <Map
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places"
-            loadingElement={<div style={{height: `700px`}}/>}
-            containerElement={<div style={{height: `800px`}}/>}
-            mapElement={<div style={{height: `700px`, width: '700px'}}/>}
-            {...this.state.laboratories}
-          />
-        </div>
+    render() {
+        return (
+            <div className={styles.h_col2_container}>
+                <div className={styles.random_results}>
+                    <LaboratoriesList {...this.state.laboratories}/>
+                </div>
+                <div className={styles.map}>
+                    <Map
+                        googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmv7tub3MW1M58aLBrLKhSi06BeXXNrNI&libraries=geometry,drawing,places"
+                        loadingElement={<div style={{height: `700px`}}/>}
+                        containerElement={<div style={{height: `800px`}}/>}
+                        mapElement={<div style={{height: `700px`, width: '700px'}}/>}
+                        {...this.state.laboratories}
+                    />
+                </div>
 
-      </div>
-    )
-  }
+            </div>
+        )
+    }
 }
 
 

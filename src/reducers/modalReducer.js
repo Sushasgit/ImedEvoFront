@@ -3,7 +3,8 @@ import * as constants from '../constants/constants'
 
 const initialState =  {
     isShowingSignInModal: false,
-    isShowingSignUpModal:false
+    isShowingSignUpModal:false,
+    isShowingAppointmentDoctorModal:false
 };
 
 export default function modal(state = initialState, action) {

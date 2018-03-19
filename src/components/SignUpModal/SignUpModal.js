@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import SignUpForm from './SignUpForm'
 import * as Icons from '../SvgIcons/SvgIcons.js'
-import styles from  '../SignUpModal/sign-up-modal.scss'
 import buttonStyles from '../../sass/components/button.scss'
 
 class SignUpModal extends Component {

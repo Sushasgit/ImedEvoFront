@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware } from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 // import { createLogger } from 'redux-logger';
 import rootReducer from '../src/reducers/index';
-import  promiseMiddleware from '../src/reducers/locationMiddleware';
+import promiseMiddleware from '../src/reducers/locationMiddleware';
 
 // const loggerMiddleware = createLogger(
 //   {
@@ -11,10 +11,10 @@ import  promiseMiddleware from '../src/reducers/locationMiddleware';
 // );
 
 export const store = createStore(
-  rootReducer,
-  applyMiddleware(
-    promiseMiddleware,
-    thunkMiddleware,
-    // loggerMiddleware
-  )
+    rootReducer,
+    applyMiddleware(
+        promiseMiddleware,
+        thunkMiddleware,
+        // loggerMiddleware
+    )
 );

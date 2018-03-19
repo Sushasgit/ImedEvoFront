@@ -61,27 +61,27 @@ export const TestDoctorsCards = [
         lastName: 'Соколов',
         position: 'Педиатр',
         id: 7,
-        image: 'real-doctor-photo2.jpg'
+        image: 'doctor.png',
     },
     {
         firstName: 'Людмила Георгиевна',
         lastName: 'Малютина',
         position: 'Педиатр',
-        image: 'real-doctor-photo1.jpg',
+        image: 'doctor.png',
         id: 10,
     },
     {
         firstName: 'Елена Анатольевна',
         lastName: 'Андрущенко',
         position: 'Педиатр',
-        image: 'real-doctor-photo4.jpg',
+        image: 'doctor.png',
         id: 6
     },
     {
         firstName: 'Елена Владимировна',
         lastName: 'Марчук',
         position: 'Педиатр',
-        image: 'real-doctor-photo3.jpg',
+        image: 'doctor.png',
         id: 7
     }
 ]
